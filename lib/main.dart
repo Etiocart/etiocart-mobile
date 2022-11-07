@@ -7,23 +7,25 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        fontFamily: 'Gotham',
-        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: TestWidget(),
+      home: HomePage(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
 
-Widget TestWidget() {
+Widget HomePage() {
   return Container(
-    child: Text('Texting the app'),
+    child: Column(
+      children: const [
+        Text('Home'),
+      ],
+    ),
   );
 }
