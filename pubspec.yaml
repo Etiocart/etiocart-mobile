@@ -36,6 +36,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  http: ^0.13.5
 
 dev_dependencies:
   flutter_test:
@@ -81,6 +82,15 @@ flutter:
         - asset: assets/fonts/GothamBold.ttf
         - asset: assets/fonts/GothamLight.ttf
         - asset: assets/fonts/GothamMedium.ttf
+    - family: SFCompact
+      fonts:
+        - asset: assets/fonts/SFCompactDisplay-Light.ttf
+        - asset: assets/fonts/SFCompactDisplay-Regular.ttf
+        
+    - family: Marg
+      fonts:
+        - asset: assets/fonts/marguerite.ttf
+        
           
   #
   # For details regarding fonts from package dependencies,
