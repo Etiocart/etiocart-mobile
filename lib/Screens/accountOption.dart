@@ -20,7 +20,7 @@ class accountOption extends StatelessWidget {
                   width: MediaQuery.of(context).size.width,
                   height: 400,
                   decoration: const BoxDecoration(
-                      color: Colors.blue,
+                      color: Colors.white,
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(0),
                         topRight: Radius.circular(0),
@@ -29,7 +29,7 @@ class accountOption extends StatelessWidget {
                     children: [
                       const Text(
                         'Logo',
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: Colors.black),
                       ),
                       const Padding(
                         padding: EdgeInsets.only(top: 50),
@@ -40,16 +40,16 @@ class accountOption extends StatelessWidget {
                           Text(
                             'ethio',
                             style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 25,
+                                color: Colors.black,
+                                fontSize: 30,
                                 fontFamily: 'Gotham',
                                 fontWeight: FontWeight.w200),
                           ),
                           Text(
                             'cart',
                             style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 25,
+                                color: Colors.black,
+                                fontSize: 30,
                                 fontFamily: 'Marg',
                                 fontWeight: FontWeight.w200),
                           ),
@@ -60,15 +60,25 @@ class accountOption extends StatelessWidget {
                       ),
                       const Text(
                         'Enjoy your favourite Products with your favourite app',
-                        style: TextStyle(color: Colors.white,),
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 15,
+                        ),
                       ),
                       const Padding(
                         padding: EdgeInsets.only(top: 30),
                       ),
-                      const Text(
-                        ' simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.white),
+                      // ignore: prefer_const_constructors
+                      SizedBox(
+                        width: 200,
+                        child: const Text(
+                          ' simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.black87,
+                              fontWeight: FontWeight.w300),
+                        ),
                       ),
                       const Padding(
                         padding: EdgeInsets.only(top: 30),
@@ -77,7 +87,7 @@ class accountOption extends StatelessWidget {
                   ),
                 )),
             Positioned(
-              bottom: 140,
+              bottom: 190,
               left: 20,
               right: 20,
               child: Row(
@@ -85,7 +95,7 @@ class accountOption extends StatelessWidget {
                 children: [
                   Container(
                     width: 130,
-                    height: 50,
+                    height: 40,
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Color.fromARGB(255, 5, 161, 44),
@@ -96,16 +106,16 @@ class accountOption extends StatelessWidget {
                         ),
                         onPressed: () {},
                         child: const Text(
-                          'Get Started',
+                          'Register',
                           style: TextStyle(fontSize: 15),
                         )),
                   ),
                   const Padding(
-                    padding: EdgeInsets.only(right: 30),
+                    padding: EdgeInsets.only(right: 20),
                   ),
                   Container(
                     width: 130,
-                    height: 50,
+                    height: 40,
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Color.fromARGB(255, 5, 161, 44),
@@ -116,7 +126,7 @@ class accountOption extends StatelessWidget {
                         ),
                         onPressed: () {},
                         child: const Text(
-                          'Get Started',
+                          'Sign in',
                           style: TextStyle(fontSize: 15),
                         )),
                   ),

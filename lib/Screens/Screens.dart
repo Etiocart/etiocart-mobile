@@ -1,4 +1,5 @@
 // ignore: file_names
-export './HomeScreen.dart';
+export 'homeScreen.dart';
 export './chooseTheme.dart';
 export './accountOption.dart';
+export 'signIn.dart';
