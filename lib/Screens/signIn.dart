@@ -37,22 +37,8 @@ class _signiInState extends State<signiIn> {
                   Padding(
                     padding: EdgeInsets.only(top: 20),
                   ),
-                  Text(
-                    'Sign In',
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 30,
-                        fontFamily: 'SFCompact',
-                        fontWeight: FontWeight.w200),
-                  ),
-                  Text(
-                    'If you need any support Click here',
-                    style: TextStyle(
-                        color: Colors.black87,
-                        fontSize: 14,
-                        fontFamily: 'Gotham',
-                        fontWeight: FontWeight.w300),
-                  ),
+                  SignInText(),
+                  needSupportText(),
                   Padding(
                     padding: EdgeInsets.only(top: 50),
                   ),
@@ -75,6 +61,42 @@ class _signiInState extends State<signiIn> {
           )
         ]),
       )),
+    );
+  }
+}
+
+class SignInText extends StatelessWidget {
+  const SignInText({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      'Sign In',
+      style: TextStyle(
+          color: Colors.black,
+          fontSize: 30,
+          fontFamily: 'SFCompact',
+          fontWeight: FontWeight.w200),
+    );
+  }
+}
+
+class needSupportText extends StatelessWidget {
+  const needSupportText({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      'If you need any support Click here',
+      style: TextStyle(
+          color: Colors.black87,
+          fontSize: 14,
+          fontFamily: 'Gotham',
+          fontWeight: FontWeight.w300),
     );
   }
 }
@@ -185,68 +207,3 @@ Widget RegisterNow() {
           },
           child: Text('Register now')));
 }
-
-
-// Container HomeContent() {
-//   return Container(
-//     child: Column(
-//       mainAxisAlignment: MainAxisAlignment.center,
-//       children: [
-//         Container(
-//             width: double.infinity,
-//             height: 300,
-//             color: Colors.white,
-//             child: Column(
-//               mainAxisAlignment: MainAxisAlignment.end,
-//               children: [
-//                 Container(),
-//                 Container(),
-//                 Text('col8'),
-//                 LoginbtnWid(context),
-//                 Container(
-//                   margin: const EdgeInsets.fromLTRB(15, 0, 15, 0),
-//                   width: double.infinity,
-//                   height: 60,
-//                   child: ElevatedButton(
-//                       style: ElevatedButton.styleFrom(
-//                         backgroundColor: const Color(0xff1e88e5),
-//                         shape: RoundedRectangleBorder(
-//                           borderRadius: BorderRadius.circular(10), // <-- Radius
-//                         ),
-//                       ),
-//                       onPressed: () {},
-//                       child: const Text(
-//                         'Create Account',
-//                         style: TextStyle(fontSize: 15),
-//                       )),
-//                 )
-//               ],
-//             )),
-//       ],
-//     ),
-//   );
-// }
-
-
-
-// Container CustomFormField() {
-//   return Container(
-//     padding: EdgeInsets.fromLTRB(15, 0, 15, 5),
-//     color: Colors.white,
-//     width: double.infinity,
-//     height: 70,
-//     child: Material(
-//       child: Column(
-//         crossAxisAlignment: CrossAxisAlignment.start,
-//         // ignore: prefer_const_literals_to_create_immutables
-//         children: [
-//           TextField(
-//             decoration: InputDecoration(
-//               hintText: 'hintvalue',
-//             ),
-//           ),
-//         ],
-//       ),
-//     ),
-//   );
-// }

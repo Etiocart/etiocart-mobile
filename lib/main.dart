@@ -1,4 +1,3 @@
-import 'package:ethiocart/Screens/Register.dart';
 import 'package:flutter/material.dart';
 import 'Screens/Screens.dart';
 
@@ -27,7 +26,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home:  Register(),
+      home: forYouPage(),
       debugShowCheckedModeBanner: false,
     );
   }
