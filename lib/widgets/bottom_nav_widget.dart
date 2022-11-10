@@ -1,27 +1,22 @@
-import 'package:ethiocart/Screens/Register.dart';
-
-import './Screens.dart';
 import 'package:flutter/material.dart';
 
-class forYouPage extends StatefulWidget {
-  const forYouPage({super.key});
+class bottom_nav extends StatefulWidget {
+  const bottom_nav({super.key});
 
   @override
-  State<forYouPage> createState() => _foryouPageState();
+  State<bottom_nav> createState() => _bottom_navState();
 }
 
-class _foryouPageState extends State<forYouPage> {
+class _bottom_navState extends State<bottom_nav> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: BottomNav(),
-    );
+    return Container(child: BottomNav());
   }
 
-  final List<Widget> _children = [
-    Register(),
-  ];
   int _selectedIndex = 0;
+  int currentIndex = 0;
+  final List<Widget> _children = [];
+
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
@@ -45,7 +40,9 @@ class _foryouPageState extends State<forYouPage> {
 
   void _onItemTapped(int index) {
     setState(() {
-      _selectedIndex = index;
+      setState(() {
+        _selectedIndex = index;
+      });
     });
   }
 
@@ -64,6 +61,7 @@ class _foryouPageState extends State<forYouPage> {
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        
         type: BottomNavigationBarType.fixed,
         onTap: onTabTapped,
         items: const <BottomNavigationBarItem>[

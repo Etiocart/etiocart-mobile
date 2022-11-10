@@ -1,7 +1,8 @@
 // ignore: file_names
-export './homeScreen.dart';
-export './chooseTheme.dart';
-export './accountOption.dart';
-export './signIn.dart';
-export './forYouPage.dart';
-export './Screens.dart';
+export 'home_screen.dart';
+export 'choose_theme.dart';
+export 'account_option.dart';
+export 'sign_in.dart';
+export 'for_you_page.dart';
+export 'screens.dart';
+export './details_screen.dart';

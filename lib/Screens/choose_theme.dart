@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 
-class chooseTheme extends StatelessWidget {
-  const chooseTheme({super.key});
+class choose_theme extends StatelessWidget {
+  const choose_theme({super.key});
 
   @override
   Widget build(BuildContext context) {

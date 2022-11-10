@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 
-class homeScreen extends StatelessWidget {
-  const homeScreen({super.key});
+class home_screen extends StatelessWidget {
+  const home_screen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +14,9 @@ class homeScreen extends StatelessWidget {
             height: double.infinity,
             child: Stack(
               children: const [
-                etioCartName(),
-                getStartedText(),
-                getStartedButton()
+                etio_cart_name(),
+                get_started_text(),
+                get_started_button()
               ],
             )),
       ),
@@ -24,8 +24,8 @@ class homeScreen extends StatelessWidget {
   }
 }
 
-class getStartedButton extends StatelessWidget {
-  const getStartedButton({
+class get_started_button extends StatelessWidget {
+  const get_started_button({
     Key? key,
   }) : super(key: key);
 
@@ -60,8 +60,8 @@ class getStartedButton extends StatelessWidget {
   }
 }
 
-class getStartedText extends StatelessWidget {
-  const getStartedText({
+class get_started_text extends StatelessWidget {
+  const get_started_text({
     Key? key,
   }) : super(key: key);
 
@@ -107,8 +107,8 @@ class getStartedText extends StatelessWidget {
   }
 }
 
-class etioCartName extends StatelessWidget {
-  const etioCartName({
+class etio_cart_name extends StatelessWidget {
+  const etio_cart_name({
     Key? key,
   }) : super(key: key);
 

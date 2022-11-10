@@ -3,8 +3,8 @@ import 'package:flutter/src/widgets/framework.dart';
 
 import 'package:flutter/material.dart';
 
-class accountOption extends StatelessWidget {
-  const accountOption({super.key});
+class account_option extends StatelessWidget {
+  const account_option({super.key});
 
   @override
   Widget build(BuildContext context) {

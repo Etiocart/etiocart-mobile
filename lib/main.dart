@@ -1,5 +1,6 @@
+import 'package:ethiocart/Screens/register.dart';
 import 'package:flutter/material.dart';
-import 'Screens/Screens.dart';
+import 'Screens/screens.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +14,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        fontFamily: 'SFCompact',
+        primarySwatch: Colors.deepPurple,
+        fontFamily: 'Gotham',
         visualDensity: VisualDensity.adaptivePlatformDensity,
         inputDecorationTheme: const InputDecorationTheme(
           border: InputBorder.none,
@@ -22,11 +24,11 @@ class MyApp extends StatelessWidget {
           hintStyle: TextStyle(
             fontSize: 15.0,
             color: Colors.black45,
-            fontFamily: 'SFRounded',
+            fontFamily: 'SFCompactC',
           ),
         ),
       ),
-      home: forYouPage(),
+      home: for_you_page(),
       debugShowCheckedModeBanner: false,
     );
   }

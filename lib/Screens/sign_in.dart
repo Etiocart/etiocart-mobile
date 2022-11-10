@@ -4,14 +4,14 @@ import 'dart:js';
 
 import 'package:flutter/material.dart';
 
-class signiIn extends StatefulWidget {
-  const signiIn({super.key});
+class sign_in extends StatefulWidget {
+  const sign_in({super.key});
 
   @override
-  State<signiIn> createState() => _signiInState();
+  State<sign_in> createState() => _sign_inState();
 }
 
-class _signiInState extends State<signiIn> {
+class _sign_inState extends State<sign_in> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

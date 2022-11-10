@@ -2,14 +2,14 @@
 import 'dart:js';
 import 'package:flutter/material.dart';
 
-class Register extends StatefulWidget {
-  const Register({super.key});
+class register extends StatefulWidget {
+  const register({super.key});
 
   @override
-  State<Register> createState() => _signiInState();
+  State<register> createState() => _registerState();
 }
 
-class _signiInState extends State<Register> {
+class _registerState extends State<register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +36,7 @@ class _signiInState extends State<Register> {
                     padding: EdgeInsets.only(top: 20),
                   ),
                   Text(
-                    'Sign In',
+                    'Register',
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: 30,
@@ -54,18 +54,21 @@ class _signiInState extends State<Register> {
                   Padding(
                     padding: EdgeInsets.only(top: 45),
                   ),
-                  CustomFormField(),
-                  CustomFormField(),
-                  CustomFormField(),
-                  RegisterBtn(),
+                  custom_forn_field(),
+                  custom_forn_field(),
+                  custom_forn_field(),
+                  register_btn(),
                   Text(
                     'or',
                     style: TextStyle(fontSize: 18),
                   ),
-                  SignOption(),
+                  sign_in_option(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [Text('Do You Have An Account ?'), RegisterNow()],
+                    children: [
+                      Text('Do You Have An Account ?'),
+                      register_now()
+                    ],
                   )
                 ],
               ),
@@ -77,7 +80,7 @@ class _signiInState extends State<Register> {
   }
 }
 
-Widget SignOption() {
+Widget sign_in_option() {
   return Container(
     child: Column(
       children: [
@@ -109,7 +112,7 @@ Widget SignOption() {
   );
 }
 
-Widget RegisterBtn() {
+Widget register_btn() {
   return Container(
     padding: EdgeInsets.fromLTRB(15, 0, 15, 5),
     width: double.infinity,
@@ -132,7 +135,7 @@ Widget RegisterBtn() {
   );
 }
 
-Container CustomFormField() {
+Container custom_forn_field() {
   return Container(
     padding: EdgeInsets.fromLTRB(15, 0, 15, 10),
     decoration: BoxDecoration(
@@ -162,7 +165,7 @@ Container CustomFormField() {
   );
 }
 
-Widget RegisterNow() {
+Widget register_now() {
   return Container(
       alignment: Alignment.centerRight,
       padding: EdgeInsets.only(right: 10),
