@@ -1,6 +1,7 @@
 import 'package:ethiocart/Screens/register.dart';
 import 'package:flutter/material.dart';
 import 'Screens/screens.dart';
+import './widgets/bottom_nav_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: for_you_page(),
+      home: featured(),
       debugShowCheckedModeBanner: false,
     );
   }
