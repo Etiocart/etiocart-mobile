@@ -6,6 +6,6 @@ class details_screen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(child: bottom_nav(),);
   }
 }

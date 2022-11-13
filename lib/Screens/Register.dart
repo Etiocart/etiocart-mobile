@@ -1,5 +1,5 @@
 // ignore_for_file: prefer_const_constructors
-import 'dart:js';
+// import 'dart:js';
 import 'package:flutter/material.dart';
 
 class register extends StatefulWidget {
@@ -54,9 +54,9 @@ class _registerState extends State<register> {
                   Padding(
                     padding: EdgeInsets.only(top: 45),
                   ),
-                  custom_forn_field(),
-                  custom_forn_field(),
-                  custom_forn_field(),
+                  custom_form_field(),
+                  custom_form_field(),
+                  custom_form_field(),
                   register_btn(),
                   Text(
                     'or',
@@ -135,7 +135,7 @@ Widget register_btn() {
   );
 }
 
-Container custom_forn_field() {
+Container custom_form_field() {
   return Container(
     padding: EdgeInsets.fromLTRB(15, 0, 15, 10),
     decoration: BoxDecoration(

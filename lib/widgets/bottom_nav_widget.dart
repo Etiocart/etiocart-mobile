@@ -1,4 +1,7 @@
+import 'package:ethiocart/Screens/featured.dart';
+import 'package:ethiocart/Screens/register.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
 
 class bottom_nav extends StatefulWidget {
@@ -33,10 +36,7 @@ class _bottom_navState extends State<bottom_nav> {
       'Index 2: School',
       style: optionStyle,
     ),
-    Text(
-      'Index 3: Love',
-      style: optionStyle,
-    ),
+    featured(),
   ];
 
   void _onItemTapped(int index) {
@@ -55,34 +55,35 @@ class _bottom_navState extends State<bottom_nav> {
 
   Widget BottomNav() {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('BottomNavigationBar Sample'),
-      ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        
         type: BottomNavigationBarType.fixed,
         onTap: onTabTapped,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite_border_sharp,
-                size: 20, color: Colors.black45),
-            label: '',
+            icon: Icon(FeatherIcons.home,
+                size: 20, color: Colors.black),
+            label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.navigation_sharp, size: 20, color: Colors.black45),
-            label: '',
+            icon: Icon(FeatherIcons.compass, size: 20, color: Colors.black),
+            label: 'Explore',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school, size: 20, color: Colors.black45),
-            label: '',
+            icon: Icon(FeatherIcons.heart, size: 20, color: Colors.black),
+            label: 'Favourites',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle_sharp,
-                size: 20, color: Colors.black45),
-            label: '',
+            icon: Icon(FeatherIcons.book,
+                size: 20, color: Colors.black),
+            label: 'Tickets',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.book,
+                size: 20, color: Colors.black),
+            label: 'Profile',
           ),
         ],
         currentIndex: _selectedIndex,

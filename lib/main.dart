@@ -1,7 +1,6 @@
-import 'package:ethiocart/Screens/register.dart';
+
 import 'package:flutter/material.dart';
 import 'Screens/screens.dart';
-import './widgets/bottom_nav_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'home page',
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
         fontFamily: 'Gotham',
@@ -29,7 +28,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: featured(),
+      home: details_screen(),
       debugShowCheckedModeBanner: false,
     );
   }
