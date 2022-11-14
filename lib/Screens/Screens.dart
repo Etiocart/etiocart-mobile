@@ -5,3 +5,4 @@ export 'account_option.dart';
 export 'sign_in.dart';
 export 'details_screen.dart';
 export 'featured.dart';
+export 'notifications.dart';

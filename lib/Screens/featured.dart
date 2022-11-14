@@ -16,7 +16,6 @@ class featured extends StatelessWidget {
 
 var notification = "notification";
 
-
 //dynamic data for rendering with builder
 List<String> app_bar_titles = ['notification', 'search', 'filter', 'Profile'];
 List<String> user_names = ['John Doe', 'michael', 'Tolosa', 'demissie'];
@@ -64,7 +63,9 @@ Widget appbar_custom() {
                 ],
               )),
           //#########___7
-          Container(child: Text('Container'),),
+          Container(
+            child: Text('Container'),
+          ),
 
           SingleChildScrollView(
               scrollDirection: Axis.horizontal,
@@ -77,7 +78,6 @@ Widget appbar_custom() {
                   events_grid(),
                   events_grid(),
                   events_grid(),
-
                 ],
               ))
         ],
@@ -88,83 +88,94 @@ Widget appbar_custom() {
 
 Container category_view() {
   return Container(
-          margin: EdgeInsets.only(left: 10, right: 10, top: 0, bottom: 0),
-          child: Row(
-            children: [
-              Text(
-                'Featured',
-                style: TextStyle(
-                    fontFamily: 'SFCompact', letterSpacing: -1, fontSize: 15),
-              ),
-              Spacer(),
-              Text(
-                'See All',
-                style: TextStyle(
-                    fontFamily: 'SFCompact',
-                    letterSpacing: -1,
-                    fontSize: 15,
-                    color: Colors.blue),
-              ),
-            ],
-          ),
-        );
+    margin: EdgeInsets.only(left: 10, right: 10, top: 0, bottom: 0),
+    child: Row(
+      children: [
+        Text(
+          'Featured',
+          style: TextStyle(
+              fontFamily: 'SFCompact', letterSpacing: -1, fontSize: 15),
+        ),
+        Spacer(),
+        Text(
+          'See All',
+          style: TextStyle(
+              fontFamily: 'SFCompact',
+              letterSpacing: -1,
+              fontSize: 15,
+              color: Colors.blue),
+        ),
+      ],
+    ),
+  );
 }
 
 Container greeting_container() {
-  return Container(color: Colors.white,width: 200, height: 100,
-        padding:EdgeInsets.only(top: 5, bottom: 0),
-        margin: EdgeInsets.only(bottom: 10),
-        child:       Column(
+  return Container(
+    color: Colors.white,
+    width: 200,
+    height: 100,
+    padding: EdgeInsets.only(top: 5, bottom: 0),
+    margin: EdgeInsets.only(bottom: 10),
+    child: Column(
+      children: [
+        Row(
           children: [
-            Row(
-              children:  [
-                Container(width: 50, height: 50,
-                  decoration: BoxDecoration(color: Colors.blue,
-                borderRadius: BorderRadius.circular(50)
-                ),
-                margin: EdgeInsets.only(right: 5),
-                ),
-                Text(
-                  'Good Morning',
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontFamily: 'SFCompact',
-                    color: Colors.black,
-                  ),
-                ),
-
-                Container(width:50, height: 50,
-                  margin: EdgeInsets.only(right: 5,left: 190),
-                  padding: EdgeInsets.only(bottom: 0),
-                  decoration: BoxDecoration(color: Colors.black12,
-                      borderRadius: BorderRadius.circular(50),
-                  )
-                  ,child:Column(
-                    children: [
-                      IconButton(icon: Icon(Icons.notifications, color: Colors.black,
-                        size: 30,)
-                        , onPressed: () {},),
-                    ],
-                  )
-                  ,)
-              ],
+            Container(
+              width: 50,
+              height: 50,
+              decoration: BoxDecoration(
+                  color: Colors.blue, borderRadius: BorderRadius.circular(50)),
+              margin: EdgeInsets.only(right: 5),
             ),
-            Row(
-              children: [
-                Text(
-                  user_names[0],
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontFamily: 'SFCompact',
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
+            Text(
+              'Good Morning',
+              style: TextStyle(
+                fontSize: 15,
+                fontFamily: 'SFCompact',
+                color: Colors.black,
+              ),
+            ),
+            Container(
+              width: 50,
+              height: 50,
+              margin: EdgeInsets.only(right: 5, left: 190),
+              padding: EdgeInsets.only(bottom: 0),
+              decoration: BoxDecoration(
+                color: Colors.black12,
+                borderRadius: BorderRadius.circular(50),
+              ),
+              child: Column(
+                children: [
+                  IconButton(
+                    icon: Icon(
+                      Icons.notifications,
+                      color: Colors.black,
+                      size: 30,
+                    ),
+                    onPressed: () {},
                   ),
-                ),
-
-              ],
+                ],
+              ),
+            )
+          ],
+        ),
+        Row(
+          children: [
+            Text(
+              user_names[0],
+              style: TextStyle(
+                color: Colors.black,
+                fontFamily: 'SFCompact',
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ],
-        ),);
+        ),
+      ],
+    ),
+  );
 }
 
 Widget event_types() {
@@ -227,7 +238,6 @@ Widget CardList() {
             height: 370,
             width: 340,
             decoration: BoxDecoration(
-
               borderRadius: BorderRadius.circular(10),
               color: Colors.white,
             ),
@@ -246,10 +256,14 @@ Widget CardList() {
                   borderRadius: BorderRadius.circular(25),
                   color: Colors.white,
                 ),
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(25),
-                    color: Colors.blue,
+                child: Material(
+                  elevation: 20,
+                  borderRadius: BorderRadius.circular(25),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(25),
+                      color: Colors.blue,
+                    ),
                   ),
                 ),
                 // child: Image(image: AssetImage('assets/images/Image1.png')),
@@ -335,25 +349,31 @@ Widget search_field() {
   );
 }
 
-Widget events_grid(){return SingleChildScrollView(
-  scrollDirection: Axis.horizontal,
-  child:   Row(children: [Container(width: 190, height: 200,
-    margin: EdgeInsets.only(right: 5, bottom: 10),
-
-    decoration: BoxDecoration(color: Colors.deepPurple,
-
-        borderRadius: BorderRadius.circular(25)
-
-    ),),
-    Container(width: 190, height: 200,
-      margin: EdgeInsets.only(left: 5,bottom: 10),
-
-      decoration: BoxDecoration(color: Colors.deepPurple,
-
-          borderRadius: BorderRadius.circular(25)
-
-      ),),],),
-);}
+Widget events_grid() {
+  return SingleChildScrollView(
+    scrollDirection: Axis.horizontal,
+    child: Row(
+      children: [
+        Container(
+          width: 190,
+          height: 200,
+          margin: EdgeInsets.only(right: 5, bottom: 10),
+          decoration: BoxDecoration(
+              color: Colors.deepPurple,
+              borderRadius: BorderRadius.circular(25)),
+        ),
+        Container(
+          width: 190,
+          height: 200,
+          margin: EdgeInsets.only(left: 5, bottom: 10),
+          decoration: BoxDecoration(
+              color: Colors.deepPurple,
+              borderRadius: BorderRadius.circular(25)),
+        ),
+      ],
+    ),
+  );
+}
 
 
 

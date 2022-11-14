@@ -1,4 +1,5 @@
 import 'package:ethiocart/Screens/featured.dart';
+import 'package:ethiocart/Screens/notifications.dart';
 import 'package:ethiocart/Screens/register.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
@@ -32,10 +33,7 @@ class _bottom_navState extends State<bottom_nav> {
       'Index 1: Business',
       style: optionStyle,
     ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
+    notifications(),
     featured(),
   ];
 
