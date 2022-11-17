@@ -1,2 +1,2 @@
 export './CategoriesWidget.dart';
-export './bottom_nav_widget.dart';
+export '../Screens/bottomnav_screen.dart';

@@ -38,6 +38,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   http: ^0.13.5
   flutter_feather_icons: ^2.0.0
+  flat_icons_flutter: 1.0.2
+  flutter_svg: ^0.19.3
+###########   firebase_core: ^2.2.0
 
 dev_dependencies:
   flutter_test:
@@ -57,7 +60,9 @@ dev_dependencies:
 flutter:
   assets:
     - assets/images/
+
   uses-material-design: true
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

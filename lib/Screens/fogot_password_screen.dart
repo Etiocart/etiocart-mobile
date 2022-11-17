@@ -2,8 +2,8 @@ import 'package:ethiocart/Screens/screens.dart';
 import 'package:flutter/material.dart';
 import '../models/forgot_password.dart';
 
-class notifications extends StatelessWidget {
-  const notifications({super.key});
+class forgotPassword extends StatelessWidget {
+  const forgotPassword({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class notifications extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) {
-              return forgot_password();
+              return Text('Forgot password?');
             }),
           );
         },
