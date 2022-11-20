@@ -40,6 +40,10 @@ dependencies:
   flutter_feather_icons: ^2.0.0
   flat_icons_flutter: 1.0.2
   flutter_svg: ^0.19.3
+  flutter_rating_bar: ^4.0.1
+  anim_search_bar: ^2.0.2
+  intl: ^0.17.0
+
 ###########   firebase_core: ^2.2.0
 
 dev_dependencies:
@@ -60,6 +64,7 @@ dev_dependencies:
 flutter:
   assets:
     - assets/images/
+    - assets/icons/
 
   uses-material-design: true
 
@@ -77,21 +82,25 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Gotham
+    - family: sans
       fonts:
-        - asset: assets/fonts/GothamBold.ttf
-        - asset: assets/fonts/GothamLight.ttf
-        - asset: assets/fonts/GothamMedium.ttf
-    - family: SFCompact
+        - asset: assets/fonts/OpenSans.ttf
+
+    - family: SFPro
       fonts:
-        - asset: assets/fonts/SFCompactDisplay-Light.ttf
-        - asset: assets/fonts/SFCompactDisplay-Regular.ttf
-        
-    - family: Marg
+        - asset: assets/fonts/SF-Pro-Display-Regular.otf
+    - family: roboto
       fonts:
-        - asset: assets/fonts/marguerite.ttf
-        
-          
+        - asset: assets/fonts/Roboto-Light.ttf
+        - asset: assets/fonts/Roboto-Medium.ttf
+        - asset: assets/fonts/Roboto-Regular.ttf
+    - family: proxima
+      fonts:
+        - asset: assets/fonts/ProximaNova-Regular.otf
+
+
+
+
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

@@ -4,14 +4,14 @@
 
 import 'package:flutter/material.dart';
 
-class sign_in extends StatefulWidget {
-  const sign_in({super.key});
+class singIn extends StatefulWidget {
+  const singIn({super.key});
 
   @override
-  State<sign_in> createState() => _sign_inState();
+  State<singIn> createState() => _singInState();
 }
 
-class _sign_inState extends State<sign_in> {
+class _singInState extends State<singIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +25,7 @@ class _sign_inState extends State<sign_in> {
             top: 60,
             child: Container(
               width: MediaQuery.of(context).size.width,
-              height: 500,
+              height: 550,
               decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
@@ -72,13 +72,16 @@ class SignInText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      'Sign In',
-      style: TextStyle(
-          color: Colors.black,
-          fontSize: 30,
-          fontFamily: 'SFCompact',
-          fontWeight: FontWeight.w200),
+    return Container(
+      margin: EdgeInsets.only(bottom: 20),
+      child: Text(
+        'Sign In',
+        style: TextStyle(
+            color: Colors.green,
+            fontSize: 35,
+            fontFamily: 'SFPro',
+            fontWeight: FontWeight.w200),
+      ),
     );
   }
 }
@@ -90,13 +93,26 @@ class needSupportText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      'If you need any support Click here',
-      style: TextStyle(
-          color: Colors.black87,
-          fontSize: 14,
-          fontFamily: 'Gotham',
-          fontWeight: FontWeight.w300),
+    return                   Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          'If you need any support ',
+          style: TextStyle(
+              color: Colors.black87,
+              fontSize: 20,
+              fontFamily: 'SFPro',
+              fontWeight: FontWeight.w300),
+        ),
+        Text(
+          'Click here',
+          style: TextStyle(
+              color: Colors.blueAccent,
+              fontSize: 20,
+              fontFamily: 'SFPro',
+              fontWeight: FontWeight.w300),
+        ),
+      ],
     );
   }
 }
@@ -151,29 +167,33 @@ Widget LoginbtnWid() {
         ),
         child: Text(
           'Login',
-          style: TextStyle(fontFamily: 'SFRounded', fontSize: 15),
+          style: TextStyle(fontFamily: 'SFPro', fontSize: 20, fontWeight: FontWeight.bold),
         )),
   );
 }
 
-Container CustomFormField() {
-  return Container(
-    padding: EdgeInsets.fromLTRB(15, 0, 15, 5),
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(20),
-      color: Colors.white,
-    ),
-    width: double.infinity,
-    height: 70,
-    child: Material(
+Material CustomFormField() {
+  return Material(
+    color: Colors.white,
+    borderRadius: BorderRadius.circular(35),
+    child: Container(
+      margin: EdgeInsets.only(top: 5, left: 5, right: 5),
+      padding: EdgeInsets.only(top: 5),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(35),
+        color: Colors.white,
+      ),
+      width: double.infinity,
+      height: 70,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         // ignore: prefer_const_literals_to_create_immutables
         children: [
           TextField(
-            style: TextStyle(color: Colors.black87, fontSize: 15),
+            style: TextStyle(color: Colors.black87, fontSize: 18),
             decoration: InputDecoration(
               hintText: 'hint value',
+              hintStyle: TextStyle(fontSize: 18, color: Colors.black45),
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(width: 0, color: Colors.white),
                 borderRadius: BorderRadius.circular(35.0),

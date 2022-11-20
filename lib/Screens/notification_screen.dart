@@ -1,109 +1,179 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
-class notifications extends StatelessWidget {
-  const notifications({Key? key}) : super(key: key);
+class Notifications extends StatelessWidget {
+  Notifications({Key? key}) : super(key: key);
 
+  List<String> butnTag = ['notification', 'search', 'filter', 'Profile'];
   @override
-  final  notificationbool = 1;
+  final notificationbool = 0;
+  final btnStatus = 0;
+
   Widget build(BuildContext context) {
-
     return Scaffold(
-      appBar: AppBar(
+        appBar: AppBar(
+          title: Text(
+            'Notification',
+            style: TextStyle(
+                fontSize: 25,
+                color: Colors.black,
+                fontFamily: 'SFPro',
+                fontWeight: FontWeight.w500),
+          ),
           backgroundColor: Colors.white,
-      ),
-      body: notificationViewer(),);
-  }
-
-  Widget notificationViewer(){
-    return Material(
-      color: Colors.black12,
-      child: Column(
-          children: [
-            if(notificationbool==0)...[
-              emptyNotification()
-            ]else...[
-              Container(
-                margin: EdgeInsets.only(top: 40, left: 10, right: 10, bottom: 0),
-                decoration: BoxDecoration(color: Colors.black12,
-                    borderRadius: BorderRadius.circular(25)
-                ),
-                child: Column(
-                    children: [notificationCard(),notificationCard(),]),
-              )
-            ]
-          ]),
-    );
-  }
-
-  Widget notificationCard() {
-    return Padding(
-      padding: const EdgeInsets.all(20),
-      child: Container(
-        margin: EdgeInsets.only(bottom: 20),
-        width: double.infinity,
-        height: 200,
-        decoration: BoxDecoration(color: Colors.white,
-        borderRadius: BorderRadius.circular(25)
         ),
-        child: Column(
+        body:
+            notificationbool == 0 ? notificationViewer() : emptyNotification());
+  }
 
-          children: [
-            Container(
-              margin: EdgeInsets.only(bottom: 20, top: 15, left: 0, right: 5),
-              child: Row(children: [
-          Container(
-            margin: EdgeInsets.only(left: 10),
-            width: 40, height: 40, decoration: BoxDecoration(
-                color: Colors.blue,
-                borderRadius: BorderRadius.circular(50)),),
-          Container(
-                margin: EdgeInsets.only(right: 20, left: 20),
-                child: Column(children: [
-                  Text('Booking Successful', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
-                  Text('20 Dec 2022 | 20:49 PM', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w200),)],)),
-          Text(overflow: TextOverflow.fade,'timestamp'),
-        ],),
-            ),
-            Container(
-              margin: EdgeInsets.only(left: 0, right: 100),
-                child:
-                Text('''
-                Details of your booking Details 
-                of your booking Details of your booking
-                of your booking of your booking
-                of your booking''', softWrap: false,
-                style: TextStyle(),
-                )),
-          ],),
-      ),
+  Widget notificationViewer() {
+    return Material(
+      child: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(children: [
+          notificationCard(),
+          notificationCard(),
+          notificationCard(),
+          notificationCard(),
+          notificationCard(),
+          notificationCard(),],),)
     );
   }
 
   Widget emptyNotification() {
-    return Container(
+    return Material(
       child: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Empty',
-              style: TextStyle(
-                  fontFamily: 'SFCompact',
-                  color: Colors.black,
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold),
+            Container(
+              width: 300,
+              height: 300,
+              margin: EdgeInsets.only(top: 200),
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                    fit: BoxFit.fill,
+                    image: AssetImage('assets/images/vector.jpg'),
+                  ),
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(25)),
             ),
-            Text(
-              'You dont have any notifications at this timt',
-              style: TextStyle(
-                  fontFamily: 'SFCompact',
-                  color: Colors.black,
-                  fontSize: 15,
-                  fontWeight: FontWeight.w300),
-            ),
+            Container(
+                margin: EdgeInsets.only(top: 20),
+                child: Column(
+                  children: [
+                    Container(
+                        child: Text(
+                      'Empty',
+                      style: TextStyle(fontSize: 25, fontFamily: 'SFPro'),
+                    )),
+                    Container(
+                      child: Text(
+                        'you dont have any notifications at this time',
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(fontSize: 20, fontFamily: 'SFPro'),
+                      ),
+                    ),
+                  ],
+                )),
           ],
         ),
       ),
     );
+  }
+
+  Widget notificationCard() {
+    return Container(
+      margin: EdgeInsets.only(top: 10),
+      width: double.infinity,
+      height: 150,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20), color: Colors.white),
+      child: Card(
+        color: Colors.white,
+        child: Container(
+          margin: EdgeInsets.only(top: 10),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  Stack(children: [
+                    Container(
+                      width: 60,
+                      height: 60,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          color: Colors.black12),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 15, left: 15),
+                      child: Icon(
+                        CupertinoIcons.calendar_today,
+                        color: Colors.deepPurple,
+                        size: 30,
+                      ),
+                    ),
+                  ]),
+                  Container(
+                    margin: EdgeInsets.only(left: 5),
+                    child: Column(
+                      children: [
+                        Text(
+                          'Booking Successful!',
+                          style: TextStyle(
+                            fontFamily: 'SFPro',
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        dateTime(),
+                      ],
+                    ),
+                  ),
+                  Container(
+                      margin: EdgeInsets.only(left: 70),
+                      child:
+                          ElevatedButton(onPressed: () {},
+                              style:
+
+                              ElevatedButton.styleFrom(
+                              backgroundColor: Colors.deepPurple,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                ),
+                              ),
+                              child: Text('New')))
+                ],
+              ),
+              Container(
+                width: 380,
+                margin: EdgeInsets.only(left: 25, right: 5),
+                child: Text(
+                  'Last Column Last Column Last Last ColumnLast Column Last',
+                  style: TextStyle(fontFamily: 'SFPro', fontSize: 18,
+                      fontWeight: FontWeight.normal,
+                      color: Colors.black87),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget dateTime() {
+    String dateOBDCommand = '2021-07-13T13:15:54.000000Z';
+    DateTime date = DateTime.parse(dateOBDCommand);
+    String result = DateFormat('yyyy-MM-dd H:m:s').format(date);
+    return Text(result.toString(),
+        style: TextStyle(
+          fontFamily: 'SFPro',
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+            color: Colors.black45
+        ));
   }
 }

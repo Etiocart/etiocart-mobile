@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'Screens/screens.dart';
@@ -12,13 +11,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light,);
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: Colors.blue, //or set color with: Color(0xFF0000FF)
-    ));
+      statusBarColor: Colors.white,
+      //or set color with: Color(0xFF0000FF)
+      systemNavigationBarColor: Colors.white,
+
+    )
+    );
     return MaterialApp(
-      title: 'home page',
+      title: 'Main Page',
       theme: ThemeData(
-        fontFamily: 'Gotham',
+        fontFamily: 'SFPro',
         visualDensity: VisualDensity.adaptivePlatformDensity,
         inputDecorationTheme: const InputDecorationTheme(
           border: InputBorder.none,
@@ -27,11 +31,23 @@ class MyApp extends StatelessWidget {
           hintStyle: TextStyle(
             fontSize: 15.0,
             color: Colors.black45,
-            fontFamily: 'SFCompactC',
+            fontFamily: 'SFPro',
           ),
         ),
       ),
-      home: details_screen(),
+      //#####list of screens####
+      //tickets()
+      //homeFull()
+      //favoritesHome()
+      //Notifications()
+      //home_screen()
+      //account_option(),
+      //bottom_nav()
+      //choose_theme()
+      //review()
+      //register()
+      //signIn
+      home:profileView(),
       debugShowCheckedModeBanner: false,
     );
   }

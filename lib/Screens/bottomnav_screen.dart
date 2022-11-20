@@ -1,12 +1,13 @@
-import 'package:ethiocart/Screens/favorites_screen.dart';
-import 'package:ethiocart/Screens/home_full_page.dart';
-import 'package:ethiocart/Screens/fogot_password_screen.dart';
-import 'package:ethiocart/Screens/notification_screen.dart';
-import 'package:ethiocart/Screens/register.dart';
+import 'package:ethiocart/Screens/home_page.dart';
 import 'package:ethiocart/Screens/screens.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_feather_icons/flutter_feather_icons.dart';
-import 'package:flat_icons_flutter/flat_icons_flutter.dart';
+// import 'package:flutter_feather_icons/flutter_feather_icons.dart';
+// import 'package:flat_icons_flutter/flat_icons_flutter.dart';
+// import 'package:ethiocart/Screens/fogot_password_screen.dart';
+// import 'package:ethiocart/Screens/notification_screen.dart';
+// import 'package:ethiocart/Screens/register.dart';
+// import 'package:ethiocart/Screens/favorites_screen.dart';
 
 class bottom_nav extends StatefulWidget {
   const bottom_nav({super.key});
@@ -24,20 +25,29 @@ class _bottom_navState extends State<bottom_nav> {
   int _selectedIndex = 0;
   int currentIndex = 0;
   final List<Widget> _children = [];
-
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
     Text(
-      'Index 0: Home',
+      'Index 0: foryou',
+      style: TextStyle(color: Colors.blue),
+    ),
+    Text(
+      'Index 1: discover',
+      style: TextStyle(color: Colors.blue),
+    ),
+    Text(
+      'Index 2: moments',
+      style: TextStyle(color: Colors.blue),
+    ),
+    Text(
+      'Index 3: profile',
       style: TextStyle(color: Colors.blue),
     ),
 
-    notifications(),
-    favoritesHome(),
-    tickets(),
     // notifications(),
-    featured(),
+    // favoritesHome(),
+    // tickets(),
+    // notifications(),
+    homeFull(),
   ];
 
   void _onItemTapped(int index) {
@@ -64,28 +74,61 @@ class _bottom_navState extends State<bottom_nav> {
         onTap: onTabTapped,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(FlatIcons.home, size: 30, color: Colors.black45),
-            label: 'Home',
+            icon: Icon(
+              CupertinoIcons.home,
+              size: 25,
+              color: Colors.indigoAccent,
+            ),
+            label: 'foryou',
+            activeIcon: Icon(
+              CupertinoIcons.home,
+              color: Colors.deepPurple,
+            ),
           ),
           BottomNavigationBarItem(
-            icon: Icon(FlatIcons.compass, size: 30, color: Colors.black45),
-            label: 'Explore',backgroundColor: Colors.indigo
+            icon: Icon(
+              CupertinoIcons.compass,
+              size: 25,
+              color: Colors.indigoAccent,
+            ),
+            label: 'discover',
+            activeIcon: Icon(
+              CupertinoIcons.compass_fill,
+              color: Colors.deepPurple,
+            ),
           ),
+          //favorites
           BottomNavigationBarItem(
-            icon: Icon(FeatherIcons.heart, size: 30, color: Colors.black45),
-            label: 'Favourites',
+            icon: Icon(
+              CupertinoIcons.heart,
+              size: 25,
+              color: Colors.indigoAccent,
+            ),
+            label: 'moments',
+            activeIcon: Icon(
+              Icons.book_sharp,
+              color: Colors.deepPurple,
+            ),
           ),
+          //tickets
+          //profile
           BottomNavigationBarItem(
-            icon: Icon(FeatherIcons.book, size: 30, color: Colors.black45),
-            label: 'Tickets',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.book, size: 30, color: Colors.black45),
+            icon: Icon(
+              CupertinoIcons.profile_circled,
+              size: 25,
+              color: Colors.indigoAccent,
+            ),
             label: 'featured',
+            activeIcon: Icon(
+              CupertinoIcons.profile_circled,
+              color: Colors.indigo,
+            ),
           ),
         ],
+        elevation: 10,
+        selectedLabelStyle: TextStyle(fontSize: 15),
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.black,
+        selectedItemColor: Colors.indigo,
       ),
     );
   }

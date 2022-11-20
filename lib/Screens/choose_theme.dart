@@ -19,7 +19,7 @@ class choose_theme extends StatelessWidget {
                 // ignore: prefer_const_literals_to_create_immutables
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(top: 140),
+                    padding: EdgeInsets.only(top: 250),
                   ),
                   Text(
                     'ethio',
@@ -55,9 +55,9 @@ class choose_theme extends StatelessWidget {
                       Text(
                         'Choose Mode',
                         style: TextStyle(
-                            fontSize: 20,
-                            fontFamily: 'SFCompact',
-                            fontWeight: FontWeight.w200,
+                            fontSize: 25,
+                            fontFamily: 'SFPro',
+                            fontWeight: FontWeight.w400,
                             color: Colors.black87),
                       ),
                       Row(
@@ -69,17 +69,17 @@ class choose_theme extends StatelessWidget {
                           IconButton(
                             onPressed: () {},
                             icon: Icon(Icons.light_mode_outlined),
-                            iconSize: 40,
-                            color: Colors.black54,
+                            iconSize: 60,
+                            color: Colors.grey,
                           ),
                           Padding(
                             padding: EdgeInsets.only(left: 40),
                           ),
                           IconButton(
                             onPressed: () {},
-                            icon: Icon(Icons.dark_mode_outlined),
-                            iconSize: 40,
-                            color: Colors.black54,
+                            icon: Icon(Icons.dark_mode),
+                            iconSize: 60,
+                            color: Colors.black,
                           ),
                         ],
                       ),
@@ -89,9 +89,9 @@ class choose_theme extends StatelessWidget {
                           Text(
                             'Light',
                             style: TextStyle(
-                                fontSize: 20,
-                                fontFamily: 'SFCompact',
-                                fontWeight: FontWeight.w200,
+                                fontSize: 25,
+                                fontFamily: 'SFPro',
+                                fontWeight: FontWeight.w500,
                                 color: Colors.black87),
                           ),
                           Padding(
@@ -100,9 +100,9 @@ class choose_theme extends StatelessWidget {
                           Text(
                             'Dark',
                             style: TextStyle(
-                                fontSize: 20,
-                                fontFamily: 'SFCompact',
-                                fontWeight: FontWeight.w200,
+                                fontSize: 25,
+                                fontFamily: 'SFPro',
+                                fontWeight: FontWeight.w500,
                                 color: Colors.black87),
                           ),
                         ],

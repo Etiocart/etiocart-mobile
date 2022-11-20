@@ -1,5 +1,5 @@
 import 'package:ethiocart/Screens/register.dart';
-import 'package:ethiocart/Screens/details_screen.dart';
+import 'package:ethiocart/pages/details_screen.dart';
 import 'package:flutter/material.dart';
 
 class Categories extends StatefulWidget {

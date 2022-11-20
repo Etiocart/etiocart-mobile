@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 // import 'dart:js';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class register extends StatefulWidget {
@@ -23,7 +24,7 @@ class _registerState extends State<register> {
             top: 60,
             child: Container(
               width: MediaQuery.of(context).size.width,
-              height: 500,
+              height: 560,
               decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
@@ -40,16 +41,29 @@ class _registerState extends State<register> {
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: 30,
-                        fontFamily: 'SFCompact',
-                        fontWeight: FontWeight.w200),
+                        fontFamily: 'SFPro',
+                        fontWeight: FontWeight.w400),
                   ),
-                  Text(
-                    'If you need any support Click here',
-                    style: TextStyle(
-                        color: Colors.black87,
-                        fontSize: 14,
-                        fontFamily: 'Gotham',
-                        fontWeight: FontWeight.w300),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'If you need any support ',
+                        style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 18,
+                            fontFamily: 'SFPro',
+                            fontWeight: FontWeight.w300),
+                      ),
+                      Text(
+                        'Click here',
+                        style: TextStyle(
+                            color: Colors.blueAccent,
+                            fontSize: 18,
+                            fontFamily: 'SFPro',
+                            fontWeight: FontWeight.w300),
+                      ),
+                    ],
                   ),
                   Padding(
                     padding: EdgeInsets.only(top: 45),
@@ -60,13 +74,18 @@ class _registerState extends State<register> {
                   register_btn(),
                   Text(
                     'or',
-                    style: TextStyle(fontSize: 18),
+                    style: TextStyle(fontSize: 20, fontFamily: 'SFPro'),
                   ),
                   sign_in_option(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text('Do You Have An Account ?'),
+                      Text('Do You Have An Account ?',
+                      style: TextStyle(
+                        fontFamily: 'SFPro',
+                        fontSize: 18
+                      ),
+                      ),
                       register_now()
                     ],
                   )
@@ -94,7 +113,7 @@ Widget sign_in_option() {
               onPressed: () {},
               icon: Icon(Icons.apple_rounded),
               iconSize: 30,
-              color: Colors.black54,
+              color: Colors.deepPurpleAccent,
             ),
             Padding(
               padding: EdgeInsets.only(left: 25),
@@ -103,7 +122,7 @@ Widget sign_in_option() {
               onPressed: () {},
               icon: Icon(Icons.apple_sharp),
               iconSize: 30,
-              color: Colors.black54,
+              color: Colors.blue,
             ),
           ],
         ),
@@ -114,6 +133,7 @@ Widget sign_in_option() {
 
 Widget register_btn() {
   return Container(
+    margin: EdgeInsets.only(top: 10),
     padding: EdgeInsets.fromLTRB(15, 0, 15, 5),
     width: double.infinity,
     height: 50,
@@ -130,7 +150,7 @@ Widget register_btn() {
         ),
         child: Text(
           'Register',
-          style: TextStyle(fontFamily: 'SFRounded', fontSize: 15),
+          style: TextStyle(fontFamily: 'SFPro', fontSize: 18),
         )),
   );
 }
@@ -143,7 +163,7 @@ Container custom_form_field() {
       color: Colors.white,
     ),
     width: double.infinity,
-    height: 60,
+    height: 70,
     child: Material(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -173,5 +193,7 @@ Widget register_now() {
           onPressed: () {
             print('Risteration Page re route');
           },
-          child: Text('Sign in')));
+          child: Text('Sign in', style:
+            TextStyle(fontSize: 18, fontFamily: 'SFPro')
+            ,)));
 }

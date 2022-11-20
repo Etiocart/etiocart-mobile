@@ -1,4 +1,3 @@
-import 'package:flat_icons_flutter/flat_icons_flutter.dart';
 import 'package:flutter/material.dart';
 
 class tickets extends StatelessWidget {
@@ -10,251 +9,251 @@ class tickets extends StatelessWidget {
       child: TabView(),
     );
   }
-}
 
-Widget TabView() {
-  return MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: DefaultTabController(
-      length: 3,
-      child: Scaffold(
-        appBar: AppBar(
-          actions: [
-            Container(color: Colors.white, width: 410, height: 50,
-            child: Text('Hello', style: TextStyle(color: Colors.black),),
-            )],
-          backgroundColor: Colors.white,
-          bottom: const TabBar(
-            tabs: [
-              Tab(child: Text('upcoming', style: TextStyle(color: Colors.black,
-                  fontSize: 18, fontFamily: 'SFCompact'),)),
-              Tab(child: Text('completed', style: TextStyle(color: Colors.black,
-              fontSize: 18, fontFamily: 'SFCompact'))),
-              Tab(child: Text('cancelled', style: TextStyle(color: Colors.black,
-              fontSize: 18, fontFamily: 'SFCompact'))),
-            ],
-          ),
-          title: Container(),
-        ),
-        body: TabBarView(
-          children: [
-            Container(
-              color: Colors.black12,
-              child: Center(
-                  child: Column(
-                children: [],
-              )),
-            ),
-            Container(
-              color: Colors.black12,
-              child: Center(
-                  child: Column(
-                children: [
-                  completedTicketCard(),
-                  completedTicketCard(),
-                ],
-              )),
-            ),
-            Container(
-              color: Colors.black12,
-              child: Center(
-                  child: Column(
-                children: [
-                  cancelledTicketCard(),
-                ],
-              )),
-            ),
-          ],
-        ),
-      ),
-    ),
-  );
-}
+  final upcoming = 0;
+  final completed = 0;
+  final cancelled = 0;
+  final ticketavailable = true;
 
-Widget completedTicketCard() {
-  return Container(
-    
-      margin: EdgeInsets.only(top: 10, left: 10, right: 10),
-      width: double.infinity,
-      height: 160,
-      decoration: BoxDecoration(
-          color: Colors.white, borderRadius: BorderRadius.circular(10)),
-      child: Row(
-          children: [
-        Column(
-          children: [
-            Container(
-              margin: EdgeInsets.only(left: 15, top: 15, right: 10),
-              width: 130,
-              height: 130,
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                    fit: BoxFit.fill,
-                    image: AssetImage('assets/images/Screenshot.jpeg'),
-                  ),
-                  color: Colors.blue, borderRadius: BorderRadius.circular(10)),
+  final statusValue = false;
+
+  Widget TabView() {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: DefaultTabController(
+        length: 3,
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text(
+              'Tickets',
+              style: TextStyle(
+                  color: Colors.black,
+                  fontFamily: 'SFPro',
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold),
             ),
-          ],
-        ),
-        Flexible(
-          child: Container(
-            margin: EdgeInsets.only(top: 20),
-            child: Column(
-              children:  [
-                Text(
-                  'Traditional Dance Concert',
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
+            backgroundColor: Colors.white,
+            bottom: const TabBar(
+              unselectedLabelColor: Colors.grey,
+              labelColor: Colors.indigoAccent,
+              tabs: [
+                Tab(
+                    child: Text(
+                  'upcoming',
                   style: TextStyle(
-                      color: Colors.indigo,
-                      fontFamily: 'SFCompact',
-                      fontSize: 26),
-                ),
-                Text(
-                  'Wed Dec 2022 18:00 - 22:00',
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                      color: Colors.indigo,
-                      fontFamily: 'SFCompact',
-                      fontSize: 22),
-                ),
-                Container(
-                  margin: EdgeInsets.only(top: 25),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.location_on_sharp,
-                        color: Colors.black,
-                        size: 25,
-                      ),
-
-                      Flexible(
-                        child: Text(
-                          'New york 101 avenue',
-                          maxLines: 1,
-                          style: TextStyle(fontFamily: 'SFCompact', fontSize: 18),
-                        ),
-                      ),
-
-                      custombutton(),
-                    ],
-                  ),
-                )
+                      fontSize: 18,
+                      fontFamily: 'SFPro',
+                      fontWeight: FontWeight.bold),
+                )),
+                Tab(
+                    child: Text('completed',
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontFamily: 'SFPro',
+                            fontWeight: FontWeight.bold))),
+                Tab(
+                    child: Text('cancelled',
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontFamily: 'SFPro',
+                            fontWeight: FontWeight.bold))),
               ],
             ),
           ),
-        ),
-      ]));
-}
-
-Widget cancelledTicketCard() {
-  return Container(
-
-      margin: EdgeInsets.only(top: 10, left: 10, right: 10),
-      width: double.infinity,
-      height: 160,
-      decoration: BoxDecoration(
-          color: Colors.white, borderRadius: BorderRadius.circular(10)),
-      child: Row(
-          children: [
-            Column(
-              children: [
-                Container(
-                  margin: EdgeInsets.only(left: 15, top: 15, right: 10),
-                  width: 130,
-                  height: 130,
-                  decoration: BoxDecoration(
-                      color: Colors.blue, borderRadius: BorderRadius.circular(10)),
-                ),
-              ],
-            ),
-            Flexible(
-              child: Container(
-                margin: EdgeInsets.only(top: 20),
+          body: TabBarView(
+            children: [
+              Container(
+                color: Colors.white,
+                child: Center(
+                    child: Column(
+                  children: [
+                    ticketavailable == true
+                        ? upcomingTicketCard()
+                        : emptyTickets()
+                  ],
+                )),
+              ),
+              Container(
+                color: Colors.white,
+                child: Center(
+                    child: Column(
+                  children: [
+                    ticketavailable == true
+                        ? ticketCompletedCard()
+                        : emptyTickets()
+                  ],
+                )),
+              ),
+              Container(
+                color: Colors.white,
                 child: Column(
-                  children:  [
-                    Text(
-                      'Traditional Dance Concert',
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                          color: Colors.indigo,
-                          fontFamily: 'SFCompact',
-                          fontSize: 26),
-                    ),
-                    Text(
-                      'Wed Dec 2022 18:00 - 22:00',
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                          color: Colors.indigo,
-                          fontFamily: 'SFCompact',
-                          fontSize: 22),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 25),
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.location_on_sharp,
-                            color: Colors.black,
-                            size: 25,
-                          ),
-                          Flexible(
-                            child: Text(
-                              'New york 101 avenue',
-                              maxLines: 1,
-                              style: TextStyle(fontFamily: 'SFCompact', fontSize: 18),
-                            ),
-                          ),
-
-                          custombutton(),
-                        ],
-                      ),
-                    )
+                  children: [
+                    ticketavailable == true
+                        ? ticketcancelledCard()
+                        : emptyTickets()
                   ],
                 ),
               ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget emptyTickets() {
+    return Container(
+        margin: EdgeInsets.only(top: 250),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text('Empty Tickets',
+                style: TextStyle(
+                    fontSize: 25,
+                    fontFamily: 'SFPro',
+                    fontWeight: FontWeight.bold)),
+            Container(
+              margin: EdgeInsets.only(top: 20, bottom: 20),
+              width: 300,
+              child: Text(
+                'Looks like you dont have a ticket yet, you can start searching for events now by Clicking the button below',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontSize: 18, fontFamily: 'SFPro', color: Colors.black54),
+              ),
             ),
-          ]));
-}
+            Text('Find Events',
+                style: TextStyle(
+                    fontSize: 18,
+                    fontFamily: 'SFPro',
+                    color: Colors.indigoAccent,
+                    fontWeight: FontWeight.bold)),
+          ],
+        ));
+  }
 
-Widget custombutton() {
-  return Container(
-    child: OutlinedButton(
-        style: ButtonStyle(
-            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(18.0),
-                    side: BorderSide(
-                      width: 50.0,
-                      color: Colors.red,
-                      style: BorderStyle.solid,
-                    )))),
-        onPressed: () {},
-        child: Row(
-          children: [Text('Cancelled', style: TextStyle(color: Colors.red),)],
-        )),
-  );
-}
+  Widget statusButton(String text, double radius, Color colorex) {
+    String $text = text;
+    double $radi = radius;
+    var  $calor = Colors.indigoAccent;
+    var $calor2 = colorex;
+    return Container(
+        margin: EdgeInsets.only(right: 10, top: 20, bottom: 20),
+        height: 40,
+        width: 130,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: Colors.white,
+        ),
+        child: OutlinedButton(
+          child: Text($text,style: TextStyle(color: $calor2),),
+          onPressed: () => print("it's pressed"),
+          style: ElevatedButton.styleFrom(
+            side: BorderSide(width: 2.0,
+                color: $calor2
+                ),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular($radi),
+            ),
+          ),
+        ));
+  }
 
-Widget ticketsCards() {
-  return Container(
-      margin: EdgeInsets.only(top: 10, left: 10, right: 10),
-      width: double.infinity,
-      height: 160,
-      decoration: BoxDecoration(
-          color: Colors.white, borderRadius: BorderRadius.circular(10)),
-      child: Container(
-          child: Expanded(
+  Widget upcomingTicketCard() {
+    var color = Colors.indigoAccent;
+    var text = Text('Book');
+    return Column(
+      children: [
+        Container(
+            margin: EdgeInsets.only(top: 10, left: 10, right: 10),
+            width: double.infinity,
+            height: 200,
+            decoration: BoxDecoration(
+                color: Colors.white, borderRadius: BorderRadius.circular(10)),
+            child: Row(children: [
+              Column(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(left: 0, top: 15, right: 0),
+                    width: 130,
+                    height: 130,
+                    decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.circular(10)),
+                  ),
+                ],
+              ),
+              Flexible(
+                child: Container(
+                  margin: EdgeInsets.only(top: 20),
+                  child: Column(
+                    children: [
+                      Text(
+                        'Traditional Dance Concert',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontFamily: 'SFCompact',
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        'Wed Dec 2022 18:00 - 22:00 PM',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                            color: Colors.indigo,
+                            fontFamily: 'SFCompact',
+                            fontSize: 18),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(top: 25),
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.location_on_sharp,
+                              color: Colors.indigoAccent,
+                              size: 25,
+                            ),
+                            Flexible(
+                              child: Text(
+                                'New york 101 avenue',
+                                maxLines: 1,
+                                style: TextStyle(
+                                    fontFamily: 'SFCompact',
+                                    color: Colors.black38,
+                                    fontSize: 16),
+                              ),
+                            ),
+                            statusValue == true
+                                ? statusButton('Paid',32, Colors.greenAccent)
+                                : statusButton('Cancel Booking', 32, Colors.indigoAccent)
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ])),
+      ],
+    );
+  }
+
+  Widget ticketcancelledCard() {
+    return Container(
+        margin: EdgeInsets.only(top: 10, left: 10, right: 10),
+        width: double.infinity,
+        height: 200,
+        decoration: BoxDecoration(
+            color: Colors.white, borderRadius: BorderRadius.circular(10)),
         child: Row(children: [
           Column(
             children: [
               Container(
-                margin: EdgeInsets.only(left: 15, top: 15, right: 0),
-                padding: EdgeInsets.only(right: 20),
-                width: 140,
+                margin: EdgeInsets.only(left: 15, top: 15, right: 10),
+                width: 130,
                 height: 130,
                 decoration: BoxDecoration(
                     color: Colors.blue,
@@ -262,52 +261,136 @@ Widget ticketsCards() {
               ),
             ],
           ),
-          Container(
-            margin: EdgeInsets.only(left: 15, top: 15, right: 10),
-            child: Center(
+          Flexible(
+            child: Container(
+              margin: EdgeInsets.only(top: 20),
               child: Column(
                 children: [
-                  Column(children: [
-                    Row(
-                      children: [
-                        Text(
-                          'Traditional dance festivallllllllllllllllllllllll',
-                          overflow: TextOverflow.ellipsis,
-                          style:
-                              TextStyle(fontFamily: 'SFCompact', fontSize: 20),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          'Dec 21, 2022, 18:00- 22:00',
-                          overflow: TextOverflow.ellipsis,
-                          style:
-                              TextStyle(fontFamily: 'SFCompact', fontSize: 18),
-                        ),
-                      ],
-                    ),
-                    Row(
+                  Text(
+                    'Traditional Dance Concert',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: 'SFCompact',
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    'Wed Dec 2022 18:00 - 22:00 PM',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                        color: Colors.indigo,
+                        fontFamily: 'SFCompact',
+                        fontSize: 18),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: 25),
+                    child: Row(
                       children: [
                         Icon(
                           Icons.location_on_sharp,
-                          color: Colors.white,
+                          color: Colors.indigoAccent,
                           size: 25,
                         ),
-                        Text(
-                          'data',
-                          style:
-                              TextStyle(fontFamily: 'SFCompact', fontSize: 20),
+                        Flexible(
+                          child: Text(
+                            'New york 101 avenue',
+                            maxLines: 1,
+                            style: TextStyle(
+                                fontFamily: 'SFCompact',
+                                color: Colors.black38,
+                                fontSize: 16),
+                          ),
                         ),
-                        custombutton(),
+                        statusValue == false
+                            ? statusButton('Cancelled',32, Colors.red)
+                            : Container()
+                        //button Placement
                       ],
-                    )
-                  ]),
+                    ),
+                  )
                 ],
               ),
             ),
           ),
-        ]),
-      )));
+        ]));
+  }
+
+  Widget ticketCompletedCard() {
+    return Container(
+        margin: EdgeInsets.only(top: 10, left: 10, right: 10),
+        width: double.infinity,
+        height: 200,
+        decoration: BoxDecoration(
+            color: Colors.white, borderRadius: BorderRadius.circular(10)),
+        child: Row(children: [
+          Column(
+            children: [
+              Container(
+                margin: EdgeInsets.only(left: 15, top: 15, right: 10),
+                width: 130,
+                height: 130,
+                decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(10)),
+              ),
+            ],
+          ),
+          Flexible(
+            child: Container(
+              margin: EdgeInsets.only(top: 20),
+              child: Column(
+                children: [
+                  Text(
+                    'Traditional Dance Concert',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: 'SFCompact',
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    'Wed Dec 2022 18:00 - 22:00 PM',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                        color: Colors.indigo,
+                        fontFamily: 'SFCompact',
+                        fontSize: 18),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: 25),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.location_on_sharp,
+                          color: Colors.indigoAccent,
+                          size: 25,
+                        ),
+                        Flexible(
+                          child: Text(
+                            'New york 101 avenue',
+                            maxLines: 1,
+                            style: TextStyle(
+                                fontFamily: 'SFCompact',
+                                color: Colors.black38,
+                                fontSize: 16),
+                          ),
+                        ),
+                        statusValue == true
+                            ? statusButton('pay', 32, Colors.indigoAccent)
+                            : statusButton('Completed', 32, Colors.green)
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+        ]));
+  }
 }
