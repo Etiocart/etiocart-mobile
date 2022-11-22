@@ -1,25 +1,55 @@
+import 'package:ethiocart/Screens/manage_events.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class profileView extends StatelessWidget {
   profileView({Key? key}) : super(key: key);
 
+  List<Widget> routePages = [
+    manageEvents(),
+    manageEvents(),
+    manageEvents(),
+    manageEvents(),
+    manageEvents(),
+    manageEvents(),
+    manageEvents(),
+    manageEvents(),
+    manageEvents(),
+    manageEvents(),
+    manageEvents(),
+    manageEvents(),
+    manageEvents(),
+  ];
   List<String> tabNames = [
     'Manage Events',
-    'Message Cente',
+    'Message Center',
     'Profile',
     'Notification',
-    'Menu',
-    'notification'
+    'Payments',
+    'linked accounts',
+    'Ticket issues',
+    'Security',
+    'Language',
+    'Dark Mode',
+    'help Center',
+    'Invite Friends',
+    'Rate us',
   ];
 
   List<String> flatIcons = [
-    'assets/icons/notification.png',
-    'assets/icons/user.png',
-    'assets/icons/home.png',
-    'assets/icons/calendar.png',
-    'assets/icons/menu.png',
+    'assets/icons/calendar-check.png',
     'assets/icons/chat.png',
+    'assets/icons/user.png',
+    'assets/icons/notification.png',
+    'assets/icons/credit-card(1).png',
+    'assets/icons/exchange.png',
+    'assets/icons/ticket(1).png',
+    'assets/icons/verified.png',
+    'assets/icons/translation.png',
+    'assets/icons/show.png',
+    'assets/icons/information.png',
+    'assets/icons/friends.png',
+    'assets/icons/star.png',
   ];
 
   @override
@@ -27,21 +57,30 @@ class profileView extends StatelessWidget {
     return Material(
       child: Scaffold(
           appBar: AppBar(
-            title: Text(
-              'Profile',
-              style: TextStyle(
-                  color: Colors.black,
-                  fontFamily: 'sans',
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold),
+            title: Row(
+              children: [
+                Text(
+                  'Profile',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: 'sans',
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
+                ),
+                Spacer(),
+                IconButton(
+                    onPressed: () {},
+                    icon: Image.asset('assets/icons/menu.png',
+                        width: 35, height: 35, color: Colors.black45)),
+              ],
             ),
             backgroundColor: Colors.white,
           ),
-          body: SafeArea(child: profileScreen())),
+          body: SafeArea(child: profileScreen(context))),
     );
   }
 
-  Widget profileScreen() {
+  Widget profileScreen(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(top: 20, left: 20, right: 20),
       width: double.infinity,
@@ -145,22 +184,37 @@ class profileView extends StatelessWidget {
             Container(
               child: Column(
                 children: [
-                  for (var i = 0; i < 5; i++)
+                  for (var i = 0; i < 13; i++)
                     Row(
                       children: [
                         Container(
                           margin: EdgeInsets.only(right: 50),
                           height: 30,
                           width: 30,
-                          child: Image.asset(flatIcons[i], color: Colors.black),
+                          child: Image.asset(
+                            flatIcons[i],
+                            color: Colors.black87,
+                          ),
                         ),
-                        Container(
-                            margin: EdgeInsets.only(right: 0),
-                            child: Text(
-                              tabNames[i],
-                              style:
-                                  TextStyle(fontFamily: 'sans', fontSize: 16),
-                            )),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => routePages[i]),
+                            );
+                            print('this is working');
+                          },
+                          child: Container(
+                              margin: EdgeInsets.only(right: 0),
+                              child: Text(
+                                tabNames[i],
+                                style: TextStyle(
+                                    fontFamily: 'sans',
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w300),
+                              )),
+                        ),
                         Spacer(),
                         GestureDetector(
                           onTap: () {},
@@ -172,6 +226,39 @@ class profileView extends StatelessWidget {
                         ),
                       ],
                     ),
+                  Row(
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(right: 50),
+                        height: 30,
+                        width: 30,
+                        child: Image.asset('assets/icons/exit.png',
+                            color: Colors.red),
+                      ),
+                      GestureDetector(
+                        onTap: () {},
+                        child: Container(
+                            margin: EdgeInsets.only(right: 0),
+                            child: Text(
+                              'Logout',
+                              style: TextStyle(
+                                  fontFamily: 'sans',
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.red),
+                            )),
+                      ),
+                      Spacer(),
+                      GestureDetector(
+                        onTap: () {},
+                        child: Container(
+                          margin: EdgeInsets.only(right: 0),
+                          child: Image.asset('assets/icons/gts.png',
+                              width: 30, height: 30, color: Colors.red),
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             )
