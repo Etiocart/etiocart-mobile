@@ -1,6 +1,10 @@
+// ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, avoid_print
+import 'package:ethiocart/models/get_one.dart';
+import 'package:ethiocart/models/get_one_two.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'Screens/screens.dart';
+import './models/models.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,14 +15,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light,);
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle.light,
+    );
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarColor: Colors.white,
       //or set color with: Color(0xFF0000FF)
       systemNavigationBarColor: Colors.white,
-
-    )
-    );
+    ));
     return MaterialApp(
       title: 'Main Page',
       theme: ThemeData(
@@ -35,7 +39,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      //#####list of screens####
+      //#list of screens#
       //tickets()
       //homeFull()
       //favoritesHome()
@@ -47,7 +51,7 @@ class MyApp extends StatelessWidget {
       //review()
       //register()
       //signIn
-      home:profileView(),
+      home: profileView(),
       debugShowCheckedModeBanner: false,
     );
   }
