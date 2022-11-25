@@ -1,7 +1,7 @@
-import 'package:ethiocart/Screens/home_page.dart';
-import 'package:ethiocart/Screens/screens.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'Screens.dart';
+
 // import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 // import 'package:flat_icons_flutter/flat_icons_flutter.dart';
 // import 'package:ethiocart/Screens/fogot_password_screen.dart';

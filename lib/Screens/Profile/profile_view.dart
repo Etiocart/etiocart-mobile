@@ -1,4 +1,4 @@
-import 'package:ethiocart/Screens/manage_events.dart';
+import '../Events/manage_events.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
