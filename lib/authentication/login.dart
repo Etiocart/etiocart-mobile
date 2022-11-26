@@ -1,4 +1,4 @@
-import 'package:ethiocart/authorization/widget.dart/login_from.dart';
+import 'package:ethiocart/authentication/widget.dart/login_from.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +26,6 @@ class LoginScreen extends StatelessWidget {
             },
           ),
         ),
-        // appBar: buildAppBar(context),
         body: SingleChildScrollView(
           child: SafeArea(
             child: Container(
@@ -50,29 +49,7 @@ class LoginScreen extends StatelessWidget {
                       textAlign: TextAlign.center,
                     ),
                   ),
-                  // Container(
-                  //   padding: const EdgeInsets.symmetric(vertical: 20),
-                  //   child: RichText(
-                  //     text: TextSpan(
-                  //         style: TextStyle(color: Colors.grey),
-                  //         children: [
-                  //           TextSpan(text: 'If you need any support  ? '),
-                  //           TextSpan(
-                  //             text: 'click here',
-                  //             style: TextStyle(
-                  //               color: mPrimaryColor,
-                  //             ),
-                  //             recognizer: TapGestureRecognizer()..onTap = () {},
-                  //           ),
-                  //         ]),
-                  //   ),
-                  // ),
-                  // Padding(padding: padding)
 
-                  // SizedBox(
-                  //   height: 30,
-                  // ),
-                  // LoginHeaderWidget(),
                   SizedBox(
                     height: 10,
                   ),

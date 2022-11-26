@@ -1,7 +1,7 @@
 import 'dart:ffi';
 
-import 'package:ethiocart/authorization/login.dart';
-import 'package:ethiocart/authorization/signup.dart';
+import 'package:ethiocart/authentication/login.dart';
+import 'package:ethiocart/authentication/signup.dart';
 // import 'package:etio_cart23/screen/loginscreen.dart';
 // import 'package:etio_cart23/splash/getstarted.dart';
 
@@ -61,7 +61,7 @@ class _LoginFormState extends State<LoginForm> {
                 padding: const EdgeInsets.symmetric(vertical: 5.0),
                 decoration: BoxDecoration(
                     border: Border.all(color: Colors.green.shade50),
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(32),
                     color: Colors.grey.shade100),
                 child: TextFormField(
                   style: TextStyle(fontSize: 18),
@@ -90,11 +90,11 @@ class _LoginFormState extends State<LoginForm> {
                 padding: const EdgeInsets.symmetric(vertical: 5.0),
                 decoration: BoxDecoration(
                     border: Border.all(color: Colors.green.shade50),
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(32),
                     color: Colors.grey.shade100),
                 child: TextField(
                   style: TextStyle(fontSize: 18),
-                  // key: ValueKey('email'),
+
                   obscureText: passwordVisible,
                   // autocorrect: false,
                   // textCapitalization: TextCapitalization.none,
@@ -195,36 +195,6 @@ class _LoginFormState extends State<LoginForm> {
       ),
     );
   }
-
-  // Future signInn() async {
-  //   try {
-  //     await FirebaseAuth.instance.signInWithEmailAndPassword(
-  //         email: emailController.text.trim(),
-  //         password: passwordController.text.trim());
-  //     Navigator.push(
-  //         context, MaterialPageRoute(builder: (context) => const Getstarted()));
-  //   } on FirebaseAuthException catch (e) {
-  //     print(e);
-  //     _showDialog();
-  //   }
-  //   // }
-
-  //   Future<AuthResultStatus> login({email, password}) async {
-  //     try {
-  //       final authResult = await FirebaseAuth.instance
-  //           .signInWithEmailAndPassword(email: email, password: password);
-  //       if (authResult.user != null) {
-  //         _status = AuthResultStatus.successful;
-  //       } else {
-  //         _status = AuthResultStatus.undefined;
-  //       }
-  //     } catch (e) {
-  //       print('Exception @createAccount: $e');
-  //       _status = AuthExceptionHandler.handleException(e);
-  //     }
-  //     return _status;
-  //   }
-  // }
 
   String? validatePassword(String? formPassword) {
     if (formPassword == null || formPassword.isEmpty)

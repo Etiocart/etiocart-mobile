@@ -1,6 +1,6 @@
 // import 'package:etio_cart23/widget/signup_widget/signup_form.dart';
 
-import 'package:ethiocart/authorization/login.dart';
+import 'package:ethiocart/authentication/login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -82,29 +82,7 @@ class Signup extends StatelessWidget {
                       textAlign: TextAlign.center,
                     ),
                   ),
-                  // Container(
-                  //   padding: const EdgeInsets.symmetric(vertical: 20),
-                  //   child: RichText(
-                  //     text: TextSpan(
-                  //         style: TextStyle(color: Colors.grey),
-                  //         children: [
-                  //           TextSpan(text: 'If you need any support  ? '),
-                  //           TextSpan(
-                  //             text: 'click here',
-                  //             style: TextStyle(
-                  //               color: mPrimaryColor,
-                  //             ),
-                  //             // recognizer: TapGestureRecognizer()..onTap = () {},
-                  //           ),
-                  //         ]),
-                  //   ),
-                  // ),
-                  // Padding(padding: padding)
 
-                  // SizedBox(
-                  //   height: 10,
-                  // ),
-                  // LoginHeaderWidget(),
                   SignupForm(),
                   // Singupfooter(),
                 ],

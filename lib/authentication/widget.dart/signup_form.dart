@@ -1,9 +1,7 @@
-import 'dart:ffi';
-
 // import 'package:etio_cart23/constanst/colors.dart';
 // import 'package:etio_cart23/model/object.dart';
 
-import 'package:ethiocart/authorization/login.dart';
+import 'package:ethiocart/authentication/login.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -26,8 +24,6 @@ class _SignupFormState extends State<SignupForm> {
   final confirmController = TextEditingController();
   final phoneNumber = TextEditingController();
 
-  // String phoneNumber =  '+234 500 500 5005';
-
   @override
   void iniState() {
     // var _passwordVisible = false;
@@ -44,9 +40,7 @@ class _SignupFormState extends State<SignupForm> {
   @override
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
-    String errorMessage = '';
 
-    // bool _validate = false;
     var dotRegister = () {
       // print('on dotRegister');
 
@@ -56,18 +50,8 @@ class _SignupFormState extends State<SignupForm> {
 
         // print(form);
       }
-      // else {
-      //   Flushbar(
-      //     title: 'invalid form',
-      //     message: 'please complete the form properly',
-      //     duration: Duration(seconds: 5),
-      //   ).show(context);
-      // }
-      ;
     };
-    // GestureDetector(onTap: () {
-    //   FocusManager.instance.primaryFocus?.unfocus();
-    // });
+
     return Form(
       key: _formKey,
       // autovalidateMode: _validate,
@@ -147,25 +131,7 @@ class _SignupFormState extends State<SignupForm> {
                       onInputChanged: (PhoneNumber value) {},
                       hintText: 'Phonenumber',
                       // spaceBetweenSelectorAndTextField: double.infinity,
-                    ))
-                //   TextFormField(
-                //     autofocus: false,
-                //     // obscureText: true,
-                //     // validator: validateEmail,
-                //     controller: emailController,
-                //     decoration: const InputDecoration(
-                //         prefixIcon: Icon(
-                //           Icons.numbers,
-                //           color: Colors.teal,
-                //         ),
-                //         // labelText: 'Enter username or email',
-                //         hintText: 'Phone number',
-                // hintStyle:
-                //     TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
-                // border: InputBorder.none),
-                //   ),
-                // ),
-                ),
+                    ))),
             const SizedBox(height: 15),
 
             Padding(
