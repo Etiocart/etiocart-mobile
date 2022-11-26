@@ -135,7 +135,6 @@ class Notifications extends StatelessWidget {
                       child:
                           ElevatedButton(onPressed: () {},
                               style:
-
                               ElevatedButton.styleFrom(
                               backgroundColor: Colors.deepPurple,
                                 shape: RoundedRectangleBorder(

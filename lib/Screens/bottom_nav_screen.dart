@@ -1,14 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'Screens.dart';
-
-// import 'package:flutter_feather_icons/flutter_feather_icons.dart';
-// import 'package:flat_icons_flutter/flat_icons_flutter.dart';
-// import 'package:ethiocart/Screens/fogot_password_screen.dart';
-// import 'package:ethiocart/Screens/notification_screen.dart';
-// import 'package:ethiocart/Screens/register.dart';
-// import 'package:ethiocart/Screens/favorites_screen.dart';
-
 class bottom_nav extends StatefulWidget {
   const bottom_nav({super.key});
 
@@ -100,13 +93,13 @@ class _bottom_navState extends State<bottom_nav> {
           //favorites
           BottomNavigationBarItem(
             icon: Icon(
-              CupertinoIcons.heart,
+              FontAwesomeIcons.camera,
               size: 25,
               color: Colors.indigoAccent,
             ),
             label: 'moments',
             activeIcon: Icon(
-              Icons.book_sharp,
+              FontAwesomeIcons.camera,
               color: Colors.deepPurple,
             ),
           ),
@@ -114,13 +107,13 @@ class _bottom_navState extends State<bottom_nav> {
           //profile
           BottomNavigationBarItem(
             icon: Icon(
-              CupertinoIcons.profile_circled,
+              FontAwesomeIcons.user,
               size: 25,
               color: Colors.indigoAccent,
             ),
             label: 'featured',
             activeIcon: Icon(
-              CupertinoIcons.profile_circled,
+              FontAwesomeIcons.solidUser,
               color: Colors.indigo,
             ),
           ),

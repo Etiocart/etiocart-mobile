@@ -135,7 +135,6 @@ class tickets extends StatelessWidget {
   Widget statusButton(String text, double radius, Color colorex) {
     String $text = text;
     double $radi = radius;
-    var  $calor = Colors.indigoAccent;
     var $calor2 = colorex;
     return Container(
         margin: EdgeInsets.only(right: 10, top: 20, bottom: 20),

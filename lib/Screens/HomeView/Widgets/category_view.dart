@@ -11,7 +11,7 @@ class categoryViewScreen extends StatelessWidget {
 
 Container categoryView() {
   return Container(
-    margin: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 5),
+    margin: EdgeInsets.only(left: 10, right: 10, top: 0, bottom: 0),
     child: Row(
       children: [
         Text(

@@ -1,7 +1,6 @@
 // export './authentication/';
 export './Events/favorites_screen.dart';
 export './Events/manage_events.dart';
-export './HomeView/home_screen.dart';
 export './HomeView/home_page.dart';
 export './Notification/notification_screen.dart';
 // export './payement/';

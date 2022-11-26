@@ -10,47 +10,38 @@ class searchFieldScreen extends StatelessWidget {
   }
 
   Widget searchField() {
-    return Material(
-      borderRadius: BorderRadius.circular(18),
-      child: Container(
-        width: 400,
-        height: 50,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(18),
-          color: Colors.white,
-        ),
-        child: Row(
-          children: [
-            Container(
-              width: 350,
-              height: 50,
-              decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(18)),
-              child: TextField(
-                style: TextStyle(
+    return Row(
+      children: [
+        Container(
+          width: 390,
+          height: 50,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(18)),
+          child: TextField(
+            decoration: InputDecoration(
+              fillColor: Colors.white70,
+              focusColor: Colors.white,
+              prefixIcon: new Icon(
+                  Icons.search,
                   color: Colors.black,
-                  fontFamily: 'SFCompact',
-                  fontWeight: FontWeight.w400,
-                  fontSize: 20,
-                ),
-                decoration: InputDecoration(
-                  fillColor: Colors.white,
-                  icon: Icon(
-                    CupertinoIcons.search,
-                    color: Colors.black,
-                    size: 35,
-                  ),
-                  hintText: 'hint value',
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(width: 0, color: Colors.black12),
-                    borderRadius: BorderRadius.circular(18.0),
-                  ),
-                ),
+                size: 30,
               ),
-            )
-          ],
-        ),
-      ),
+              // border: OutlineInputBorder(),
+              border: null,
+              hintText: 'Enter a search term',
+              hintStyle: TextStyle(fontSize: 20),
+            ),
+            style: TextStyle(
+              color: Colors.black,
+              fontFamily: 'SFCompact',
+              fontWeight: FontWeight.w400,
+              fontSize: 20,
+            ),
+
+          ),
+        )
+      ],
     );
   }
 }
+

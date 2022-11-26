@@ -3,27 +3,60 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'Widgets/widgets.dart';
 
-
 class homeFull extends StatelessWidget {
   const homeFull({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return appbar_custom();
+    return TabView();
   }
 }
 
 var notification = "notification";
 
-//dynamic data for rendering with builder
-List<String> app_bar_titles = ['notification', 'search', 'filter', 'Profile'];
-
 List<String> button_values = ['music', 'art', 'workshop'];
 final List<Map> gvt =
     List.generate(2, (index) => {"id": index, "name": "Product $index"})
         .toList();
+Widget TabView() {
+  return MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
+          title: greetingContainerScreen(),
+          backgroundColor: Colors.white,
+          bottom: const TabBar(
+            unselectedLabelColor: Colors.grey,
+            labelColor: Colors.indigoAccent,
+            tabs: [
+              Tab(
+                  child: Text(
+                'Events',
+                style: TextStyle(
+                    fontSize: 18,
+                    fontFamily: 'SFPro',
+                    fontWeight: FontWeight.bold),
+              )),
+              Tab(
+                  child: Text('Transport',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontFamily: 'SFPro',
+                          fontWeight: FontWeight.bold))),
+            ],
+          ),
+        ),
+        body: TabBarView(
+          children: [tabContent(), tabContent()],
+        ),
+      ),
+    ),
+  );
+}
 
-Widget appbar_custom() {
+Scaffold tabContent() {
   return Scaffold(
     backgroundColor: Colors.white,
     body: SafeArea(
@@ -33,68 +66,45 @@ Widget appbar_custom() {
         child: ListView(
           scrollDirection: Axis.vertical,
           children: [
-            //#################__1
-            greetingContainerScreen(),
-            //#################__2
             searchFieldScreen(),
-            //#################__3
             categoryViewScreen(),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  cardListScreen(),
-                  Padding(padding: EdgeInsets.only(left: 5)),
-                  cardListScreen(),
-                  cardListScreen(),
+                  for (var i = 0; i < 6; i++) cardListScreen(),
                 ],
               ),
             ),
-            //####################__5
             eventTypesScreen(),
             SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    //#################___6
-                    eventsScreen(),
-                    eventsScreen(),
-                    events(),
-                    events(),
+                    for (var i = 0; i < 6; i++) eventsScreen(),
                   ],
                 )),
             //#########___7
-            eventTypesScreen(),
+
             Column(
               children: [
-                Row(children: [
-                  SizedBox(
-                    width: 195,
-                    child: FittedBox(
-                      child: cardListScreen(),
-                    ),
+                for (var i = 0; i < 4; i++)
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: 195,
+                        child: FittedBox(
+                          child: gridCard(),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 195,
+                        child: FittedBox(
+                          child: gridCard(),
+                        ),
+                      ),
+                    ],
                   ),
-                  SizedBox(
-                    width: 195,
-                    child: FittedBox(
-                      child: cardListScreen(),
-                    ),
-                  ),
-                ],),
-                Row(children: [
-                  SizedBox(
-                    width: 195,
-                    child: FittedBox(
-                      child: cardListScreen(),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 195,
-                    child: FittedBox(
-                      child: cardListScreen(),
-                    ),
-                  ),
-                ],),
               ],
             )
           ],

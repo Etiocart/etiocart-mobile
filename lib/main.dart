@@ -37,16 +37,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      //#list of screens#
-      //tickets()
-      //homeFull()
-      //favoritesHome()
-      //Notifications()
-      //home_screen()
-      //account_option(),
-      //bottom_nav()
-      //choose_theme()
-      home: bottom_nav(),
+      home: homeFull(),
       debugShowCheckedModeBanner: false,
     );
   }
