@@ -1,3 +1,4 @@
+import 'package:ethiocart/Screens/Screens.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -8,10 +9,10 @@ class greetingContainerScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return greetingContainer();
+    return greetingContainer(context);
   }
 
-  Container greetingContainer() {
+  Container greetingContainer(context) {
     return Container(
       width: 390,
       height: 85,
@@ -38,33 +39,41 @@ class greetingContainerScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(50)),
                     margin: EdgeInsets.only(left: 10, top: 15),
                   ),
-                  Column(
-                    children: [
-                      Text(
-                        'Good Morning',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontFamily: 'SFPro',
-                          color: Colors.black,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => profileView()),
+                      );
+                    },
+                    child: Column(
+                      children: [
+                        Text(
+                          'Good Morning',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontFamily: 'SFPro',
+                            color: Colors.black,
+                          ),
                         ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(left: 0),
-                        child: Row(
-                          children: [
-                            Text(
-                              user_names[0],
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontFamily: 'SFPro',
-                                fontSize: 25,
-                                fontWeight: FontWeight.bold,
+                        Container(
+                          margin: EdgeInsets.only(left: 0),
+                          child: Row(
+                            children: [
+                              Text(
+                                user_names[0],
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontFamily: 'SFPro',
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                   Container(
                     width: 50,
@@ -75,16 +84,25 @@ class greetingContainerScreen extends StatelessWidget {
                       color: Colors.black12,
                       borderRadius: BorderRadius.circular(50),
                     ),
-                    child: Container(
+                    child: GestureDetector(
                       child: Stack(
                         children: [
-                          IconButton(
-                            icon: Icon(
-                              CupertinoIcons.bell,
-                              color: Colors.black,
-                              size: 30,
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Notifications()),
+                              );
+                            },
+                            child: IconButton(
+                              icon: Icon(
+                                CupertinoIcons.bell,
+                                color: Colors.black,
+                                size: 30,
+                              ),
+                              onPressed: () {},
                             ),
-                            onPressed: () {},
                           ),
                           Container(
                             width: 10,

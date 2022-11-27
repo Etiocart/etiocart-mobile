@@ -1,56 +1,66 @@
+import 'package:ethiocart/Screens/Events/favorites_screen.dart';
 import 'package:flutter/material.dart';
+
+
 class cardListScreen extends StatelessWidget {
   const cardListScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return cardList();
+    return cardList(context);
   }
 }
-Widget cardList() {
-  return Column(
-    children: [
-      Row(
-        children: [
-          Container(
-            margin: EdgeInsets.only(top: 0, left: 10, right: 10, bottom: 0),
-            height: 380,
-            width: 340,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.white,
-            ),
-            child: Column(children: [
-              Material(
-                elevation: 0,
+
+Widget cardList(context) {
+  return GestureDetector(
+    onLongPress: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => favoritesHome()),
+      );
+    },
+    child: Column(
+      children: [
+        Row(
+          children: [
+            Container(
+              margin: EdgeInsets.only(top: 0, left: 10, right: 10, bottom: 0),
+              height: 380,
+              width: 340,
+              decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                child: Container(
-                  margin: EdgeInsets.only(top: 10, bottom: 0),
-                  height: 300,
-                  width: 360,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(25),
-                    color: Colors.white,
-                  ),
-                  child: Material(
-                    elevation: 20,
-                    borderRadius: BorderRadius.circular(10),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.blue,
-                        image: DecorationImage(
-                          fit: BoxFit.fill,
-                          image: AssetImage('assets/images/image2.jpg'),
+                color: Colors.white,
+              ),
+              child: Column(children: [
+                Material(
+                  elevation: 0,
+                  borderRadius: BorderRadius.circular(10),
+                  child: Container(
+                    margin: EdgeInsets.only(top: 10, bottom: 0),
+                    height: 300,
+                    width: 360,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(25),
+                      color: Colors.white,
+                    ),
+                    child: Material(
+                      elevation: 0,
+                      borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.blue,
+                          image: DecorationImage(
+                            fit: BoxFit.fill,
+                            image: AssetImage('assets/images/image2.jpg'),
+                          ),
                         ),
                       ),
                     ),
+                    // child: Image(image: AssetImage('assets/images/Image1.png')),
                   ),
-                  // child: Image(image: AssetImage('assets/images/Image1.png')),
                 ),
-              ),
-              Stack(
-                children: [
+                Stack(children: [
                   Column(
                     children: const [
                       // AspectRatio(aspectRatio: 2/2),
@@ -81,16 +91,12 @@ Widget cardList() {
                           )),
                     ],
                   ),
-                ]
-              )
-            ]),
-          ),
-        ],
-      )
-    ],
+                ])
+              ]),
+            ),
+          ],
+        )
+      ],
+    ),
   );
 }
-
-
-
-

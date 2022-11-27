@@ -6,3 +6,4 @@ export 'events_types.dart';
 export 'greeting_container.dart';
 export 'search_field.dart';
 export 'gridCardList.dart';
+export 'tab_content.dart';

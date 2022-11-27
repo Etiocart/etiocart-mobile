@@ -30,7 +30,7 @@ class gridCard extends StatelessWidget {
                       color: Colors.white,
                     ),
                     child: Material(
-                      elevation: 10,
+                      elevation: 0,
                       borderRadius: BorderRadius.circular(10),
                       child: Container(
                         decoration: BoxDecoration(

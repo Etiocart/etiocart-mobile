@@ -19,7 +19,7 @@ class searchFieldScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(18)),
           child: TextField(
             decoration: InputDecoration(
-              fillColor: Colors.white70,
+              fillColor: Colors.white,
               focusColor: Colors.white,
               prefixIcon: new Icon(
                   Icons.search,
@@ -27,7 +27,11 @@ class searchFieldScreen extends StatelessWidget {
                 size: 30,
               ),
               // border: OutlineInputBorder(),
-              border: null,
+              border: InputBorder.none,
+              focusedBorder: InputBorder.none,
+              enabledBorder: InputBorder.none,
+              errorBorder: InputBorder.none,
+              disabledBorder: InputBorder.none,
               hintText: 'Enter a search term',
               hintStyle: TextStyle(fontSize: 20),
             ),

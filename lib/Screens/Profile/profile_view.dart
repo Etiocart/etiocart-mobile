@@ -1,39 +1,27 @@
-import '../Events/manage_events.dart';
-import 'package:flutter/cupertino.dart';
+// ignore_for_file: prefer_const_constructors
+import 'profile_screen.dart';
+import 'package:ethiocart/Screens/Screens.dart';
 import 'package:flutter/material.dart';
 
 class profileView extends StatelessWidget {
   profileView({Key? key}) : super(key: key);
 
   List<Widget> routePages = [
+    // for (var i = 0; i < 13; i++)
     manageEvents(),
-    manageEvents(),
-    manageEvents(),
-    manageEvents(),
-    manageEvents(),
-    manageEvents(),
-    manageEvents(),
-    manageEvents(),
-    manageEvents(),
-    manageEvents(),
-    manageEvents(),
-    manageEvents(),
-    manageEvents(),
+    choose_theme(),
+    editProfile(),
+    helpCenter(),
+    paymentWallet(),
+    tickets()
   ];
   List<String> tabNames = [
-    'Manage Events',
-    'Message Center',
-    'Profile',
-    'Notification',
-    'Payments',
-    'linked accounts',
-    'Ticket issues',
-    'Security',
-    'Language',
-    'Dark Mode',
-    'help Center',
-    'Invite Friends',
-    'Rate us',
+    'manage events',
+    'choose theme',
+    'edit profile',
+    'help center',
+    'wallet',
+    'tickets'
   ];
 
   List<String> flatIcons = [
@@ -42,14 +30,7 @@ class profileView extends StatelessWidget {
     'assets/icons/user.png',
     'assets/icons/notification.png',
     'assets/icons/credit-card(1).png',
-    'assets/icons/exchange.png',
-    'assets/icons/ticket(1).png',
-    'assets/icons/verified.png',
-    'assets/icons/translation.png',
-    'assets/icons/show.png',
-    'assets/icons/information.png',
-    'assets/icons/friends.png',
-    'assets/icons/star.png',
+    'assets/icons/ticket.png',
   ];
 
   @override
@@ -57,6 +38,7 @@ class profileView extends StatelessWidget {
     return Material(
       child: Scaffold(
           appBar: AppBar(
+            foregroundColor: Colors.black,
             title: Row(
               children: [
                 Text(
@@ -69,7 +51,9 @@ class profileView extends StatelessWidget {
                 ),
                 Spacer(),
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                     icon: Image.asset('assets/icons/menu.png',
                         width: 35, height: 35, color: Colors.black45)),
               ],
@@ -114,6 +98,7 @@ class profileView extends StatelessWidget {
                   Container(
                     margin: EdgeInsets.only(right: 0, top: 0),
                     child: Column(
+                      // ignore: prefer_const_literals_to_create_immutables
                       children: [
                         Text(
                           '12',
@@ -137,6 +122,7 @@ class profileView extends StatelessWidget {
                   Container(
                     margin: EdgeInsets.only(left: 20, top: 0),
                     child: Column(
+                      // ignore: prefer_const_literals_to_create_immutables
                       children: [
                         Text(
                           '7,389',
@@ -159,6 +145,7 @@ class profileView extends StatelessWidget {
                   Container(
                     margin: EdgeInsets.only(left: 20, top: 0),
                     child: Column(
+                      // ignore: prefer_const_literals_to_create_immutables
                       children: [
                         Text(
                           '125',
@@ -181,71 +168,36 @@ class profileView extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              child: Column(
-                children: [
-                  for (var i = 0; i < 13; i++)
-                    Row(
-                      children: [
-                        Container(
-                          margin: EdgeInsets.only(right: 50),
-                          height: 30,
-                          width: 30,
-                          child: Image.asset(
-                            flatIcons[i],
-                            color: Colors.black87,
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => routePages[i]),
-                            );
-                            print('this is working');
-                          },
-                          child: Container(
-                              margin: EdgeInsets.only(right: 0),
-                              child: Text(
-                                tabNames[i],
-                                style: TextStyle(
-                                    fontFamily: 'sans',
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w300),
-                              )),
-                        ),
-                        Spacer(),
-                        GestureDetector(
-                          onTap: () {},
-                          child: Container(
-                            margin: EdgeInsets.only(right: 0),
-                            child: Image.asset('assets/icons/gts.png',
-                                width: 35, height: 35, color: Colors.black),
-                          ),
-                        ),
-                      ],
-                    ),
+            Column(
+              children: [
+                for (var i = 0; i < 6; i++)
                   Row(
                     children: [
                       Container(
                         margin: EdgeInsets.only(right: 50),
                         height: 30,
                         width: 30,
-                        child: Image.asset('assets/icons/exit.png',
-                            color: Colors.red),
+                        child: Image.asset(
+                          flatIcons[i],
+                          color: Colors.black87,
+                        ),
                       ),
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => routePages[i]),
+                          );
+                        },
                         child: Container(
                             margin: EdgeInsets.only(right: 0),
                             child: Text(
-                              'Logout',
+                              tabNames[i],
                               style: TextStyle(
                                   fontFamily: 'sans',
                                   fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.red),
+                                  fontWeight: FontWeight.w300),
                             )),
                       ),
                       Spacer(),
@@ -254,13 +206,47 @@ class profileView extends StatelessWidget {
                         child: Container(
                           margin: EdgeInsets.only(right: 0),
                           child: Image.asset('assets/icons/gts.png',
-                              width: 30, height: 30, color: Colors.red),
+                              width: 35, height: 35, color: Colors.black),
                         ),
                       ),
                     ],
                   ),
-                ],
-              ),
+                Row(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(right: 50),
+                      height: 30,
+                      width: 30,
+                      child: Image.asset('assets/icons/exit.png',
+                          color: Colors.red),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => logOut()),
+                        );
+                      },
+                      child: Container(
+                          margin: EdgeInsets.only(right: 0),
+                          child: Text(
+                            'Logout',
+                            style: TextStyle(
+                                fontFamily: 'sans',
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.red),
+                          )),
+                    ),
+                    Spacer(),
+                    Container(
+                      margin: EdgeInsets.only(right: 0),
+                      child: Image.asset('assets/icons/gts.png',
+                          width: 30, height: 30, color: Colors.red),
+                    ),
+                  ],
+                ),
+              ],
             )
           ],
         ),

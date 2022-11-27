@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../leftovers/widgets.dart';
 import '../Screens/Screens.dart';
 
 class details_screen extends StatelessWidget {

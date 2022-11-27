@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'Screens/Screens.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -37,7 +36,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: homeFull(),
+      home: profileView(),
       debugShowCheckedModeBanner: false,
     );
   }
