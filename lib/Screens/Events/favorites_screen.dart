@@ -68,6 +68,4 @@ class favoritesHome extends StatelessWidget {
       ),
     );
   }
-
-
 }
