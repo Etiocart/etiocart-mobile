@@ -1,8 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, avoid_print
-import 'package:ethiocart/Screens/Events/favorites_screen.dart';
-import 'package:ethiocart/Screens/HomeView/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'Screens/Screens.dart';
+
+
 void main() {
   runApp(const MyApp());
 }
@@ -24,8 +25,8 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         inputDecorationTheme: const InputDecorationTheme(
           border: InputBorder.none,
-          filled: true,
-          fillColor: Color(0xffeeeeee),
+          // filled: true,
+          // fillColor: Color(0xffeeeeee),
           hintStyle: TextStyle(
             fontSize: 15.0,
             color: Colors.black45,
@@ -33,7 +34,16 @@ class MyApp extends StatelessWidget {
           ),
         ), colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.green),
       ),
-      home: favoritesHome(),
+      //#list of screens#
+      //tickets()
+      //homeFull()
+      //favoritesHome()
+      //Notifications()
+      //home_screen()
+      //account_option(),
+      //bottom_nav()
+      //choose_theme()
+      home: bottom_nav(),
       debugShowCheckedModeBanner: false,
     );
   }
