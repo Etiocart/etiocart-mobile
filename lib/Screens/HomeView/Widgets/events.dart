@@ -21,11 +21,11 @@ Widget events() {
         color: Colors.white,
       ),
       child: OutlinedButton.icon(
-        icon: Icon(CupertinoIcons.music_note_2, color: Color(0xff428678)),
-        label: Text("Music", style: TextStyle(color: Color(0xff428678)),),
+        icon: Icon(CupertinoIcons.music_note_2, color: Color(0xff002f24)),
+        label: Text("Music", style: TextStyle(color: Color(0xff002f24)),),
         onPressed: () => print("it's pressed"),
         style: ElevatedButton.styleFrom(
-          side: BorderSide(width: 2.0, color: Color(0xff428678)),
+          side: BorderSide(width: 2.0, color: Color(0xff002f24)),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(32.0),
           ),

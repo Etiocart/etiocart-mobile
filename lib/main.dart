@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, avoid_print
+import 'package:ethiocart/Screens/Events/favorites_screen.dart';
+import 'package:ethiocart/Screens/HomeView/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'Screens/Screens.dart';
-
 void main() {
   runApp(const MyApp());
 }
@@ -12,18 +12,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle.light,
-    );
+    // SystemChrome.setSystemUIOverlayStyle(
+    //   SystemUiOverlayStyle.dark
+    // );
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: Colors.white,
-      //or set color with: Color(0xFF0000FF)
-      systemNavigationBarColor: Colors.white,
+      statusBarColor:Color(0xff428678),
     ));
     return MaterialApp(
       title: 'Main Page',
       theme: ThemeData(
-        fontFamily: 'SFPro',
         visualDensity: VisualDensity.adaptivePlatformDensity,
         inputDecorationTheme: const InputDecorationTheme(
           border: InputBorder.none,
@@ -34,9 +31,9 @@ class MyApp extends StatelessWidget {
             color: Colors.black45,
             fontFamily: 'SFPro',
           ),
-        ),
+        ), colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.green),
       ),
-      home: profileView(),
+      home: favoritesHome(),
       debugShowCheckedModeBanner: false,
     );
   }

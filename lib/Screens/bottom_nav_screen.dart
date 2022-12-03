@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'Screens.dart';
+
 class bottom_nav extends StatefulWidget {
   const bottom_nav({super.key});
 
@@ -21,19 +21,19 @@ class _bottom_navState extends State<bottom_nav> {
   static const List<Widget> _widgetOptions = <Widget>[
     Text(
       'Index 0: foryou',
-      style: TextStyle(color: Colors.blue),
+      style: TextStyle(color: Colors.black,fontSize: 30),
     ),
     Text(
       'Index 1: discover',
-      style: TextStyle(color: Colors.blue),
+      style: TextStyle(color: Colors.black, fontSize: 30),
     ),
     Text(
       'Index 2: moments',
-      style: TextStyle(color: Colors.blue),
+      style: TextStyle(color: Colors.black,fontSize: 30),
     ),
     Text(
       'Index 3: profile',
-      style: TextStyle(color: Colors.blue),
+      style: TextStyle(color: Colors.black,fontSize: 30),
     ),
 
     // notifications(),
@@ -62,66 +62,118 @@ class _bottom_navState extends State<bottom_nav> {
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        onTap: onTabTapped,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(
-              CupertinoIcons.home,
-              size: 25,
-              color: Colors.indigoAccent,
+      bottomNavigationBar: Container(
+        margin: EdgeInsets.only(left: 10, right: 10),
+        child: BottomNavigationBar(
+          backgroundColor: Color(0xffE0EBE3),
+          selectedIconTheme: IconThemeData(color: Colors.green.shade100),
+          type: BottomNavigationBarType.fixed,
+          onTap: onTabTapped,
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Image.asset(
+                "assets/icons/home_outlined.png",
+                width: 25,
+                height: 25,
+                color: Colors.black54,
+              ),
+              label: 'Personal',
+
+              activeIcon: Container(
+                width: 80,
+                height: 35,
+                decoration: BoxDecoration(
+                    color: Colors.green.shade100,
+                    borderRadius: BorderRadius.circular(360)),
+                padding: EdgeInsets.all(5),
+
+                child: Image.asset(
+                  "assets/icons/home_filled.png",
+                  width: 25,
+                  height: 25,
+                  color: Colors.black54,
+                ),
+              ),
             ),
-            label: 'foryou',
-            activeIcon: Icon(
-              CupertinoIcons.home,
-              color: Colors.deepPurple,
+            BottomNavigationBarItem(
+              icon: Image.asset(
+                "assets/icons/navigation_outlined.png",
+                width: 25,
+                height: 25,
+                color: Colors.black54,
+              ),
+              label: 'discover',
+              activeIcon: Container(
+                width: 80,
+                height: 35,
+                decoration: BoxDecoration(
+                    color: Colors.green.shade100,
+                    borderRadius: BorderRadius.circular(360)),
+                padding: EdgeInsets.all(5),
+                child: Image.asset(
+                  "assets/icons/navigation_filled.png",
+                  width: 25,
+                  height: 25,
+                  color: Colors.black54,
+                ),
+              ),
             ),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              CupertinoIcons.compass,
-              size: 25,
-              color: Colors.indigoAccent,
+            //favorites
+            BottomNavigationBarItem(
+              icon: Image.asset(
+                "assets/icons/camera_outlined.png",
+                width: 25,
+                height: 25,
+                color: Colors.black54,
+              ),
+              label: 'moments',
+              activeIcon: Container(
+                width: 80,
+                height: 35,
+                decoration: BoxDecoration(
+                    color: Colors.green.shade100,
+                    borderRadius: BorderRadius.circular(360)),
+                padding: EdgeInsets.all(5),
+                child: Image.asset(
+                  "assets/icons/camera_filled.png",
+                  width: 25,
+                  height: 25,
+                  color: Colors.black54,
+                ),
+              ),
             ),
-            label: 'discover',
-            activeIcon: Icon(
-              CupertinoIcons.compass_fill,
-              color: Colors.deepPurple,
+            //tickets
+            //profile
+            BottomNavigationBarItem(
+              icon: Image.asset(
+                "assets/icons/user_outlined.png",
+                width: 25,
+                height: 25,
+                color: Colors.black54,
+              ),
+              label: 'Featured',
+              activeIcon: Container(
+                width: 80,
+                height: 35,
+                decoration: BoxDecoration(
+                    color: Colors.green.shade100,
+                    borderRadius: BorderRadius.circular(360)),
+                padding: EdgeInsets.all(5),
+                child: Image.asset(
+                  "assets/icons/user_filled.png",
+                  width: 25,
+                  height: 25,
+                  color: Colors.black54,
+                ),
+              ),
             ),
-          ),
-          //favorites
-          BottomNavigationBarItem(
-            icon: Icon(
-              FontAwesomeIcons.camera,
-              size: 25,
-              color: Colors.indigoAccent,
-            ),
-            label: 'moments',
-            activeIcon: Icon(
-              FontAwesomeIcons.camera,
-              color: Colors.deepPurple,
-            ),
-          ),
-          //tickets
-          //profile
-          BottomNavigationBarItem(
-            icon: Icon(
-              FontAwesomeIcons.user,
-              size: 25,
-              color: Colors.indigoAccent,
-            ),
-            label: 'featured',
-            activeIcon: Icon(
-              FontAwesomeIcons.solidUser,
-              color: Colors.indigo,
-            ),
-          ),
-        ],
-        elevation: 10,
-        selectedLabelStyle: TextStyle(fontSize: 15),
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.indigo,
+          ],
+          elevation: 10,
+          unselectedLabelStyle: TextStyle(fontSize: 15, color: Colors.grey),
+          selectedLabelStyle: TextStyle(fontSize: 15, color: Colors.grey),
+          currentIndex: _selectedIndex,
+          selectedItemColor: Colors.black,
+        ),
       ),
     );
   }

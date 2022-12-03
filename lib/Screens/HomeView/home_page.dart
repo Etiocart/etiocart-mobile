@@ -1,6 +1,7 @@
 // ignore_for_file: non_constant_identifier_names, prefer_const_constructors
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'Widgets/event_tab_content.dart';
 import 'Widgets/home_page_widgets.dart';
 
 class homeFull extends StatelessWidget {
@@ -26,7 +27,8 @@ Widget TabView() {
       child: Scaffold(
         appBar: AppBar(
           title: greetingContainerScreen(),
-          backgroundColor: Colors.white,
+          backgroundColor: Color(0xffE0EBE3),
+          foregroundColor: Colors.black,
           bottom: const TabBar(
             unselectedLabelColor: Colors.grey,
             labelColor: Colors.indigoAccent,
@@ -50,8 +52,8 @@ Widget TabView() {
         ),
         body: TabBarView(
           children: [
-            tabContent(),
-            tabContent(),
+            eventTabContent(),
+            transportTabContent()
           ],
         ),
       ),

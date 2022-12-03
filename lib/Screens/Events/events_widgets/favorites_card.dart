@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
   Widget favoritesCard() {
+    DateTime date = DateTime(2022, 11, 28);
     return Container(
         margin: EdgeInsets.only(bottom: 5, left: 10, right: 10),
         width: double.infinity,
@@ -36,14 +37,19 @@ import 'package:flutter/material.dart';
                         fontSize: 22,
                         fontWeight: FontWeight.bold),
                   ),
-                  Text(
-                    'Wed Dec 2022 18:00 - 22:00 PM',
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                        color: Color(0xff428678),
-                        fontFamily: 'SFCompact',
-                        fontSize: 20),
+                  Row(
+                    children: [
+                      Text(
+                        '${date.year}/${date.month}/${date.day}',
+                        maxLines: 1,
+                        textAlign: TextAlign.left,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                            color: Color(0xff428678),
+                            fontFamily: 'SFCompact',
+                            fontSize: 18),
+                      ),
+                    ],
                   ),
                   Container(
                     margin: EdgeInsets.only(top: 25),

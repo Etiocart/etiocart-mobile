@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, avoid_print
+import 'package:ethiocart/Screens/Profile/profile_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'events_widgets/events_widget.dart';
@@ -10,19 +11,27 @@ class favoritesHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        foregroundColor: Colors.black,
+        elevation: 8,
+        foregroundColor: Colors.white,
+        backgroundColor:Color(0xff428678),
         title: Row(
         // ignore: prefer_const_literals_to_create_immutables
         children: [
-          Text(
-            'Favorites', style: TextStyle(color: Colors.black, fontSize: 25),),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => profileView()),
+              );
+            },
+            child: Text(
+              'Favorites', style: TextStyle(fontSize: 25),),
+          ),
           Spacer(),
-          Icon(Icons.search, color: Colors.black, size: 30),
+          Icon(Icons.search, color: Colors.white, size: 30),
         ],
       ),
-      backgroundColor: Colors.white,
-
-      ),
+            ),
       body: Material(
         color: Color(0xffededed),
         // color: Colors.white,
@@ -32,7 +41,8 @@ class favoritesHome extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  viewsbutton(),
+                  // viewsbutton(),
+                  Container(margin: EdgeInsets.only(top: 10, bottom: 10),),
                   Column(
                     children: [
                       Container(
@@ -49,7 +59,7 @@ class favoritesHome extends StatelessWidget {
                           style: TextStyle(
                               fontSize: 20,
                               color: Colors.black,
-                              fontFamily: 'SFCompact'),
+                          ),
                         ),
                       ),
                       Column(

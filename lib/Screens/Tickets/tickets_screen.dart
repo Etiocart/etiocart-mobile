@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, avoid_print
 
+import 'package:flutter/cupertino.dart';
+
 import 'ticket_widgets/tickets_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -18,49 +20,44 @@ class tickets extends StatelessWidget {
   final cancelled = 0;
   final ticketavailable = true;
 
-
   Widget TabView(context) {
     return MaterialApp(
+      theme: ThemeData(
+        fontFamily: 'Gotham',
+        colorScheme:
+            ColorScheme.fromSwatch().copyWith(secondary: Color(0xff428678)),
+      ),
       debugShowCheckedModeBanner: false,
       home: DefaultTabController(
         length: 3,
         child: Scaffold(
           appBar: AppBar(
-            title: Row(
-              children: [
-                Text(
-                  'Tickets',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontFamily: 'SFPro',
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold),
-                ),
-                Spacer(),
-                GestureDetector(
-                  child: Text(
-                    'Back',
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                )
-              ],
+            leading: IconButton(
+              icon: Icon(Icons.arrow_back),
+              iconSize: 20.0,
+              color: Colors.white,
+              onPressed: () {
+                Navigator.pop(context);
+              },
             ),
-            backgroundColor: Colors.white,
+            backgroundColor: Color(0xff428678),
+            foregroundColor: Colors.white,
+            title: Text(
+              'Tickets',
+            ),
             bottom: const TabBar(
-              unselectedLabelColor: Colors.grey,
-              labelColor: Colors.indigoAccent,
+              unselectedLabelColor: Colors.white38,
+              labelColor: Colors.white,
               tabs: [
                 Tab(
-                    child: Text(
-                  'upcoming',
-                  style: TextStyle(
-                      fontSize: 18,
-                      fontFamily: 'SFPro',
-                      fontWeight: FontWeight.bold),
-                )),
+                  child: Text(
+                    'upcoming',
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontFamily: 'SFPro',
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
                 Tab(
                     child: Text('completed',
                         style: TextStyle(
@@ -79,7 +76,7 @@ class tickets extends StatelessWidget {
           body: TabBarView(
             children: [
               Container(
-                color: Colors.white,
+                color: Color(0xfff2f2ed),
                 child: Center(
                     child: Column(
                   children: [
@@ -90,7 +87,7 @@ class tickets extends StatelessWidget {
                 )),
               ),
               Container(
-                color: Colors.white,
+                color: Color(0xfff2f2ed),
                 child: Center(
                     child: Column(
                   children: [
@@ -101,7 +98,7 @@ class tickets extends StatelessWidget {
                 )),
               ),
               Container(
-                color: Colors.white,
+                color: Colors.green.shade50,
                 child: Column(
                   children: [
                     ticketavailable == true
@@ -116,9 +113,4 @@ class tickets extends StatelessWidget {
       ),
     );
   }
-
-
-
-
-  
 }

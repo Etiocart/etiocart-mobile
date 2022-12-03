@@ -1,6 +1,7 @@
+import 'package:ethiocart/Screens/HomeView/search_transport.dart';
 import 'package:flutter/material.dart';
 import 'home_page_widgets.dart';
-Scaffold tabContent() {
+Scaffold transportTabContent() {
   return Scaffold(
     backgroundColor: Colors.white,
     body: SafeArea(
@@ -10,7 +11,7 @@ Scaffold tabContent() {
         child: ListView(
           scrollDirection: Axis.vertical,
           children: [
-            searchFieldScreen(),
+            transportSearchBar(),
             categoryViewScreen(),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
