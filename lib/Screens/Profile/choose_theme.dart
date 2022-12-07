@@ -7,6 +7,11 @@ class choose_theme extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor:Color(0xff428678),
+        foregroundColor: Colors.white,
+        title: Text('Theme'),
+      ),
       body: SafeArea(
         child: Container(
           width: double.infinity,
@@ -94,7 +99,7 @@ class choose_theme extends StatelessWidget {
                                 color: Colors.black87),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(left: 40),
+                            padding: EdgeInsets.only(left: 0),
                           ),
                           Text(
                             'Dark',

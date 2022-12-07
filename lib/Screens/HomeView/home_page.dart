@@ -1,102 +1,59 @@
 // ignore_for_file: non_constant_identifier_names, prefer_const_constructors
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'Widgets/widgets.dart';
-
+import 'Widgets/event_tab_content.dart';
+import 'Widgets/home_page_widgets.dart';
 
 class homeFull extends StatelessWidget {
   const homeFull({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return appbar_custom();
+    return TabView();
   }
 }
 
 var notification = "notification";
 
-//dynamic data for rendering with builder
-List<String> app_bar_titles = ['notification', 'search', 'filter', 'Profile'];
-
 List<String> button_values = ['music', 'art', 'workshop'];
 final List<Map> gvt =
     List.generate(2, (index) => {"id": index, "name": "Product $index"})
         .toList();
-
-Widget appbar_custom() {
-  return Scaffold(
-    backgroundColor: Colors.white,
-    body: SafeArea(
-      child: Container(
-        color: Color(0xffFAF9F6),
-        margin: EdgeInsets.only(left: 10, right: 10),
-        child: ListView(
-          scrollDirection: Axis.vertical,
+Widget TabView() {
+  return MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
+          title: greetingContainerScreen(),
+          backgroundColor: Color(0xffE0EBE3),
+          foregroundColor: Colors.black,
+          bottom: const TabBar(
+            unselectedLabelColor: Colors.grey,
+            labelColor: Colors.indigoAccent,
+            tabs: [
+              Tab(
+                  child: Text(
+                'Events',
+                style: TextStyle(
+                    fontSize: 18,
+                    fontFamily: 'SFPro',
+                    fontWeight: FontWeight.bold),
+              )),
+              Tab(
+                  child: Text('Transport',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontFamily: 'SFPro',
+                          fontWeight: FontWeight.bold))),
+            ],
+          ),
+        ),
+        body: TabBarView(
           children: [
-            //#################__1
-            greetingContainerScreen(),
-            //#################__2
-            searchFieldScreen(),
-            //#################__3
-            categoryViewScreen(),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  cardListScreen(),
-                  Padding(padding: EdgeInsets.only(left: 5)),
-                  cardListScreen(),
-                  cardListScreen(),
-                ],
-              ),
-            ),
-            //####################__5
-            eventTypesScreen(),
-            SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    //#################___6
-                    eventsScreen(),
-                    eventsScreen(),
-                    events(),
-                    events(),
-                  ],
-                )),
-            //#########___7
-            eventTypesScreen(),
-            Column(
-              children: [
-                Row(children: [
-                  SizedBox(
-                    width: 195,
-                    child: FittedBox(
-                      child: cardListScreen(),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 195,
-                    child: FittedBox(
-                      child: cardListScreen(),
-                    ),
-                  ),
-                ],),
-                Row(children: [
-                  SizedBox(
-                    width: 195,
-                    child: FittedBox(
-                      child: cardListScreen(),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 195,
-                    child: FittedBox(
-                      child: cardListScreen(),
-                    ),
-                  ),
-                ],),
-              ],
-            )
+            eventTabContent(),
+            transportTabContent()
           ],
         ),
       ),

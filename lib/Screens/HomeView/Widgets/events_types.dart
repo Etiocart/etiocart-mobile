@@ -15,8 +15,7 @@ Widget event_types() {
       height: 30,
       width: 110,
       color: Colors.white,
-      padding: EdgeInsets.only(top: 5, left: 5, right: 5),
-      margin: EdgeInsets.only(top: 10, left: 10, right: 10),
+      margin: EdgeInsets.only(top: 0, left: 10, right: 10),
       child: Column(
         children: [
           Row(

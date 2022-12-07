@@ -1,31 +1,17 @@
-import 'package:ethiocart/Screens/Events/favorites_screen.dart';
 import 'package:flutter/material.dart';
 
-
-class cardListScreen extends StatelessWidget {
-  const cardListScreen({super.key});
+class gridCard extends StatelessWidget {
+  const gridCard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return cardList(context);
-  }
-}
-
-Widget cardList(context) {
-  return GestureDetector(
-    onLongPress: () {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => favoritesHome()),
-      );
-    },
-    child: Column(
+    return Column(
       children: [
         Row(
           children: [
             Container(
               margin: EdgeInsets.only(top: 0, left: 10, right: 10, bottom: 0),
-              height: 380,
+              height: 420,
               width: 340,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
@@ -61,6 +47,7 @@ Widget cardList(context) {
                   ),
                 ),
                 Stack(children: [
+
                   Column(
                     children: const [
                       // AspectRatio(aspectRatio: 2/2),
@@ -69,7 +56,7 @@ Widget cardList(context) {
                         'National Music Festival',
                         style: TextStyle(
                           fontFamily: 'SFCompact',
-                          fontSize: 22,
+                          fontSize: 30,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -77,7 +64,7 @@ Widget cardList(context) {
                       Text('Mon, Dec 24 18:00 - 23:00',
                           style: TextStyle(
                             fontFamily: 'SFCompact',
-                            fontSize: 18,
+                            fontSize: 26,
                             fontWeight: FontWeight.bold,
                             color: Colors.indigoAccent,
                           )),
@@ -85,7 +72,7 @@ Widget cardList(context) {
                       Text('Grand Park, New York',
                           style: TextStyle(
                             fontFamily: 'SFCompact',
-                            fontSize: 18,
+                            fontSize: 25,
                             fontWeight: FontWeight.bold,
                             color: Colors.blueGrey,
                           )),
@@ -97,6 +84,6 @@ Widget cardList(context) {
           ],
         )
       ],
-    ),
-  );
+    );
+  }
 }

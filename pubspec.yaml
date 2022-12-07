@@ -43,9 +43,7 @@ dependencies:
   flutter_rating_bar: ^4.0.1
   anim_search_bar: ^2.0.2
   intl: ^0.17.0
-  intl_phone_number_input: ^0.7.1
 
-###########   firebase_core: ^2.2.0
 
 dev_dependencies:
   flutter_test:
@@ -66,6 +64,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+
 
   uses-material-design: true
 

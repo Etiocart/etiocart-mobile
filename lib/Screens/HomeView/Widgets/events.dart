@@ -13,7 +13,7 @@ class eventsScreen extends StatelessWidget {
 
 Widget events() {
   return Container(
-      margin: EdgeInsets.only(right: 10, top: 20, bottom: 20),
+      margin: EdgeInsets.only(right: 15, top: 5, bottom: 5),
       height: 45,
       width: 130,
       decoration: BoxDecoration(
@@ -21,11 +21,11 @@ Widget events() {
         color: Colors.white,
       ),
       child: OutlinedButton.icon(
-        icon: Icon(CupertinoIcons.music_note_2, color: Colors.deepPurpleAccent),
-        label: Text("Music"),
+        icon: Icon(CupertinoIcons.music_note_2, color: Color(0xff002f24)),
+        label: Text("Music", style: TextStyle(color: Color(0xff002f24)),),
         onPressed: () => print("it's pressed"),
         style: ElevatedButton.styleFrom(
-          side: BorderSide(width: 2.0, color: Colors.deepPurpleAccent),
+          side: BorderSide(width: 2.0, color: Color(0xff002f24)),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(32.0),
           ),
