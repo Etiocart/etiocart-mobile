@@ -1,59 +1,76 @@
 import 'package:ethiocart/Screens/HomeView/event_search.dart';
 import 'package:flutter/material.dart';
 import 'home_page_widgets.dart';
-Scaffold eventTabContent() {
-  return Scaffold(
-    backgroundColor: Colors.white,
-    body: SafeArea(
-      child: Container(
-        color: Color(0xffFAF9F6),
-        margin: EdgeInsets.only(left: 10, right: 10),
-        child: ListView(
-          scrollDirection: Axis.vertical,
-          children: [
-            eventSearchBar(),
-            categoryViewScreen(),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  for (var i = 0; i < 6; i++) cardListScreen(),
-                ],
-              ),
-            ),
-            eventTypesScreen(),
-            SingleChildScrollView(
+
+class EventTab extends StatefulWidget {
+  const EventTab({Key? key}) : super(key: key);
+
+  @override
+  State<EventTab> createState() => _EventTabState();
+}
+
+class _EventTabState extends State<EventTab> {
+  @override
+  Widget build(BuildContext context) {
+    return eventTabContent();
+  }
+
+  Container eventTabContent() {
+    return Container(
+      color: Colors.white,
+      child: Stack(
+        children: [
+          ListView(
+            scrollDirection: Axis.vertical,
+            children: [
+              SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    for (var i = 0; i < 6; i++) eventsScreen(),
+                    for (var i = 0; i < 6; i++) const cardListScreen(),
                   ],
-                )),
-
-            Column(
-              children: [
-                for (var i = 0; i < 4; i++)
-                  Row(
+                ),
+              ),
+              //category viewer
+              SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
                     children: [
-                      SizedBox(
-                        width: 195,
-                        child: FittedBox(
-                          child: gridCard(),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 195,
-                        child: FittedBox(
-                          child: gridCard(),
-                        ),
-                      ),
+                      for (var i = 0; i < 6; i++) PopularEvents(),
                     ],
-                  ),
-              ],
-            )
-          ],
-        ),
+                  )),
+              const eventTypesScreen(),
+              Container(
+                margin: const EdgeInsets.only(left: 10),
+                child: Column(
+                  children: [
+                    for (var i = 0; i < 4; i++)
+                      Row(
+                        children: const[
+                           SizedBox(
+                            width: 195,
+                            child: FittedBox(
+                              child: gridCard(),
+                            ),
+                          ),
+                           SizedBox(
+                            width: 195,
+                            child: FittedBox(
+                              child: gridCard(),
+                            ),
+                          ),
+                        ],
+                      ),
+                  ],
+                ),
+              )
+            ],
+          ),
+          Container(
+              margin: const EdgeInsets.only(top: 5, left: 5, bottom: 0),
+              child: const eventSearchBar())
+        ],
       ),
-    ),
-  );
+    );
+  }
 }

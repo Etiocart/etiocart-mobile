@@ -3,6 +3,7 @@
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../authentication/login.dart';
 import 'profile_export.dart';
 import 'package:ethiocart/Screens/Screens.dart';
 import 'package:flutter/material.dart';
@@ -55,30 +56,29 @@ class profileView extends StatelessWidget {
       home: Material(
         child: Scaffold(
             appBar: AppBar(
-              elevation: 8,
+              elevation: 5,
               title: Row(
                 children: [
                   Text(
                     'Profile',
                     style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold),
+                        color: Colors.teal.shade800,
+                        fontSize: 25,),
                   ),
                   Spacer(),
                   IconButton(
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => homeFull()),
+                          MaterialPageRoute(builder: (context) => HomeFull()),
                         );
                       },
                       icon: Image.asset('assets/icons/home.png',
-                          width: 25, height: 25, color: Colors.white)),
+                          width: 30, height: 30, color: Colors.teal.shade800)),
                 ],
               ),
-              foregroundColor: Colors.white,
-              backgroundColor:Color(0xff428678),
+              foregroundColor: Colors.black,
+              backgroundColor:Colors.white,
               // Color(0xff428678)
             ),
             body: SafeArea(child: profileScreen(context))),
@@ -105,23 +105,24 @@ class profileView extends StatelessWidget {
                 margin: EdgeInsets.only(bottom: 0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(150),
-                  color: Color(0xff046B40),
+                  color: Colors.grey.shade200,
                 ),
                 child: Center(
                     child: Icon(
                   FontAwesomeIcons.user,
-                  color: Colors.white,
-                  size: 30,
+                  color: Colors.teal.shade400,
+                  size: 35,
                 )),
               ),
             ),
-            Padding(padding: EdgeInsets.only(bottom: 10)),
+            Padding(padding: EdgeInsets.only(bottom: 20)),
             Text(
               'Andrew Ainsley',
               style: TextStyle(
-                  color: Color(0xff046B40),
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold),
+                  color: Colors.black,
+                  fontSize: 25,
+                  fontFamily: 'Gotham',
+                  fontWeight: FontWeight.w400),
             ),
             Container(
               margin: EdgeInsets.only(top: 10, bottom: 20),
@@ -140,21 +141,21 @@ class profileView extends StatelessWidget {
                     child: Column(
                       // ignore: prefer_const_literals_to_create_immutables
                       children: [
-                        Text(
-                          '7,389',
-                          style: TextStyle(
-                              fontFamily: 'sans',
-                              color: Colors.black,
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        Text(
-                          'Followers',
-                          style: TextStyle(
-                              fontFamily: 'sans',
-                              color: Colors.black,
-                              fontSize: 18),
-                        )
+                        // Text(
+                        //   '7,389',
+                        //   style: TextStyle(
+                        //       fontFamily: 'sans',
+                        //       color: Colors.black,
+                        //       fontSize: 18,
+                        //       fontWeight: FontWeight.bold),
+                        // ),
+                        // Text(
+                        //   'Followers',
+                        //   style: TextStyle(
+                        //       fontFamily: 'sans',
+                        //       color: Colors.black,
+                        //       fontSize: 18),
+                        // )
                       ],
                     ),
                   ),
@@ -163,21 +164,21 @@ class profileView extends StatelessWidget {
                     child: Column(
                       // ignore: prefer_const_literals_to_create_immutables
                       children: [
-                        Text(
-                          '125',
-                          style: TextStyle(
-                              fontFamily: 'sans',
-                              color: Colors.black,
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        Text(
-                          'Following',
-                          style: TextStyle(
-                              fontFamily: 'sans',
-                              color: Colors.black,
-                              fontSize: 18),
-                        )
+                        // Text(
+                        //   '125',
+                        //   style: TextStyle(
+                        //       fontFamily: 'sans',
+                        //       color: Colors.black,
+                        //       fontSize: 18,
+                        //       fontWeight: FontWeight.bold),
+                        // ),
+                        // Text(
+                        //   'Following',
+                        //   style: TextStyle(
+                        //       fontFamily: 'sans',
+                        //       color: Colors.black,
+                        //       fontSize: 18),
+                        // )
                       ],
                     ),
                   ),
@@ -190,8 +191,10 @@ class profileView extends StatelessWidget {
               child: Column(
                 children: [
                   for (var i = 0; i < 6; i++)
-                    Container(
-                      child: GestureDetector(
+                    (
+                        Container(
+                          margin: EdgeInsets.only(bottom: 10),
+                      child: InkWell(
                         onTap: () {
                           Navigator.push(
                             context,
@@ -199,76 +202,85 @@ class profileView extends StatelessWidget {
                                 builder: (context) => routePages[i]),
                           );
                         },
-                        child: Row(
+                        child: Column(
                           children: [
-                            Container(
-                              margin: EdgeInsets.only(right: 5),
-                              // height: 30,
-                              // width: 30,
-                              // child: Icon(fontawesomeIcons[i],
-                              // color: Color(0xff046B40),
-                              //   size: 30,
-                              // ),
-                              // child: Image.asset(
-                              //   flatIcons[i],
-                              //   color: Colors.black87,
-                              // ),
-                            ),
-                            GestureDetector(
-                              child: Container(
-                                  margin: EdgeInsets.only(right: 0),
-                                  child: Text(
-                                    tabNames[i],
-                                    style: TextStyle(
-                                      fontSize: 18,
+                            Row(
+                              children: [
+                                Material(
+                                  borderRadius: BorderRadius.circular(20),
+                                  elevation: 5,
+                                  child: Container(
+                                    // margin: EdgeInsets.only(right: 5),
+                                    // height: 25,
+                                    // width: 25,
+                                    // child: Icon(fontawesomeIcons[i],
+                                    //   size: 30,
+                                    // ),
+                                    width: 40,
+                                    height: 40,
+                                    padding: EdgeInsets.all(10),
+                                    decoration: BoxDecoration(
+                                        color: Colors.transparent,
+                                        borderRadius: BorderRadius.circular(20)),
+                                    child: Image.asset(
+                                      flatIcons[i],
+                                      width: 25,
+                                      height: 25,
+                                      color: Colors.teal.shade900,
                                     ),
-                                  )),
+                                  ),
+                                ),
+                                Container(
+                                    margin: EdgeInsets.only(left: 15),
+                                    child: Text(
+                                      tabNames[i],
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                      ),
+                                    )),
+                                Spacer(),
+                                Container(
+                                  margin: EdgeInsets.only(right: 0),
+                                  child: Image.asset('assets/icons/gts.png',
+                                      width: 35, height: 35, color: Colors.black),
+                                ),
+
+                              ],
                             ),
-                            Spacer(),
-                            GestureDetector(
-                              onTap: () {},
-                              child: Container(
-                                margin: EdgeInsets.only(right: 0),
-                                child: Image.asset('assets/icons/gts.png',
-                                    width: 35, height: 35, color: Colors.black),
-                              ),
-                            ),
+                            // Container(width: 370, height: 1, color: Colors.green.shade500,),
                           ],
                         ),
                       ),
-                    ),
-                  GestureDetector(
+                    )),
+                  InkWell(
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => logOut()),
+                        MaterialPageRoute(builder: (context) => LoginScreen()),
                       );
                     },
                     child: Row(
                       children: [
                         Container(
-                          margin: EdgeInsets.only(right: 0),
-                          height: 35,
-                          width: 5,
                           // child: Image.asset('assets/icons/exit.png',
                           // child: Icon(FontAwesomeIcons.arrowRightFromBracket,
                           //     color: Colors.red),
                         ),
                         Container(
-                            margin: EdgeInsets.only(right: 0),
+                          margin: EdgeInsets.only(left: 140, top: 20),
                             child: Text(
                               'Logout',
                               style: TextStyle(
-                                  fontSize: 18,
+                                  fontSize: 20,
                                   fontWeight: FontWeight.w500,
                                   color: Colors.red),
                             )),
-                        Spacer(),
-                        Container(
-                          margin: EdgeInsets.only(right: 0),
-                          child: Image.asset('assets/icons/gts.png',
-                              width: 35, height: 35, color: Colors.red),
-                        ),
+                        // Spacer(),
+                        // Container(
+                        //   margin: EdgeInsets.only(right: 0),
+                        //   child: Image.asset('assets/icons/gts.png',
+                        //       width: 35, height: 35, color: Colors.red),
+                        // ),
                       ],
                     ),
                   ),
@@ -282,7 +294,3 @@ class profileView extends StatelessWidget {
   }
 }
 
-//attribution
-// <a href="https://www.flaticon.com/free-icons/profile"
-// title="profile icons">Profile icons created by Softway_Design -
-// Flaticon</a>

@@ -22,7 +22,7 @@ class helpCenter extends StatelessWidget {
             leading: IconButton(
               icon: Icon(Icons.arrow_back),
               iconSize: 20.0,
-              color: Colors.white,
+              color: Colors.teal.shade800,
               onPressed: () {
                 Navigator.pop(context);
               },
@@ -35,12 +35,12 @@ class helpCenter extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => profileView()),
                   );
                 },
-                child: Text('Help center')),
-            backgroundColor:Color(0xff428678),
-            foregroundColor: Colors.white,
-            bottom: const TabBar(
-              unselectedLabelColor: Colors.white38,
-              labelColor: Colors.white,
+                child: Text('Help center', style: TextStyle(color: Colors.teal.shade800),)),
+            backgroundColor:Colors.white,
+            foregroundColor: Colors.black,
+            bottom:  TabBar(
+              unselectedLabelColor: Colors.grey.shade400,
+              labelColor: Colors.teal.shade800,
               tabs: [
                 Tab(
                     child: Text(

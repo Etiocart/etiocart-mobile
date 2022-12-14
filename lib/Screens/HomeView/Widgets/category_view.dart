@@ -11,22 +11,21 @@ class categoryViewScreen extends StatelessWidget {
 
 Container categoryView() {
   return Container(
-    margin: EdgeInsets.only(left: 10, right: 10, top: 0, bottom: 0),
+    margin: EdgeInsets.only(left: 15, right: 15, top: 5, bottom: 0),
     child: Row(
       children: [
         Text(
           'Featured',
           style:
-          TextStyle(fontFamily: 'Gotham', letterSpacing: -1, fontSize: 20),
+          TextStyle(letterSpacing: -1, fontSize: 20),
         ),
         Spacer(),
         Text(
           'See All',
           style: TextStyle(
-              fontFamily: 'Gotham',
               letterSpacing: -1,
               fontSize: 20,
-              color: Colors.indigoAccent),
+              color: Color(0xff004d40),),
         ),
       ],
     ),

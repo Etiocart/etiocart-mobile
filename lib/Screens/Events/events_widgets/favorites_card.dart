@@ -1,81 +1,133 @@
 // ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, avoid_print
+import 'events_widget.dart';
 import 'package:flutter/material.dart';
 
-  Widget favoritesCard() {
-    DateTime date = DateTime(2022, 11, 28);
-    return Container(
-        margin: EdgeInsets.only(bottom: 5, left: 10, right: 10),
-        width: double.infinity,
-        height: 150,
-        decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(10)),
-        child: Row(children: [
-          Column(
-            children: [
-              Container(
-                margin: EdgeInsets.only(left: 15, top: 15, right: 10),
-                width: 130,
-                height: 130,
-                decoration: BoxDecoration(
-                    color: Color(0xff428678),
-                    borderRadius: BorderRadius.circular(10)),
+class FavoritesCard extends StatefulWidget {
+  const FavoritesCard({Key? key}) : super(key: key);
+
+  @override
+  State<FavoritesCard> createState() => _FavoritesCardState();
+}
+
+class _FavoritesCardState extends State<FavoritesCard> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [mainCard(context)],
+    );
+  }
+}
+
+Widget mainCard(context) {
+  DateTime now = DateTime.now();
+  DateTime date = new DateTime(now.year, now.month, now.day, now.hour, now.minute);
+  return Container(
+      margin: EdgeInsets.only(bottom: 15, left: 10, right: 10),
+      width: double.infinity,
+      height: 170,
+      decoration: BoxDecoration(color: Colors.grey.shade200,
+          border: Border.all(color: Colors.white),
+      borderRadius: BorderRadius.only(topLeft: Radius.circular(20),
+          bottomLeft: Radius.circular(20),
+          bottomRight: Radius.circular(20),
+          topRight: Radius.circular(20))
+      ),
+      child: Row(children: [
+        Column(
+          children: [
+            Expanded(
+              flex: 1,
+              child: Container(
+                margin: EdgeInsets.only(right: 0),
+                width: 150,
+                decoration: BoxDecoration(color: Colors.blue,
+                borderRadius: BorderRadius.circular(20)
+                ),
               ),
-            ],
-          ),
-          Flexible(
-            child: Container(
-              margin: EdgeInsets.only(top: 20),
-              child: Column(
-                children: [
-                  Text(
-                    'Traditional Dance Concert',
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontFamily: 'SFCompact',
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  Row(
+            ),
+          ],
+        ),
+        Column(
+          children: [
+            Expanded(
+              flex: 1,
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => EventsDetail()),
+                  );
+                },
+                child: Container(
+                  padding: EdgeInsets.only(top: 10),
+                  width: 225,
+                  decoration: BoxDecoration(color: Colors.grey.shade200),
+                  child: Column(
                     children: [
-                      Text(
-                        '${date.year}/${date.month}/${date.day}',
-                        maxLines: 1,
-                        textAlign: TextAlign.left,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                            color: Color(0xff428678),
-                            fontFamily: 'SFCompact',
-                            fontSize: 18),
+                      Row(
+                        children: [
+                          Container(
+                              margin: EdgeInsets.only(left: 10),
+                              child: Text(
+                            'Traditional Dance ',
+                            overflow: TextOverflow.fade,
+                            style: TextStyle(fontSize: 22,
+                                fontWeight: FontWeight.w600),
+                          ))
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                              margin: EdgeInsets.only(top: 10 , left: 10),
+                              child: Text('Concert prepared',
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                      fontSize: 18, color: Colors.green.shade600, fontWeight: FontWeight.w600)))
+                        ],
+                      ),
+
+                      Row(
+                        children: [
+                          Container(
+
+                              child: Text('Sun ${date.year}/${date.month}/${date.day}'
+                                  ,
+                                  style: TextStyle(
+                                      fontSize: 18)),
+                          margin: EdgeInsets.only(top: 10, left: 10),)
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                              margin: EdgeInsets.only(top: 10, right: 5, left: 5),
+                              child: Icon(Icons.location_on_sharp, color: Colors.deepOrange,)),
+                          Container(
+                              margin: EdgeInsets.only(top: 10),
+                              child: Text('Bole, Millenium',
+                                  overflow: TextOverflow.fade,
+                                  style: TextStyle(
+                                      fontSize: 18)))
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Spacer(),
+                          Container(
+                              child: Text('Booked',
+                                  overflow: TextOverflow.fade,
+                                  style: TextStyle(
+                                      fontSize: 18, color: Colors.blue))),
+
+                        ],
                       ),
                     ],
                   ),
-                  Container(
-                    margin: EdgeInsets.only(top: 25),
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.location_on_sharp,
-                          color: Colors.indigoAccent,
-                          size: 25,
-                        ),
-                        Flexible(
-                          child: Text(
-                            'New york 101 avenue',
-                            maxLines: 1,
-                            style: TextStyle(
-                                fontFamily: 'SFCompact',
-                                color: Colors.black38,
-                                fontSize: 18),
-                          ),
-                        ), //button Placement
-                      ],
-                    ),
-                  )
-                ],
+                ),
               ),
             ),
-          ),
-        ]));
-  }
+          ],
+        )
+      ]));
+}

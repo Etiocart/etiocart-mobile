@@ -1,89 +1,144 @@
 // ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, avoid_print
 
 import 'package:flutter/material.dart';
+import 'ticket_detail.dart';
 import 'tickets_widget.dart';
+final statusValue = false;
 
-Widget upcomingTicketCard() {
-  var color = Colors.indigoAccent;
-  var text = Text('Book');
-  return Column(
-    children: [
-      Container(
-          margin: EdgeInsets.only(top: 10, left: 10, right: 10),
-          width: double.infinity,
-          height: 200,
-          decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(10)),
-          child: Row(children: [
+class Upcoming extends StatelessWidget {
+  const Upcoming({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(child: UpcomingTicket(context),);
+  }
+
+
+  Widget UpcomingTicket(context) {
+    return Container(
+      margin: EdgeInsets.only(top: 10, left: 10, right: 10),
+      height: 180,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20), color: Colors.grey.shade200),
+      child: Container(
+        width: double.infinity,
+        height: 150,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            color: Colors.white),
+        child: Row(
+          children: [
             Column(
               children: [
-                Container(
-                  margin: EdgeInsets.only(left: 0, top: 15, right: 0),
-                  width: 130,
-                  height: 130,
-                  decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(10)),
-                ),
-              ],
-            ),
-            Flexible(
-              child: Container(
-                margin: EdgeInsets.only(top: 20),
-                child: Column(
+                Row(
                   children: [
-                    Text(
-                      'Traditional Dance Concert',
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontFamily: 'SFCompact',
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      'Wed Dec 2022 18:00 - 22:00 PM',
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                          color: Colors.indigo,
-                          fontFamily: 'SFCompact',
-                          fontSize: 18),
-                    ),
                     Container(
-                      margin: EdgeInsets.only(top: 25),
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.location_on_sharp,
-                            color: Colors.indigoAccent,
-                            size: 25,
-                          ),
-                          Flexible(
-                            child: Text(
-                              'New york 101 avenue',
-                              maxLines: 1,
-                              style: TextStyle(
-                                  fontFamily: 'SFCompact',
-                                  color: Colors.black38,
-                                  fontSize: 16),
-                            ),
-                          ),
-                          statusValue == true
-                              ? statusButton('Paid', 32, Colors.greenAccent)
-                              : statusButton(
-                                  'Cancel Booking', 32, Colors.indigoAccent)
-                        ],
-                      ),
+                      width: 150,
+                      height: 150,
+                      margin: EdgeInsets.only(right: 0),
+                      decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              bottomLeft: Radius.circular(20),
+                              bottomRight: Radius.circular(20),
+                              topRight: Radius.circular(20))),
                     )
                   ],
-                ),
-              ),
+                )
+              ],
             ),
-          ])),
-    ],
-  );
+            Column(
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => TicketDetail()),
+                      );
+                    },
+                    child: Container(
+                      padding: EdgeInsets.only(top: 10),
+                      width: 225,
+                      decoration: BoxDecoration(color: Colors.white),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Container(
+                                  margin: EdgeInsets.only(left: 10),
+                                  child: Text(
+                                    'Traditional Dance ',
+                                    overflow: TextOverflow.fade,
+                                    style: TextStyle(fontSize: 22,
+                                        fontWeight: FontWeight.w600),
+                                  ))
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Container(
+                                  margin: EdgeInsets.only(top: 10, left: 10),
+                                  child: Text('Concert prepared',
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                          fontSize: 18,
+                                          color: Colors.green.shade600,
+                                          fontWeight: FontWeight.w600)))
+                            ],
+                          ),
+
+                          Row(
+                            children: [
+                              Container(
+
+                                child: Text('Sunday'
+                                    ,
+                                    style: TextStyle(
+                                        fontSize: 18)),
+                                margin: EdgeInsets.only(top: 10, left: 10),)
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Container(
+                                  margin: EdgeInsets.only(
+                                      top: 10, right: 5, left: 5),
+                                  child: Icon(Icons.location_on_sharp,
+                                    color: Colors.deepOrange,)),
+                              Container(
+                                  margin: EdgeInsets.only(top: 10),
+                                  child: Text('Bole, Millenium',
+                                      overflow: TextOverflow.fade,
+                                      style: TextStyle(
+                                          fontSize: 18)))
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Spacer(),
+                              Container(
+                                  child: Text('Booked',
+                                      overflow: TextOverflow.fade,
+                                      style: TextStyle(
+                                          fontSize: 18, color: Colors.blue))),
+
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
 }
-
-

@@ -24,8 +24,6 @@ class tickets extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         fontFamily: 'Gotham',
-        colorScheme:
-            ColorScheme.fromSwatch().copyWith(secondary: Color(0xff428678)),
       ),
       debugShowCheckedModeBanner: false,
       home: DefaultTabController(
@@ -34,20 +32,20 @@ class tickets extends StatelessWidget {
           appBar: AppBar(
             leading: IconButton(
               icon: Icon(Icons.arrow_back),
-              iconSize: 20.0,
-              color: Colors.white,
+              iconSize: 25.0,
+              color: Colors.black,
               onPressed: () {
                 Navigator.pop(context);
               },
             ),
-            backgroundColor: Color(0xff428678),
-            foregroundColor: Colors.white,
+            backgroundColor: Colors.white,
+            foregroundColor: Colors.black,
             title: Text(
               'Tickets',
             ),
             bottom: const TabBar(
-              unselectedLabelColor: Colors.white38,
-              labelColor: Colors.white,
+              unselectedLabelColor: Colors.grey,
+              labelColor: Colors.black,
               tabs: [
                 Tab(
                   child: Text(
@@ -76,33 +74,33 @@ class tickets extends StatelessWidget {
           body: TabBarView(
             children: [
               Container(
-                color: Color(0xfff2f2ed),
+                color: Colors.grey.shade100,
                 child: Center(
                     child: Column(
                   children: [
                     ticketavailable == true
-                        ? upcomingTicketCard()
+                        ? Upcoming()
                         : emptyTickets()
                   ],
                 )),
               ),
               Container(
-                color: Color(0xfff2f2ed),
+                color: Colors.grey.shade100,
                 child: Center(
                     child: Column(
                   children: [
                     ticketavailable == true
-                        ? ticketCompletedCard()
+                        ? Completed()
                         : emptyTickets()
                   ],
                 )),
               ),
               Container(
-                color: Colors.green.shade50,
+                color: Colors.grey.shade100,
                 child: Column(
                   children: [
                     ticketavailable == true
-                        ? ticketcancelledCard()
+                        ? CancelledCard()
                         : emptyTickets()
                   ],
                 ),

@@ -32,13 +32,15 @@ class _DropdownButtonExampleState extends State<DropdownButtonExample> {
     return Stack(
       children: [
         Container(
-          width: 380,
-          margin: EdgeInsets.only(left: 10),
+          // color: Color(0xffE0EBE3),
+          width: 370,
+          margin: EdgeInsets.only(left: 10, top: 20),
           child: DropdownButton<String>(
             value: dropdownValue,
             isExpanded: true,
             elevation: 16,
-            style: const TextStyle(color: Colors.black),
+            // dropdownColor: Color(0xffE0EBE3),
+            style: const TextStyle(color: Colors.blue),
             underline: Container(
               height: 1,
               color: Colors.white,
