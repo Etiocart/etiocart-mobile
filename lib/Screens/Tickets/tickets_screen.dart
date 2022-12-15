@@ -44,6 +44,7 @@ class tickets extends StatelessWidget {
               'Tickets',
             ),
             bottom: const TabBar(
+
               unselectedLabelColor: Colors.grey,
               labelColor: Colors.black,
               tabs: [

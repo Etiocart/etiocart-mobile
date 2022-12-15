@@ -12,7 +12,7 @@ class favoritesHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 5,
+        elevation: 0,
         foregroundColor: Colors.black,
         backgroundColor: Colors.white,
         title: Row(
@@ -37,7 +37,7 @@ class favoritesHome extends StatelessWidget {
       body: Material(
         // color: Colors.white,
         child: Container(
-          color: Colors.transparent,
+          color: Colors.white,
           child: SafeArea(
             child: SingleChildScrollView(
               child: Column(

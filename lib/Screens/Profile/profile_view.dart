@@ -21,12 +21,12 @@ class profileView extends StatelessWidget {
     tickets()
   ];
   List<String> tabNames = [
-    'manage events',
-    'choose theme',
-    'edit profile',
-    'help center',
-    'wallet',
-    'tickets'
+    'Manage events',
+    'Choose theme',
+    'Edit profile',
+    'Help center',
+    'Wallet',
+    'Tickets'
   ];
 
   List<IconData> fontawesomeIcons = [
@@ -56,7 +56,7 @@ class profileView extends StatelessWidget {
       home: Material(
         child: Scaffold(
             appBar: AppBar(
-              elevation: 5,
+              elevation: 0,
               title: Row(
                 children: [
                   Text(
@@ -97,7 +97,7 @@ class profileView extends StatelessWidget {
         child: Column(
           children: [
             Material(
-              elevation: 12,
+              elevation: 4,
               borderRadius: BorderRadius.circular(360),
               child: Container(
                 width: 150,
@@ -105,7 +105,7 @@ class profileView extends StatelessWidget {
                 margin: EdgeInsets.only(bottom: 0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(150),
-                  color: Colors.grey.shade200,
+                  color: Color(0xffe2ede5),
                 ),
                 child: Center(
                     child: Icon(
@@ -195,6 +195,7 @@ class profileView extends StatelessWidget {
                         Container(
                           margin: EdgeInsets.only(bottom: 10),
                       child: InkWell(
+                        focusColor: Colors.white,
                         onTap: () {
                           Navigator.push(
                             context,
@@ -208,7 +209,7 @@ class profileView extends StatelessWidget {
                               children: [
                                 Material(
                                   borderRadius: BorderRadius.circular(20),
-                                  elevation: 5,
+                                  elevation: 1,
                                   child: Container(
                                     // margin: EdgeInsets.only(right: 5),
                                     // height: 25,
@@ -220,7 +221,7 @@ class profileView extends StatelessWidget {
                                     height: 40,
                                     padding: EdgeInsets.all(10),
                                     decoration: BoxDecoration(
-                                        color: Colors.transparent,
+                                        color: Color(0xffe2ede5),
                                         borderRadius: BorderRadius.circular(20)),
                                     child: Image.asset(
                                       flatIcons[i],
@@ -238,16 +239,23 @@ class profileView extends StatelessWidget {
                                         fontSize: 20,
                                       ),
                                     )),
+
                                 Spacer(),
-                                Container(
-                                  margin: EdgeInsets.only(right: 0),
-                                  child: Image.asset('assets/icons/gts.png',
-                                      width: 35, height: 35, color: Colors.black),
-                                ),
+                                // Container(
+                                //   margin: EdgeInsets.only(right: 0),
+                                //   child: Image.asset('assets/icons/gts.png',
+                                //       width: 35, height: 35, color: Colors.black),
+                                // ),
 
                               ],
                             ),
-                            // Container(width: 370, height: 1, color: Colors.green.shade500,),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 55),
+                              child: Divider(thickness: 1),
+                            ),
+                            // Container(
+                            //   margin: EdgeInsets.only(top: 5,left: 0 ),
+                            //   width: 250, height: 0.8, color: Colors.grey.shade500,),
                           ],
                         ),
                       ),

@@ -44,7 +44,6 @@ class _SignupFormState extends State<SignupForm> {
 
     var dotRegister = () {
       // print('on dotRegister');
-
       final form = _formKey.currentState;
       if (form!.validate()) {
         form.save();

@@ -23,7 +23,7 @@ class _editProfileState extends State<editProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 5,
+        elevation: 0,
         title: Text(
           'Profile',
           style: TextStyle(fontSize: 25),
@@ -136,14 +136,13 @@ class _editProfileState extends State<editProfile> {
       margin: EdgeInsets.only(top: 20),
       width: 390,
       height: 55,
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
       child: TextField(
         decoration: InputDecoration(
             filled: true,
-            // fillColor:Color(0xffE0EBE3),
-            fillColor: Colors.grey.shade200,
+            fillColor:Color(0xffE0EBE3),
             border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20.0),
+                borderRadius: BorderRadius.circular(10.0),
                 borderSide: BorderSide.none),
             labelText: text,
             labelStyle: TextStyle(color: Colors.black),

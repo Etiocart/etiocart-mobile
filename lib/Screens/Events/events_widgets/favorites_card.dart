@@ -22,10 +22,10 @@ Widget mainCard(context) {
   DateTime now = DateTime.now();
   DateTime date = new DateTime(now.year, now.month, now.day, now.hour, now.minute);
   return Container(
-      margin: EdgeInsets.only(bottom: 15, left: 10, right: 10),
+      margin: EdgeInsets.only(bottom: 15, left: 10, right: 0),
       width: double.infinity,
       height: 170,
-      decoration: BoxDecoration(color: Colors.grey.shade200,
+      decoration: BoxDecoration(color: Color(0xffe2ede5),
           border: Border.all(color: Colors.white),
       borderRadius: BorderRadius.only(topLeft: Radius.circular(20),
           bottomLeft: Radius.circular(20),
@@ -38,7 +38,7 @@ Widget mainCard(context) {
             Expanded(
               flex: 1,
               child: Container(
-                margin: EdgeInsets.only(right: 0),
+                margin: EdgeInsets.all(10),
                 width: 150,
                 decoration: BoxDecoration(color: Colors.blue,
                 borderRadius: BorderRadius.circular(20)
@@ -61,7 +61,7 @@ Widget mainCard(context) {
                 child: Container(
                   padding: EdgeInsets.only(top: 10),
                   width: 225,
-                  decoration: BoxDecoration(color: Colors.grey.shade200),
+                  decoration: BoxDecoration(color: Color(0xffe2ede5)),
                   child: Column(
                     children: [
                       Row(

@@ -30,16 +30,11 @@ class _paymentWalletState extends State<paymentWallet> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 8,
+        elevation: 0,
         title: Row(
           children: [
             Text(
-              'Profile',
-              style: TextStyle(),
-            ),
-            Spacer(),
-            Text(
-              'wallet',
+              'Wallet',
               style: TextStyle(),
             ),
           ],
@@ -71,7 +66,7 @@ class _paymentWalletState extends State<paymentWallet> {
       children: [
         Column(
           children: [
-            // creditCard(),
+            creditCard(),
             Padding(padding: EdgeInsets.only(top: 0)),
             Container(
               margin: EdgeInsets.only(bottom: 15,top: 10),
@@ -106,7 +101,7 @@ class _paymentWalletState extends State<paymentWallet> {
                   child: Row(
                     children: [
                       Material(
-                        elevation: 10,
+                        elevation: 0,
                         borderRadius: BorderRadius.circular(35),
                         child: CircleAvatar(
                           radius: 35,
@@ -229,7 +224,7 @@ class _paymentWalletState extends State<paymentWallet> {
 
   Widget pendingPaymentCard() {
     return Material(
-      elevation: 8,
+      elevation: 0,
       child: Container(
         width: 400,
         height: 150,
@@ -286,7 +281,7 @@ class _paymentWalletState extends State<paymentWallet> {
                         style: TextStyle(fontSize: 18),
                       ),
                       style: ButtonStyle(
-                          elevation: MaterialStateProperty.all(12),
+                          elevation: MaterialStateProperty.all(0),
                           shadowColor: MaterialStateProperty.all(Colors.black),
                           backgroundColor:
                               MaterialStateProperty.all(Colors.deepPurpleAccent),
@@ -310,7 +305,7 @@ class _paymentWalletState extends State<paymentWallet> {
     return GestureDetector(
       onTap: () {
         AlertDialog(
-          elevation: 12,
+          elevation: 5,
           title: const Text('AlertDialog Title'),
           content: SingleChildScrollView(
             child: ListBody(

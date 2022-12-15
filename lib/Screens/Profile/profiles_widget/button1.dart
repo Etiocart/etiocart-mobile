@@ -10,8 +10,9 @@ Container beautiful_button() {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
             margin: EdgeInsets.only(left: 10, right: 0, top: 0),
-            height: 50,
+            height: 55,
             width: 400,
             child: ElevatedButton(
                 style: ButtonStyle(
@@ -22,7 +23,7 @@ Container beautiful_button() {
                     ),
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(18.0),
+                            borderRadius: BorderRadius.circular(10.0),
                             side: BorderSide(color: Color(0xff0b594c))
                         )
                     )

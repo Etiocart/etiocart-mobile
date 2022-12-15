@@ -10,9 +10,9 @@ class Notifications extends StatelessWidget {
   final notificationbool = 0;
   final btnStatus = 0;
   List <IconData> NotIcons = [
-    FontAwesomeIcons.calendar,
-    FontAwesomeIcons.moon,
-    FontAwesomeIcons.user,
+    FontAwesomeIcons.info,
+    FontAwesomeIcons.info,
+    FontAwesomeIcons.info,
     FontAwesomeIcons.info,
   ];
 
