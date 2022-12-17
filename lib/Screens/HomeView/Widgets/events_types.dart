@@ -15,21 +15,21 @@ Widget event_types() {
       height: 30,
       width: 110,
       color: Colors.white,
-      margin: EdgeInsets.only(top: 0, left: 10, right: 10),
+      margin: EdgeInsets.only(top: 0, left: 15, right: 10),
       child: Column(
         children: [
           Row(
             children: [
-              Text('popular events',
+              Text('Popular',
                   style: TextStyle(
-                      color: Colors.indigoAccent,
+                      color: Colors.teal.shade900,
                       fontFamily: 'Gotham',
                       fontSize: 20)),
               Spacer(),
               Text(
                 'see all',
                 style: TextStyle(
-                    color: Colors.indigoAccent,
+                    color: Colors.teal.shade900,
                     fontFamily: 'Gotham',
                     fontSize: 20),
               ),

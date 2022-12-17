@@ -23,13 +23,13 @@ class _editProfileState extends State<editProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 12,
+        elevation: 0,
         title: Text(
           'Profile',
-          style: TextStyle(),
+          style: TextStyle(fontSize: 25),
         ),
-        backgroundColor:Color(0xff428678),
-        foregroundColor: Colors.white,
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
       ),
       body: editBody(context),
     );
@@ -55,15 +55,15 @@ class _editProfileState extends State<editProfile> {
                           height: 150,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(150),
-                              color: Color(0xff046B40)),
+                              color: Colors.grey.shade200),
                         ),
                       ),
                       Container(
                         margin: EdgeInsets.only(left: 105, top: 105),
-                        width: 40,
-                        height: 40,
+                        width: 45,
+                        height: 45,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(40),
                             color: Colors.blueAccent),
                         child: Material(
                           elevation: 18,
@@ -136,12 +136,13 @@ class _editProfileState extends State<editProfile> {
       margin: EdgeInsets.only(top: 20),
       width: 390,
       height: 55,
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
       child: TextField(
         decoration: InputDecoration(
-            fillColor: Color(0xffE0EBE3),
+            filled: true,
+            fillColor:Color(0xffE0EBE3),
             border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20.0),
+                borderRadius: BorderRadius.circular(10.0),
                 borderSide: BorderSide.none),
             labelText: text,
             labelStyle: TextStyle(color: Colors.black),
@@ -162,7 +163,10 @@ class _editProfileState extends State<editProfile> {
             margin: EdgeInsets.only(right: 10, left: 0),
             child: Text(
               '${date.year}/${date.month}/${date.day}',
-              style: TextStyle(fontSize: 16, color: Colors.black),
+              style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.blue,
+                  fontWeight: FontWeight.w500),
             ),
           ),
           GestureDetector(
@@ -178,7 +182,7 @@ class _editProfileState extends State<editProfile> {
               },
               child: Icon(
                 FontAwesomeIcons.calendar,
-                color: Colors.black26,
+                color: Colors.blue,
               ))
         ],
       ),

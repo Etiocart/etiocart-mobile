@@ -17,58 +17,53 @@ class greetingContainerScreen extends StatelessWidget {
   Container greetingContainer(context) {
 
     return Container(
-      width: 390,
-      height: 85,
-      margin: EdgeInsets.only(bottom: 0, top: 0, right: 0),
-      child: Material(
-
-        borderRadius: BorderRadius.circular(10),
-        child: Container(
-          decoration: BoxDecoration(
-              color: Color(0xffE0EBE3), borderRadius: BorderRadius.circular(10)),
-          margin: EdgeInsets.only(top: 10),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Container(
-                    width: 50,
-                    height: 50,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                          fit: BoxFit.fill,
-                          image: AssetImage('assets/images/Profile.jpg'),
-                        ),
-                        color: Colors.deepPurple,
-                        borderRadius: BorderRadius.circular(50)),
-                    margin: EdgeInsets.only(left: 10, top: 15),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => profileView()),
-                      );
-                    },
+      width: 420,
+      height: 100,
+      child: Container(
+        margin: EdgeInsets.only(top: 25),
+        decoration: BoxDecoration(
+            color: Colors.white,
+        ),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Container(
+                  width: 50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                        fit: BoxFit.fill,
+                        image: AssetImage('assets/images/Profile.jpg'),
+                      ),
+                      color: Colors.deepPurple,
+                      borderRadius: BorderRadius.circular(50)),
+                  margin: EdgeInsets.only(left: 0, top: 0),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => profileView()),
+                    );
+                  },
+                  child: Container(
                     child: Column(
                       children: [
                         Text(
                           'Good Morning',
                           style: TextStyle(
                             fontSize: 18,
-                            fontFamily: 'SFPro',
                             color: Colors.black,
                           ),
                         ),
                         Container(
-                          margin: EdgeInsets.only(left: 0),
                           child: Row(
                             children: [
                               Text(
                                 user_names[0],
                                 style: TextStyle(
                                   color: Colors.black,
-                                  fontFamily: 'SFPro',
                                   fontSize: 25,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -79,47 +74,51 @@ class greetingContainerScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Container(
-                    width: 50,
-                    height: 50,
-                    margin: EdgeInsets.only(right: 0, left: 105),
-                    padding: EdgeInsets.only(bottom: 0),
-                    decoration: BoxDecoration(
-                      color: Color(0xff002f24),
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                    child: GestureDetector(
-                      child: Stack(
-                        children: [
-                          Container(
-                            width: 10,
-                            height: 10,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(50),
-                                color:notificationColor? Colors.red: Colors.greenAccent),
-                            margin: EdgeInsets.only(left: 30, top: 10),
+                ),
+                Container(
+                  width: 50,
+                  height: 50,
+                  margin: EdgeInsets.only(right: 0, left: 105, top: 0),
+                  padding: EdgeInsets.only(bottom: 0),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(50),
+                  ),
+                  child: GestureDetector(
+                    child: Stack(
+                      children: [
+                        Container(
+                          width: 12,
+                          height: 12,
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Colors.black,
+                                width: 0.9,
+                              ),
+                              borderRadius: BorderRadius.circular(50),
+                              color:notificationColor? Colors.red: Colors.green),
+                          margin: EdgeInsets.only(left: 30, top: 10),
+                        ),
+                        IconButton(
+                          icon: Icon(
+                            CupertinoIcons.bell,
+                            color: Colors.black,
+                            size: 35,
                           ),
-                          IconButton(
-                            icon: Icon(
-                              CupertinoIcons.bell,
-                              color: Colors.white,
-                              size: 30,
-                            ),
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => Notifications()),
-                              );
-                            },
-                          )
-                        ],
-                      ),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => Notifications()),
+                            );
+                          },
+                        )
+                      ],
                     ),
-                  )
-                ],
-              ),
-            ],
-          ),
+                  ),
+                )
+              ],
+            ),
+          ],
         ),
       ),
     );

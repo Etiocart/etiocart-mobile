@@ -1,12 +1,13 @@
 // import 'package:etio_cart23/constanst/colors.dart';
 // import 'package:etio_cart23/model/object.dart';
 
-import 'package:ethiocart/authentication/login.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 // import 'package:flushbar/flushbar_helper.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
+
+import '../login.dart';
 
 class SignupForm extends StatefulWidget {
   const SignupForm({
@@ -43,7 +44,6 @@ class _SignupFormState extends State<SignupForm> {
 
     var dotRegister = () {
       // print('on dotRegister');
-
       final form = _formKey.currentState;
       if (form!.validate()) {
         form.save();

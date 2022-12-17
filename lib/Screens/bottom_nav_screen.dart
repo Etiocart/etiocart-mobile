@@ -40,7 +40,7 @@ class _bottom_navState extends State<bottom_nav> {
     // favoritesHome(),
     // tickets(),
     // notifications(),
-    homeFull(),
+    HomeFull(),
   ];
 
   void _onItemTapped(int index) {

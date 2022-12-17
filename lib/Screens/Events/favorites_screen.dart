@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, avoid_print
+import 'package:ethiocart/Screens/HomeView/Widgets/home_page_widgets.dart';
 import 'package:ethiocart/Screens/Profile/profile_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -11,61 +12,47 @@ class favoritesHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 8,
-        foregroundColor: Colors.white,
-        backgroundColor:Color(0xff428678),
+        elevation: 0,
+        foregroundColor: Colors.black,
+        backgroundColor: Colors.white,
         title: Row(
-        // ignore: prefer_const_literals_to_create_immutables
-        children: [
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => profileView()),
-              );
-            },
-            child: Text(
-              'Favorites', style: TextStyle(fontSize: 25),),
-          ),
-          Spacer(),
-          Icon(Icons.search, color: Colors.white, size: 30),
-        ],
-      ),
+          // ignore: prefer_const_literals_to_create_immutables
+          children: [
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => profileView()),
+                );
+              },
+              child: Text(
+                'Favorites',
+                style: TextStyle(fontSize: 25),
+              ),
             ),
+            Spacer(),
+          ],
+        ),
+      ),
       body: Material(
-        color: Color(0xffededed),
         // color: Colors.white,
         child: Container(
-          color: Colors.transparent,
+          color: Colors.white,
           child: SafeArea(
             child: SingleChildScrollView(
               child: Column(
                 children: [
                   // viewsbutton(),
-                  Container(margin: EdgeInsets.only(top: 10, bottom: 10),),
+                  Container(
+                    margin: EdgeInsets.only(top: 0, bottom: 10),
+                  ),
                   Column(
                     children: [
-                      Container(
-                        //number favorites list label
-                        width: double.infinity,
-                        height: 40,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: Colors.white),
-                        padding: EdgeInsets.only(top: 5, left: 5),
-                        margin: EdgeInsets.only(bottom: 0, left: 10, right: 10, top: 5),
-                        child: Text(
-                          '44 Favorites',
-                          style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.black,
-                          ),
-                        ),
-                      ),
                       Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          for (var i = 0; i < 10; i++)
-                          favoritesCard(),
+                          SearchBar(),
+                          for (var i = 0; i < 6; i++) FavoritesCard(),
                         ],
                       ),
                     ],

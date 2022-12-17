@@ -10,24 +10,27 @@ Container beautiful_button() {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
-            margin: EdgeInsets.only(left: 10, right: 0, top: 30),
-            height: 50,
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+            margin: EdgeInsets.only(left: 10, right: 0, top: 0),
+            height: 55,
             width: 400,
             child: ElevatedButton(
                 style: ButtonStyle(
                     elevation: MaterialStateProperty.all(12),
                     shadowColor: MaterialStateProperty.all(Colors.black),
-                    backgroundColor: MaterialStateProperty.all(Color(0xff0b594c)),
+                    backgroundColor: MaterialStateProperty.all(
+                        Colors.teal.shade800
+                    ),
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(18.0),
+                            borderRadius: BorderRadius.circular(10.0),
                             side: BorderSide(color: Color(0xff0b594c))
                         )
                     )
                 ),
               onPressed: () {},
               child: Text(
-                'update profile',
+                'Update profile',
                 style: TextStyle(fontSize: 18),
               ),
             ),

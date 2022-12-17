@@ -8,8 +8,8 @@ class choose_theme extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor:Color(0xff428678),
-        foregroundColor: Colors.white,
+        backgroundColor:Colors.white,
+        foregroundColor: Colors.black,
         title: Text('Theme'),
       ),
       body: SafeArea(
@@ -25,26 +25,11 @@ class choose_theme extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(top: 250),
                   ),
-                  Text(
-                    'ethio',
-                    style: TextStyle(
-                        fontSize: 40,
-                        fontFamily: 'Gotham',
-                        fontWeight: FontWeight.w300),
-                  ),
-                  Text(
-                    'cart',
-                    style: TextStyle(
-                        color: Colors.blue,
-                        fontSize: 35,
-                        fontFamily: 'Marg',
-                        fontWeight: FontWeight.w200),
-                  )
                 ],
               ),
             ),
             Positioned(
-                top: 300,
+                top: 250,
                 child: Container(
                   width: MediaQuery.of(context).size.width,
                   height: 400,
@@ -73,8 +58,8 @@ class choose_theme extends StatelessWidget {
                           IconButton(
                             onPressed: () {},
                             icon: Icon(Icons.light_mode_outlined),
-                            iconSize: 60,
-                            color: Colors.grey,
+                            iconSize: 40,
+                            color: Colors.deepOrange,
                           ),
                           Padding(
                             padding: EdgeInsets.only(left: 40),
@@ -82,7 +67,7 @@ class choose_theme extends StatelessWidget {
                           IconButton(
                             onPressed: () {},
                             icon: Icon(Icons.dark_mode),
-                            iconSize: 60,
+                            iconSize: 40,
                             color: Colors.black,
                           ),
                         ],

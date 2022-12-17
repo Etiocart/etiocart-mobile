@@ -13,21 +13,17 @@ class _eventSearchBarState extends State<eventSearchBar> {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
-        Container(
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(Fieldvalue ? 360 : 360)),
-          child: AnimatedContainer(
-            duration: Duration(milliseconds: 1000),
-            margin: EdgeInsets.only(top: 40, left: 8, right: 8),
-            decoration: BoxDecoration(
-                color: Fieldvalue ? Color(0xffE0EBE3) : Color(0xff002f24),
-                borderRadius: BorderRadius.circular(Fieldvalue ? 360 : 360)),
-            child: Fieldvalue ? searchField() : searchButton(),
-          ),
-        )
-      ]),
+    return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(Fieldvalue ? 360 : 360)),
+      child: AnimatedContainer(
+        duration: Duration(milliseconds: 1000),
+        margin: EdgeInsets.only(top: 12, left: 14, right: 8),
+        decoration: BoxDecoration(
+            color: Fieldvalue ? Colors.transparent : Colors.teal.shade900,
+            borderRadius: BorderRadius.circular(Fieldvalue ? 360 : 360)),
+        child: Fieldvalue ? searchField() : searchButton(),
+      ),
     );
   }
 
@@ -35,11 +31,10 @@ class _eventSearchBarState extends State<eventSearchBar> {
     return ListTile(
       contentPadding: EdgeInsets.only(left: 15),
       title: TextField(
-        style: TextStyle(fontSize: 18),
+        style: TextStyle(fontSize: 18, color: Colors.white),
         decoration: InputDecoration(
           hintText: 'Search in events',
-          hintStyle: TextStyle(fontSize: 18),
-          fillColor: Colors.grey.withOpacity(0.0),
+          hintStyle: TextStyle(fontSize: 18, color: Colors.white),
           border: InputBorder.none,
         ),
       ),
@@ -66,7 +61,7 @@ class _eventSearchBarState extends State<eventSearchBar> {
   Widget clearButton() {
     return DecoratedBox(
       decoration: BoxDecoration(
-          color: Color(0xff0B594C), borderRadius: BorderRadius.circular(360)),
+          borderRadius: BorderRadius.circular(360)),
       child: IconButton(
         tooltip: 'clear',
         icon: Icon(

@@ -10,79 +10,86 @@ class gridCard extends StatelessWidget {
         Row(
           children: [
             Container(
-              margin: EdgeInsets.only(top: 0, left: 10, right: 10, bottom: 0),
-              height: 420,
+              margin: const EdgeInsets.only(top: 0, left: 15, right: 10, bottom: 15),
+              height: 350,
               width: 340,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(30),
                 color: Colors.white,
               ),
               child: Column(children: [
                 Material(
                   elevation: 0,
-                  borderRadius: BorderRadius.circular(10),
                   child: Container(
-                    margin: EdgeInsets.only(top: 10, bottom: 0),
-                    height: 300,
-                    width: 360,
+                    margin: const EdgeInsets.only(top: 10, bottom: 0),
+                    height: 340,
+                    width: 340,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(25),
+                      borderRadius: BorderRadius.circular(35),
                       color: Colors.white,
                     ),
-                    child: Material(
-                      elevation: 0,
-                      borderRadius: BorderRadius.circular(10),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Colors.blue,
-                          image: DecorationImage(
-                            fit: BoxFit.fill,
-                            image: AssetImage('assets/images/image2.jpg'),
+                    child: Stack(
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(35),
+                            image: const DecorationImage(
+                              fit: BoxFit.fill,
+                              colorFilter: ColorFilter.mode(
+                                Colors.black45,
+                                BlendMode.darken,
+                              ),
+                              image: AssetImage('assets/images/540.png'),
+                            ),
                           ),
                         ),
-                      ),
+                        Container(
+                          margin: EdgeInsets.only(top: 230, left: 30),
+                          child: const Text(
+                            'Concerto',
+                            style: TextStyle(color: Colors.white,
+                                fontSize: 40),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(top: 270, left: 30),
+                          child: const Text(
+                            'Bole AirPort',
+                            style: TextStyle(color: Colors.white,
+                                fontSize: 32),
+                          ),
+                        )
+                      ],
                     ),
                     // child: Image(image: AssetImage('assets/images/Image1.png')),
                   ),
                 ),
-                Stack(children: [
 
-                  Column(
-                    children: const [
-                      // AspectRatio(aspectRatio: 2/2),
-                      Padding(padding: EdgeInsets.only(bottom: 0)),
-                      Text(
-                        'National Music Festival',
-                        style: TextStyle(
-                          fontFamily: 'SFCompact',
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Padding(padding: EdgeInsets.only(bottom: 0)),
-                      Text('Mon, Dec 24 18:00 - 23:00',
-                          style: TextStyle(
-                            fontFamily: 'SFCompact',
-                            fontSize: 26,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.indigoAccent,
-                          )),
-                      Padding(padding: EdgeInsets.only(bottom: 0)),
-                      Text('Grand Park, New York',
-                          style: TextStyle(
-                            fontFamily: 'SFCompact',
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.blueGrey,
-                          )),
-                    ],
-                  ),
-                ])
               ]),
             ),
           ],
-        )
+        ),
+        // Container(
+        //   child: Column(
+        //     children: [
+        //       const Text(
+        //         'Bole AirPort',
+        //         style: TextStyle(color: Colors.black,
+        //             fontSize: 32),
+        //       ),
+        //       const Text(
+        //         'Bole AirPort',
+        //         style: TextStyle(color: Colors.black,
+        //             fontSize: 32),
+        //       ),
+        //       const Text(
+        //         'Bole AirPort',
+        //         style: TextStyle(color: Colors.black,
+        //             fontSize: 32),
+        //       ),
+        //     ],
+        //   ),
+        // )
       ],
     );
   }
