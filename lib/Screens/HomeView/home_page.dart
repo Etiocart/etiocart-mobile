@@ -1,5 +1,6 @@
 // ignore_for_file: non_constant_identifier_names, prefer_const_constructors
 import 'package:flutter/material.dart';
+import '../bottom_nav_screen.dart';
 import 'Widgets/home_page_widgets.dart';
 
 class HomeFull extends StatelessWidget {
@@ -7,24 +8,17 @@ class HomeFull extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TabView();
+    return BottomNavBar();
   }
 }
-
-var notification = "notification";
-
-List<String> button_values = ['music', 'art', 'workshop'];
-final List<Map> gvt =
-List.generate(2, (index) => {"id": index, "name": "Product $index"})
-    .toList();
-Widget TabView() {
+Widget HomeTabView() {
   return MaterialApp(
     debugShowCheckedModeBanner: false,
     theme: ThemeData(
       colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.teal.shade800)
     ),
     home: DefaultTabController(
-      length: 3,
+      length: 2,
       child: Scaffold(
         appBar: AppBar(
           elevation: 0,
@@ -37,18 +31,17 @@ Widget TabView() {
             indicatorColor: Colors.teal,
             tabs: [
               Tab(
-
                   child: Text(
                     'Events',
                     style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 18,
                         fontFamily: 'SFPro',
                         ),
                   )),
               Tab(
                   child: Text('Transport',
                       style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 18,
                           fontFamily: 'SFPro',
                           ))),
             ],

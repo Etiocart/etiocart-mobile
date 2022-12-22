@@ -12,11 +12,12 @@ class TransportTab extends StatefulWidget {
 class _TransportTabState extends State<TransportTab> {
   @override
   Widget build(BuildContext context) {
-    return Container(child: transportTabContent(),);
+    return transportTabContent();
   }
 }
 
 Widget transportTabContent() {
+
   return Container(
     color: Colors.white,
     child: Stack(
@@ -24,6 +25,13 @@ Widget transportTabContent() {
         ListView(
           scrollDirection: Axis.vertical,
           children: [
+            Column(
+
+              children: [
+                eventSearchBar(),
+              ],
+              crossAxisAlignment: CrossAxisAlignment.start,
+            ),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
@@ -66,10 +74,7 @@ Widget transportTabContent() {
               ),
             )
           ],
-        ),
-        Container(
-            margin: const EdgeInsets.only(top: 5, left: 5, bottom: 0),
-            child: const eventSearchBar())
+        )
       ],
     ),
   );

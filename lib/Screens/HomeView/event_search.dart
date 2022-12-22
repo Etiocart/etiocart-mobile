@@ -17,28 +17,47 @@ class _eventSearchBarState extends State<eventSearchBar> {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(Fieldvalue ? 360 : 360)),
       child: AnimatedContainer(
-        duration: Duration(milliseconds: 1000),
-        margin: EdgeInsets.only(top: 12, left: 14, right: 8),
+        height: 50,
+        padding: EdgeInsets.only(),
+        duration: Duration(milliseconds: 0),
         decoration: BoxDecoration(
-            color: Fieldvalue ? Colors.transparent : Colors.teal.shade900,
             borderRadius: BorderRadius.circular(Fieldvalue ? 360 : 360)),
-        child: Fieldvalue ? searchField() : searchButton(),
+        child:searchField(),
       ),
     );
   }
 
   Widget searchField() {
+    var _controller = TextEditingController();
     return ListTile(
       contentPadding: EdgeInsets.only(left: 15),
-      title: TextField(
-        style: TextStyle(fontSize: 18, color: Colors.white),
-        decoration: InputDecoration(
-          hintText: 'Search in events',
-          hintStyle: TextStyle(fontSize: 18, color: Colors.white),
-          border: InputBorder.none,
+      title: Container(
+        child: TextField(
+          controller: _controller,
+          style: TextStyle(fontSize: 18, color: Colors.teal.shade800),
+          decoration: InputDecoration(
+            prefixIcon: searchButton(),
+            hintText: 'Search in events',
+            hintStyle: TextStyle(fontSize: 18, color: Colors.teal.shade800),
+            border: InputBorder.none,
+            suffixIcon: IconButton(
+              tooltip: 'clear',
+              icon: Icon(
+                FontAwesomeIcons.xmark,
+                color: Colors.teal.shade800,
+              ),
+              onPressed: () {
+                if (mounted)
+                  setState(() {
+                    _controller.clear;
+                  });
+              },
+            ),
+
+          ),
+
         ),
       ),
-      trailing: clearButton(),
     );
   }
 
@@ -47,34 +66,15 @@ class _eventSearchBarState extends State<eventSearchBar> {
       tooltip: 'search',
       icon: Icon(
         FontAwesomeIcons.magnifyingGlass,
-        color: Colors.white,
+        color: Colors.teal.shade800,
+        size: 25,
       ),
       onPressed: () {
         if (mounted)
           setState(() {
-            Fieldvalue = true;
           });
       },
     );
   }
 
-  Widget clearButton() {
-    return DecoratedBox(
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(360)),
-      child: IconButton(
-        tooltip: 'clear',
-        icon: Icon(
-          FontAwesomeIcons.xmark,
-          color: Colors.white,
-        ),
-        onPressed: () {
-          if (mounted)
-            setState(() {
-              Fieldvalue = false;
-            });
-        },
-      ),
-    );
-  }
 }

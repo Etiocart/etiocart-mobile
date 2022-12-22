@@ -13,7 +13,13 @@ class Notifications extends StatelessWidget {
     FontAwesomeIcons.info,
     FontAwesomeIcons.info,
     FontAwesomeIcons.info,
-    FontAwesomeIcons.info,
+    FontAwesomeIcons.airbnb,
+  ];
+
+  List <String> Titles = [
+    'Booking',
+    'profile change',
+    'new event'
   ];
 
   Widget build(BuildContext context) {
@@ -24,7 +30,7 @@ class Notifications extends StatelessWidget {
             'Notification',
             style: TextStyle(
               color: Colors.teal.shade900,
-                fontSize: 25,
+                fontSize: 22,
                 fontFamily: 'SFPro',
                 fontWeight: FontWeight.w500
             ),
@@ -76,12 +82,12 @@ class Notifications extends StatelessWidget {
                             borderRadius: BorderRadius.circular(50),
                             color: Colors.grey.shade200),
                       ),
-                      for (var i = 0; i < 4; i++)
+
                         Container(
                           margin: EdgeInsets.only(top: 15, left: 15),
                           child:
                           Icon(
-                            NotIcons[i],
+                            NotIcons[3],
                             color: Colors.red.shade600,
                             size: 30,
                           ),

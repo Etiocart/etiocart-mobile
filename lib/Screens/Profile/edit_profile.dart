@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'profiles_widget/pro_widgets.dart';
-import './profiles_widget/button1.dart';
+import './profiles_widget/update_button.dart';
 
 class editProfile extends StatefulWidget {
   const editProfile({super.key});
@@ -26,10 +26,10 @@ class _editProfileState extends State<editProfile> {
         elevation: 0,
         title: Text(
           'Profile',
-          style: TextStyle(fontSize: 25),
+          style: TextStyle(fontSize: 22),
         ),
         backgroundColor: Colors.white,
-        foregroundColor: Colors.black,
+        foregroundColor: Colors.teal.shade800,
       ),
       body: editBody(context),
     );
@@ -40,7 +40,7 @@ class _editProfileState extends State<editProfile> {
       child: ListView(
         children: [
           Container(
-            margin: EdgeInsets.only(top: 40, left: 10, right: 10),
+            margin: EdgeInsets.only(top: 30, left: 10, right: 10),
             child: Column(
               children: [
                 Row(
@@ -48,12 +48,13 @@ class _editProfileState extends State<editProfile> {
                   children: [
                     Stack(children: [
                       Material(
-                        elevation: 15,
+                        elevation: 0,
                         borderRadius: BorderRadius.circular(150),
                         child: Container(
                           width: 150,
                           height: 150,
                           decoration: BoxDecoration(
+                              border: Border.all(color: Colors.white),
                               borderRadius: BorderRadius.circular(150),
                               color: Colors.grey.shade200),
                         ),
@@ -66,7 +67,7 @@ class _editProfileState extends State<editProfile> {
                             borderRadius: BorderRadius.circular(40),
                             color: Colors.blueAccent),
                         child: Material(
-                          elevation: 18,
+                          elevation: 0,
                           color: Colors.transparent,
                           child: Icon(
                             FontAwesomeIcons.pencil,
@@ -118,7 +119,7 @@ class _editProfileState extends State<editProfile> {
                 Row(
                   children: [
                     Container(
-                      child: beautiful_button(),
+                      child: UpdateButton(),
                     ),
                   ],
                 ),
@@ -165,7 +166,7 @@ class _editProfileState extends State<editProfile> {
               '${date.year}/${date.month}/${date.day}',
               style: TextStyle(
                   fontSize: 16,
-                  color: Colors.blue,
+                  color: Colors.teal.shade800,
                   fontWeight: FontWeight.w500),
             ),
           ),
@@ -182,7 +183,7 @@ class _editProfileState extends State<editProfile> {
               },
               child: Icon(
                 FontAwesomeIcons.calendar,
-                color: Colors.blue,
+                color: Colors.teal.shade600,
               ))
         ],
       ),

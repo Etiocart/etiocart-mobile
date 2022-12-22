@@ -32,14 +32,11 @@ class gridCard extends StatelessWidget {
                       children: [
                         Container(
                           decoration: BoxDecoration(
+                            color: Colors.deepPurple,
                             borderRadius: BorderRadius.circular(35),
                             image: const DecorationImage(
                               fit: BoxFit.fill,
-                              colorFilter: ColorFilter.mode(
-                                Colors.black45,
-                                BlendMode.darken,
-                              ),
-                              image: AssetImage('assets/images/540.png'),
+                              image: AssetImage('assets/images/542.png'),
                             ),
                           ),
                         ),

@@ -49,10 +49,10 @@ class LoginScreen extends StatelessWidget {
                       ])),
                   Center(
                     child: Text(
-                      'LogIn',
+                      'Log In',
                       style:
                           TextStyle(fontSize: 30,
-                              color: Colors.teal.shade700,
+                              color: Colors.teal.shade800,
                               fontWeight: FontWeight.w600),
                       textAlign: TextAlign.center,
                     ),

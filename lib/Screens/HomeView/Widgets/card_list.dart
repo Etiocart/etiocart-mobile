@@ -1,5 +1,6 @@
 import 'package:ethiocart/Screens/Events/favorites_screen.dart';
 import 'package:ethiocart/Screens/HomeView/event_search.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -27,65 +28,86 @@ class _cardListScreenState extends State<cardListScreen> {
         );
       },
       child: Container(
-        margin: EdgeInsets.only(top: 10, left: 10, right: 5),
-        height: 300,
+        margin: EdgeInsets.only(top: 5, left: 10),
+        height: 270,
         width: 340,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: BorderRadius.circular(20),
+          color: Colors.deepPurple,
           image: DecorationImage(
             fit: BoxFit.fill,
-            colorFilter: ColorFilter.mode(
-              Colors.white,
-              BlendMode.darken,
-            ),
-            image: AssetImage('assets/images/540.png'),
+            image: AssetImage('assets/images/541.png'),
           ),
         ),
         child: Container(
           child: Stack(
             children: [
               Container(
+                margin: EdgeInsets.only(top: 10, left: 10),
                 decoration: BoxDecoration(
-                  // gradient: LinearGradient(
-                  //     begin: Alignment.topCenter,
-                  //     end: Alignment.bottomCenter,
-                  //     colors: <Color>[Colors.white, Colors.black]),
-                    color: Colors.black.withOpacity(0.8),
+                    borderRadius: BorderRadius.circular(360),
+                    color: Colors.deepPurple),
+                child: IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      CupertinoIcons.heart,
+                      color: Colors.white,
+                    )),
+              ),
+              Container(
+                margin: EdgeInsets.only(left: 260, top: 10),
+                height: 65,
+                width: 65,
+                padding: EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                    color: Colors.deepOrangeAccent,
+                    borderRadius: BorderRadius.circular(10)),
+                child: Center(
+                    child: Text(
+                  'DEC 30 ',
+                  style: TextStyle(fontSize: 20, color: Colors.white),
+                )),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: <Color>[Colors.transparent, Colors.black]),
+                    //   color: Colors.black.withOpacity(0.8),
                     borderRadius: BorderRadius.only(
-                        bottomRight: Radius.circular(30),
-                        bottomLeft: Radius.circular(30))),
+                        bottomRight: Radius.circular(20),
+                        bottomLeft: Radius.circular(20))),
                 height: 100,
-                margin: EdgeInsets.only(top: 200),
+                margin: EdgeInsets.only(top: 170),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                      margin: EdgeInsets.only(bottom: 5, left: 25),
-                      child: Text(
-                        'National Music Festival',
-                        style: TextStyle(fontSize: 22, color: Colors.white),
+                    Flexible(
+                      child: Container(
+                        width: 340,
+                        margin: EdgeInsets.only(bottom: 5, left: 25),
+                        child: Text(
+                          'National Music Festival',
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(fontSize: 22, color: Colors.white),
+                        ),
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(bottom: 5, left: 25),
-                      child: Text(
-                        'Monday, Dec 18 16:00 ',
-                        style: TextStyle(fontSize: 18, color: Colors.white),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(bottom: 10, left: 10),
+                      margin: EdgeInsets.only(bottom: 5, left: 10),
                       child: Row(
                         children: [
                           Container(
-                              margin: EdgeInsets.only(right: 10, left: 10),
-                              child: Icon(
-                                Icons.location_on_sharp,
-                                color: Colors.white,
-                              )),
+                            margin: EdgeInsets.only(right: 10, left: 10),
+                            // child: Icon(
+                            //   Icons.location_on_sharp,
+                            //   color: Colors.white,
+                            // )
+                          ),
                           Text(
-                            'Grand Park, New york',
+                            'Grand Park, NY',
                             style: TextStyle(fontSize: 18, color: Colors.white),
                           ),
                         ],
