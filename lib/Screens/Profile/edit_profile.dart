@@ -40,7 +40,7 @@ class _editProfileState extends State<editProfile> {
       child: ListView(
         children: [
           Container(
-            margin: EdgeInsets.only(top: 40, left: 10, right: 10),
+            // margin: EdgeInsets.only(top: 40, left: 10, right: 10),
             child: Column(
               children: [
                 Row(
@@ -51,12 +51,12 @@ class _editProfileState extends State<editProfile> {
                         elevation: 15,
                         borderRadius: BorderRadius.circular(150),
                         child: Container(
-                          width: 150,
-                          height: 150,
-                          decoration: BoxDecoration(
+                            width: 150,
+                            height: 150,
+                            decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(150),
-                              color: Colors.grey.shade200),
-                        ),
+                              color: Theme.of(context).backgroundColor,
+                            )),
                       ),
                       Container(
                         margin: EdgeInsets.only(left: 105, top: 105),
@@ -140,7 +140,7 @@ class _editProfileState extends State<editProfile> {
       child: TextField(
         decoration: InputDecoration(
             filled: true,
-            fillColor:Color(0xffE0EBE3),
+            fillColor: Color(0xffE0EBE3),
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10.0),
                 borderSide: BorderSide.none),

@@ -46,6 +46,9 @@ dependencies:
   intl_phone_number_input: ^0.7.1
   font_awesome_flutter: ^10.3.0
   qr_flutter: ^4.0.0
+  material_design_icons_flutter: ^6.0.7096
+  shared_preferences: ^2.0.15
+  provider: ^6.0.5
 
 
 dev_dependencies:

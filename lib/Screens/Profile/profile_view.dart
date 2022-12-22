@@ -2,6 +2,7 @@
 // avoid_print
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../authentication/login.dart';
 import 'profile_export.dart';
@@ -30,87 +31,112 @@ class profileView extends StatelessWidget {
   ];
 
   List<IconData> fontawesomeIcons = [
-    FontAwesomeIcons.calendar,
-    FontAwesomeIcons.moon,
-    FontAwesomeIcons.user,
-    FontAwesomeIcons.info,
-    FontAwesomeIcons.wallet,
-    FontAwesomeIcons.ticket,
+    MdiIcons.calendarBlankOutline,
+    MdiIcons.themeLightDark,
+    MdiIcons.accountOutline,
+    MdiIcons.commentQuestionOutline,
+    MdiIcons.walletOutline,
+    MdiIcons.ticketConfirmationOutline,
   ];
-  List<String> flatIcons = [
-    'assets/icons/calendar-check.png',
-    'assets/icons/chat.png',
-    'assets/icons/user.png',
-    'assets/icons/notification.png',
-    'assets/icons/credit-card(1).png',
-    'assets/icons/ticket.png',
-  ];
+  // List<String> flatIcons = [
+  //   'assets/icons/calendar-check.png',
+  //   'assets/icons/chat.png',
+  //   'assets/icons/user.png',
+  //   'assets/icons/notification.png',
+  //   'assets/icons/credit-card(1).png',
+  //   'assets/icons/ticket.png',
+  // ];
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-          fontFamily: 'Gotham'),
-      home: Material(
-        child: Scaffold(
-            appBar: AppBar(
-              elevation: 0,
-              title: Row(
-                children: [
-                  Text(
-                    'Profile',
-                    style: TextStyle(
-                        color: Colors.teal.shade800,
-                        fontSize: 25,),
+    return Material(
+      child: Scaffold(
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          appBar: AppBar(
+            automaticallyImplyLeading: false,
+            // actions: [
+            //   Padding(
+            //     padding: const EdgeInsets.only(right: 10),
+            //     child: IconButton(
+            //         color: Theme.of(context).iconTheme.color,
+            //         onPressed: () {
+            //           Navigator.push(
+            //             context,
+            //             MaterialPageRoute(builder: (context) => bottom_nav()),
+            //           );
+            //         },
+            //         icon: Image.asset('assets/icons/home.png',
+            //             width: 30,
+            //             height: 30,
+            //             color: Theme.of(context).iconTheme.color)),
+            //   ),
+            // ],
+            // elevation: 0,
+            // title: Text(
+            //   'Profile',
+            //   style: TextStyle(
+            //     color: Theme.of(context).primaryColor,
+            //     fontSize: 25,
+            //   ),
+            // ),
+
+            title: Row(
+              children: [
+                Text(
+                  'Profile',
+                  style: TextStyle(
+                    color: Theme.of(context).primaryColor,
+                    fontSize: 25,
                   ),
-                  Spacer(),
-                  IconButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => HomeFull()),
-                        );
-                      },
-                      icon: Image.asset('assets/icons/home.png',
-                          width: 30, height: 30, color: Colors.teal.shade800)),
-                ],
-              ),
-              foregroundColor: Colors.black,
-              backgroundColor:Colors.white,
-              // Color(0xff428678)
+                ),
+                Spacer(),
+                IconButton(
+                    color: Theme.of(context).iconTheme.color,
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => bottom_nav()),
+                      );
+                    },
+                    icon: Image.asset('assets/icons/home.png',
+                        width: 30,
+                        height: 30,
+                        color: Theme.of(context).iconTheme.color)),
+              ],
             ),
-            body: SafeArea(child: profileScreen(context))),
-      ),
+            backgroundColor: Theme.of(context).backgroundColor,
+            // foregroundColor: Colors.black,
+            // backgroundColor: Colors.white,
+            // Color(0xff428678)
+          ),
+          body: SafeArea(child: profileScreen(context))),
     );
   }
 
   Widget profileScreen(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 40, left: 20, right: 20),
+      margin: EdgeInsets.only(top: 10, left: 20, right: 20),
       width: double.infinity,
       height: double.infinity,
-      color: Colors.transparent,
+      // color: Colors.red,
       child: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
             Material(
-              elevation: 4,
+              elevation: 0,
               borderRadius: BorderRadius.circular(360),
               child: Container(
                 width: 150,
                 height: 150,
                 margin: EdgeInsets.only(bottom: 0),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(150),
-                  color: Color(0xffe2ede5),
-                ),
+                    borderRadius: BorderRadius.circular(150),
+                    color: Theme.of(context).cardColor),
                 child: Center(
                     child: Icon(
                   FontAwesomeIcons.user,
-                  color: Colors.teal.shade400,
+                  color: Theme.of(context).iconTheme.color,
                   size: 35,
                 )),
               ),
@@ -119,7 +145,7 @@ class profileView extends StatelessWidget {
             Text(
               'Andrew Ainsley',
               style: TextStyle(
-                  color: Colors.black,
+                  color: Theme.of(context).primaryColor,
                   fontSize: 25,
                   fontFamily: 'Gotham',
                   fontWeight: FontWeight.w400),
@@ -132,8 +158,7 @@ class profileView extends StatelessWidget {
                   Container(
                     margin: EdgeInsets.only(right: 0, top: 0),
                     child: Column(
-                      children: [
-                      ],
+                      children: [],
                     ),
                   ),
                   Container(
@@ -186,14 +211,13 @@ class profileView extends StatelessWidget {
               ),
             ),
             Container(
-              // color: Colors.white,
+              // color: Colors.red,
               margin: EdgeInsets.only(top: 10),
               child: Column(
                 children: [
                   for (var i = 0; i < 6; i++)
-                    (
-                        Container(
-                          margin: EdgeInsets.only(bottom: 10),
+                    (Container(
+                      margin: EdgeInsets.only(bottom: 10),
                       child: InkWell(
                         focusColor: Colors.white,
                         onTap: () {
@@ -207,37 +231,38 @@ class profileView extends StatelessWidget {
                           children: [
                             Row(
                               children: [
-                                Material(
-                                  borderRadius: BorderRadius.circular(20),
-                                  elevation: 1,
-                                  child: Container(
-                                    // margin: EdgeInsets.only(right: 5),
-                                    // height: 25,
-                                    // width: 25,
-                                    // child: Icon(fontawesomeIcons[i],
-                                    //   size: 30,
-                                    // ),
-                                    width: 40,
-                                    height: 40,
-                                    padding: EdgeInsets.all(10),
-                                    decoration: BoxDecoration(
-                                        color: Color(0xffe2ede5),
-                                        borderRadius: BorderRadius.circular(20)),
-                                    child: Image.asset(
-                                      flatIcons[i],
-                                      width: 25,
-                                      height: 25,
-                                      color: Colors.teal.shade900,
-                                    ),
-                                  ),
+                                Container(
+                                  // margin: EdgeInsets.only(right: 5),
+                                  // height: 25,
+                                  // width: 25,
+                                  // child: Icon(fontawesomeIcons[i],
+                                  //   size: 30,
+                                  // ),
+                                  width: 40,
+                                  height: 40,
+                                  // padding: EdgeInsets.all(10),
+                                  // decoration: BoxDecoration(
+                                  //     color: Theme.of(context).cardColor,
+                                  //     borderRadius:
+                                  //         BorderRadius.circular(20)),
+                                  child: Icon(fontawesomeIcons[i],
+                                      size: 25,
+                                      color: Theme.of(context).iconTheme.color),
+                                  // Image.asset(
+                                  //   flatIcons[i],
+                                  //   width: 25,
+                                  //   height: 25,
+                                  //   color: Colors.teal.shade900,
+                                  // ),
                                 ),
                                 Container(
                                     margin: EdgeInsets.only(left: 15),
                                     child: Text(
                                       tabNames[i],
                                       style: TextStyle(
-                                        fontSize: 20,
-                                      ),
+                                          fontSize: 20,
+                                          color:
+                                              Theme.of(context).primaryColor),
                                     )),
 
                                 Spacer(),
@@ -246,7 +271,6 @@ class profileView extends StatelessWidget {
                                 //   child: Image.asset('assets/icons/gts.png',
                                 //       width: 35, height: 35, color: Colors.black),
                                 // ),
-
                               ],
                             ),
                             Padding(
@@ -270,18 +294,19 @@ class profileView extends StatelessWidget {
                     child: Row(
                       children: [
                         Container(
-                          // child: Image.asset('assets/icons/exit.png',
-                          // child: Icon(FontAwesomeIcons.arrowRightFromBracket,
-                          //     color: Colors.red),
-                        ),
+                            // child: Image.asset('assets/icons/exit.png',
+                            // child: Icon(FontAwesomeIcons.arrowRightFromBracket,
+                            //     color: Colors.red),
+                            ),
                         Container(
-                          margin: EdgeInsets.only(left: 140, top: 20),
+                            // decoration: BoxDecoration(border: Border),
+                            margin: EdgeInsets.only(left: 140, top: 20),
                             child: Text(
                               'Logout',
                               style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.w500,
-                                  color: Colors.red),
+                                  color: Theme.of(context).primaryColor),
                             )),
                         // Spacer(),
                         // Container(
@@ -301,4 +326,3 @@ class profileView extends StatelessWidget {
     );
   }
 }
-
