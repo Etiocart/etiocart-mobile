@@ -8,7 +8,7 @@ class choose_theme extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor:Colors.white,
+        backgroundColor: Colors.white,
         foregroundColor: Colors.black,
         title: Text('Theme'),
       ),

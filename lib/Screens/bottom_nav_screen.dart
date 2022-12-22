@@ -1,3 +1,4 @@
+import 'package:ethiocart/Screens/setting_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'Screens.dart';
@@ -21,20 +22,17 @@ class _bottom_navState extends State<bottom_nav> {
   static const List<Widget> _widgetOptions = <Widget>[
     Text(
       'Index 0: foryou',
-      style: TextStyle(color: Colors.black,fontSize: 30),
+      style: TextStyle(color: Colors.black, fontSize: 30),
     ),
     Text(
       'Index 1: discover',
       style: TextStyle(color: Colors.black, fontSize: 30),
     ),
-    Text(
-      'Index 2: moments',
-      style: TextStyle(color: Colors.black,fontSize: 30),
-    ),
-    Text(
-      'Index 3: profile',
-      style: TextStyle(color: Colors.black,fontSize: 30),
-    ),
+    Setting_page(),
+    // Text(
+    //   'Index 3: profile',
+    //   style: TextStyle(color: Colors.black,fontSize: 30),
+    // ),
 
     // notifications(),
     // favoritesHome(),
@@ -78,7 +76,6 @@ class _bottom_navState extends State<bottom_nav> {
                 color: Colors.black54,
               ),
               label: 'Personal',
-
               activeIcon: Container(
                 width: 80,
                 height: 35,
@@ -86,7 +83,6 @@ class _bottom_navState extends State<bottom_nav> {
                     color: Colors.green.shade100,
                     borderRadius: BorderRadius.circular(360)),
                 padding: EdgeInsets.all(5),
-
                 child: Image.asset(
                   "assets/icons/home_filled.png",
                   width: 25,
