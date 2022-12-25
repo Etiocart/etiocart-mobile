@@ -38,7 +38,9 @@ class _eventSearchBarState extends State<eventSearchBar> {
           decoration: InputDecoration(
             prefixIcon: searchButton(),
             hintText: 'Search in events',
-            hintStyle: TextStyle(fontSize: 18, color: Colors.teal.shade800),
+            hintStyle: TextStyle(
+                fontSize: 18, color: Colors.teal.shade800,
+            fontFamily: 'SFPro'),
             border: InputBorder.none,
             suffixIcon: IconButton(
               tooltip: 'clear',

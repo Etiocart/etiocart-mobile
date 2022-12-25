@@ -14,16 +14,12 @@ class profileView extends StatelessWidget {
   List<Widget> routePages = [
     // for (var i = 0; i < 13; i++)
     favoritesHome(),
-    choose_theme(),
-    editProfile(),
     helpCenter(),
     paymentWallet(),
     tickets()
   ];
   List<String> tabNames = [
-    'Manage events',
-    'Choose theme',
-    'Edit profile',
+    'favorite events',
     'Help center',
     'Wallet',
     'Tickets'
@@ -32,17 +28,14 @@ class profileView extends StatelessWidget {
   List<IconData> fontawesomeIcons = [
     FontAwesomeIcons.calendar,
     FontAwesomeIcons.moon,
-    FontAwesomeIcons.user,
     FontAwesomeIcons.info,
     FontAwesomeIcons.wallet,
     FontAwesomeIcons.ticket,
   ];
   List<String> flatIcons = [
     'assets/icons/calendar-check.png',
-    'assets/icons/chat.png',
-    'assets/icons/user.png',
-    'assets/icons/notification.png',
-    'assets/icons/credit-card(1).png',
+    'assets/icons/question.png',
+    'assets/icons/credit-card.png',
     'assets/icons/ticket.png',
   ];
 
@@ -121,7 +114,7 @@ class profileView extends StatelessWidget {
               style: TextStyle(
                   color: Colors.black,
                   fontSize: 25,
-                  fontFamily: 'Gotham',
+                  fontFamily: 'SFPro',
                   fontWeight: FontWeight.w400),
             ),
             Container(
@@ -190,7 +183,7 @@ class profileView extends StatelessWidget {
               margin: EdgeInsets.only(top: 10),
               child: Column(
                 children: [
-                  for (var i = 0; i < 6; i++)
+                  for (var i = 0; i < 4; i++)
                     (
                         Container(
                           margin: EdgeInsets.only(bottom: 10),

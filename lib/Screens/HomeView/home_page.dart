@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import '../bottom_nav_screen.dart';
 import 'Widgets/home_page_widgets.dart';
+import './Widgets/transport_tab_content.dart';
 
 class HomeFull extends StatelessWidget {
   const HomeFull({super.key});
@@ -15,6 +16,7 @@ Widget HomeTabView() {
   return MaterialApp(
     debugShowCheckedModeBanner: false,
     theme: ThemeData(
+      fontFamily: 'SFPro',
       colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.teal.shade800)
     ),
     home: DefaultTabController(
@@ -50,7 +52,7 @@ Widget HomeTabView() {
         body: TabBarView(
           children: [
             EventTab(),
-            transportTabContent()
+            TransportTab()
           ],
         ),
       ),

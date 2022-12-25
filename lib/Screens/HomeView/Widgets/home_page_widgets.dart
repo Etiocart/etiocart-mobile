@@ -1,6 +1,6 @@
 export 'card_list.dart';
 export 'category_view.dart';
-export 'PopularEvents.dart';
+export 'popular_events.dart';
 export 'events_grid.dart';
 export 'events_types.dart';
 export 'greeting_container.dart';

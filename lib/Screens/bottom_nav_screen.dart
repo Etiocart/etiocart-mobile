@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:ethiocart/Screens/settings.dart';
 import 'package:flutter/material.dart';
 import 'Screens.dart';
 
@@ -17,7 +17,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   int _selectedIndex = 0;
   int currentIndex = 0;
-  final List<Widget> _children = [];
   static List<Widget> _widgetOptions = <Widget>[
     Text(
       'Index 0: foryou',
@@ -28,20 +27,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
       'Index 2: moments',
       style: TextStyle(color: Colors.black,fontSize: 30),
     ),
-    Text(
-      'Index 3: profile',
-      style: TextStyle(color: Colors.black,fontSize: 30),
-    ),
+    Settings(),
     HomeFull(),
   ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      setState(() {
-        _selectedIndex = index;
-      });
-    });
-  }
 
   void onTabTapped(int index) {
     setState(() {
@@ -111,7 +99,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                 width: 20,
                 height: 20,
                 color: Colors.teal.shade800,              ),
-              label: 'Featured',
+              label: 'Settings',
               activeIcon: Image.asset(
                 "assets/icons/user_filled.png",
                 width: 20,

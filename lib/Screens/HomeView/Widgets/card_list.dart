@@ -1,30 +1,24 @@
 import 'package:ethiocart/Screens/Events/favorites_screen.dart';
-import 'package:ethiocart/Screens/HomeView/event_search.dart';
+import 'package:ethiocart/Screens/HomeView/transport_detail.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class cardListScreen extends StatefulWidget {
   const cardListScreen({super.key});
 
   @override
   State<cardListScreen> createState() => _cardListScreenState();
-}
+  static Widget cardList(context,String Type, dynamic Location, AssetImage atImage) {
+    String type = Type;
+    dynamic location = Location;
 
-class _cardListScreenState extends State<cardListScreen> {
-  bool Fieldvalue = false;
-  @override
-  Widget build(BuildContext context) {
-    return cardList(context);
-  }
-
-  Widget cardList(context) {
+    AssetImage image = atImage;
     return InkWell(
       onDoubleTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => favoritesHome()),
+          MaterialPageRoute(builder: (context) => TransportDetail()),
         );
       },
       child: Container(
@@ -64,9 +58,11 @@ class _cardListScreenState extends State<cardListScreen> {
                     borderRadius: BorderRadius.circular(10)),
                 child: Center(
                     child: Text(
-                  'DEC 30 ',
-                  style: TextStyle(fontSize: 20, color: Colors.white),
-                )),
+                      'DEC 30 ',
+                      style: TextStyle(fontSize: 20, color: Colors.white,
+                          fontFamily: 'SFPro'
+                      ),
+                    )),
               ),
               Container(
                 decoration: BoxDecoration(
@@ -74,7 +70,6 @@ class _cardListScreenState extends State<cardListScreen> {
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
                         colors: <Color>[Colors.transparent, Colors.black]),
-                    //   color: Colors.black.withOpacity(0.8),
                     borderRadius: BorderRadius.only(
                         bottomRight: Radius.circular(20),
                         bottomLeft: Radius.circular(20))),
@@ -89,9 +84,10 @@ class _cardListScreenState extends State<cardListScreen> {
                         width: 340,
                         margin: EdgeInsets.only(bottom: 5, left: 25),
                         child: Text(
-                          'National Music Festival',
+                          type,
                           overflow: TextOverflow.ellipsis,
-                          style: TextStyle(fontSize: 22, color: Colors.white),
+                          style: TextStyle(fontSize: 22, color: Colors.white,
+                              fontFamily: 'SFPro'),
                         ),
                       ),
                     ),
@@ -107,8 +103,9 @@ class _cardListScreenState extends State<cardListScreen> {
                             // )
                           ),
                           Text(
-                            'Grand Park, NY',
-                            style: TextStyle(fontSize: 18, color: Colors.white),
+                            '$location',
+                            style: TextStyle(fontSize: 18, color: Colors.white,
+                                fontFamily: 'SFPro'),
                           ),
                         ],
                       ),
@@ -122,4 +119,14 @@ class _cardListScreenState extends State<cardListScreen> {
       ),
     );
   }
+
+}
+
+class _cardListScreenState extends State<cardListScreen> {
+  bool Fieldvalue = false;
+  @override
+  Widget build(BuildContext context) {
+return Container();
+  }
+
 }
