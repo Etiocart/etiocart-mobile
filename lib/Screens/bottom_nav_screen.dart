@@ -1,3 +1,4 @@
+import 'package:ethiocart/Screens/Foryou/foryou.dart';
 import 'package:ethiocart/Screens/settings.dart';
 import 'package:flutter/material.dart';
 import 'Screens.dart';
@@ -19,16 +20,12 @@ class _BottomNavBarState extends State<BottomNavBar> {
   int currentIndex = 0;
   static List<Widget> _widgetOptions = <Widget>[
     Text(
-      'Index 0: foryou',
+      'Index 2: this is for you',
       style: TextStyle(color: Colors.black,fontSize: 30),
     ),
     HomeTabView(),
-    Text(
-      'Index 2: moments',
-      style: TextStyle(color: Colors.black,fontSize: 30),
-    ),
+    ForYouPage(),
     Settings(),
-    HomeFull(),
   ];
 
   void onTabTapped(int index) {
@@ -56,7 +53,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                 height: 20,
                 color: Colors.teal.shade800,
               ),
-              label: 'Personal',
+              label: 'for you',
               activeIcon: Image.asset(
                 "assets/icons/home_filled.png",
                 width: 20,

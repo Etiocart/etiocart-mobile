@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings,
 // avoid_print
 
+import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../authentication/login.dart';
@@ -89,24 +90,43 @@ class profileView extends StatelessWidget {
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
-            Material(
-              elevation: 4,
-              borderRadius: BorderRadius.circular(360),
-              child: Container(
-                width: 150,
-                height: 150,
-                margin: EdgeInsets.only(bottom: 0),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(150),
-                  color: Color(0xffe2ede5),
+            Stack(
+              children: [
+                Material(
+                  elevation: 4,
+                  borderRadius: BorderRadius.circular(360),
+                  child: Container(
+                    width: 150,
+                    height: 150,
+                    margin: EdgeInsets.only(bottom: 0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(150),
+                      color: Color(0xffe2ede5),
+                    ),
+                    child: Center(
+                        child: Icon(
+                      FontAwesomeIcons.user,
+                      color: Colors.teal.shade400,
+                      size: 35,
+                    )),
+                  ),
                 ),
-                child: Center(
-                    child: Icon(
-                  FontAwesomeIcons.user,
-                  color: Colors.teal.shade400,
-                  size: 35,
-                )),
-              ),
+                Container(
+                  margin: EdgeInsets.only(top: 100, left: 100),
+                  width: 50, height: 50,
+                  decoration: BoxDecoration(color: Colors.blueAccent,
+                  borderRadius: BorderRadius.circular(360)
+                  ),
+                  child: IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => editProfile()),
+                      );
+                    },
+                    icon:Icon( FontAwesomeIcons.pencil, size: 20, color: Colors.white,)),
+                )
+              ],
             ),
             Padding(padding: EdgeInsets.only(bottom: 20)),
             Text(
