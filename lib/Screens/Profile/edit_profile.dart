@@ -56,8 +56,8 @@ class _editProfileState extends State<editProfile> {
                           decoration: BoxDecoration(
                               border: Border.all(color: Colors.white),
                               borderRadius: BorderRadius.circular(150),
-                              color: Colors.grey.shade200),
-                        ),
+                              color: Theme.of(context).backgroundColor,
+                            )),
                       ),
                       Container(
                         margin: EdgeInsets.only(left: 105, top: 105),
@@ -141,7 +141,7 @@ class _editProfileState extends State<editProfile> {
       child: TextField(
         decoration: InputDecoration(
             filled: true,
-            fillColor:Color(0xffE0EBE3),
+            fillColor: Color(0xffE0EBE3),
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10.0),
                 borderSide: BorderSide.none),

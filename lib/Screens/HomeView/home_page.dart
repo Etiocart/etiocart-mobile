@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import '../bottom_nav_screen.dart';
 import 'Widgets/home_page_widgets.dart';
-import './Widgets/transport_tab_content.dart';
+import '';
 
 class HomeFull extends StatelessWidget {
   const HomeFull({super.key});
@@ -16,8 +16,8 @@ Widget HomeTabView() {
   return MaterialApp(
     debugShowCheckedModeBanner: false,
     theme: ThemeData(
-      fontFamily: 'SFPro',
-      colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.teal.shade800)
+        fontFamily: 'SFPro',
+        colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.teal.shade800)
     ),
     home: DefaultTabController(
       length: 2,
@@ -36,16 +36,16 @@ Widget HomeTabView() {
                   child: Text(
                     'Events',
                     style: TextStyle(
-                        fontSize: 18,
-                        fontFamily: 'SFPro',
-                        ),
+                      fontSize: 18,
+                      fontFamily: 'SFPro',
+                    ),
                   )),
               Tab(
                   child: Text('Transport',
                       style: TextStyle(
-                          fontSize: 18,
-                          fontFamily: 'SFPro',
-                          ))),
+                        fontSize: 18,
+                        fontFamily: 'SFPro',
+                      ))),
             ],
           ),
         ),
