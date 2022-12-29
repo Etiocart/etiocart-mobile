@@ -1,16 +1,16 @@
-import 'package:ethiocart/Screens/setting_page.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:ethiocart/Screens/Foryou/foryou.dart';
+import 'package:ethiocart/Screens/settings.dart';
 import 'package:flutter/material.dart';
 import 'Screens.dart';
 
-class bottom_nav extends StatefulWidget {
-  const bottom_nav({super.key});
+class BottomNavBar extends StatefulWidget {
+  const BottomNavBar({super.key});
 
   @override
-  State<bottom_nav> createState() => _bottom_navState();
+  State<BottomNavBar> createState() => _BottomNavBarState();
 }
 
-class _bottom_navState extends State<bottom_nav> {
+class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Container(child: BottomNav());
@@ -18,36 +18,15 @@ class _bottom_navState extends State<bottom_nav> {
 
   int _selectedIndex = 0;
   int currentIndex = 0;
-  final List<Widget> _children = [];
-  static const List<Widget> _widgetOptions = <Widget>[
+  static List<Widget> _widgetOptions = <Widget>[
     Text(
-      'Index 0: foryou',
-      style: TextStyle(color: Colors.black, fontSize: 30),
+      'Index 2: this is for you',
+      style: TextStyle(color: Colors.black,fontSize: 30),
     ),
-    Text(
-      'Index 1: discover',
-      style: TextStyle(color: Colors.black, fontSize: 30),
-    ),
-    Setting_page(),
-    // Text(
-    //   'Index 3: profile',
-    //   style: TextStyle(color: Colors.black,fontSize: 30),
-    // ),
-
-    // notifications(),
-    // favoritesHome(),
-    // tickets(),
-    // notifications(),
-    HomeFull(),
+    HomeTabView(),
+    ForYouPage(),
+    Settings(),
   ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      setState(() {
-        _selectedIndex = index;
-      });
-    });
-  }
 
   void onTabTapped(int index) {
     setState(() {
@@ -61,114 +40,75 @@ class _bottom_navState extends State<bottom_nav> {
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: Container(
-        margin: EdgeInsets.only(left: 10, right: 10),
         child: BottomNavigationBar(
-          backgroundColor: Color(0xffE0EBE3),
-          selectedIconTheme: IconThemeData(color: Colors.green.shade100),
+          backgroundColor: Colors.transparent,
+          selectedIconTheme: IconThemeData(),
           type: BottomNavigationBarType.fixed,
           onTap: onTabTapped,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Image.asset(
                 "assets/icons/home_outlined.png",
-                width: 25,
-                height: 25,
-                color: Colors.black54,
+                width: 20,
+                height: 20,
+                color: Colors.teal.shade800,
               ),
-              label: 'Personal',
-              activeIcon: Container(
-                width: 80,
-                height: 35,
-                decoration: BoxDecoration(
-                    color: Colors.green.shade100,
-                    borderRadius: BorderRadius.circular(360)),
-                padding: EdgeInsets.all(5),
-                child: Image.asset(
-                  "assets/icons/home_filled.png",
-                  width: 25,
-                  height: 25,
-                  color: Colors.black54,
-                ),
+              label: 'for you',
+              activeIcon: Image.asset(
+                "assets/icons/home_filled.png",
+                width: 20,
+                height: 20,
+                color: Colors.teal.shade800,
               ),
             ),
             BottomNavigationBarItem(
               icon: Image.asset(
                 "assets/icons/navigation_outlined.png",
-                width: 25,
-                height: 25,
-                color: Colors.black54,
-              ),
+                width: 20,
+                height: 20,
+                color: Colors.teal.shade800,              ),
               label: 'discover',
-              activeIcon: Container(
-                width: 80,
-                height: 35,
-                decoration: BoxDecoration(
-                    color: Colors.green.shade100,
-                    borderRadius: BorderRadius.circular(360)),
-                padding: EdgeInsets.all(5),
-                child: Image.asset(
-                  "assets/icons/navigation_filled.png",
-                  width: 25,
-                  height: 25,
-                  color: Colors.black54,
-                ),
-              ),
+              activeIcon: Image.asset(
+                "assets/icons/navigation_filled.png",
+                width: 20,
+                height: 20,
+                color: Colors.teal.shade800,              ),
             ),
             //favorites
             BottomNavigationBarItem(
               icon: Image.asset(
                 "assets/icons/camera_outlined.png",
-                width: 25,
-                height: 25,
-                color: Colors.black54,
-              ),
+                width: 20,
+                height: 20,
+                color: Colors.teal.shade800,              ),
               label: 'moments',
-              activeIcon: Container(
-                width: 80,
-                height: 35,
-                decoration: BoxDecoration(
-                    color: Colors.green.shade100,
-                    borderRadius: BorderRadius.circular(360)),
-                padding: EdgeInsets.all(5),
-                child: Image.asset(
-                  "assets/icons/camera_filled.png",
-                  width: 25,
-                  height: 25,
-                  color: Colors.black54,
-                ),
-              ),
+              activeIcon: Image.asset(
+                "assets/icons/camera_filled.png",
+                width: 20,
+                height: 20,
+                color: Colors.teal.shade800,              ),
             ),
             //tickets
             //profile
             BottomNavigationBarItem(
               icon: Image.asset(
                 "assets/icons/user_outlined.png",
-                width: 25,
-                height: 25,
-                color: Colors.black54,
-              ),
-              label: 'Featured',
-              activeIcon: Container(
-                width: 80,
-                height: 35,
-                decoration: BoxDecoration(
-                    color: Colors.green.shade100,
-                    borderRadius: BorderRadius.circular(360)),
-                padding: EdgeInsets.all(5),
-                child: Image.asset(
-                  "assets/icons/user_filled.png",
-                  width: 25,
-                  height: 25,
-                  color: Colors.black54,
-                ),
-              ),
+                width: 20,
+                height: 20,
+                color: Colors.teal.shade800,              ),
+              label: 'Settings',
+              activeIcon: Image.asset(
+                "assets/icons/user_filled.png",
+                width: 20,
+                height: 20,
+                color: Colors.teal.shade800,              ),
             ),
           ],
-          elevation: 10,
-          unselectedLabelStyle: TextStyle(fontSize: 15, color: Colors.grey),
-          selectedLabelStyle: TextStyle(fontSize: 15, color: Colors.grey),
+          elevation: 0,
+          unselectedLabelStyle: TextStyle(fontSize: 15, color: Colors.teal.shade500),
+          selectedLabelStyle: TextStyle(fontSize: 16, color: Colors.teal.shade800),
           currentIndex: _selectedIndex,
-          selectedItemColor: Colors.black,
+          selectedItemColor: Colors.teal.shade800,
         ),
       ),
     );

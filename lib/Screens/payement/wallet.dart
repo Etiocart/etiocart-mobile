@@ -35,7 +35,7 @@ class _paymentWalletState extends State<paymentWallet> {
           children: [
             Text(
               'Wallet',
-              style: TextStyle(),
+              style: TextStyle(fontSize: 22),
             ),
           ],
         ),
@@ -147,7 +147,7 @@ class _paymentWalletState extends State<paymentWallet> {
       child: Material(
         color: Color(0xff046B40),
         borderRadius: BorderRadius.circular(15),
-        elevation: 8,
+        elevation: 0,
         child: Padding(
           padding: const EdgeInsets.all(15.0),
           child: Column(

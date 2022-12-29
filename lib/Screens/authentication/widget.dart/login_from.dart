@@ -52,30 +52,27 @@ class _LoginFormState extends State<LoginForm> {
   Widget build(BuildContext context) {
     return Form(
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(0),
         child: Column(
-          // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: Container(
                 height: 50,
-                // width: double.infinity,
                 padding: const EdgeInsets.symmetric(vertical: 5.0),
                 decoration: BoxDecoration(
-                    border: Border.all(color: Colors.green.shade100),
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.grey.shade100),
+                    borderRadius: BorderRadius.circular(10),
+                    color: Color(0xffE0EBE3),),
                 child: TextFormField(
                   style: TextStyle(fontSize: 18),
                   // key: ValueKey('email'),
                   autocorrect: false,
                   textCapitalization: TextCapitalization.none,
                   controller: emailController,
-                  decoration: const InputDecoration(
+                  decoration:  InputDecoration(
                       prefixIcon: Icon(
                         Icons.person_outline_outlined,
-                        color: Colors.teal,
+                        color: Colors.teal.shade800.withOpacity(0.5),
                       ),
                       // labelText: 'Enter username or email',
                       hintText: 'Enter username or email',
@@ -90,12 +87,10 @@ class _LoginFormState extends State<LoginForm> {
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: Container(
                 height: 50,
-                // width: double.infinity,
                 padding: const EdgeInsets.symmetric(vertical: 5.0),
                 decoration: BoxDecoration(
-                    border: Border.all(color: Colors.green.shade100),
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.grey.shade100),
+                    borderRadius: BorderRadius.circular(10),
+                    color: Color(0xffE0EBE3)),
                 child: TextField(
                   style: TextStyle(fontSize: 18),
                   obscureText: passwordVisible,
@@ -103,6 +98,7 @@ class _LoginFormState extends State<LoginForm> {
                   // textCapitalization: TextCapitalization.none,
                   // controller: passwordController,
                   decoration: InputDecoration(
+                    fillColor: Color(0xffE0EBE3),
                       suffixIcon: IconButton(
                         icon: Icon(passwordVisible
                             ? Icons.visibility
@@ -117,7 +113,7 @@ class _LoginFormState extends State<LoginForm> {
                       ),
                       prefixIcon: Icon(
                         Icons.lock_outline_rounded,
-                        color: Colors.teal,
+                        color: Colors.teal.shade800.withOpacity(0.5),
                       ),
                       // labelText: 'Enter username or email',
                       hintText: 'Please enter your password',
@@ -141,7 +137,7 @@ class _LoginFormState extends State<LoginForm> {
                     },
                     child: const Text(
                       "Recovery Password",
-                      style: TextStyle(fontSize: 18, color: Colors.teal),
+                      style: TextStyle(fontSize: 16, color: Colors.teal),
                     )),
               ),
             ),
@@ -157,7 +153,7 @@ class _LoginFormState extends State<LoginForm> {
                   padding: EdgeInsets.all(0),
                   decoration: BoxDecoration(
                     color: Colors.teal[800],
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(10),
                   ),
                   child: const Center(
                       child: Text(
@@ -165,7 +161,7 @@ class _LoginFormState extends State<LoginForm> {
                     style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
-                        fontSize: 22),
+                        fontSize: 18),
                   )),
                 ),
               ),
@@ -178,11 +174,11 @@ class _LoginFormState extends State<LoginForm> {
               alignment: Alignment.center,
               child: RichText(
                 text: TextSpan(style: TextStyle(color: Colors.black54), children: [
-                  TextSpan(text: 'Not a Memmber ? ', style: TextStyle(fontSize: 18)),
+                  TextSpan(text: 'Not a Member ? ', style: TextStyle(fontSize: 18)),
                   TextSpan(
                       text: 'Register',
                       style: TextStyle(
-                        color: Colors.teal,
+                        color: Colors.teal.shade800,
                         fontSize: 18
                       ),
                       recognizer: TapGestureRecognizer()

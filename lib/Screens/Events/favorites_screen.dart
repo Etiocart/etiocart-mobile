@@ -13,7 +13,7 @@ class favoritesHome extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        foregroundColor: Colors.black,
+        foregroundColor: Colors.teal.shade800,
         backgroundColor: Colors.white,
         title: Row(
           // ignore: prefer_const_literals_to_create_immutables
@@ -27,7 +27,7 @@ class favoritesHome extends StatelessWidget {
               },
               child: Text(
                 'Favorites',
-                style: TextStyle(fontSize: 25),
+                style: TextStyle(fontSize: 22),
               ),
             ),
             Spacer(),
@@ -43,9 +43,6 @@ class favoritesHome extends StatelessWidget {
               child: Column(
                 children: [
                   // viewsbutton(),
-                  Container(
-                    margin: EdgeInsets.only(top: 0, bottom: 10),
-                  ),
                   Column(
                     children: [
                       Column(
