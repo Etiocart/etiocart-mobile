@@ -67,7 +67,7 @@ class _SignupFormState extends State<SignupForm> {
                 padding: const EdgeInsets.symmetric(vertical: 5.0),
                 decoration: BoxDecoration(
                     border: Border.all(color: Colors.green.shade50),
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(10),
                     color: Colors.grey.shade100),
                 child: TextFormField(
                   autofocus: false,
@@ -95,7 +95,7 @@ class _SignupFormState extends State<SignupForm> {
                 padding: const EdgeInsets.symmetric(vertical: 5.0),
                 decoration: BoxDecoration(
                     border: Border.all(color: Colors.green.shade50),
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(10),
                     color: Colors.grey.shade100),
                 child: TextFormField(
                   autofocus: false,
@@ -122,7 +122,7 @@ class _SignupFormState extends State<SignupForm> {
                     padding: const EdgeInsets.symmetric(vertical: 5.0),
                     decoration: BoxDecoration(
                         border: Border.all(color: Colors.green.shade50),
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(10),
                         color: Colors.grey.shade100),
                     child: InternationalPhoneNumberInput(
                       inputDecoration: InputDecoration(),
@@ -140,7 +140,7 @@ class _SignupFormState extends State<SignupForm> {
                 padding: EdgeInsets.symmetric(vertical: 5.0),
                 decoration: BoxDecoration(
                     border: Border.all(color: Colors.green.shade50),
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(10),
                     color: Colors.grey.shade100),
                 child: TextFormField(
                   obscureText: _passwordVisible,
@@ -179,7 +179,7 @@ class _SignupFormState extends State<SignupForm> {
                   padding: EdgeInsets.all(20),
                   decoration: BoxDecoration(
                     color: Colors.teal[900],
-                    borderRadius: BorderRadius.circular(25),
+                    borderRadius: BorderRadius.circular(10),
                   ),
                   child: Center(
                       child: Text(
