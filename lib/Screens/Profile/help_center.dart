@@ -35,7 +35,7 @@ class helpCenter extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => profileView()),
                   );
                 },
-                child: Text('Help center', style: TextStyle(color: Colors.teal.shade800),)),
+                child: Text('Help center', style: TextStyle(fontSize: 22, color: Colors.teal.shade800),)),
             backgroundColor:Colors.white,
             foregroundColor: Colors.black,
             bottom:  TabBar(

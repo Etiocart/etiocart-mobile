@@ -24,16 +24,16 @@ class Signup extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
-          leading: IconButton(
-            icon: Icon(
-              Icons.arrow_back_ios,
-              color: Colors.black,
-            ),
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const LoginScreen()));
-            },
-          ),
+          // leading: IconButton(
+          //   icon: Icon(
+          //     Icons.arrow_back_ios,
+          //     color: Colors.black,
+          //   ),
+          //   onPressed: () {
+          //     Navigator.push(context,
+          //         MaterialPageRoute(builder: (context) => const LoginScreen()));
+          //   },
+          // ),
         ),
         body: SingleChildScrollView(
           child: SafeArea(
@@ -46,7 +46,7 @@ class Signup extends StatelessWidget {
                     // color: Colors.amber,
                     // margin: EdgeInsets.only(right: 300),
                     width: 250,
-                    height: 150,
+                    height: 130,
                     // decoration: const BoxDecoration(
                     // color: Colors.orange,
                     // image: DecorationImage(
@@ -55,7 +55,7 @@ class Signup extends StatelessWidget {
                     // ),
                     child: Stack(
                       children: [
-                        Center(child: Image.asset('assets/images/signup.jpg')),
+                        // Center(child: Image.asset('assets/images/signup.jpg')),
                       ],
                     ),
                   ),
@@ -71,7 +71,7 @@ class Signup extends StatelessWidget {
                   //   ),
                   // ),
                   SizedBox(
-                    height: 5,
+                    height: 0,
                   ),
 
                   const Center(

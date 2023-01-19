@@ -67,7 +67,7 @@ class _MyAppState extends State<MyApp> {
               //   colorScheme: ColorScheme.fromSwatch()
               //       .copyWith(secondary: Colors.teal.shade600),
               // ),
-              home: bottom_nav(),
+              home: profileView(),
               // Setting_page(),
               // HomeFull(),
               // profileView(),
