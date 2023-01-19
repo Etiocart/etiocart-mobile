@@ -1,9 +1,14 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
-import '../event_search.dart';
+import 'event_search.dart';
+import '../constants.dart';
 import 'home_page_widgets.dart';
+import 'popular_events.dart';
+import 'card_list.dart';
 
 class TransportTab extends StatefulWidget {
-  const TransportTab({Key? key}) : super(key: key);
+  TransportTab({Key? key}) : super(key: key);
 
   @override
   State<TransportTab> createState() => _TransportTabState();
@@ -12,65 +17,74 @@ class TransportTab extends StatefulWidget {
 class _TransportTabState extends State<TransportTab> {
   @override
   Widget build(BuildContext context) {
-    return Container(child: transportTabContent(),);
+    return transportTabContent();
   }
-}
 
-Widget transportTabContent() {
-  return Container(
-    color: Colors.white,
-    child: Stack(
-      children: [
-        ListView(
-          scrollDirection: Axis.vertical,
-          children: [
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
+
+  Widget transportTabContent() {
+    return Container(
+      color: Colors.white,
+      child: Stack(
+        children: [
+          ListView(
+            scrollDirection: Axis.vertical,
+            children: [
+              Column(
                 children: [
-                  for (var i = 0; i < 6; i++) const cardListScreen(),
+                  eventSearchBar(),
                 ],
+                crossAxisAlignment: CrossAxisAlignment.start,
               ),
-            ),
-            //category viewer
-            SingleChildScrollView(
+              SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    for (var i = 0; i < 6; i++) PopularEvents(),
+                    for (var index = 0; index < location1.length; index++)
+                      cardListScreen.cardList(context, location1[index]+'-'+location2[index],
+                          distance[index],
+                          AssetImage('assets/images/541.png')),
+
                   ],
-                )),
-            const eventTypesScreen(),
-            Container(
-              margin: const EdgeInsets.only(left: 10),
-              child: Column(
-                children: [
-                  for (var i = 0; i < 4; i++)
-                    Row(
-                      children: const[
-                        SizedBox(
-                          width: 195,
-                          child: FittedBox(
-                            child: gridCard(),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 195,
-                          child: FittedBox(
-                            child: gridCard(),
-                          ),
-                        ),
-                      ],
-                    ),
-                ],
+                ),
               ),
-            )
-          ],
-        ),
-        Container(
-            margin: const EdgeInsets.only(top: 5, left: 5, bottom: 0),
-            child: const eventSearchBar())
-      ],
-    ),
-  );
+              //category viewer
+              SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      for (var i = 0; i < filtericons.length; i++)
+                        PopularEvents.eventfilter(filtericons[i]),
+                    ],
+                  )),
+              const eventTypesScreen(),
+              Container(
+                margin: const EdgeInsets.only(left: 10),
+                child: Column(
+                  children: [
+                    for (var i = 0; i < 4; i++)
+                      Row(
+                        children:  [
+                          SizedBox(
+                            width: 195,
+                            child: FittedBox(
+                              child: gridCard.GridView(TextMain[i], TextSub[i]),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 195,
+                            child: FittedBox(
+                              child: gridCard.GridView(TextSub[i], TextMain[i]),
+                            ),
+                          ),
+                        ],
+                      ),
+                  ],
+                ),
+              )
+            ],
+          )
+        ],
+      ),
+    );
+  }
 }

@@ -47,7 +47,6 @@ class _SignupFormState extends State<SignupForm> {
       final form = _formKey.currentState;
       if (form!.validate()) {
         form.save();
-
         // print(form);
       }
     };
@@ -62,13 +61,13 @@ class _SignupFormState extends State<SignupForm> {
           children: [
             // const SizedBox(height: 15),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25),
+              padding: const EdgeInsets.symmetric(horizontal: 15),
               child: Container(
-                padding: const EdgeInsets.symmetric(vertical: 5.0),
+                padding: const EdgeInsets.symmetric(vertical: 2.0),
                 decoration: BoxDecoration(
-                    border: Border.all(color: Colors.green.shade50),
+                    border: Border.all(color: Colors.white),
                     borderRadius: BorderRadius.circular(10),
-                    color: Colors.grey.shade100),
+                    color: Color(0xffE0EBE3)),
                 child: TextFormField(
                   autofocus: false,
                   // obscureText: true,
@@ -82,7 +81,7 @@ class _SignupFormState extends State<SignupForm> {
                       // labelText: 'Enter username or email',
                       hintText: 'Full Name',
                       hintStyle:
-                          TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
                       border: InputBorder.none),
                 ),
               ),
@@ -90,13 +89,13 @@ class _SignupFormState extends State<SignupForm> {
             const SizedBox(height: 15),
 
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25),
+              padding: const EdgeInsets.symmetric(horizontal: 15),
               child: Container(
-                padding: const EdgeInsets.symmetric(vertical: 5.0),
+                padding: const EdgeInsets.symmetric(vertical: 2.0),
                 decoration: BoxDecoration(
-                    border: Border.all(color: Colors.green.shade50),
+                    border: Border.all(color: Colors.white),
                     borderRadius: BorderRadius.circular(10),
-                    color: Colors.grey.shade100),
+                    color: Color(0xffE0EBE3)),
                 child: TextFormField(
                   autofocus: false,
                   // obscureText: true,
@@ -110,38 +109,39 @@ class _SignupFormState extends State<SignupForm> {
                       // labelText: 'Enter username or email',
                       hintText: 'Email',
                       hintStyle:
-                          TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
                       border: InputBorder.none),
                 ),
               ),
             ),
             const SizedBox(height: 15),
             Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25),
+                padding: const EdgeInsets.symmetric(horizontal: 15),
                 child: Container(
-                    padding: const EdgeInsets.symmetric(vertical: 5.0),
+                    padding: const EdgeInsets.symmetric(vertical: 2.0),
                     decoration: BoxDecoration(
-                        border: Border.all(color: Colors.green.shade50),
+                        border: Border.all(color: Colors.transparent),
                         borderRadius: BorderRadius.circular(10),
-                        color: Colors.grey.shade100),
+                        color: Color(0xffE0EBE3)),
                     child: InternationalPhoneNumberInput(
                       inputDecoration: InputDecoration(),
                       initialValue:
                           PhoneNumber(isoCode: 'ET', dialCode: '+251'),
                       onInputChanged: (PhoneNumber value) {},
                       hintText: 'Phonenumber',
+                      textStyle: TextStyle(fontSize: 18),
                       // spaceBetweenSelectorAndTextField: double.infinity,
                     ))),
             const SizedBox(height: 15),
 
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25),
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 0),
               child: Container(
-                padding: EdgeInsets.symmetric(vertical: 5.0),
+                padding: EdgeInsets.symmetric(vertical: 2.0),
                 decoration: BoxDecoration(
-                    border: Border.all(color: Colors.green.shade50),
+                    border: Border.all(color: Colors.transparent),
                     borderRadius: BorderRadius.circular(10),
-                    color: Colors.grey.shade100),
+                    color: Color(0xffE0EBE3)),
                 child: TextFormField(
                   obscureText: _passwordVisible,
                   validator: validatePassword,
@@ -153,6 +153,7 @@ class _SignupFormState extends State<SignupForm> {
                     ),
                     // labelText: 'Password',
                     hintText: "Password",
+                    hintStyle: TextStyle(fontSize: 18),
                     border: InputBorder.none,
                     suffixIcon: IconButton(
                       onPressed: null,
@@ -172,13 +173,13 @@ class _SignupFormState extends State<SignupForm> {
               height: 20,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25),
+              padding: const EdgeInsets.symmetric(horizontal: 15),
               child: GestureDetector(
                 onTap: () {},
                 child: Container(
-                  padding: EdgeInsets.all(20),
+                  padding: EdgeInsets.all(15),
                   decoration: BoxDecoration(
-                    color: Colors.teal[900],
+                    color: Colors.teal.shade800,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Center(
@@ -203,11 +204,12 @@ class _SignupFormState extends State<SignupForm> {
               alignment: Alignment.center,
               child: RichText(
                 text: TextSpan(style: TextStyle(color: Colors.grey), children: [
-                  TextSpan(text: 'Do you have an account ? '),
+                  TextSpan(text: 'Do you have an account ? ', style: TextStyle(fontSize: 18)),
                   TextSpan(
                     text: 'Sign in',
                     style: TextStyle(
                       color: Colors.teal,
+                      fontSize: 18
                     ),
                     recognizer: TapGestureRecognizer()
                       ..onTap = () {

@@ -7,9 +7,10 @@ class pendingPayment extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xff428678),
-        foregroundColor: Colors.white,
-        title: Text('Pending'),
+        elevation: 0,
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.teal.shade800,
+        title: Text('Pending', style: TextStyle(fontSize: 22),),
       ),
 
     );

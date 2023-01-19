@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings,
 // avoid_print
 
+import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
@@ -15,28 +16,29 @@ class profileView extends StatelessWidget {
   List<Widget> routePages = [
     // for (var i = 0; i < 13; i++)
     favoritesHome(),
-    choose_theme(),
-    editProfile(),
     helpCenter(),
     paymentWallet(),
     tickets()
   ];
   List<String> tabNames = [
-    'Manage events',
-    'Choose theme',
-    'Edit profile',
+    'favorite events',
     'Help center',
     'Wallet',
     'Tickets'
   ];
 
   List<IconData> fontawesomeIcons = [
-    MdiIcons.calendarBlankOutline,
-    MdiIcons.themeLightDark,
-    MdiIcons.accountOutline,
-    MdiIcons.commentQuestionOutline,
-    MdiIcons.walletOutline,
-    MdiIcons.ticketConfirmationOutline,
+    FontAwesomeIcons.calendar,
+    FontAwesomeIcons.moon,
+    FontAwesomeIcons.info,
+    FontAwesomeIcons.wallet,
+    FontAwesomeIcons.ticket,
+  ];
+  List<String> flatIcons = [
+    'assets/icons/calendar-check.png',
+    'assets/icons/question.png',
+    'assets/icons/credit-card.png',
+    'assets/icons/ticket.png',
   ];
   // List<String> flatIcons = [
   //   'assets/icons/calendar-check.png',
@@ -95,7 +97,7 @@ class profileView extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => bottom_nav()),
+                        MaterialPageRoute(builder: (context) => HomeFull()),
                       );
                     },
                     icon: Image.asset('assets/icons/home.png',
@@ -123,23 +125,43 @@ class profileView extends StatelessWidget {
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
-            Material(
-              elevation: 0,
-              borderRadius: BorderRadius.circular(360),
-              child: Container(
-                width: 150,
-                height: 150,
-                margin: EdgeInsets.only(bottom: 0),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(150),
-                    color: Theme.of(context).cardColor),
-                child: Center(
-                    child: Icon(
-                  FontAwesomeIcons.user,
-                  color: Theme.of(context).iconTheme.color,
-                  size: 35,
-                )),
-              ),
+            Stack(
+              children: [
+                Material(
+                  elevation: 4,
+                  borderRadius: BorderRadius.circular(360),
+                  child: Container(
+                    width: 150,
+                    height: 150,
+                    margin: EdgeInsets.only(bottom: 0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(150),
+                      color: Color(0xffe2ede5),
+                    ),
+                    child: Center(
+                        child: Icon(
+                      FontAwesomeIcons.user,
+                      color: Colors.teal.shade400,
+                      size: 35,
+                    )),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 100, left: 100),
+                  width: 50, height: 50,
+                  decoration: BoxDecoration(color: Colors.blueAccent,
+                  borderRadius: BorderRadius.circular(360)
+                  ),
+                  child: IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => editProfile()),
+                      );
+                    },
+                    icon:Icon( FontAwesomeIcons.pencil, size: 25, color: Colors.white,)),
+                )
+              ],
             ),
             Padding(padding: EdgeInsets.only(bottom: 20)),
             Text(
@@ -147,7 +169,7 @@ class profileView extends StatelessWidget {
               style: TextStyle(
                   color: Theme.of(context).primaryColor,
                   fontSize: 25,
-                  fontFamily: 'Gotham',
+                  fontFamily: 'SFPro',
                   fontWeight: FontWeight.w400),
             ),
             Container(
@@ -215,9 +237,10 @@ class profileView extends StatelessWidget {
               margin: EdgeInsets.only(top: 10),
               child: Column(
                 children: [
-                  for (var i = 0; i < 6; i++)
-                    (Container(
-                      margin: EdgeInsets.only(bottom: 10),
+                  for (var i = 0; i < 4; i++)
+                    (
+                        Container(
+                          margin: EdgeInsets.only(bottom: 10),
                       child: InkWell(
                         focusColor: Colors.white,
                         onTap: () {

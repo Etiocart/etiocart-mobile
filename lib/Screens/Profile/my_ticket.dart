@@ -1,4 +1,6 @@
+import 'package:ethiocart/Screens/Profile/profiles_widget/separator.dart';
 import 'package:ethiocart/Screens/Profile/profiles_widget/ticket_widget.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -10,8 +12,6 @@ import 'package:flutter/src/widgets/framework.dart';
 // import 'package:tonu_app/screen/page/test_page/separator.dart';
 
 // import 'package:tonu_app/Home/tic_view.dart';
-
-import 'profiles_widget/my_ticket_separator.dart';
 
 class MyTik extends StatefulWidget {
   const MyTik({Key? key}) : super(key: key);

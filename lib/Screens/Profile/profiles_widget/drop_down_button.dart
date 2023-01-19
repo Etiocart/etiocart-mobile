@@ -38,11 +38,10 @@ class _DropdownButtonExampleState extends State<DropdownButtonExample> {
           child: DropdownButton<String>(
             value: dropdownValue,
             isExpanded: true,
-            elevation: 16,
-            // dropdownColor: Color(0xffE0EBE3),
-            style: const TextStyle(color: Colors.blue),
+            elevation: 0,
+            style: TextStyle(color:Colors.teal.shade800),
             underline: Container(
-              height: 1,
+              height: 0,
               color: Colors.white,
             ),
             onChanged: (String? value) {
