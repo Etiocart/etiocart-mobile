@@ -15,10 +15,14 @@ class _ForYouPageState extends State<ForYouPage> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: ListView(
+<<<<<<< HEAD
+      children: [ForYou(), ForYou()],
+=======
       children: [
         ForYou(),
         ForYou()
       ],
+>>>>>>> 98fce862e54620804ddcfa6b9128a9154a9314c6
     ));
   }
 

@@ -67,8 +67,14 @@ class _MyAppState extends State<MyApp> {
               //   colorScheme: ColorScheme.fromSwatch()
               //       .copyWith(secondary: Colors.teal.shade600),
               // ),
+<<<<<<< HEAD
+              home:
+                  // profileView(),
+                  Setting_page(),
+=======
               home: profileView(),
               // Setting_page(),
+>>>>>>> 98fce862e54620804ddcfa6b9128a9154a9314c6
               // HomeFull(),
               // profileView(),
               debugShowCheckedModeBanner: false,
