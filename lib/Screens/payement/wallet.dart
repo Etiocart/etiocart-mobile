@@ -140,12 +140,12 @@ class _paymentWalletState extends State<paymentWallet> {
       height: 240,
       width: 400,
       decoration: BoxDecoration(
-        color: Color(0xffE55C20),
+        color: Colors.grey.shade400,
         borderRadius: BorderRadius.circular(15),
       ),
       margin: EdgeInsets.only(bottom: 20, top: 20),
       child: Material(
-        color: Color(0xff046B40),
+        color: Colors.teal.shade400,
         borderRadius: BorderRadius.circular(15),
         elevation: 0,
         child: Padding(

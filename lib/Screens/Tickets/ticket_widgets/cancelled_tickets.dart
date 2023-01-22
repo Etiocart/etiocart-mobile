@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, avoid_print
 
+import 'package:ethiocart/Screens/Tickets/ticket_widgets/cancelled_detail.dart';
 import 'package:flutter/material.dart';
 import 'ticket_detail.dart';
 import 'tickets_widget.dart';
@@ -67,7 +68,7 @@ Widget ticketcancelledCard(context)
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => TicketDetail()),
+                      MaterialPageRoute(builder: (context) => CancelledTicket()),
                     );
                   },
                   child: Container(

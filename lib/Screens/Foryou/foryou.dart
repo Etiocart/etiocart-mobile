@@ -3,21 +3,21 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class ForYouPage extends StatefulWidget {
-  const ForYouPage({Key? key}) : super(key: key);
+class Moments extends StatefulWidget {
+  const Moments({Key? key}) : super(key: key);
 
   @override
-  State<ForYouPage> createState() => _ForYouPageState();
+  State<Moments> createState() => _MomentsState();
 }
 
-class _ForYouPageState extends State<ForYouPage> {
+class _MomentsState extends State<Moments> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: ListView(
       children: [
-        ForYou(),
-        ForYou()
+         ForYou(),
+         ForYou()
       ],
     ));
   }

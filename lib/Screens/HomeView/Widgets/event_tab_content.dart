@@ -41,7 +41,7 @@ class _EventTabState extends State<EventTab> {
                     for (var i = 0; i < 5; i++)
                       cardListScreen.cardList(context, eventName[i],
                           eventLocation[i],
-                          AssetImage('assets/images/541.png')),
+                          AssetImage('assets/images/541.png'),),
                   ],
                 ),
               ),

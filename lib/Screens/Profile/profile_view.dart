@@ -53,9 +53,11 @@ class profileView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       child: Scaffold(
-          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           appBar: AppBar(
-            automaticallyImplyLeading: false,
+            automaticallyImplyLeading: true,
+            backgroundColor: Colors.white,
+            foregroundColor: Colors.black,
+            elevation: 0,
             // actions: [
             //   Padding(
             //     padding: const EdgeInsets.only(right: 10),
@@ -73,7 +75,7 @@ class profileView extends StatelessWidget {
             //             color: Theme.of(context).iconTheme.color)),
             //   ),
             // ],
-            // elevation: 0,
+
             // title: Text(
             //   'Profile',
             //   style: TextStyle(
@@ -87,8 +89,8 @@ class profileView extends StatelessWidget {
                 Text(
                   'Profile',
                   style: TextStyle(
-                    color: Theme.of(context).primaryColor,
-                    fontSize: 25,
+                    color: Colors.teal.shade900,
+                    fontSize: 22,
                   ),
                 ),
                 Spacer(),
@@ -106,7 +108,7 @@ class profileView extends StatelessWidget {
                         color: Theme.of(context).iconTheme.color)),
               ],
             ),
-            backgroundColor: Theme.of(context).backgroundColor,
+            //backgroundColor: Theme.of(context).backgroundColor,
             // foregroundColor: Colors.black,
             // backgroundColor: Colors.white,
             // Color(0xff428678)
@@ -117,7 +119,7 @@ class profileView extends StatelessWidget {
 
   Widget profileScreen(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 10, left: 20, right: 20),
+      margin: EdgeInsets.only(top: 30, left: 20, right: 20),
       width: double.infinity,
       height: double.infinity,
       // color: Colors.red,
@@ -128,7 +130,7 @@ class profileView extends StatelessWidget {
             Stack(
               children: [
                 Material(
-                  elevation: 4,
+                  elevation: 0,
                   borderRadius: BorderRadius.circular(360),
                   child: Container(
                     width: 150,
@@ -167,7 +169,7 @@ class profileView extends StatelessWidget {
             Text(
               'Andrew Ainsley',
               style: TextStyle(
-                  color: Theme.of(context).primaryColor,
+                  color: Colors.teal.shade900,
                   fontSize: 25,
                   fontFamily: 'SFPro',
                   fontWeight: FontWeight.w400),
@@ -284,8 +286,7 @@ class profileView extends StatelessWidget {
                                       tabNames[i],
                                       style: TextStyle(
                                           fontSize: 20,
-                                          color:
-                                              Theme.of(context).primaryColor),
+                                        color: Colors.teal.shade900,),
                                     )),
 
                                 Spacer(),
@@ -328,8 +329,8 @@ class profileView extends StatelessWidget {
                               'Logout',
                               style: TextStyle(
                                   fontSize: 20,
-                                  fontWeight: FontWeight.w500,
-                                  color: Theme.of(context).primaryColor),
+                                  fontWeight: FontWeight.w400,
+                                color: Colors.teal.shade900,),
                             )),
                         // Spacer(),
                         // Container(

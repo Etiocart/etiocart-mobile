@@ -30,6 +30,7 @@ class tickets extends StatelessWidget {
         length: 3,
         child: Scaffold(
           appBar: AppBar(
+            elevation: 0,
             leading: IconButton(
               icon: Icon(Icons.arrow_back),
               iconSize: 25.0,
@@ -50,11 +51,11 @@ class tickets extends StatelessWidget {
               tabs: [
                 Tab(
                   child: Text(
-                    'upcoming',
+                    'incomplete',
                     style: TextStyle(
                         fontSize: 18,
                         fontFamily: 'SFPro',
-                        fontWeight: FontWeight.bold),
+                        fontWeight: FontWeight.w500),
                   ),
                 ),
                 Tab(
@@ -80,7 +81,7 @@ class tickets extends StatelessWidget {
                     child: Column(
                   children: [
                     ticketavailable == true
-                        ? Upcoming()
+                        ? incomplete()
                         : emptyTickets()
                   ],
                 )),

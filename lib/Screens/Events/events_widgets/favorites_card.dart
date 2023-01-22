@@ -25,7 +25,10 @@ Widget mainCard(context) {
       margin: EdgeInsets.only(bottom: 15, left: 5, right: 5),
       width: double.infinity,
       height: 170,
-      decoration: BoxDecoration(color: Color(0xffe2ede5),
+      decoration: BoxDecoration
+        (
+          // color: Color(0xffe2ede5),
+          color: Colors.white,
           border: Border.all(color: Colors.white),
       borderRadius: BorderRadius.only(topLeft: Radius.circular(20),
           bottomLeft: Radius.circular(20),
@@ -61,7 +64,10 @@ Widget mainCard(context) {
                 child: Container(
                   padding: EdgeInsets.only(top: 10),
                   width: 225,
-                  decoration: BoxDecoration(color: Color(0xffe2ede5),borderRadius: BorderRadius.circular(20)),
+                  decoration: BoxDecoration(
+                      // color: Color(0xffe2ede5),
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20)),
                   child: Column(
                     children: [
                       Row(

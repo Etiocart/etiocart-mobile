@@ -5,6 +5,6 @@ class EventsDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Material(child: SafeArea(child: Container(child: Text('this is events detail'),)),);
   }
 }

@@ -24,7 +24,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       style: TextStyle(color: Colors.black,fontSize: 30),
     ),
     HomeTabView(),
-    ForYouPage(),
+    Moments(),
     Settings(),
   ];
 

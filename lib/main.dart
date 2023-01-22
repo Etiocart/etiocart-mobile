@@ -1,12 +1,11 @@
 // ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, avoid_print
-import 'package:ethiocart/Screens/theme_Provider/darktheme_pref.dart';
+import 'package:ethiocart/Screens/Foryou/foryou.dart';
 import 'package:ethiocart/Screens/theme_Provider/theme_provider.dart';
 import 'package:ethiocart/Screens/theme_Provider/themedata.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'Screens/Screens.dart';
-import 'Screens/setting_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,24 +21,25 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   DarkThemeProvider themeChangeProvider = DarkThemeProvider();
 
-  void getCurrentAppTheme() async {
-    themeChangeProvider.darkTheme =
-        await themeChangeProvider.darkThemePreferences.getTheme();
-  }
+  // void getCurrentAppTheme() async {
+  //   themeChangeProvider.darkTheme =
+  //       await themeChangeProvider.darkThemePreferences.getTheme();
+  // }
 
-  @override
-  void initState() {
-    getCurrentAppTheme();
-    super.initState();
-  }
+  // @override
+  // void initState() {
+  //   getCurrentAppTheme();
+  //   super.initState();
+  // }
 
   @override
   Widget build(BuildContext context) {
     {
-      // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
-      // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      //   statusBarColor: Colors.white,
-      // ));
+      SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
+      SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+        statusBarColor: Colors.white,
+        systemNavigationBarColor: Colors.white
+      ));
       return MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (_) {
@@ -50,7 +50,7 @@ class _MyAppState extends State<MyApp> {
           builder: (context, value, child) {
             return MaterialApp(
               title: 'Main Page',
-              theme: ETheme.themeData(themeChangeProvider.darkTheme, context),
+              // theme: ETheme.themeData(themeChangeProvider.darkTheme, context),
               // theme: ThemeData(
 
               //   visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -67,7 +67,7 @@ class _MyAppState extends State<MyApp> {
               //   colorScheme: ColorScheme.fromSwatch()
               //       .copyWith(secondary: Colors.teal.shade600),
               // ),
-              home: profileView(),
+              home: BottomNavBar(),
               // Setting_page(),
               // HomeFull(),
               // profileView(),

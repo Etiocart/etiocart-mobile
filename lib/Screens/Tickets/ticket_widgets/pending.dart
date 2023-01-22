@@ -1,12 +1,13 @@
 // ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, avoid_print
 
+import 'package:ethiocart/Screens/Tickets/ticket_widgets/pendingticket.dart';
 import 'package:flutter/material.dart';
 import 'ticket_detail.dart';
 import 'tickets_widget.dart';
 final statusValue = false;
 
-class Upcoming extends StatelessWidget {
-  const Upcoming({Key? key}) : super(key: key);
+class incomplete extends StatelessWidget {
+  const incomplete({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +58,7 @@ class Upcoming extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => TicketDetail()),
+                            builder: (context) => PendingTickets()),
                       );
                     },
                     child: Container(

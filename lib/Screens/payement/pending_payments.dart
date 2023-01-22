@@ -12,6 +12,12 @@ class pendingPayment extends StatelessWidget {
         foregroundColor: Colors.teal.shade800,
         title: Text('Pending', style: TextStyle(fontSize: 22),),
       ),
+      body: PendingPayments(),
+    );
+  }
+
+  Widget PendingPayments(){
+    return Container(
 
     );
   }
