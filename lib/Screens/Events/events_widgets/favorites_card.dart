@@ -19,15 +19,16 @@ class _FavoritesCardState extends State<FavoritesCard> {
 }
 
 Widget mainCard(context) {
+  var height = MediaQuery.of(context).size.height;
+  var width = MediaQuery.of(context).size.width;
   DateTime now = DateTime.now();
   DateTime date = new DateTime(now.year, now.month, now.day, now.hour, now.minute);
   return Container(
       margin: EdgeInsets.only(bottom: 15, left: 5, right: 5),
       width: double.infinity,
-      height: 170,
+      height: height*0.21,
       decoration: BoxDecoration
         (
-          // color: Color(0xffe2ede5),
           color: Colors.white,
           border: Border.all(color: Colors.white),
       borderRadius: BorderRadius.only(topLeft: Radius.circular(20),
@@ -39,11 +40,10 @@ Widget mainCard(context) {
         Column(
           children: [
             Expanded(
-              flex: 1,
               child: Container(
                 margin: EdgeInsets.all(10),
-                width: 150,
-                decoration: BoxDecoration(color: Colors.blue,
+                width: height*0.17,
+                decoration: BoxDecoration(color: Colors.teal.shade800,
                 borderRadius: BorderRadius.circular(20)
                 ),
               ),
@@ -53,7 +53,6 @@ Widget mainCard(context) {
         Column(
           children: [
             Expanded(
-              flex: 1,
               child: InkWell(
                 onTap: () {
                   Navigator.push(
@@ -63,7 +62,7 @@ Widget mainCard(context) {
                 },
                 child: Container(
                   padding: EdgeInsets.only(top: 10),
-                  width: 225,
+                  width: height*0.25,
                   decoration: BoxDecoration(
                       // color: Color(0xffe2ede5),
                       color: Colors.white,
@@ -73,7 +72,7 @@ Widget mainCard(context) {
                       Row(
                         children: [
                           Container(
-                              margin: EdgeInsets.only(left: 10),
+                              padding: EdgeInsets.only(left: 10),
                               child: Text(
                             'Traditional Dance ',
                             overflow: TextOverflow.fade,
@@ -85,7 +84,7 @@ Widget mainCard(context) {
                       Row(
                         children: [
                           Container(
-                              margin: EdgeInsets.only(top: 10 , left: 10),
+                              padding: EdgeInsets.only(top: 10 , left: 10),
                               child: Text('Concert prepared',
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
@@ -96,21 +95,19 @@ Widget mainCard(context) {
                       Row(
                         children: [
                           Container(
-
-                              child: Text('Sun ${date.year}/${date.month}/${date.day}'
-                                  ,
+                              child: Text('Sun ${date.year}/${date.month}/${date.day}',
                                   style: TextStyle(
                                       fontSize: 18)),
-                          margin: EdgeInsets.only(top: 10, left: 10),)
+                          padding: EdgeInsets.only(top: 10, left: 10),)
                         ],
                       ),
                       Row(
                         children: [
                           Container(
-                              margin: EdgeInsets.only(top: 10, right: 5, left: 5),
+                              padding: EdgeInsets.only(top: 10, right: 5, left: 5),
                               child: Icon(Icons.location_on_sharp, color: Colors.deepOrange,)),
                           Container(
-                              margin: EdgeInsets.only(top: 10),
+                              padding: EdgeInsets.only(top: 10),
                               child: Text('Bole, Millenium',
                                   overflow: TextOverflow.fade,
                                   style: TextStyle(

@@ -1,4 +1,6 @@
 import 'package:ethiocart/Screens/payement/editwallet.dart';
+import 'package:ethiocart/Screens/payement/payment_confirmation.dart';
+import 'package:ethiocart/Screens/pin/pin._page.dart';
 import 'package:flutter/material.dart';
 
 class CardInfoConfirmation extends StatefulWidget {
@@ -12,6 +14,7 @@ class _CardInfoConfirmationState extends State<CardInfoConfirmation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
@@ -22,13 +25,17 @@ class _CardInfoConfirmationState extends State<CardInfoConfirmation> {
         child: Column(
           children: [
             Text(
-              'Confirm Your Card Information',
-              style: TextStyle(fontSize: 16),
+              'Confirm Your',
+              style: TextStyle(fontSize: 22, color: Colors.teal.shade900),
             ),
-            ConfirmationCard(),
-            Text('If You Want to edit your wallet information'),
-            EditWalletInfo(),
-            Text('If you are satisfied'),
+            Text(
+              'Card Information',
+              style: TextStyle(fontSize: 22, color: Colors.teal.shade900),
+            ),
+            CardInfoHighLight(),
+            Text('', style: TextStyle(fontSize: 16, color: Colors.teal.shade900),),
+            WalletButton(),
+            Text('', style: TextStyle(fontSize: 16, color: Colors.teal.shade900),),
             ConfirmPayment(),
             ConfirmPaymentbutton()
           ],
@@ -37,7 +44,7 @@ class _CardInfoConfirmationState extends State<CardInfoConfirmation> {
     );
   }
 
-  Widget ConfirmationCard() {
+  Widget CardInfoHighLight() {
     return Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,7 +53,7 @@ class _CardInfoConfirmationState extends State<CardInfoConfirmation> {
             padding: EdgeInsets.only(top: 10, bottom: 20),
             child: Text(
               'Card Name',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
           ),
           Container(
@@ -59,13 +66,13 @@ class _CardInfoConfirmationState extends State<CardInfoConfirmation> {
                 padding: const EdgeInsets.only(top: 10.0, left: 10),
                 child: Text(
                   'Andrew Ansley',
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 18, color: Colors.grey.shade600),
                 ),
               )),
           Container(
               padding: EdgeInsets.only(top: 10, bottom: 10),
               child: Text('Card Number',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold))),
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
           Container(
               width: double.infinity,
               height: 40,
@@ -76,13 +83,13 @@ class _CardInfoConfirmationState extends State<CardInfoConfirmation> {
                 padding: const EdgeInsets.only(top: 10.0, left: 10),
                 child: Text(
                   '2672 4738 7837',
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 18, color: Colors.grey.shade600),
                 ),
               )),
           Container(
             padding: EdgeInsets.only(top: 10, bottom: 10),
             child: Text('Balance',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
           ),
           Container(
               width: double.infinity,
@@ -94,7 +101,7 @@ class _CardInfoConfirmationState extends State<CardInfoConfirmation> {
                 padding: const EdgeInsets.only(top: 10.0, left: 10),
                 child: Text(
                   '1000 birr',
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 18, color: Colors.grey.shade600),
                 ),
               ))
         ],
@@ -102,11 +109,13 @@ class _CardInfoConfirmationState extends State<CardInfoConfirmation> {
     );
   }
 
-  Widget EditWalletInfo() {
+  Widget WalletButton() {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Container(
-      margin: EdgeInsets.only(bottom: 20, top: 10),
-      width: 200,
-      height: 40,
+      padding: EdgeInsets.only(top: 5, bottom: 5),
+      height: height * 0.06,
+      width: width * 0.5,
       child: ElevatedButton(
         style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(Colors.white),
@@ -115,7 +124,7 @@ class _CardInfoConfirmationState extends State<CardInfoConfirmation> {
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(18.0),
-                    side: BorderSide(color: Colors.teal.shade800)))),
+                    side: BorderSide(color: Colors.teal.shade900)))),
         onPressed: () {
           Navigator.push(
             context,
@@ -124,109 +133,34 @@ class _CardInfoConfirmationState extends State<CardInfoConfirmation> {
         },
         child: Text(
           'Wallet',
-          style: TextStyle(fontSize: 16),
+          style: TextStyle(fontSize: 18, color: Colors.teal.shade900),
         ),
       ),
     );
   }
 
   Widget ConfirmPaymentbutton() {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Container(
-      margin: EdgeInsets.only(bottom: 20),
-      width: 200,
-      height: 40,
+      margin: EdgeInsets.only(top: 5, bottom: 5),
+      height: height * 0.05,
+      width: width * 0.52,
       child: ElevatedButton(
         style: ButtonStyle(
             elevation: MaterialStateProperty.all(0),
-            // backgroundColor: MaterialStateProperty.all(Colors.teal.shade800),
+            backgroundColor: MaterialStateProperty.all(Colors.teal.shade800),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(18.0),
             ))),
-        onPressed: () => showDialog<String>(
-          context: context,
-          builder: (BuildContext context) => AlertDialog(
-            title: const Text('AlertDialog Title'),
-            content: const Text('AlertDialog description'),
-            elevation: 0,
-            // shape: ShapeBorder.BorderRadius.all(10),
-            actions: <Widget>[
-              Container(
-                padding: EdgeInsets.only(left: 30, right: 30),
-                width: 300,
-                height: 200,
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        Container(
-                          width: 40,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            color: Colors.grey.shade100,
-                            borderRadius: BorderRadius.circular(10)
-                          ),
-                          child: TextField(
-
-                          ),
-                        ),
-                        Spacer(),
-                        Container(
-                          width: 40,
-                          height: 50,
-                          decoration: BoxDecoration(
-                              color: Colors.grey.shade100,
-                              borderRadius: BorderRadius.circular(10)
-                          ),
-                          child: TextField(
-
-                          ),
-                        ),
-                        Spacer(),
-                        Container(
-                          width: 40,
-                          height: 50,
-                          decoration: BoxDecoration(
-                              color: Colors.grey.shade100,
-                              borderRadius: BorderRadius.circular(10)
-                          ),
-                          child: TextField(
-
-                          ),
-                        ),
-                        Spacer(),
-                        Container(
-
-                          width: 40,
-                          height: 50,
-                          decoration: BoxDecoration(
-                              color: Colors.grey.shade100,
-                              borderRadius: BorderRadius.circular(10)
-                          ),
-                          child: TextField(
-                            style: TextStyle(),
-
-                          ),
-                        )
-                      ],
-                    ),
-                    TextButton(
-                      onPressed: () => Navigator.pop(context, 'Cancel'),
-                      child: const Text('Cancel', style: TextStyle(fontSize: 16),),
-                    ),
-                    TextButton(
-                      onPressed: () => Navigator.pop(context, 'OK'),
-                      child: const Text('OK', style: TextStyle(fontSize: 16)),
-                    ),
-                  ],
-                ),
-              )
-            ],
-          ),
-        ),
+        onPressed: () {
+          Navigator.push(context,
+          MaterialPageRoute(builder: (context)=>PaymentConfirmation()));
+        },
         child: Text(
           'Confirm',
-          style: TextStyle(fontSize: 16),
+          style: TextStyle(fontSize: 18),
         ),
       ),
     );
@@ -244,61 +178,63 @@ class _CardInfoConfirmationState extends State<CardInfoConfirmation> {
               width: double.infinity,
               height: 40,
               decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(10)),
+                  color: Colors.grey.shade100, borderRadius: BorderRadius.circular(10)),
               child: Padding(
-                padding: const EdgeInsets.only(top: 10.0, left: 10),
+                padding: const EdgeInsets.only(top: 0.0, left: 10, right: 5),
                 child: Row(
                   children: [
                     Text(
                       'Number of seats',
-                      style: TextStyle(fontSize: 16),
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
                     ),
                     Spacer(),
                     Text(
                       '5',
-                      style: TextStyle(fontSize: 16),
+                      style: TextStyle(fontSize: 18, color: Colors.grey.shade600),
                     ),
                   ],
                 ),
               )),
+          Padding(padding: EdgeInsets.only(top: 5, bottom: 5)),
           Container(
               width: double.infinity,
               height: 40,
               decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(10)),
+                  color: Colors.grey.shade100, borderRadius: BorderRadius.circular(10)),
               child: Padding(
-                padding: const EdgeInsets.only(top: 10.0, left: 10),
+                padding: const EdgeInsets.only(top: 0.0, left: 10, right: 5),
                 child: Row(
                   children: [
                     Text(
                       'Event Date',
-                      style: TextStyle(fontSize: 16),
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
                     ),
                     Spacer(),
                     Text(
                       'December 2023',
-                      style: TextStyle(fontSize: 16),
+                      style: TextStyle(fontSize: 18, color: Colors.grey.shade600),
                     ),
                   ],
                 ),
               )),
+          Padding(padding: EdgeInsets.only(top: 5, bottom: 5)),
           Container(
               width: double.infinity,
               height: 40,
               decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(10)),
+                  color: Colors.grey.shade100, borderRadius: BorderRadius.circular(10)),
               child: Padding(
-                padding: const EdgeInsets.only(top: 10.0, left: 10),
+                padding: const EdgeInsets.only(top: 0.0, left: 10, right: 5),
                 child: Row(
                   children: [
                     Text(
                       'Event Location',
-                      style: TextStyle(fontSize: 16),
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
                     ),
                     Spacer(),
                     Text(
                       'Hawasa',
-                      style: TextStyle(fontSize: 16),
+                      style: TextStyle(fontSize: 18, color: Colors.grey.shade600),
                     ),
                   ],
                 ),

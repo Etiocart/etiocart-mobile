@@ -140,83 +140,79 @@ class _paymentWalletState extends State<paymentWallet> {
       height: 240,
       width: 400,
       decoration: BoxDecoration(
-        color: Colors.grey.shade400,
+        color: Colors.grey.shade100,
+        border: Border.all(color: Colors.teal.shade900),
         borderRadius: BorderRadius.circular(15),
       ),
       margin: EdgeInsets.only(bottom: 20, top: 20),
-      child: Material(
-        color: Colors.teal.shade400,
-        borderRadius: BorderRadius.circular(15),
-        elevation: 0,
-        child: Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Text(
-                    'Awash Bank',
-                    style: TextStyle(fontSize: 18, color: Colors.white),
-                  ),
-                  Spacer(),
-                  Text('credit',
-                      style: TextStyle(fontSize: 35, color: Colors.white)),
-                ],
-              ),
-              Row(
-                children: [
-                  Text('2', style: TextStyle(fontSize: 18, color: Colors.white))
-                ],
-              ),
-              Row(
-                children: [
-                  Text('3000 birr',
-                      style: TextStyle(fontSize: 18, color: Colors.white))
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text('Andrew Ansley',
-                      style: TextStyle(fontSize: 25, color: Colors.white))
-                ],
-              ),
-              Spacer(),
-              Row(
-                children: [
-                  Text(
-                    '013200********00',
-                    style: TextStyle(color: Colors.white, fontSize: 18),
-                  ),
-                  Spacer(),
-                  Text(
-                    '12/23',
-                    style: TextStyle(color: Colors.white, fontSize: 18),
-                  ),
-                  Spacer(),
-                  Stack(
-                    children: [
-                      Container(
-                        width: 50,
-                        height: 50,
-                        decoration: BoxDecoration(
-                            color: Colors.blueAccent,
-                            borderRadius: BorderRadius.circular(50)),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(left: 30),
-                        width: 50,
-                        height: 50,
-                        decoration: BoxDecoration(
-                            color: Colors.red,
-                            borderRadius: BorderRadius.circular(50)),
-                      )
-                    ],
-                  )
-                ],
-              ),
-            ],
-          ),
+      child: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Text(
+                  'Awash Bank',
+                  style: TextStyle(fontSize: 18, color: Colors.teal.shade900),
+                ),
+                Spacer(),
+                Text('credit',
+                    style: TextStyle(fontSize: 35, color: Colors.teal.shade900)),
+              ],
+            ),
+            Row(
+              children: [
+                Text('2', style: TextStyle(fontSize: 18, color: Colors.teal.shade900))
+              ],
+            ),
+            Row(
+              children: [
+                Text('3000 birr',
+                    style: TextStyle(fontSize: 18, color: Colors.teal.shade900))
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('Andrew Ansley',
+                    style: TextStyle(fontSize: 25, color: Colors.teal.shade900))
+              ],
+            ),
+            Spacer(),
+            Row(
+              children: [
+                Text(
+                  '013200********00',
+                  style: TextStyle(color: Colors.teal.shade900, fontSize: 18),
+                ),
+                Spacer(),
+                Text(
+                  '12/23',
+                  style: TextStyle(color: Colors.teal.shade900, fontSize: 18),
+                ),
+                Spacer(),
+                Stack(
+                  children: [
+                    Container(
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(
+                          color: Colors.blueAccent,
+                          borderRadius: BorderRadius.circular(50)),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 30),
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(
+                          color: Colors.red,
+                          borderRadius: BorderRadius.circular(50)),
+                    )
+                  ],
+                )
+              ],
+            ),
+          ],
         ),
       ),
     );

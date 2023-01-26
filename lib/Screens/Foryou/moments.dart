@@ -13,13 +13,26 @@ class Moments extends StatefulWidget {
 class _MomentsState extends State<Moments> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.teal.shade800,
+        elevation: 0,
+        title: Center(
+          child: Text(
+            'Your Moments Here',
+            style: TextStyle(fontWeight: FontWeight.normal),
+          ),
+        ),
+      ),
+      body: SafeArea(
+          child: Container(
+        padding: EdgeInsets.only(left: 10, right: 10),
         child: ListView(
-      children: [
-         ForYou(),
-         ForYou()
-      ],
-    ));
+          children: [ADblok(), MomentsDetail(), MomentsDetail()],
+        ),
+      )),
+    );
   }
 
   void onheartTap() {
@@ -28,19 +41,21 @@ class _MomentsState extends State<Moments> {
     });
   }
 
-  Widget ForYou() {
+  Widget MomentsDetail() {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Container(
       color: Colors.grey.shade100,
       padding: EdgeInsets.all(0),
       child: Column(
         children: [
           Container(
-            padding: EdgeInsets.only(top: 10, left: 10, right: 10),
+            padding: EdgeInsets.only(top: 0, left: 10, right: 10),
             margin: EdgeInsets.only(bottom: 5, top: 5),
             width: double.infinity,
-            height: 400,
+            height: height * 0.45,
             decoration: BoxDecoration(
-                color: Colors.white, borderRadius: BorderRadius.circular(0)),
+                color: Colors.white, borderRadius: BorderRadius.circular(10)),
             child: Column(
               children: [
                 Container(
@@ -49,6 +64,11 @@ class _MomentsState extends State<Moments> {
                     children: [
                       CircleAvatar(
                         radius: 25,
+                        backgroundColor: Colors.teal.shade800,
+                        child: Text(
+                          'A',
+                          style: TextStyle(color: Colors.white, fontSize: 22),
+                        ),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -65,11 +85,10 @@ class _MomentsState extends State<Moments> {
                   children: [
                     Expanded(
                       child: Container(
-                        width: 360,
-                        height: 250,
+                        height: height * 0.29,
                         decoration: BoxDecoration(
-                            color: Colors.grey.shade50,
-                            borderRadius: BorderRadius.circular(0)),
+                            color: Colors.grey.shade200,
+                            borderRadius: BorderRadius.circular(15)),
                         child: SizedBox(
                             height: 150.0,
                             width: 350.0,
@@ -77,9 +96,9 @@ class _MomentsState extends State<Moments> {
                               autoplay: false,
                               animationDuration: Duration(hours: 1),
                               images: [
-                                AssetImage('assets/images/540.png'),
-                                AssetImage('assets/images/540.png'),
-                                AssetImage('assets/images/540.png'),
+                                AssetImage('assets/images/544.png'),
+                                AssetImage('assets/images/543.png'),
+                                AssetImage('assets/images/542.png'),
                               ],
                               dotSize: 4.0,
                               dotSpacing: 15.0,
@@ -152,6 +171,22 @@ class _MomentsState extends State<Moments> {
           Container(),
         ],
       ),
+    );
+  }
+
+  Widget ADblok() {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
+    return Container(
+      height: height * 0.3,
+      width: width * 1.0,
+      decoration: BoxDecoration(
+          color: Colors.teal.shade100, borderRadius: BorderRadius.circular(15)),
+      child: Center(
+          child: Text(
+        'Place your ads here',
+        style: TextStyle(fontSize: 25),
+      )),
     );
   }
 }

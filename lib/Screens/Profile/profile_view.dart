@@ -40,15 +40,6 @@ class profileView extends StatelessWidget {
     'assets/icons/credit-card.png',
     'assets/icons/ticket.png',
   ];
-  // List<String> flatIcons = [
-  //   'assets/icons/calendar-check.png',
-  //   'assets/icons/chat.png',
-  //   'assets/icons/user.png',
-  //   'assets/icons/notification.png',
-  //   'assets/icons/credit-card(1).png',
-  //   'assets/icons/ticket.png',
-  // ];
-
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -58,32 +49,6 @@ class profileView extends StatelessWidget {
             backgroundColor: Colors.white,
             foregroundColor: Colors.black,
             elevation: 0,
-            // actions: [
-            //   Padding(
-            //     padding: const EdgeInsets.only(right: 10),
-            //     child: IconButton(
-            //         color: Theme.of(context).iconTheme.color,
-            //         onPressed: () {
-            //           Navigator.push(
-            //             context,
-            //             MaterialPageRoute(builder: (context) => bottom_nav()),
-            //           );
-            //         },
-            //         icon: Image.asset('assets/icons/home.png',
-            //             width: 30,
-            //             height: 30,
-            //             color: Theme.of(context).iconTheme.color)),
-            //   ),
-            // ],
-
-            // title: Text(
-            //   'Profile',
-            //   style: TextStyle(
-            //     color: Theme.of(context).primaryColor,
-            //     fontSize: 25,
-            //   ),
-            // ),
-
             title: Row(
               children: [
                 Text(
@@ -108,21 +73,18 @@ class profileView extends StatelessWidget {
                         color: Theme.of(context).iconTheme.color)),
               ],
             ),
-            //backgroundColor: Theme.of(context).backgroundColor,
-            // foregroundColor: Colors.black,
-            // backgroundColor: Colors.white,
-            // Color(0xff428678)
           ),
           body: SafeArea(child: profileScreen(context))),
     );
   }
 
   Widget profileScreen(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Container(
-      margin: EdgeInsets.only(top: 30, left: 20, right: 20),
+      padding: EdgeInsets.only(top: 30, left: 20, right: 20),
       width: double.infinity,
       height: double.infinity,
-      // color: Colors.red,
       child: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -133,9 +95,8 @@ class profileView extends StatelessWidget {
                   elevation: 0,
                   borderRadius: BorderRadius.circular(360),
                   child: Container(
-                    width: 150,
-                    height: 150,
-                    margin: EdgeInsets.only(bottom: 0),
+                    width: width * 0.38,
+                    height: height * 0.18,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(150),
                       color: Color(0xffe2ede5),
@@ -149,19 +110,25 @@ class profileView extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: 100, left: 100),
-                  width: 50, height: 50,
-                  decoration: BoxDecoration(color: Colors.blueAccent,
-                  borderRadius: BorderRadius.circular(360)
-                  ),
+                  margin: EdgeInsets.only(top: 110, left: 100),
+                  width: width * 0.12,
+                  height: width * 0.12,
+                  decoration: BoxDecoration(
+                      color: Colors.teal.shade700,
+                      borderRadius: BorderRadius.circular(360)),
                   child: IconButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => editProfile()),
-                      );
-                    },
-                    icon:Icon( FontAwesomeIcons.pencil, size: 25, color: Colors.white,)),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => editProfile()),
+                        );
+                      },
+                      icon: Icon(
+                        FontAwesomeIcons.pencil,
+                        size: 25,
+                        color: Colors.white,
+                      )),
                 )
               ],
             ),
@@ -175,59 +142,28 @@ class profileView extends StatelessWidget {
                   fontWeight: FontWeight.w400),
             ),
             Container(
-              margin: EdgeInsets.only(top: 10, bottom: 20),
+              padding: EdgeInsets.only(top: 10, bottom: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    margin: EdgeInsets.only(right: 0, top: 0),
+                    padding: EdgeInsets.only(right: 0, top: 0),
                     child: Column(
                       children: [],
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(left: 20, top: 0),
+                    padding: EdgeInsets.only(left: 20, top: 0),
                     child: Column(
                       // ignore: prefer_const_literals_to_create_immutables
-                      children: [
-                        // Text(
-                        //   '7,389',
-                        //   style: TextStyle(
-                        //       fontFamily: 'sans',
-                        //       color: Colors.black,
-                        //       fontSize: 18,
-                        //       fontWeight: FontWeight.bold),
-                        // ),
-                        // Text(
-                        //   'Followers',
-                        //   style: TextStyle(
-                        //       fontFamily: 'sans',
-                        //       color: Colors.black,
-                        //       fontSize: 18),
-                        // )
-                      ],
+                      children: [],
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(left: 20, top: 0),
+                    padding: EdgeInsets.only(left: 20, top: 0),
                     child: Column(
                       // ignore: prefer_const_literals_to_create_immutables
                       children: [
-                        // Text(
-                        //   '125',
-                        //   style: TextStyle(
-                        //       fontFamily: 'sans',
-                        //       color: Colors.black,
-                        //       fontSize: 18,
-                        //       fontWeight: FontWeight.bold),
-                        // ),
-                        // Text(
-                        //   'Following',
-                        //   style: TextStyle(
-                        //       fontFamily: 'sans',
-                        //       color: Colors.black,
-                        //       fontSize: 18),
-                        // )
                       ],
                     ),
                   ),
@@ -236,13 +172,12 @@ class profileView extends StatelessWidget {
             ),
             Container(
               // color: Colors.red,
-              margin: EdgeInsets.only(top: 10),
+              padding: EdgeInsets.only(top: 10),
               child: Column(
                 children: [
                   for (var i = 0; i < 4; i++)
-                    (
-                        Container(
-                          margin: EdgeInsets.only(bottom: 10),
+                    (Container(
+                      margin: EdgeInsets.only(bottom: 10),
                       child: InkWell(
                         focusColor: Colors.white,
                         onTap: () {
@@ -257,53 +192,28 @@ class profileView extends StatelessWidget {
                             Row(
                               children: [
                                 Container(
-                                  // margin: EdgeInsets.only(right: 5),
-                                  // height: 25,
-                                  // width: 25,
-                                  // child: Icon(fontawesomeIcons[i],
-                                  //   size: 30,
-                                  // ),
-                                  width: 40,
-                                  height: 40,
-                                  // padding: EdgeInsets.all(10),
-                                  // decoration: BoxDecoration(
-                                  //     color: Theme.of(context).cardColor,
-                                  //     borderRadius:
-                                  //         BorderRadius.circular(20)),
+                                  width: width*0.04,
+                                  height: height*0.04,
                                   child: Icon(fontawesomeIcons[i],
-                                      size: 25,
-                                      color: Theme.of(context).iconTheme.color),
-                                  // Image.asset(
-                                  //   flatIcons[i],
-                                  //   width: 25,
-                                  //   height: 25,
-                                  //   color: Colors.teal.shade900,
-                                  // ),
+                                      size: 22,
+                                      color: Colors.teal.shade900),
                                 ),
                                 Container(
                                     margin: EdgeInsets.only(left: 15),
                                     child: Text(
                                       tabNames[i],
                                       style: TextStyle(
-                                          fontSize: 20,
-                                        color: Colors.teal.shade900,),
+                                        fontSize: 20,
+                                        color: Colors.teal.shade900,
+                                      ),
                                     )),
-
                                 Spacer(),
-                                // Container(
-                                //   margin: EdgeInsets.only(right: 0),
-                                //   child: Image.asset('assets/icons/gts.png',
-                                //       width: 35, height: 35, color: Colors.black),
-                                // ),
                               ],
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(left: 55),
+                              padding: const EdgeInsets.only(left: 5),
                               child: Divider(thickness: 1),
                             ),
-                            // Container(
-                            //   margin: EdgeInsets.only(top: 5,left: 0 ),
-                            //   width: 250, height: 0.8, color: Colors.grey.shade500,),
                           ],
                         ),
                       ),
@@ -318,26 +228,16 @@ class profileView extends StatelessWidget {
                     child: Row(
                       children: [
                         Container(
-                            // child: Image.asset('assets/icons/exit.png',
-                            // child: Icon(FontAwesomeIcons.arrowRightFromBracket,
-                            //     color: Colors.red),
-                            ),
-                        Container(
                             // decoration: BoxDecoration(border: Border),
-                            margin: EdgeInsets.only(left: 140, top: 20),
+                            padding: EdgeInsets.only(left: 140, top: 20),
                             child: Text(
                               'Logout',
                               style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w400,
-                                color: Colors.teal.shade900,),
+                                fontSize: 20,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.teal.shade900,
+                              ),
                             )),
-                        // Spacer(),
-                        // Container(
-                        //   margin: EdgeInsets.only(right: 0),
-                        //   child: Image.asset('assets/icons/gts.png',
-                        //       width: 35, height: 35, color: Colors.red),
-                        // ),
                       ],
                     ),
                   ),

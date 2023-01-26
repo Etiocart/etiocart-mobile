@@ -10,7 +10,6 @@ import 'package:flutter/src/widgets/framework.dart';
 // import 'package:tonu_app/screen/page/favmodel.dart';
 // import 'package:tonu_app/screen/page/test_page/myticket.dart';
 // import 'package:tonu_app/screen/page/test_page/separator.dart';
-
 // import 'package:tonu_app/Home/tic_view.dart';
 
 class MyTik extends StatefulWidget {

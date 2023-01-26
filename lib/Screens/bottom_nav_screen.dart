@@ -1,4 +1,4 @@
-import 'package:ethiocart/Screens/Foryou/foryou.dart';
+import 'package:ethiocart/Screens/Foryou/moments.dart';
 import 'package:ethiocart/Screens/settings.dart';
 import 'package:flutter/material.dart';
 import 'Screens.dart';

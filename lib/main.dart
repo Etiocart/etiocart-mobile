@@ -1,5 +1,5 @@
 // ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, avoid_print
-import 'package:ethiocart/Screens/Foryou/foryou.dart';
+import 'package:ethiocart/Screens/Foryou/moments.dart';
 import 'package:ethiocart/Screens/theme_Provider/theme_provider.dart';
 import 'package:ethiocart/Screens/theme_Provider/themedata.dart';
 import 'package:flutter/material.dart';

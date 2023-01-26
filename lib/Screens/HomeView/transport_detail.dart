@@ -1,9 +1,15 @@
+import 'package:ethiocart/Screens/HomeView/Widgets/transport_booking.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class TransportDetail extends StatelessWidget {
+class TransportDetail extends StatefulWidget {
   const TransportDetail({Key? key}) : super(key: key);
 
+  @override
+  State<TransportDetail> createState() => _TransportDetailState();
+}
+
+class _TransportDetailState extends State<TransportDetail> {
   @override
   Widget build(BuildContext context) {
     return TransportPage();
@@ -15,16 +21,16 @@ class TransportDetail extends StatelessWidget {
         elevation: 0,
         title: Text(
           'Transport',
-          style: TextStyle(fontSize: 22),
+          style: TextStyle(),
         ),
         foregroundColor: Colors.black,
         backgroundColor: Colors.white,
       ),
-      body: Body(),
+      body: Body(context),
     );
   }
 
-  Widget Body() {
+  Widget Body(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(12),
       color: Colors.grey.shade200,
@@ -113,7 +119,9 @@ class TransportDetail extends StatelessWidget {
               )
             ],
           ),
-          Container(margin: EdgeInsets.only(top: 5, bottom: 5),),
+          Container(
+            margin: EdgeInsets.only(top: 5, bottom: 5),
+          ),
           Column(
             children: [
               Container(
@@ -130,7 +138,9 @@ class TransportDetail extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              Container(margin: EdgeInsets.only(top: 50),),
+                              Container(
+                                margin: EdgeInsets.only(top: 50),
+                              ),
                               Text(
                                 'Baggae Allowance',
                                 style: TextStyle(fontSize: 18),
@@ -205,7 +215,9 @@ class TransportDetail extends StatelessWidget {
               )
             ],
           ),
-          Container(margin: EdgeInsets.only(top: 5, bottom: 5),),
+          Container(
+            margin: EdgeInsets.only(top: 5, bottom: 5),
+          ),
           Column(
             children: [
               Container(
@@ -217,28 +229,57 @@ class TransportDetail extends StatelessWidget {
                 child: Column(
                   children: [
                     Container(
-                      padding: EdgeInsets.only(left: 10, top: 10, right: 10),
-                      child: Column(
-                        children: [
-                          Row(
-                            children: [
-                              Container(margin: EdgeInsets.only(top: 50),),
-                              Text(
-                                'Booking a Ticket',
-                                style: TextStyle(fontSize: 18),
+                      padding: EdgeInsets.only(
+                          left: 10, top: 10, right: 10, bottom: 40),
+                      child: Column(children: [
+                        Row(
+                          children: [
+                            Text(
+                              'Booking a Ticket',
+                              style: TextStyle(fontSize: 18),
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(left: 20),
+                              height: 20,
+                              width: 1,
+                              color: Colors.black,
+                            ),
+                            Text('',
+                                style: TextStyle(
+                                    fontSize: 18, fontFamily: 'SFPro'))
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              width: 260,
+                              height: 45,
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => TransportBooking()),
+                                  );
+                                },
+                                style: ButtonStyle(
+                                    elevation: MaterialStateProperty.all(0),
+                                    backgroundColor: MaterialStateProperty.all(
+                                        Colors.teal.shade700),
+                                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                        RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(18.0),
+                                    ))),
+                                child: Text(
+                                  'Buy Ticket',
+                                  style: TextStyle(fontSize: 18),
+                                ),
                               ),
-                              Container(margin: EdgeInsets.only(right: 10),),
-                              Container(
-                                height: 20,
-                                width: 1,
-                                color: Colors.black,
-                              ),
-                              Text('',
-                                  style: TextStyle(
-                                      fontSize: 18, fontFamily: 'SFPro'))
-                            ],
-                          ),]
-                      ),
+                            )
+                          ],
+                        )
+                      ]),
                     ),
                   ],
                 ),
