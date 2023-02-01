@@ -5,7 +5,11 @@ import 'package:ethiocart/Screens/theme_Provider/themedata.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'Screens/HomeView/for_you.dart/for_you.dart';
+import 'Screens/HomeView/for_you.dart/foryou_provider.dart';
+import 'Screens/Profile/my_ticket.dart';
 import 'Screens/Screens.dart';
+import 'Screens/pin/pin._page.dart';
 import 'Screens/setting_page.dart';
 
 void main() {
@@ -42,6 +46,13 @@ class _MyAppState extends State<MyApp> {
       // ));
       return MultiProvider(
         providers: [
+          Provider(create: (context) => FavoriteProvider()),
+          // ChangeNotifierProxyProvider<FavoriteProvider>(create: (context) => FavoriteProvider(),),
+          ChangeNotifierProvider<FavoriteProvider>(
+            create: (_) {
+              return FavoriteProvider();
+            },
+          ),
           ChangeNotifierProvider(create: (_) {
             return themeChangeProvider;
           })
@@ -67,14 +78,12 @@ class _MyAppState extends State<MyApp> {
               //   colorScheme: ColorScheme.fromSwatch()
               //       .copyWith(secondary: Colors.teal.shade600),
               // ),
-<<<<<<< HEAD
+
               home:
-                  // profileView(),
-                  Setting_page(),
-=======
-              home: profileView(),
+                  //  profileView(),
+                  PasswordView(),
               // Setting_page(),
->>>>>>> 98fce862e54620804ddcfa6b9128a9154a9314c6
+
               // HomeFull(),
               // profileView(),
               debugShowCheckedModeBanner: false,
