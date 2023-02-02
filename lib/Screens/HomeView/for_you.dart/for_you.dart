@@ -10,14 +10,14 @@ import 'package:provider/provider.dart';
 import 'for_you_class.dart';
 import 'foryou_provider.dart';
 
-class page2 extends StatefulWidget {
-  const page2({Key? key}) : super(key: key);
+class ForYou extends StatefulWidget {
+  const ForYou({Key? key}) : super(key: key);
 
   @override
-  State<page2> createState() => _page2State();
+  State<ForYou> createState() => _ForYouState();
 }
 
-class _page2State extends State<page2> with SingleTickerProviderStateMixin {
+class _ForYouState extends State<ForYou> with SingleTickerProviderStateMixin {
   bool isSelected = false;
 
   double viewportFraction = 0.2;
@@ -90,7 +90,7 @@ class _page2State extends State<page2> with SingleTickerProviderStateMixin {
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withOpacity(0.2),
-                      spreadRadius: 20,
+                      // spreadRadius: 5,
                       blurRadius: 10,
                     ),
                   ],

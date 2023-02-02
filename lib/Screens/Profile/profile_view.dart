@@ -6,6 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../authentication/login.dart';
+import '../setting_page.dart';
 import 'profile_export.dart';
 import 'package:ethiocart/Screens/Screens.dart';
 import 'package:flutter/material.dart';
@@ -18,13 +19,15 @@ class profileView extends StatelessWidget {
     favoritesHome(),
     helpCenter(),
     paymentWallet(),
-    tickets()
+    tickets(),
+    Setting_page()
   ];
   List<String> tabNames = [
-    'favorite events',
+    'Favorite Events',
     'Help center',
     'Wallet',
-    'Tickets'
+    'Tickets',
+    'Setting'
   ];
 
   List<IconData> fontawesomeIcons = [
@@ -32,7 +35,8 @@ class profileView extends StatelessWidget {
     FontAwesomeIcons.moon,
     FontAwesomeIcons.info,
     FontAwesomeIcons.wallet,
-    FontAwesomeIcons.ticket,
+    // FontAwesomeIcons.ticket,
+    FontAwesomeIcons.screwdriverWrench
   ];
   List<String> flatIcons = [
     'assets/icons/calendar-check.png',
@@ -148,18 +152,24 @@ class profileView extends StatelessWidget {
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 100, left: 100),
-                  width: 50, height: 50,
-                  decoration: BoxDecoration(color: Colors.blueAccent,
-                  borderRadius: BorderRadius.circular(360)
-                  ),
+                  width: 50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                      color: Colors.blueAccent,
+                      borderRadius: BorderRadius.circular(360)),
                   child: IconButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => editProfile()),
-                      );
-                    },
-                    icon:Icon( FontAwesomeIcons.pencil, size: 25, color: Colors.white,)),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => editProfile()),
+                        );
+                      },
+                      icon: Icon(
+                        FontAwesomeIcons.pencil,
+                        size: 25,
+                        color: Colors.white,
+                      )),
                 )
               ],
             ),
@@ -237,10 +247,9 @@ class profileView extends StatelessWidget {
               margin: EdgeInsets.only(top: 10),
               child: Column(
                 children: [
-                  for (var i = 0; i < 4; i++)
-                    (
-                        Container(
-                          margin: EdgeInsets.only(bottom: 10),
+                  for (var i = 0; i < 5; i++)
+                    (Container(
+                      margin: EdgeInsets.only(bottom: 10),
                       child: InkWell(
                         focusColor: Colors.white,
                         onTap: () {
