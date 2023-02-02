@@ -1,6 +1,7 @@
 import 'package:ethiocart/Screens/Foryou/foryou.dart';
 import 'package:ethiocart/Screens/settings.dart';
 import 'package:flutter/material.dart';
+import 'HomeView/for_you.dart/for_you.dart';
 import 'Screens.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -19,13 +20,15 @@ class _BottomNavBarState extends State<BottomNavBar> {
   int _selectedIndex = 0;
   int currentIndex = 0;
   static List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 2: this is for you',
-      style: TextStyle(color: Colors.black,fontSize: 30),
-    ),
+    ForYou(),
+    // Text(
+    //   'Index 2: this is for you',
+    //   style: TextStyle(color: Colors.black, fontSize: 30),
+    // ),
     HomeTabView(),
     ForYouPage(),
-    Settings(),
+    // Settings(),
+    profileView()
   ];
 
   void onTabTapped(int index) {
@@ -66,13 +69,15 @@ class _BottomNavBarState extends State<BottomNavBar> {
                 "assets/icons/navigation_outlined.png",
                 width: 20,
                 height: 20,
-                color: Colors.teal.shade800,              ),
+                color: Colors.teal.shade800,
+              ),
               label: 'discover',
               activeIcon: Image.asset(
                 "assets/icons/navigation_filled.png",
                 width: 20,
                 height: 20,
-                color: Colors.teal.shade800,              ),
+                color: Colors.teal.shade800,
+              ),
             ),
             //favorites
             BottomNavigationBarItem(
@@ -80,13 +85,15 @@ class _BottomNavBarState extends State<BottomNavBar> {
                 "assets/icons/camera_outlined.png",
                 width: 20,
                 height: 20,
-                color: Colors.teal.shade800,              ),
+                color: Colors.teal.shade800,
+              ),
               label: 'moments',
               activeIcon: Image.asset(
                 "assets/icons/camera_filled.png",
                 width: 20,
                 height: 20,
-                color: Colors.teal.shade800,              ),
+                color: Colors.teal.shade800,
+              ),
             ),
             //tickets
             //profile
@@ -95,18 +102,22 @@ class _BottomNavBarState extends State<BottomNavBar> {
                 "assets/icons/user_outlined.png",
                 width: 20,
                 height: 20,
-                color: Colors.teal.shade800,              ),
+                color: Colors.teal.shade800,
+              ),
               label: 'Settings',
               activeIcon: Image.asset(
                 "assets/icons/user_filled.png",
                 width: 20,
                 height: 20,
-                color: Colors.teal.shade800,              ),
+                color: Colors.teal.shade800,
+              ),
             ),
           ],
           elevation: 0,
-          unselectedLabelStyle: TextStyle(fontSize: 15, color: Colors.teal.shade500),
-          selectedLabelStyle: TextStyle(fontSize: 16, color: Colors.teal.shade800),
+          unselectedLabelStyle:
+              TextStyle(fontSize: 15, color: Colors.teal.shade500),
+          selectedLabelStyle:
+              TextStyle(fontSize: 16, color: Colors.teal.shade800),
           currentIndex: _selectedIndex,
           selectedItemColor: Colors.teal.shade800,
         ),

@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'Screens/HomeView/for_you.dart/for_you.dart';
 import 'Screens/HomeView/for_you.dart/foryou_provider.dart';
+import 'Screens/HomeView/settings1.dart/setting.dart';
 import 'Screens/Profile/my_ticket.dart';
 import 'Screens/Screens.dart';
 import 'Screens/pin/pin._page.dart';
@@ -81,10 +82,12 @@ class _MyAppState extends State<MyApp> {
 
               home:
                   //  profileView(),
-                  PasswordView(),
-              // Setting_page(),
+                  // PasswordView(),
+                  // Setting_page(),
 
-              // HomeFull(),
+                  HomeFull(),
+              // SettingsPage(),
+
               // profileView(),
               debugShowCheckedModeBanner: false,
             );
