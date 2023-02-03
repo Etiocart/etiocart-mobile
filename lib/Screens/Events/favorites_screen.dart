@@ -42,7 +42,6 @@ class favoritesHome extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  // viewsbutton(),
                   Column(
                     children: [
                       Column(

@@ -1,4 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, avoid_print
+import 'package:ethiocart/Screens/Tickets/ticket_widgets/ticketdetail.dart';
+
 import 'events_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -24,26 +26,25 @@ Widget mainCard(context) {
   DateTime now = DateTime.now();
   DateTime date = new DateTime(now.year, now.month, now.day, now.hour, now.minute);
   return Container(
-      margin: EdgeInsets.only(bottom: 15, left: 5, right: 5),
+      padding: EdgeInsets.only(bottom: 15, left: 5, right: 5),
       width: double.infinity,
-      height: height*0.21,
+      height: height*0.2,
       decoration: BoxDecoration
         (
           color: Colors.white,
           border: Border.all(color: Colors.white),
-      borderRadius: BorderRadius.only(topLeft: Radius.circular(20),
-          bottomLeft: Radius.circular(20),
-          bottomRight: Radius.circular(20),
-          topRight: Radius.circular(20))
+      borderRadius: BorderRadius.only(topLeft: Radius.circular(15),
+          bottomLeft: Radius.circular(15),
+          bottomRight: Radius.circular(15),
+          topRight: Radius.circular(15))
       ),
       child: Row(children: [
         Column(
           children: [
             Expanded(
               child: Container(
-                margin: EdgeInsets.all(10),
-                width: height*0.17,
-                decoration: BoxDecoration(color: Colors.teal.shade800,
+                width: width * 0.4,
+                decoration: BoxDecoration(color: Colors.teal.shade800.withOpacity(1),
                 borderRadius: BorderRadius.circular(20)
                 ),
               ),
@@ -57,61 +58,38 @@ Widget mainCard(context) {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => EventsDetail()),
+                    MaterialPageRoute(builder: (context) => PendingTickets()),
                   );
                 },
                 child: Container(
-                  padding: EdgeInsets.only(top: 10),
+                  padding: EdgeInsets.only(top: 10, left: 15),
                   width: height*0.25,
                   decoration: BoxDecoration(
-                      // color: Color(0xffe2ede5),
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20)),
                   child: Column(
                     children: [
-                      Row(
-                        children: [
-                          Container(
-                              padding: EdgeInsets.only(left: 10),
-                              child: Text(
-                            'Traditional Dance ',
-                            overflow: TextOverflow.fade,
-                            style: TextStyle(fontSize: 22,
-                                fontWeight: FontWeight.w600),
-                          ))
-                        ],
+                      Text(
+                        'Traditional Dance Concert',
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(fontSize: 22,
+                        fontWeight: FontWeight.w600),
                       ),
-                      Row(
-                        children: [
-                          Container(
-                              padding: EdgeInsets.only(top: 10 , left: 10),
-                              child: Text('Concert prepared',
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
-                                      fontSize: 18, color: Colors.green.shade600, fontWeight: FontWeight.w600)))
-                        ],
-                      ),
+                      Text('Concert prepared',
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                              fontSize: 18, color: Colors.green.shade600, fontWeight: FontWeight.w600)),
 
+                      Text('Sun ${date.year}/${date.month}/${date.day}',
+                          style: TextStyle(
+                              fontSize: 18)),
                       Row(
                         children: [
-                          Container(
-                              child: Text('Sun ${date.year}/${date.month}/${date.day}',
-                                  style: TextStyle(
-                                      fontSize: 18)),
-                          padding: EdgeInsets.only(top: 10, left: 10),)
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Container(
-                              padding: EdgeInsets.only(top: 10, right: 5, left: 5),
-                              child: Icon(Icons.location_on_sharp, color: Colors.deepOrange,)),
-                          Container(
-                              padding: EdgeInsets.only(top: 10),
-                              child: Text('Bole, Millenium',
-                                  overflow: TextOverflow.fade,
-                                  style: TextStyle(
-                                      fontSize: 18)))
+                          Icon(Icons.location_on_sharp, color: Colors.deepOrange,),
+                          Text('Bole, Millenium',
+                              overflow: TextOverflow.fade,
+                              style: TextStyle(
+                                  fontSize: 18))
                         ],
                       ),
                       Row(
@@ -122,7 +100,6 @@ Widget mainCard(context) {
                                   overflow: TextOverflow.fade,
                                   style: TextStyle(
                                       fontSize: 18, color: Colors.blue))),
-
                         ],
                       ),
                     ],

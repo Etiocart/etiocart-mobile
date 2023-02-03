@@ -24,123 +24,85 @@ class _CancelledCardState extends State<CancelledCard> {
 Widget ticketcancelledCard(context)
 
 {
-  DateTime now = DateTime.now();
-  DateTime date = new DateTime(now.year, now.month, now.day, now.hour, now.minute);
-
-  return Container(
-    margin: EdgeInsets.only(top: 10, left: 10, right: 10),
-    height: 180,
-    decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20), color: Colors.grey.shade200),
+  var height = MediaQuery.of(context).size.height;
+  var width = MediaQuery.of(context).size.width;
+  return Expanded(
     child: Container(
       width: double.infinity,
-      height: 150,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          color: Colors.white),
+      height: height * 0.2,
+      decoration: BoxDecoration(color: Colors.white),
       child: Row(
         children: [
           Column(
             children: [
-              Row(
-                children: [
-                  Container(
-                    width: 150,
-                    height: 150,
-                    margin: EdgeInsets.only(right: 0),
-                    decoration: BoxDecoration(
-                        color: Colors.blue,
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            bottomLeft: Radius.circular(20),
-                            bottomRight: Radius.circular(20),
-                            topRight: Radius.circular(20))),
-                  )
-                ],
+              Padding(
+                padding: const EdgeInsets.only( left: 10, right: 10, top: 8),
+                child: Container(
+                  height: height * 0.18,
+                  width: width * 0.4,
+                  decoration: BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.all(Radius.circular(15))
+                  ),
+                ),
               )
             ],
           ),
-          Column(
-            children: [
-              Expanded(
-                flex: 1,
-                child: InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => CancelledTicket()),
-                    );
-                  },
-                  child: Container(
-                    padding: EdgeInsets.only(top: 10),
-                    width: 225,
-                    decoration: BoxDecoration(color: Colors.white),
-                    child: Column(
+          Expanded(
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => TicketDetail()),
+                );
+              },
+              child: Padding(
+                padding: const EdgeInsets.only(top: 30),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Flexible(
+                      child: Container(
+                          child: Text(
+                            'Traditional Dance Concert',
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(fontSize: 20,
+                                fontWeight: FontWeight.w600),
+                          )),
+                    ),
+                    Flexible(
+                      child: Container(
+                        child: Text('Concert prepared',
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.teal.shade900,
+                                fontWeight: FontWeight.w400)),
+                      ),
+                    ),
+
+                    Text('Sunday Dec 30'
+                        ,
+                        style: TextStyle(
+                            fontSize: 15)),
+                    Row(
                       children: [
-                        Row(
-                          children: [
-                            Container(
-                                margin: EdgeInsets.only(left: 10),
-                                child: Text(
-                                  'Traditional Dance ',
-                                  overflow: TextOverflow.fade,
-                                  style: TextStyle(fontSize: 22,
-                                      fontWeight: FontWeight.w600),
-                                ))
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Container(
-                                margin: EdgeInsets.only(top: 10 , left: 10),
-                                child: Text('Concert prepared',
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                        fontSize: 18, color: Colors.green.shade600, fontWeight: FontWeight.w600)))
-                          ],
-                        ),
+                        Text('Bole, Millenium Hall',
+                            overflow: TextOverflow.fade,
+                            maxLines: 1,
+                            style: TextStyle(
+                                fontSize: 15)),
+                        Icon(Icons.location_on_sharp,
+                          color: Colors.deepOrange,),
 
-                        Row(
-                          children: [
-                            Container(
-
-                              child: Text('Sunday'
-                                  ,
-                                  style: TextStyle(
-                                      fontSize: 18)),
-                              margin: EdgeInsets.only(top: 10, left: 10),)
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Container(
-                                margin: EdgeInsets.only(top: 10, right: 5, left: 5),
-                                child: Icon(Icons.location_on_sharp, color: Colors.deepOrange,)),
-                            Container(
-                                margin: EdgeInsets.only(top: 10),
-                                child: Text('Bole, Millenium',
-                                    overflow: TextOverflow.fade,
-                                    style: TextStyle(
-                                        fontSize: 18)))
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Spacer(),
-                            Container(
-                                child: Text('Booked',
-                                    overflow: TextOverflow.fade,
-                                    style: TextStyle(
-                                        fontSize: 18, color: Colors.blue))),
-
-                          ],
-                        ),
                       ],
                     ),
-                  ),
+                  ],
                 ),
               ),
-            ],
+            ),
           )
         ],
       ),

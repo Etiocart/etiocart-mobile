@@ -1,7 +1,6 @@
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Moments extends StatefulWidget {
   const Moments({Key? key}) : super(key: key);
@@ -11,6 +10,7 @@ class Moments extends StatefulWidget {
 }
 
 class _MomentsState extends State<Moments> {
+  final List _posts = ['post1', 'post2', 'post3', 'post4', 'post5'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +18,7 @@ class _MomentsState extends State<Moments> {
         backgroundColor: Colors.white,
         foregroundColor: Colors.teal.shade800,
         elevation: 0,
-        title: Center(
+        title: const Center(
           child: Text(
             'Your Moments Here',
             style: TextStyle(fontWeight: FontWeight.normal),
@@ -26,22 +26,23 @@ class _MomentsState extends State<Moments> {
         ),
       ),
       body: SafeArea(
-          child: Container(
-        padding: EdgeInsets.only(left: 10, right: 10),
         child: ListView(
-          children: [ADblok(), MomentsDetail(), MomentsDetail()],
+          children: [
+            Column(children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ADblok(),
+              ),
+              Momentos(),
+              Momentos()
+            ]),
+          ],
         ),
-      )),
+      ),
     );
   }
 
-  void onheartTap() {
-    setState(() {
-      Icon(CupertinoIcons.heart_fill);
-    });
-  }
-
-  Widget MomentsDetail() {
+  Widget Momentos() {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Container(
@@ -51,7 +52,6 @@ class _MomentsState extends State<Moments> {
         children: [
           Container(
             padding: EdgeInsets.only(top: 0, left: 10, right: 10),
-            margin: EdgeInsets.only(bottom: 5, top: 5),
             width: double.infinity,
             height: height * 0.45,
             decoration: BoxDecoration(
@@ -87,11 +87,9 @@ class _MomentsState extends State<Moments> {
                       child: Container(
                         height: height * 0.29,
                         decoration: BoxDecoration(
-                            color: Colors.grey.shade200,
+                            color: Colors.teal.shade100,
                             borderRadius: BorderRadius.circular(15)),
                         child: SizedBox(
-                            height: 150.0,
-                            width: 350.0,
                             child: Carousel(
                               autoplay: false,
                               animationDuration: Duration(hours: 1),
@@ -151,7 +149,7 @@ class _MomentsState extends State<Moments> {
                         Row(
                           children: [
                             Text(
-                              'Andrew Ansley ',
+                              ' ',
                               style: TextStyle(
                                   fontSize: 16, fontWeight: FontWeight.bold),
                             ),

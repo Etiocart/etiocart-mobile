@@ -41,12 +41,12 @@ class _PendingTicketsState extends State<PendingTickets> {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Container(
-      margin: EdgeInsets.only(bottom: 50),
-      width: width * 0.6,
-      height: height * 0.05,
+      padding: EdgeInsets.only(top: 5, bottom: 5),
+      height: height * 0.08,
+      width: width * 0.8,
       child: ElevatedButton(
         style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(Colors.teal.shade800),
+            backgroundColor: MaterialStateProperty.all(Colors.teal.shade900),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(18.0),
@@ -59,7 +59,7 @@ class _PendingTicketsState extends State<PendingTickets> {
         },
         child: Text(
           'Book Event',
-          style: TextStyle(fontSize: 18),
+          style: TextStyle(fontSize: 17),
         ),
       ),
     );
@@ -71,7 +71,7 @@ class _PendingTicketsState extends State<PendingTickets> {
       child: Text.rich(
         maxLines: 3,
         textAlign: TextAlign.center,
-        style: TextStyle(fontSize: 16),
+        style: TextStyle(fontSize: 14, color: Colors.grey.shade700),
         TextSpan(
           children: [
             TextSpan(text: 'I accepet the event\'s'),
@@ -98,7 +98,7 @@ class _PendingTicketsState extends State<PendingTickets> {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Container(
-      padding: EdgeInsets.only(top: 10, left: 10, right: 10),
+      padding: EdgeInsets.only(top: 5, left: 10, right: 10),
       child: Column(
         children: [
           Container(
@@ -121,8 +121,8 @@ class _PendingTicketsState extends State<PendingTickets> {
                   child: Stack(
                     children: [
                       Positioned(
-                        left:310,
-                        top: 15,
+                        left:width*0.73,
+                        top: height*0.015,
                         child: Container(
                           height: 65,
                           width: 65,
@@ -151,8 +151,7 @@ class _PendingTicketsState extends State<PendingTickets> {
                                     Colors.grey.shade800
                                   ]),
                               borderRadius: BorderRadius.only(bottomRight: Radius.circular(15),bottomLeft: Radius.circular(15))),
-                          height: 165,
-                          margin: EdgeInsets.only(top: 170),
+                          height: height*0.38,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.end,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -161,7 +160,7 @@ class _PendingTicketsState extends State<PendingTickets> {
                                 child: Container(
                                   width: width*0.6,
                                   height: height*0.07,
-                                  padding: EdgeInsets.only(left: 25),
+                                  padding: EdgeInsets.only(left: 10, top: 10),
                                   child: Text(
                                     'Tomorrowland',
                                     overflow: TextOverflow.ellipsis,
@@ -174,7 +173,7 @@ class _PendingTicketsState extends State<PendingTickets> {
                                 ),
                               ),
                               Container(
-                                margin: EdgeInsets.only(bottom: 5, left: 10, right: 30),
+                                padding: EdgeInsets.only(bottom: 5, left: 10, right: 10),
                                 child: Row(
                                   children: [
                                     Container(
@@ -189,7 +188,7 @@ class _PendingTicketsState extends State<PendingTickets> {
                                       child: Text(
                                         '4pm - 12pm',
                                         style: TextStyle(
-                                            fontSize: 18,
+                                            fontSize: 16,
                                             color: Colors.white,
                                             fontFamily: 'SFPro'),
                                       ),
@@ -203,11 +202,11 @@ class _PendingTicketsState extends State<PendingTickets> {
                                         )
                                     ),
                                     Padding(
-                                      padding: const EdgeInsets.only(bottom: 10, left: 10),
+                                      padding: const EdgeInsets.only(bottom: 10, left: 5),
                                       child: Text(
                                         '25- 26 feb, 2023',
                                         style: TextStyle(
-                                            fontSize: 18,
+                                            fontSize: 16,
                                             color: Colors.white,
                                             fontFamily: 'SFPro'),
                                       ),
@@ -236,30 +235,30 @@ class _PendingTicketsState extends State<PendingTickets> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Description', style: TextStyle(fontSize: 20,color: Colors.teal.shade900, fontWeight: FontWeight.w600),),
+                  Text('Description', style: TextStyle(fontSize: 18,color: Colors.teal.shade900, fontWeight: FontWeight.w600),),
                   Text('simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book',
                     softWrap: true,
-                    maxLines: 2,
-                    textAlign: TextAlign.left,
-                    style: TextStyle(fontSize: 16, color: Colors.grey.shade900),
+                    maxLines: 3,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 14, color: Colors.grey.shade900),
                   )
                 ],
               ),
             ),
           ),
-          Padding(padding: EdgeInsets.only(top:0)),
+          Padding(padding: EdgeInsets.only(top:10)),
           Padding(
             padding: const EdgeInsets.only(left: 0, right: 0),
             child: Container(
               padding: EdgeInsets.only(),
               width: double.infinity,
-              height: height * 0.15,
+              height: height * 0.2,
               decoration: BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.fill,
                     image: AssetImage('assets/images/382.png'),
                   ),
-                  color: Colors.teal.shade800, borderRadius: BorderRadius.circular(25)),
+                  color: Colors.teal.shade900, borderRadius: BorderRadius.circular(20)),
             ),
           )
         ],

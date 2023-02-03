@@ -24,12 +24,15 @@ class _PaymentConfirmationState extends State<PaymentConfirmation> {
           elevation: 0,
           title: Text('Enter Pin', style: TextStyle(color: Colors.teal.shade900),),
         ),
-        body: Padding(
-          padding: const EdgeInsets.only(left: 10, right: 10, top: 50),
-          child: Column(
-            children: [
-              PinBox(),
-            ],
+        body: Container(
+          color: Colors.white,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 10, right: 10, top: 50),
+            child: Column(
+              children: [
+                PinBox(),
+              ],
+            ),
           ),
         ),
       ),
@@ -40,20 +43,20 @@ class _PaymentConfirmationState extends State<PaymentConfirmation> {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Container(
-      padding: EdgeInsets.only(top: 0),
       height: height * 0.5,
       color: Colors.white,
       child: Column(
         children: [
           Text(
             'Verification code',
-            style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.teal.shade900),
+            style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500, color: Colors.teal.shade900),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 5, bottom: 5),
             child: Text(
+              textAlign: TextAlign.center,
               'Please enter your pin to confirm  your payment',
-              style: TextStyle(fontSize: 18, color: Colors.grey.shade600),
+              style: TextStyle(fontSize: 16, color: Colors.grey.shade600),
             ),
           ),
           Padding(
@@ -173,30 +176,33 @@ class _PaymentConfirmationState extends State<PaymentConfirmation> {
               ],
             ),
           ),
-          Container(
-            padding: EdgeInsets.only(top: 5, bottom: 5),
-            height: height * 0.06,
-            width: width * 0.5,
-            child: ElevatedButton(
-                onPressed: () {},
-                style: ButtonStyle(
-                    elevation: MaterialStateProperty.all(0),
-                    backgroundColor:
-                        MaterialStateProperty.all(Colors.teal.shade800),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(18.0),
-                    ))),
-                child: Text(
-                  'Verify',
-                  style: TextStyle(fontSize: 18),
-                )),
+          Padding(
+            padding: const EdgeInsets.only(top: 15.0, left: 15, right: 15),
+            child: Container(
+              padding: EdgeInsets.only(top: 5, bottom: 5),
+              height: height * 0.08,
+              width: width * 0.8,
+              child: ElevatedButton(
+                  onPressed: () {},
+                  style: ButtonStyle(
+                      elevation: MaterialStateProperty.all(0),
+                      backgroundColor:
+                          MaterialStateProperty.all(Colors.teal.shade900),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                      ))),
+                  child: Text(
+                    'Verify',
+                    style: TextStyle(fontSize: 17),
+                  )),
+            ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 10),
+            padding: const EdgeInsets.only(top: 5),
             child: Text(
               'Re enter code',
-              style: TextStyle(fontSize: 18, color: Colors.red.shade800),
+              style: TextStyle(fontSize: 16, color: Colors.red.shade800),
             ),
           ),
         ],

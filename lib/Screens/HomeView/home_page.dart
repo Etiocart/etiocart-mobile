@@ -2,61 +2,108 @@
 import 'package:flutter/material.dart';
 import '../bottom_nav_screen.dart';
 import 'Widgets/home_page_widgets.dart';
-import '';
 
-class HomeFull extends StatelessWidget {
-  const HomeFull({super.key});
+class Feed extends StatefulWidget {
+  @override
+  State<Feed> createState() => _FeedState();
+}
 
+class _FeedState extends State<Feed> {
+  final List _posts = ['post1', 'post2', 'post3', 'post4', 'post5'];
   @override
   Widget build(BuildContext context) {
-    return BottomNavBar();
+    return HomeView();
   }
-}
-Widget HomeTabView() {
-  return MaterialApp(
-    debugShowCheckedModeBanner: false,
-    theme: ThemeData(
-        fontFamily: 'SFPro',
-        colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.teal.shade800)
-    ),
-    home: DefaultTabController(
-      length: 2,
-      child: Scaffold(
+
+  Widget HomeView() {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
+    return Scaffold(
         appBar: AppBar(
-          elevation: 0,
-          title: greetingContainerScreen(),
           backgroundColor: Colors.white,
-          foregroundColor: Colors.black,
-          bottom: const TabBar(
-            unselectedLabelColor: Colors.grey,
-            labelColor: Color(0xff004d40),
-            indicatorColor: Colors.teal,
-            tabs: [
-              Tab(
-                  child: Text(
-                    'Events',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontFamily: 'SFPro',
+          foregroundColor: Colors.teal.shade900,
+          elevation: 0,
+        ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(bottom: 10, left: 10, right: 10),
+              child: Container(
+                padding: EdgeInsets.only(top: 5, left: 10),
+                height: height * 0.22,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: Colors.grey.shade50),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          IconAvatar(),
+                          Padding(padding: EdgeInsets.only(left: 60)),
+                          IconAvatar(),
+                          Padding(padding: EdgeInsets.only(left: 60)),
+                          IconAvatar(),
+                      ],),
                     ),
-                  )),
-              Tab(
-                  child: Text('Transport',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontFamily: 'SFPro',
-                      ))),
-            ],
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                      IconAvatar(),
+                        Padding(padding: EdgeInsets.only(left: 60)),
+                      IconAvatar(),
+                        Padding(padding: EdgeInsets.only(left: 60)),
+                      IconAvatar(),
+                    ],)
+                  ],
+                ),
+              ),
+            ),
+            Container(
+              height: height * 0.55,
+              child: ListView.builder(
+                  itemCount: _posts.length,
+                  itemBuilder: (context, index) {
+                return FeedView();
+              }),
+            )
+          ],
+        ));
+  }
+
+  Column IconAvatar() {
+    var index=0;
+    return Column(
+      children: [
+        CircleAvatar(
+          radius: 35,
+          backgroundColor: Colors.grey.shade200,
+          child: Center(
+            child: Icon(Icons.access_time, size: 30,)
           ),
         ),
-        body: TabBarView(
-          children: [
-            EventTab(),
-            TransportTab()
-          ],
-        ),
-      ),
-    ),
-  );
-}
+        Text(_posts[index])
+      ],
+    );
+  }
 
+  Widget FeedView() {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Container(
+        width: width * 0.9,
+        height: height * 0.15,
+        decoration: BoxDecoration(
+            color: Colors.deepPurple[200],
+            borderRadius: BorderRadius.circular(15)),
+      ),
+    );
+  }
+}

@@ -21,7 +21,8 @@ class _CardInfoConfirmationState extends State<CardInfoConfirmation> {
         foregroundColor: Colors.teal.shade800,
       ),
       body: Container(
-        padding: EdgeInsets.only(left: 15, right: 15),
+        color: Colors.white,
+        padding: EdgeInsets.only(left: 5, right: 5),
         child: Column(
           children: [
             Text(
@@ -45,51 +46,53 @@ class _CardInfoConfirmationState extends State<CardInfoConfirmation> {
   }
 
   Widget CardInfoHighLight() {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Container(
+      padding: EdgeInsets.only(left: 10, right: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            padding: EdgeInsets.only(top: 10, bottom: 20),
+            padding: EdgeInsets.only(top: 0, bottom: 10),
             child: Text(
               'Card Name',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
             ),
           ),
           Container(
               width: double.infinity,
-              height: 40,
+              height: height*0.05,
+              padding: EdgeInsets.only(top: 10, left: 5),
               decoration: BoxDecoration(
                   color: Colors.grey.shade100,
                   borderRadius: BorderRadius.circular(10)),
-              child: Padding(
-                padding: const EdgeInsets.only(top: 10.0, left: 10),
-                child: Text(
-                  'Andrew Ansley',
-                  style: TextStyle(fontSize: 18, color: Colors.grey.shade600),
-                ),
+              child: Text(
+                'Andrew Ansley',
+                style: TextStyle(fontSize: 16, color: Colors.grey.shade500),
               )),
           Container(
               padding: EdgeInsets.only(top: 10, bottom: 10),
               child: Text('Card Number',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500))),
           Container(
               width: double.infinity,
-              height: 40,
+              height: height*0.05,
               decoration: BoxDecoration(
                   color: Colors.grey.shade100,
                   borderRadius: BorderRadius.circular(10)),
               child: Padding(
-                padding: const EdgeInsets.only(top: 10.0, left: 10),
+                padding: const EdgeInsets.only(top: 10.0, left: 5),
                 child: Text(
                   '2672 4738 7837',
-                  style: TextStyle(fontSize: 18, color: Colors.grey.shade600),
+                  style: TextStyle(fontSize: 16, color: Colors.grey.shade500),
                 ),
               )),
           Container(
             padding: EdgeInsets.only(top: 10, bottom: 10),
             child: Text('Balance',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
           ),
           Container(
               width: double.infinity,
@@ -101,7 +104,7 @@ class _CardInfoConfirmationState extends State<CardInfoConfirmation> {
                 padding: const EdgeInsets.only(top: 10.0, left: 10),
                 child: Text(
                   '1000 birr',
-                  style: TextStyle(fontSize: 18, color: Colors.grey.shade600),
+                  style: TextStyle(fontSize: 16, color: Colors.grey.shade500),
                 ),
               ))
         ],
@@ -113,9 +116,9 @@ class _CardInfoConfirmationState extends State<CardInfoConfirmation> {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Container(
-      padding: EdgeInsets.only(top: 5, bottom: 5),
-      height: height * 0.06,
-      width: width * 0.5,
+      padding: EdgeInsets.only(top: 6, bottom: 6),
+      height: height * 0.08,
+      width: width * 0.8,
       child: ElevatedButton(
         style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(Colors.white),
@@ -123,7 +126,7 @@ class _CardInfoConfirmationState extends State<CardInfoConfirmation> {
             elevation: MaterialStateProperty.all(0),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(18.0),
+                    borderRadius: BorderRadius.circular(15.0),
                     side: BorderSide(color: Colors.teal.shade900)))),
         onPressed: () {
           Navigator.push(
@@ -133,7 +136,7 @@ class _CardInfoConfirmationState extends State<CardInfoConfirmation> {
         },
         child: Text(
           'Wallet',
-          style: TextStyle(fontSize: 18, color: Colors.teal.shade900),
+          style: TextStyle(fontSize: 17, color: Colors.teal.shade900),
         ),
       ),
     );
@@ -143,16 +146,16 @@ class _CardInfoConfirmationState extends State<CardInfoConfirmation> {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Container(
-      margin: EdgeInsets.only(top: 5, bottom: 5),
-      height: height * 0.05,
-      width: width * 0.52,
+      padding: EdgeInsets.only(top: 5, bottom: 5),
+      height: height * 0.08,
+      width: width * 0.8,
       child: ElevatedButton(
         style: ButtonStyle(
             elevation: MaterialStateProperty.all(0),
             backgroundColor: MaterialStateProperty.all(Colors.teal.shade800),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(18.0),
+              borderRadius: BorderRadius.circular(15.0),
             ))),
         onPressed: () {
           Navigator.push(context,
@@ -160,37 +163,41 @@ class _CardInfoConfirmationState extends State<CardInfoConfirmation> {
         },
         child: Text(
           'Confirm',
-          style: TextStyle(fontSize: 18),
+          style: TextStyle(fontSize: 17),
         ),
       ),
     );
   }
 
   Widget ConfirmPayment() {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Container(
+      padding: EdgeInsets.only(left: 10, right: 10),
       width: double.infinity,
-      height: 200,
+      height: height*0.3,
       decoration: BoxDecoration(color: Colors.white),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
               width: double.infinity,
-              height: 40,
+              height: height*0.06,
               decoration: BoxDecoration(
-                  color: Colors.grey.shade100, borderRadius: BorderRadius.circular(10)),
+                  color: Colors.grey.shade100
+                  , borderRadius: BorderRadius.circular(10)),
               child: Padding(
                 padding: const EdgeInsets.only(top: 0.0, left: 10, right: 5),
                 child: Row(
                   children: [
                     Text(
                       'Number of seats',
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
                     ),
                     Spacer(),
                     Text(
                       '5',
-                      style: TextStyle(fontSize: 18, color: Colors.grey.shade600),
+                      style: TextStyle(fontSize: 16, color: Colors.grey.shade600),
                     ),
                   ],
                 ),
@@ -198,7 +205,7 @@ class _CardInfoConfirmationState extends State<CardInfoConfirmation> {
           Padding(padding: EdgeInsets.only(top: 5, bottom: 5)),
           Container(
               width: double.infinity,
-              height: 40,
+              height: height*0.06,
               decoration: BoxDecoration(
                   color: Colors.grey.shade100, borderRadius: BorderRadius.circular(10)),
               child: Padding(
@@ -207,12 +214,12 @@ class _CardInfoConfirmationState extends State<CardInfoConfirmation> {
                   children: [
                     Text(
                       'Event Date',
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
                     ),
                     Spacer(),
                     Text(
                       'December 2023',
-                      style: TextStyle(fontSize: 18, color: Colors.grey.shade600),
+                      style: TextStyle(fontSize: 16, color: Colors.grey.shade600),
                     ),
                   ],
                 ),
@@ -220,7 +227,7 @@ class _CardInfoConfirmationState extends State<CardInfoConfirmation> {
           Padding(padding: EdgeInsets.only(top: 5, bottom: 5)),
           Container(
               width: double.infinity,
-              height: 40,
+              height: height*0.06,
               decoration: BoxDecoration(
                   color: Colors.grey.shade100, borderRadius: BorderRadius.circular(10)),
               child: Padding(
@@ -229,24 +236,24 @@ class _CardInfoConfirmationState extends State<CardInfoConfirmation> {
                   children: [
                     Text(
                       'Event Location',
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
                     ),
                     Spacer(),
                     Text(
                       'Hawasa',
-                      style: TextStyle(fontSize: 18, color: Colors.grey.shade600),
+                      style: TextStyle(fontSize: 16, color: Colors.grey.shade600),
                     ),
                   ],
                 ),
               )),
           Container(
-            padding: EdgeInsets.only(top: 20),
+            padding: EdgeInsets.only(top: 10),
             width: double.infinity,
             color: Colors.white,
             child: Center(
               child: Text(
                 'Total Amount : 1250 birr',
-                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16,color: Colors.teal.shade900),
               ),
             ),
           ),
