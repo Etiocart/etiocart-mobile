@@ -6,6 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../authentication/login.dart';
+import '../setting_page.dart';
 import 'profile_export.dart';
 import 'package:ethiocart/Screens/Screens.dart';
 import 'package:flutter/material.dart';
@@ -18,13 +19,15 @@ class profileView extends StatelessWidget {
     favoritesHome(),
     helpCenter(),
     paymentWallet(),
-    tickets()
+    tickets(),
+    Setting_page()
   ];
   List<String> tabNames = [
-    'favorite events',
+    'Favorite Events',
     'Help center',
     'Wallet',
-    'Tickets'
+    'Tickets',
+    'Setting'
   ];
 
   List<IconData> fontawesomeIcons = [

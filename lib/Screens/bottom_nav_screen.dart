@@ -95,16 +95,26 @@ class _BottomNavBarState extends State<BottomNavBar> {
             //tickets
             //profile
             BottomNavigationBarItem(
-              label: '',
-              icon: Padding(
-                padding: const EdgeInsets.only(top:15.0),
-                child: CircleAvatar(radius: 20,),
-              )
+              icon: Image.asset(
+                "assets/icons/user_outlined.png",
+                width: 20,
+                height: 20,
+                color: Colors.teal.shade800,
+              ),
+              label: 'Settings',
+              activeIcon: Image.asset(
+                "assets/icons/user_filled.png",
+                width: 20,
+                height: 20,
+                color: Colors.teal.shade800,
+              ),
             ),
           ],
           elevation: 0,
-          unselectedLabelStyle: TextStyle(fontSize: 15, color: Colors.teal.shade500),
-          selectedLabelStyle: TextStyle(fontSize: 16, color: Colors.teal.shade800),
+          unselectedLabelStyle:
+              TextStyle(fontSize: 15, color: Colors.teal.shade500),
+          selectedLabelStyle:
+              TextStyle(fontSize: 16, color: Colors.teal.shade800),
           currentIndex: _selectedIndex,
           selectedItemColor: Colors.teal.shade800,
         ),

@@ -29,6 +29,13 @@ class _MyAppState extends State<MyApp> {
       ));
       return MultiProvider(
         providers: [
+          // Provider(create: (context) => FavoriteProvider()),
+          // ChangeNotifierProxyProvider<FavoriteProvider>(create: (context) => FavoriteProvider(),),
+          // ChangeNotifierProvider<FavoriteProvider>(
+          //   create: (_) {
+          //     return FavoriteProvider();
+          //   },
+          // ),
           ChangeNotifierProvider(create: (_) {
             return themeChangeProvider;
           })
@@ -39,6 +46,23 @@ class _MyAppState extends State<MyApp> {
               title: 'Main Page',
               home:
               BottomNavBar(),
+              theme: ETheme.themeData(themeChangeProvider.darkTheme, context),
+              // theme: ThemeData(
+
+              //   visualDensity: VisualDensity.adaptivePlatformDensity,
+              //   inputDecorationTheme: const InputDecorationTheme(
+              //     border: InputBorder.none,
+              //     // filled: true,
+              //     // fillColor: Color(0xffeeeeee),
+              //     hintStyle: TextStyle(
+              //       fontSize: 15.0,
+              //       color: Colors.black45,
+              //       fontFamily: 'SFPro',
+              //     ),
+              //   ),
+              //   colorScheme: ColorScheme.fromSwatch()
+              //       .copyWith(secondary: Colors.teal.shade600),
+              // ),
               // profileView(),
               debugShowCheckedModeBanner: false,
             );
