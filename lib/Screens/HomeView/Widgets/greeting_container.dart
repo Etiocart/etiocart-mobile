@@ -18,7 +18,7 @@ class greetingContainerScreen extends StatelessWidget {
         // margin: EdgeInsets.only(top: 25),
         decoration: BoxDecoration(
           // borderRadius: BorderRadius.circular(10),
-          color: Theme.of(context).backgroundColor,
+          color: Colors.white,
         ),
         child: Column(
           children: [

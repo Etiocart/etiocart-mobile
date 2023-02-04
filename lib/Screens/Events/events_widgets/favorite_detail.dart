@@ -5,6 +5,16 @@ class EventsDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Material(
+      child: SafeArea(
+          child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.teal.shade900,
+          elevation: 0,
+          title: Text('Favourite'),
+        ),
+      )),
+    );
   }
 }

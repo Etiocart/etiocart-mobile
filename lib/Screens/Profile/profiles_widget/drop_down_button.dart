@@ -29,23 +29,23 @@ class _DropdownButtonExampleState extends State<DropdownButtonExample> {
 
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Stack(
       children: [
         Container(
-          // color: Color(0xffE0EBE3),
-          width: 370,
-          margin: EdgeInsets.only(left: 10, top: 20),
+          width: width*0.9,
+          padding: EdgeInsets.only(left: 10, top: 20),
           child: DropdownButton<String>(
             value: dropdownValue,
             isExpanded: true,
             elevation: 0,
-            style: TextStyle(color:Colors.teal.shade800),
+            style: TextStyle(color:Colors.black87),
             underline: Container(
               height: 0,
               color: Colors.white,
             ),
             onChanged: (String? value) {
-              // This is called when the user selects an item.
               setState(() {
                 dropdownValue = value!;
               });

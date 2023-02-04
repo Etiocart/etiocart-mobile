@@ -1,17 +1,10 @@
 // ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, avoid_print
-import 'package:ethiocart/Screens/theme_Provider/darktheme_pref.dart';
 import 'package:ethiocart/Screens/theme_Provider/theme_provider.dart';
 import 'package:ethiocart/Screens/theme_Provider/themedata.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'Screens/HomeView/for_you.dart/for_you.dart';
-import 'Screens/HomeView/for_you.dart/foryou_provider.dart';
-import 'Screens/HomeView/settings1.dart/setting.dart';
-import 'Screens/Profile/my_ticket.dart';
 import 'Screens/Screens.dart';
-import 'Screens/pin/pin._page.dart';
-import 'Screens/setting_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,34 +19,23 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   DarkThemeProvider themeChangeProvider = DarkThemeProvider();
-
-  void getCurrentAppTheme() async {
-    themeChangeProvider.darkTheme =
-        await themeChangeProvider.darkThemePreferences.getTheme();
-  }
-
-  @override
-  void initState() {
-    getCurrentAppTheme();
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     {
-      // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
-      // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      //   statusBarColor: Colors.white,
-      // ));
+      SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
+      SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+        statusBarColor: Colors.white,
+        systemNavigationBarColor: Colors.white
+      ));
       return MultiProvider(
         providers: [
-          Provider(create: (context) => FavoriteProvider()),
+          // Provider(create: (context) => FavoriteProvider()),
           // ChangeNotifierProxyProvider<FavoriteProvider>(create: (context) => FavoriteProvider(),),
-          ChangeNotifierProvider<FavoriteProvider>(
-            create: (_) {
-              return FavoriteProvider();
-            },
-          ),
+          // ChangeNotifierProvider<FavoriteProvider>(
+          //   create: (_) {
+          //     return FavoriteProvider();
+          //   },
+          // ),
           ChangeNotifierProvider(create: (_) {
             return themeChangeProvider;
           })
@@ -62,6 +44,8 @@ class _MyAppState extends State<MyApp> {
           builder: (context, value, child) {
             return MaterialApp(
               title: 'Main Page',
+              home:
+              BottomNavBar(),
               theme: ETheme.themeData(themeChangeProvider.darkTheme, context),
               // theme: ThemeData(
 
@@ -79,15 +63,6 @@ class _MyAppState extends State<MyApp> {
               //   colorScheme: ColorScheme.fromSwatch()
               //       .copyWith(secondary: Colors.teal.shade600),
               // ),
-
-              home:
-                  //  profileView(),
-                  // PasswordView(),
-                  // Setting_page(),
-
-                  HomeFull(),
-              // SettingsPage(),
-
               // profileView(),
               debugShowCheckedModeBanner: false,
             );

@@ -1,7 +1,8 @@
-import 'package:ethiocart/Screens/Foryou/foryou.dart';
+import 'package:ethiocart/Screens/HomeView/Widgets/event_tab_content.dart';
+import 'package:ethiocart/Screens/HomeView/Widgets/home_page_widgets.dart';
+import 'package:ethiocart/Screens/moments/moments.dart';
 import 'package:ethiocart/Screens/settings.dart';
 import 'package:flutter/material.dart';
-import 'HomeView/for_you.dart/for_you.dart';
 import 'Screens.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -20,15 +21,13 @@ class _BottomNavBarState extends State<BottomNavBar> {
   int _selectedIndex = 0;
   int currentIndex = 0;
   static List<Widget> _widgetOptions = <Widget>[
-    ForYou(),
-    // Text(
-    //   'Index 2: this is for you',
-    //   style: TextStyle(color: Colors.black, fontSize: 30),
-    // ),
-    HomeTabView(),
-    ForYouPage(),
-    // Settings(),
-    profileView()
+    Text(
+      'this page is currently unavailable',
+      style: TextStyle(color: Colors.black,fontSize: 22),
+    ),
+    Feed(),
+    Moments(),
+    Settings(),
   ];
 
   void onTabTapped(int index) {
@@ -38,6 +37,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
   }
 
   Widget BottomNav() {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
@@ -52,48 +53,44 @@ class _BottomNavBarState extends State<BottomNavBar> {
             BottomNavigationBarItem(
               icon: Image.asset(
                 "assets/icons/home_outlined.png",
-                width: 20,
-                height: 20,
+                width: width*0.2,
+                height: width*0.05,
                 color: Colors.teal.shade800,
               ),
               label: 'for you',
               activeIcon: Image.asset(
                 "assets/icons/home_filled.png",
-                width: 20,
-                height: 20,
+                width: width*0.2,
+                height: width*0.05,
                 color: Colors.teal.shade800,
               ),
             ),
             BottomNavigationBarItem(
               icon: Image.asset(
                 "assets/icons/navigation_outlined.png",
-                width: 20,
-                height: 20,
-                color: Colors.teal.shade800,
-              ),
+                width: width*0.2,
+                height: width*0.05,
+                color: Colors.teal.shade800,              ),
               label: 'discover',
               activeIcon: Image.asset(
                 "assets/icons/navigation_filled.png",
-                width: 20,
-                height: 20,
-                color: Colors.teal.shade800,
-              ),
+                width: width*0.2,
+                height: width*0.05,
+                color: Colors.teal.shade800,              ),
             ),
             //favorites
             BottomNavigationBarItem(
               icon: Image.asset(
-                "assets/icons/camera_outlined.png",
-                width: 20,
-                height: 20,
-                color: Colors.teal.shade800,
-              ),
+                "assets/icons/camera.gif",
+                width: width*0.23,
+                height: width*0.07,
+                color: Colors.teal.shade800,              ),
               label: 'moments',
               activeIcon: Image.asset(
                 "assets/icons/camera_filled.png",
-                width: 20,
-                height: 20,
-                color: Colors.teal.shade800,
-              ),
+                width: width*0.2,
+                height: width*0.05,
+                color: Colors.teal.shade800,              ),
             ),
             //tickets
             //profile
@@ -124,4 +121,51 @@ class _BottomNavBarState extends State<BottomNavBar> {
       ),
     );
   }
+}
+Widget HomeTabView() {
+  return MaterialApp(
+    debugShowCheckedModeBanner: false,
+    theme: ThemeData(
+        fontFamily: 'SFPro',
+        colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.teal.shade800)
+    ),
+    home: DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          elevation: 0,
+          title: greetingContainerScreen(),
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.black,
+          bottom: const TabBar(
+            unselectedLabelColor: Colors.grey,
+            labelColor: Color(0xff004d40),
+            indicatorColor: Colors.teal,
+            tabs: [
+              Tab(
+                  child: Text(
+                    'Events',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontFamily: 'SFPro',
+                    ),
+                  )),
+              Tab(
+                  child: Text('Transport',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontFamily: 'SFPro',
+                      ))),
+            ],
+          ),
+        ),
+        body: TabBarView(
+          children: [
+            EventTab(),
+            TransportTab()
+          ],
+        ),
+      ),
+    ),
+  );
 }

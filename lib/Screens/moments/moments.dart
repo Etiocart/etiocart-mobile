@@ -1,47 +1,61 @@
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class ForYouPage extends StatefulWidget {
-  const ForYouPage({Key? key}) : super(key: key);
+class Moments extends StatefulWidget {
+  const Moments({Key? key}) : super(key: key);
 
   @override
-  State<ForYouPage> createState() => _ForYouPageState();
+  State<Moments> createState() => _MomentsState();
 }
 
-class _ForYouPageState extends State<ForYouPage> {
+class _MomentsState extends State<Moments> {
+  final List _posts = ['post1', 'post2', 'post3', 'post4', 'post5'];
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.teal.shade800,
+        elevation: 0,
+        title: const Center(
+          child: Text(
+            'Your Moments Here',
+            style: TextStyle(fontWeight: FontWeight.normal),
+          ),
+        ),
+      ),
+      body: SafeArea(
         child: ListView(
-// <<<<<<< HEAD
-      // children: [ForYou(), ForYou()],
-// =======
-      children: [ForYou(), ForYou()],
-// >>>>>>> 98fce862e54620804ddcfa6b9128a9154a9314c6
-    ));
+          children: [
+            Column(children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ADblok(),
+              ),
+              Momentos(),
+              Momentos()
+            ]),
+          ],
+        ),
+      ),
+    );
   }
 
-  void onheartTap() {
-    setState(() {
-      Icon(CupertinoIcons.heart_fill);
-    });
-  }
-
-  Widget ForYou() {
+  Widget Momentos() {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Container(
       color: Colors.grey.shade100,
       padding: EdgeInsets.all(0),
       child: Column(
         children: [
           Container(
-            padding: EdgeInsets.only(top: 10, left: 10, right: 10),
-            margin: EdgeInsets.only(bottom: 5, top: 5),
+            padding: EdgeInsets.only(top: 0, left: 10, right: 10),
             width: double.infinity,
-            height: 400,
+            height: height * 0.45,
             decoration: BoxDecoration(
-                color: Colors.white, borderRadius: BorderRadius.circular(0)),
+                color: Colors.white, borderRadius: BorderRadius.circular(10)),
             child: Column(
               children: [
                 Container(
@@ -50,6 +64,11 @@ class _ForYouPageState extends State<ForYouPage> {
                     children: [
                       CircleAvatar(
                         radius: 25,
+                        backgroundColor: Colors.teal.shade800,
+                        child: Text(
+                          'A',
+                          style: TextStyle(color: Colors.white, fontSize: 22),
+                        ),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -66,21 +85,18 @@ class _ForYouPageState extends State<ForYouPage> {
                   children: [
                     Expanded(
                       child: Container(
-                        width: 360,
-                        height: 250,
+                        height: height * 0.29,
                         decoration: BoxDecoration(
-                            color: Colors.grey.shade50,
-                            borderRadius: BorderRadius.circular(0)),
+                            color: Colors.teal.shade100,
+                            borderRadius: BorderRadius.circular(15)),
                         child: SizedBox(
-                            height: 150.0,
-                            width: 350.0,
                             child: Carousel(
                               autoplay: false,
                               animationDuration: Duration(hours: 1),
                               images: [
-                                AssetImage('assets/images/540.png'),
-                                AssetImage('assets/images/540.png'),
-                                AssetImage('assets/images/540.png'),
+                                AssetImage('assets/images/544.png'),
+                                AssetImage('assets/images/543.png'),
+                                AssetImage('assets/images/542.png'),
                               ],
                               dotSize: 4.0,
                               dotSpacing: 15.0,
@@ -133,7 +149,7 @@ class _ForYouPageState extends State<ForYouPage> {
                         Row(
                           children: [
                             Text(
-                              'Andrew Ansley ',
+                              ' ',
                               style: TextStyle(
                                   fontSize: 16, fontWeight: FontWeight.bold),
                             ),
@@ -153,6 +169,22 @@ class _ForYouPageState extends State<ForYouPage> {
           Container(),
         ],
       ),
+    );
+  }
+
+  Widget ADblok() {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
+    return Container(
+      height: height * 0.3,
+      width: width * 1.0,
+      decoration: BoxDecoration(
+          color: Colors.teal.shade100, borderRadius: BorderRadius.circular(15)),
+      child: Center(
+          child: Text(
+        'Place your ads here',
+        style: TextStyle(fontSize: 25),
+      )),
     );
   }
 }

@@ -36,11 +36,14 @@ class _editProfileState extends State<editProfile> {
   }
 
   Widget editBody(context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Material(
       child: ListView(
         children: [
           Container(
-            margin: EdgeInsets.only(top: 30, left: 10, right: 10),
+            padding: EdgeInsets.only(top: 30, left: 15, right: 15),
+            color: Colors.white,
             child: Column(
               children: [
                 Row(
@@ -51,28 +54,31 @@ class _editProfileState extends State<editProfile> {
                         elevation: 0,
                         borderRadius: BorderRadius.circular(150),
                         child: Container(
-                          width: 150,
-                          height: 150,
+                            width: 160,
+                            height: 160,
                           decoration: BoxDecoration(
                               border: Border.all(color: Colors.white),
                               borderRadius: BorderRadius.circular(150),
-                              color: Theme.of(context).backgroundColor,
+                              color: Color(0xffE0EBE3),
                             )),
                       ),
-                      Container(
-                        margin: EdgeInsets.only(left: 105, top: 105),
-                        width: 45,
-                        height: 45,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(40),
-                            color: Colors.blueAccent),
-                        child: Material(
-                          elevation: 0,
-                          color: Colors.transparent,
-                          child: Icon(
-                            FontAwesomeIcons.pencil,
-                            color: Colors.white,
-                            size: 20,
+                      Positioned(
+                        left: 100,
+                        top: 100,
+                        child: Container(
+                          width: width * 0.12,
+                          height: width * 0.12,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(360),
+                              color: Colors.teal.shade900),
+                          child: Material(
+                            elevation: 0,
+                            color: Colors.transparent,
+                            child: Icon(
+                              FontAwesomeIcons.image,
+                              color: Colors.white,
+                              size: 25,
+                            ),
                           ),
                         ),
                       ),
@@ -119,7 +125,7 @@ class _editProfileState extends State<editProfile> {
                 Row(
                   children: [
                     Container(
-                      child: UpdateButton(),
+                      child: UpdateButton(context),
                     ),
                   ],
                 ),
@@ -132,16 +138,18 @@ class _editProfileState extends State<editProfile> {
   }
 
   Widget textFields(String lablelText) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     String text = lablelText;
     return Container(
-      margin: EdgeInsets.only(top: 20),
-      width: 390,
-      height: 55,
+      padding: EdgeInsets.only(top: 10),
+      width: width*0.9,
+      height: height*0.075,
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
       child: TextField(
         decoration: InputDecoration(
             filled: true,
-            fillColor: Color(0xffE0EBE3),
+            fillColor: Colors.grey.shade200,
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10.0),
                 borderSide: BorderSide.none),
@@ -154,19 +162,20 @@ class _editProfileState extends State<editProfile> {
   }
 
   Widget birthDate(context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     DateTime date = new DateTime(now.year, now.month, now.day);
     return Container(
-      margin: EdgeInsets.only(top: 20, left: 10),
+      padding: EdgeInsets.only(top: 15, left: 5),
       child: Row(
         children: [
           Container(
-            width: 340,
-            margin: EdgeInsets.only(right: 10, left: 0),
+            width: width*0.82,
             child: Text(
               '${date.year}/${date.month}/${date.day}',
               style: TextStyle(
                   fontSize: 16,
-                  color: Colors.teal.shade800,
+                  color: Colors.black87,
                   fontWeight: FontWeight.w500),
             ),
           ),
@@ -183,7 +192,7 @@ class _editProfileState extends State<editProfile> {
               },
               child: Icon(
                 FontAwesomeIcons.calendar,
-                color: Colors.teal.shade600,
+                color: Colors.black87,
               ))
         ],
       ),

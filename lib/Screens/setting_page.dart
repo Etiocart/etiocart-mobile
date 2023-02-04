@@ -25,9 +25,6 @@ class _Setting_pageState extends State<Setting_page> {
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
         backgroundColor: Theme.of(context).cardColor,
-        // leading: BackButton(
-        //   color: Theme.of(context).iconTheme.color,
-        // ),
         title: Text(
           "Setting",
           style: TextStyle(
@@ -51,9 +48,7 @@ class _Setting_pageState extends State<Setting_page> {
                               builder: (context) => const appLock()));
                     })),
                     child: Container(
-                      // height: 50,
                       width: double.infinity,
-                      // color: Colors.amber,
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Row(
