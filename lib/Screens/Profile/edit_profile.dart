@@ -3,7 +3,7 @@ import 'package:ethiocart/Screens/Profile/profiles_widget/cupertinoDatePicker.da
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'profiles_widget/pro_widgets.dart';
+import 'profiles_widget/drop_down_button.dart';
 import './profiles_widget/update_button.dart';
 
 class editProfile extends StatefulWidget {
@@ -42,7 +42,7 @@ class _editProfileState extends State<editProfile> {
       child: ListView(
         children: [
           Container(
-            padding: EdgeInsets.only(top: 30, left: 15, right: 15),
+            padding: EdgeInsets.only(top: 30),
             color: Colors.white,
             child: Column(
               children: [
@@ -123,6 +123,7 @@ class _editProfileState extends State<editProfile> {
                   ],
                 ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
                       child: UpdateButton(context),
@@ -143,20 +144,23 @@ class _editProfileState extends State<editProfile> {
     String text = lablelText;
     return Container(
       padding: EdgeInsets.only(top: 10),
-      width: width*0.9,
+      width: width*1,
       height: height*0.075,
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
-      child: TextField(
-        decoration: InputDecoration(
-            filled: true,
-            fillColor: Colors.grey.shade200,
-            border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10.0),
-                borderSide: BorderSide.none),
-            labelText: text,
-            labelStyle: TextStyle(color: Colors.black),
-            hintStyle: TextStyle(color: Colors.black, fontSize: 18),
-            hintText: text),
+      child: Padding(
+        padding: const EdgeInsets.only(left: 5, right: 5),
+        child: TextField(
+          decoration: InputDecoration(
+              filled: true,
+              fillColor: Colors.grey.shade200,
+              border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  borderSide: BorderSide.none),
+              labelText: text,
+              labelStyle: TextStyle(color: Colors.black),
+              hintStyle: TextStyle(color: Colors.black, fontSize: 18),
+              hintText: text),
+        ),
       ),
     );
   }
@@ -166,11 +170,11 @@ class _editProfileState extends State<editProfile> {
     var width = MediaQuery.of(context).size.width;
     DateTime date = new DateTime(now.year, now.month, now.day);
     return Container(
-      padding: EdgeInsets.only(top: 15, left: 5),
+      padding: EdgeInsets.only(top: 15, left: 10),
       child: Row(
         children: [
           Container(
-            width: width*0.82,
+            width: width*0.9,
             child: Text(
               '${date.year}/${date.month}/${date.day}',
               style: TextStyle(

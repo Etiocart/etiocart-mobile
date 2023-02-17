@@ -5,7 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
 
-import 'applock_passcode.dart';
+import 'Security/applock_passcode.dart';
 import 'theme_Provider/theme_provider.dart';
 
 class Setting_page extends StatefulWidget {

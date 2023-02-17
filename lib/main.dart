@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, avoid_print
 import 'package:ethiocart/Screens/theme_Provider/theme_provider.dart';
-import 'package:ethiocart/Screens/theme_Provider/themedata.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -46,9 +45,8 @@ class _MyAppState extends State<MyApp> {
               title: 'Main Page',
               home:
               BottomNavBar(),
-              theme: ETheme.themeData(themeChangeProvider.darkTheme, context),
+              //theme: ETheme.themeData(themeChangeProvider.darkTheme, context),
               // theme: ThemeData(
-
               //   visualDensity: VisualDensity.adaptivePlatformDensity,
               //   inputDecorationTheme: const InputDecorationTheme(
               //     border: InputBorder.none,

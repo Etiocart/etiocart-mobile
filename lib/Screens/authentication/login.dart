@@ -18,15 +18,6 @@ class LoginScreen extends StatelessWidget {
           backgroundColor: Colors.white,
           elevation: 0,
           automaticallyImplyLeading: true,
-          // leading: IconButton(
-          //   icon: Icon(
-          //     Icons.arrow_back_ios,
-          //     color: Colors.black,
-          //   ),
-          //   onPressed: () {
-          //     Navigator.pop(context);
-          //   },
-          // ),
         ),
         body: SingleChildScrollView(
           child: SafeArea(
@@ -40,12 +31,6 @@ class LoginScreen extends StatelessWidget {
                       height: 200,
                       width: 350,
                       child: Stack(children: [
-                        // Center(
-                        //     child: Image.asset(
-                        //   'assets/images/ec-logo3xx.png',
-                        //   height: 180,
-                        //   width: 180,
-                        // )),
                       ])),
                   Center(
                     child: Text(
@@ -61,7 +46,6 @@ class LoginScreen extends StatelessWidget {
                   SizedBox(
                     height: 30,
                   ),
-                  //Login Form
                   LoginForm(),
 
                   // LoginFooterWidget(),

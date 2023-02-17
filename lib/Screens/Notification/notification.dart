@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, avoid_print
+import 'package:ethiocart/Screens/Search/search_delegate.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'notification_widgets/notifications_widget.dart';
@@ -20,6 +21,8 @@ class Notifications extends StatelessWidget {
   List<String> Titles = ['Booking', 'profile change', 'new event'];
 
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Scaffold(
         appBar: AppBar(
           elevation: 0,
@@ -33,33 +36,40 @@ class Notifications extends StatelessWidget {
           ),
           backgroundColor: Colors.white,
           foregroundColor: Colors.black,
+          actions: [IconButton(
+              onPressed: () {
+                showSearch(context: context, delegate: CustomSearch());
+              },
+              icon: Icon(
+                Icons.search,
+                size: 30,
+              ))],
         ),
         body:
-            notificationbool == 0 ? notificationViewer() : emptyNotification());
+            notificationbool == 0 ? notificationViewer(context) : emptyNotification());
   }
 
-  Widget notificationViewer() {
+  Widget notificationViewer(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Material(
         child: SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child: Column(
         children: [
-          notificationCard(
-              'Profile Info Changed', 'Name changed', 'New', Icons.person_outline_rounded),
-          notificationCard(
-              'black pearls',
-              'black pearls concert in addis with collab with ethiopian artists',
-              'old',
-              Icons.calendar_today),
+          notificationCard(context),
+          notificationCard(context),
         ],
       ),
     ));
   }
 
-  Widget notificationCard(
-      String text1, String text2, String text3, IconData notIcon) {
+  Widget notificationCard(BuildContext context)
+  {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Container(
-      margin: EdgeInsets.only(
+      padding: EdgeInsets.only(
         top: 5,
       ),
       width: double.infinity,
@@ -72,7 +82,7 @@ class Notifications extends StatelessWidget {
           color: Colors.white,
           child: Expanded(
             child: Container(
-              margin: EdgeInsets.only(top: 10),
+              padding: EdgeInsets.only(top: 10),
               child: Column(
                 children: [
                   Row(
@@ -86,21 +96,21 @@ class Notifications extends StatelessWidget {
                               color: Colors.grey.shade200),
                         ),
                         Container(
-                          margin: EdgeInsets.only(top: 15, left: 15),
+                          padding: EdgeInsets.only(top: 15, left: 15),
                           child: Icon(
-                            notIcon,
-                            color: Colors.red.shade600,
+                            Icons.note,
+                            color: Colors.grey.shade600,
                             size: 30,
                           ),
                         ),
                       ]),
                       Expanded(
                         child: Container(
-                          margin: EdgeInsets.only(left: 5),
+                          padding: EdgeInsets.only(left: 5),
                           child: Column(
                             children: [
                               Text(
-                                text1,
+                                'text1',
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
                                   fontFamily: 'SFPro',
@@ -114,35 +124,26 @@ class Notifications extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Container(
-                        width: 100,
-                          margin: EdgeInsets.only(left: 70),
-                          child: ElevatedButton(
-                              onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.teal.shade700,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                ),
-                              ),
-                              child: Text(
-                                text3,
-                                style: TextStyle(fontSize: 18,fontFamily: 'SFPro'),
-                              )))
                     ],
                   ),
                   Expanded(
                     child: Container(
-                      width: 380,
-                      margin: EdgeInsets.only(left: 25, right: 5),
-                      child: Text(
-                        text2,
-                        style: TextStyle(
-                          fontFamily: 'SFPro',
-                          fontSize: 18,
-                        ),
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 2,
+                      width: width*0.8,
+                      padding: EdgeInsets.only(left: 25, right: 5),
+                      child: Row(
+                        children: const [
+                          Expanded(
+                            child: Text(
+                              'text2text2text2text2text2text2',
+                              style: TextStyle(
+                                fontFamily: 'SFPro',
+                                fontSize: 18,
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 2,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   )

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class EditWallet extends StatefulWidget {
   const EditWallet({Key? key}) : super(key: key);
 
@@ -14,15 +15,19 @@ class _EditWalletState extends State<EditWallet> {
         foregroundColor: Colors.teal.shade800,
         backgroundColor: Colors.white,
         elevation: 0,
-        title: Text('wallet'),
+        title: Text('Wallet'),
       ),
-      body: WalletInfoEdit(),
+      body: SafeArea(child: WalletInfoEdit()),
     );
   }
 
-  Widget WalletInfoEdit(){
+  Widget WalletInfoEdit() {
     return Container(
-
+      child: Column(
+        children: [
+          Center(child: const Text('Your Wallet Information', style: TextStyle(fontSize: 18),))
+        ],
+      ),
     );
   }
 }

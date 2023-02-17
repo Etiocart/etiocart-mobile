@@ -1,4 +1,4 @@
-import 'package:ethiocart/Screens/payement/pending_payments.dart';
+import 'package:ethiocart/Screens/payement/editwallet.dart';
 import 'package:ethiocart/Screens/payement/transaction_detail.dart';
 import 'package:flutter/material.dart';
 
@@ -32,10 +32,11 @@ class _paymentWalletState extends State<paymentWallet> {
       appBar: AppBar(
         elevation: 0,
         title: Row(
+          // ignore: prefer_const_literals_to_create_immutables
           children: [
             Text(
-              'Wallet',
-              style: TextStyle(fontSize: 22),
+              'wallet',
+              style: TextStyle(fontSize: 20),
             ),
           ],
         ),
@@ -46,13 +47,6 @@ class _paymentWalletState extends State<paymentWallet> {
         child: SafeArea(
           child: Center(
             child: walletDes(context),
-            // child: ElevatedButton(
-            //
-            //   onPressed: () {
-            //     Navigator.pop(context);
-            //   },
-            //
-            // ),
           ),
         ),
       ),
@@ -60,91 +54,109 @@ class _paymentWalletState extends State<paymentWallet> {
   }
 
   Widget walletDes(context) {
-    bool colorValue = true;
-    var new_red = Colors.blue;
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return ListView(
       children: [
-        Column(
-          children: [
-            creditCard(),
-            Padding(padding: EdgeInsets.only(top: 0)),
-            Container(
-              margin: EdgeInsets.only(bottom: 15,top: 10),
-                child: Text(
-              'Pending Payments',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-            )),
-            pendingPaymentCard(),
-            Container(
-                margin: EdgeInsets.only(top: 10),
-                child: Text(
-              'Transaction History',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-            )),
-            for (var i = 0; i < 6; i++)
-              Container(
-                //transaction History
-                padding: EdgeInsets.only(bottom: 0),
-                height: 140,
-                width: 400,
-                margin: EdgeInsets.only(bottom: 10, top: 10),
-                decoration: BoxDecoration(
-                    color: Colors.grey.shade200,
-                    borderRadius: BorderRadius.circular(10)),
-                child: InkWell(
+        Padding(
+          padding: const EdgeInsets.only(left: 10, right: 10),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              InkWell(
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => detailTransactions()),
+                      MaterialPageRoute(builder: (context) => EditWallet()),
                     );
                   },
-                  child: Row(
-                    children: [
-                      Material(
-                        elevation: 0,
-                        borderRadius: BorderRadius.circular(35),
-                        child: CircleAvatar(
-                          radius: 35,
-                          backgroundColor: Colors.deepPurpleAccent,
-                          child: Icon(Icons.person, size: 30, color: Colors.white,),
-                        ),
-                      ),
-                      Column(
-                        children: [
-                          Container(
-                              margin: EdgeInsets.only(top: 30, left: 10),
-                              child: Text('Jorka Events',
-                                  style: TextStyle(fontSize: 20))),
-                          Container(
-                              margin: EdgeInsets.only(left: 10, top: 20),
-                              child: Text('July,3,2022',
-                                  style: TextStyle(fontSize: 18))),
-                        ],
-                      ),
-                      Container(
-                          margin: EdgeInsets.only(left: 100, top: 20),
-                          child:
-                              Text('100 birr', style: TextStyle(fontSize: 20))),
-                    ],
-                  ),
-                ),
+                  child: creditCard()
+
               ),
-          ],
+              Container(
+                  margin: EdgeInsets.only(top: 10),
+                  child: Text(
+                'Transaction History',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+              )),
+              Container(
+                height: height*0.65,
+                child: ListView.builder(
+                  scrollDirection: Axis.vertical,
+                  itemCount: 6,
+                  itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom:5, top: 5),
+                    child: TransactionHistory(context),
+                  );
+                },),
+              )
+            ],
+          ),
         ),
       ],
     );
   }
 
-  Container creditCard() {
+  Container TransactionHistory(context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Container(
-      height: 240,
-      width: 400,
+              height: height*0.14,
+              padding: EdgeInsets.only(left: 5, right: 5),
+              decoration: BoxDecoration(
+                  color: Colors.grey.shade200,
+                  borderRadius: BorderRadius.circular(10)),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => detailTransactions()),
+                  );
+                },
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: CircleAvatar(
+                        radius: 30,
+                        backgroundColor: Colors.teal.shade600,
+                        child: Icon(Icons.person, size: 30, color: Colors.white,),
+                      ),
+                    ),
+                    Column(
+                      children: [
+                        Container(
+                            padding: EdgeInsets.only(top: 30, left: 10),
+                            child: Text('Jorka Events',
+                                style: TextStyle(fontSize: 20))),
+                        Container(
+                            padding: EdgeInsets.only(left: 10, top: 20),
+                            child: Text('July,3,2022',
+                                style: TextStyle(fontSize: 18))),
+                      ],
+                    ),
+                    Container(
+                        padding: EdgeInsets.only(left: 100, top: 20),
+                        child:
+                            Text('100 birr', style: TextStyle(fontSize: 20))),
+                  ],
+                ),
+              ),
+            );
+  }
+
+  Container creditCard() {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
+    return Container(
+      height: height*0.2,
+      width: width*0.95,
       decoration: BoxDecoration(
-        color: Colors.grey.shade100,
-        border: Border.all(color: Colors.teal.shade900),
-        borderRadius: BorderRadius.circular(15),
+        color: Colors.white,
+        border: Border.all(color: Colors.grey.shade400),
+        borderRadius: BorderRadius.circular(10),
       ),
-      margin: EdgeInsets.only(bottom: 20, top: 20),
       child: Padding(
         padding: const EdgeInsets.all(15.0),
         child: Column(
@@ -153,174 +165,62 @@ class _paymentWalletState extends State<paymentWallet> {
               children: [
                 Text(
                   'Awash Bank',
-                  style: TextStyle(fontSize: 18, color: Colors.teal.shade900),
+                  style: TextStyle(fontSize: 18, color: Colors.teal.shade700),
                 ),
                 Spacer(),
                 Text('credit',
-                    style: TextStyle(fontSize: 35, color: Colors.teal.shade900)),
+                    style: TextStyle(fontSize: 30, color: Colors.black,
+                    fontWeight: FontWeight.w600
+                    )),
               ],
             ),
             Row(
               children: [
-                Text('2', style: TextStyle(fontSize: 18, color: Colors.teal.shade900))
+                Text('Current Balance',
+                    style: TextStyle(fontSize: 18, color: Colors.black))
               ],
             ),
             Row(
               children: [
-                Text('3000 birr',
-                    style: TextStyle(fontSize: 18, color: Colors.teal.shade900))
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text('Andrew Ansley',
-                    style: TextStyle(fontSize: 25, color: Colors.teal.shade900))
+                Text('3000.54 birr ',
+                    style: TextStyle(fontSize: 20,
+                        color: Colors.teal.shade800,
+                        fontWeight: FontWeight.w500
+                    ))
               ],
             ),
             Spacer(),
             Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Text(
-                  '013200********00',
-                  style: TextStyle(color: Colors.teal.shade900, fontSize: 18),
-                ),
-                Spacer(),
-                Text(
-                  '12/23',
-                  style: TextStyle(color: Colors.teal.shade900, fontSize: 18),
-                ),
-                Spacer(),
-                Stack(
-                  children: [
-                    Container(
-                      width: 50,
-                      height: 50,
-                      decoration: BoxDecoration(
-                          color: Colors.blueAccent,
-                          borderRadius: BorderRadius.circular(50)),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(left: 30),
-                      width: 50,
-                      height: 50,
-                      decoration: BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.circular(50)),
-                    )
-                  ],
-                )
+                Text('andrew Ansley',
+                    style: TextStyle(fontSize: 22,
+                        color: Colors.black))
               ],
             ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget pendingPaymentCard() {
-    return Material(
-      elevation: 0,
-      child: Container(
-        width: 400,
-        height: 150,
-        decoration: BoxDecoration(
-            color: Colors.grey.shade200,
-            borderRadius: BorderRadius.circular(10)),
-        padding: EdgeInsets.only(left: 20, top: 10),
-        child: Column(
-          children: [
-            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              Text(
-                'Pending !',
-                style: TextStyle(
-                    fontSize: 24,
-                    color: Colors.deepOrange,
-                    fontWeight: FontWeight.w600),
-              )
-            ]),
-            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              Text('Payment takes two business days to process',
-                  style: TextStyle(
+            Row(
+              children: [
+                Text(
+                  '0132 0043 967 2300',
+                  style: TextStyle(color: Colors.teal.shade800,
                       fontSize: 18,
-                      color: Colors.black,
-                      overflow: TextOverflow.ellipsis))
-            ]),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text('you can Proceed to Your Payments',
-                    style: TextStyle(fontSize: 16, color: Colors.black))
+                    fontWeight: FontWeight.w600
+                  ),
+                ),
+                Spacer(),
+                Text(
+                  '12/25',
+                  style: TextStyle(color: Colors.teal.shade700,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600
+                  ),
+                ),
+
               ],
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  width: 250,
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => pendingPayment()),
-                      );
-                    },
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => pendingPayment()),
-                        );
-                      },
-                      child: Text(
-                        'Proceed',
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      style: ButtonStyle(
-                          elevation: MaterialStateProperty.all(0),
-                          shadowColor: MaterialStateProperty.all(Colors.black),
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.deepPurpleAccent),
-                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                              RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  side:
-                                      BorderSide(color: Colors.deepPurpleAccent)))),
-                    ),
-                  ),
-                )
-              ],
-            )
           ],
         ),
       ),
-    );
-  }
-
-  Widget transactionDialog(context) {
-    return GestureDetector(
-      onTap: () {
-        AlertDialog(
-          elevation: 5,
-          title: const Text('AlertDialog Title'),
-          content: SingleChildScrollView(
-            child: ListBody(
-              children: const <Widget>[
-                Text('This is a demo alert dialog.'),
-                Text('Would you like to approve of this message?'),
-              ],
-            ),
-          ),
-          actions: <Widget>[
-            TextButton(
-              child: const Text('Approve'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
     );
   }
 }

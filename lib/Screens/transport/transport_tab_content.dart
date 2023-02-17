@@ -1,11 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'event_search.dart';
-import '../constants.dart';
-import 'home_page_widgets.dart';
-import 'popular_events.dart';
-import 'card_list.dart';
+import '../HomeView/Widgets/event_search.dart';
+import '../HomeView/constants.dart';
+import '../HomeView/Widgets/home_page_widgets.dart';
+import '../HomeView/Widgets/popular_events.dart';
+import '../HomeView/Widgets/card_list.dart';
 
 class TransportTab extends StatefulWidget {
   TransportTab({Key? key}) : super(key: key);

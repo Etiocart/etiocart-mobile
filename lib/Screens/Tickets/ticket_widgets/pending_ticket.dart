@@ -1,12 +1,10 @@
-import 'package:ethiocart/Screens/Tickets/ticket_widgets/confirm_card_info.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:ethiocart/Screens/Tickets/ticket_widgets/confirm_pay_info.dart';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class PendingTickets extends StatefulWidget {
-  PendingTickets({Key? key}) : super(key: key);
+  const PendingTickets({Key? key}) : super(key: key);
 
   @override
   State<PendingTickets> createState() => _PendingTicketsState();
@@ -21,17 +19,18 @@ class _PendingTicketsState extends State<PendingTickets> {
           elevation: 0,
           foregroundColor: Colors.teal.shade800,
           backgroundColor: Colors.white,
-          title: Text('Pay'),
+          title: const Text('Pay'),
         ),
-        body: Container(
-          child: Column(
+        body: ListView(
             children: [
               EventInfoCard(),
-              Spacer(),
+              const Spacer(),
               TermsService(),
-              BookEventButton()
+              Padding(
+                padding: const EdgeInsets.only(left: 20, right: 20),
+                child: BookEventButton(),
+              ),
             ],
-          ),
         ),
       ),
     );
@@ -40,24 +39,22 @@ class _PendingTicketsState extends State<PendingTickets> {
   Widget BookEventButton() {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
-    return Container(
-      padding: EdgeInsets.only(top: 5, bottom: 5),
-      height: height * 0.08,
-      width: width * 0.8,
+    return SizedBox(
+      height: height * 0.06,
       child: ElevatedButton(
         style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(Colors.teal.shade900),
+            backgroundColor: MaterialStateProperty.all(Colors.deepPurpleAccent.shade700),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(18.0),
+              borderRadius: BorderRadius.circular(20.0),
             ))),
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => CardInfoConfirmation()),
+            MaterialPageRoute(builder: (context) => const PayInfoConfirm()),
           );
         },
-        child: Text(
+        child: const Text(
           'Book Event',
           style: TextStyle(fontSize: 17),
         ),
@@ -67,27 +64,27 @@ class _PendingTicketsState extends State<PendingTickets> {
 
   Widget TermsService() {
     return Container(
-      padding: EdgeInsets.only(left: 20, bottom: 20),
+      padding: const EdgeInsets.only(left: 20, bottom: 20),
       child: Text.rich(
         maxLines: 3,
         textAlign: TextAlign.center,
         style: TextStyle(fontSize: 14, color: Colors.grey.shade700),
         TextSpan(
           children: [
-            TextSpan(text: 'I accepet the event\'s'),
+            const TextSpan(text: 'I accepet the event\'s'),
             TextSpan(
-              recognizer: new TapGestureRecognizer(),
+              recognizer: TapGestureRecognizer(),
               text: 'Terms of Service, Community Guidelines,',
               style:
-                  TextStyle(fontWeight: FontWeight.normal, color: Colors.blue),
+                  const TextStyle(fontWeight: FontWeight.normal, color: Colors.blue),
             ),
-            TextSpan(text: 'and'),
-            TextSpan(
+            const TextSpan(text: 'and'),
+            const TextSpan(
               text: 'Privacy Policy',
               style:
                   TextStyle(fontWeight: FontWeight.normal, color: Colors.blue),
             ),
-            TextSpan(text: '(Required)'),
+            const TextSpan(text: '(Required)'),
           ],
         ),
       ),
@@ -98,7 +95,7 @@ class _PendingTicketsState extends State<PendingTickets> {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Container(
-      padding: EdgeInsets.only(top: 5, left: 10, right: 10),
+      padding: const EdgeInsets.only(top: 5, left: 10, right: 10),
       child: Column(
         children: [
           Container(
@@ -113,7 +110,7 @@ class _PendingTicketsState extends State<PendingTickets> {
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(15),
-                    image: DecorationImage(
+                    image: const DecorationImage(
                       fit: BoxFit.fill,
                       image: AssetImage('assets/images/540.png'),
                     ),
@@ -126,11 +123,11 @@ class _PendingTicketsState extends State<PendingTickets> {
                         child: Container(
                           height: 65,
                           width: 65,
-                          padding: EdgeInsets.all(8),
+                          padding: const EdgeInsets.all(8),
                           decoration: BoxDecoration(
                               color: Colors.teal.shade700,
                               borderRadius: BorderRadius.circular(10)),
-                          child: Center(
+                          child: const Center(
                               child: Text(
                             'DEC 30 ',
                             style: TextStyle(
@@ -150,7 +147,7 @@ class _PendingTicketsState extends State<PendingTickets> {
                                     Colors.transparent,
                                     Colors.grey.shade800
                                   ]),
-                              borderRadius: BorderRadius.only(bottomRight: Radius.circular(15),bottomLeft: Radius.circular(15))),
+                              borderRadius: const BorderRadius.only(bottomRight: Radius.circular(15),bottomLeft: Radius.circular(15))),
                           height: height*0.38,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.end,
@@ -160,8 +157,8 @@ class _PendingTicketsState extends State<PendingTickets> {
                                 child: Container(
                                   width: width*0.6,
                                   height: height*0.07,
-                                  padding: EdgeInsets.only(left: 10, top: 10),
-                                  child: Text(
+                                  padding: const EdgeInsets.only(left: 10, top: 10),
+                                  child: const Text(
                                     'Tomorrowland',
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
@@ -173,18 +170,18 @@ class _PendingTicketsState extends State<PendingTickets> {
                                 ),
                               ),
                               Container(
-                                padding: EdgeInsets.only(bottom: 5, left: 10, right: 10),
+                                padding: const EdgeInsets.only(bottom: 5, left: 10, right: 10),
                                 child: Row(
                                   children: [
                                     Container(
-                                      padding:EdgeInsets.only(bottom: 10),
-                                      child: Icon(
+                                      padding:const EdgeInsets.only(bottom: 10),
+                                      child: const Icon(
                                         Icons.watch_later_outlined,
                                         color: Colors.white,
                                       )
                                     ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(bottom: 10, left: 10),
+                                    const Padding(
+                                      padding: EdgeInsets.only(bottom: 10, left: 10),
                                       child: Text(
                                         '4pm - 12pm',
                                         style: TextStyle(
@@ -193,16 +190,16 @@ class _PendingTicketsState extends State<PendingTickets> {
                                             fontFamily: 'SFPro'),
                                       ),
                                     ),
-                                    Spacer(),
+                                    const Spacer(),
                                     Container(
-                                        padding:EdgeInsets.only(bottom: 10),
-                                        child: Icon(
+                                        padding:const EdgeInsets.only(bottom: 10),
+                                        child: const Icon(
                                           Icons.calendar_month_rounded,
                                           color: Colors.white,
                                         )
                                     ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(bottom: 10, left: 5),
+                                    const Padding(
+                                      padding: EdgeInsets.only(bottom: 10, left: 5),
                                       child: Text(
                                         '25- 26 feb, 2023',
                                         style: TextStyle(
@@ -227,7 +224,7 @@ class _PendingTicketsState extends State<PendingTickets> {
           Padding(
             padding: const EdgeInsets.only(left:10, right: 10),
             child: Container(
-              padding: EdgeInsets.only(top: 10),
+              padding: const EdgeInsets.only(top: 10),
               width: double.infinity,
               height: height * 0.12,
               decoration: BoxDecoration(
@@ -246,15 +243,15 @@ class _PendingTicketsState extends State<PendingTickets> {
               ),
             ),
           ),
-          Padding(padding: EdgeInsets.only(top:10)),
+          const Padding(padding: EdgeInsets.only(top:10)),
           Padding(
             padding: const EdgeInsets.only(left: 0, right: 0),
             child: Container(
-              padding: EdgeInsets.only(),
+              padding: const EdgeInsets.only(),
               width: double.infinity,
               height: height * 0.2,
               decoration: BoxDecoration(
-                  image: DecorationImage(
+                  image: const DecorationImage(
                     fit: BoxFit.fill,
                     image: AssetImage('assets/images/382.png'),
                   ),

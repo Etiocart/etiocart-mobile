@@ -1,4 +1,4 @@
-import 'package:ethiocart/Screens/HomeView/Widgets/transport_booking.dart';
+import 'package:ethiocart/Screens/transport/transport_booking.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

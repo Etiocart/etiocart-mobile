@@ -62,14 +62,6 @@ class _MyTikState extends State<MyTik> {
         body: Stack(
           // fit: StackFit.passthrough,
           children: [
-            // Positioned(
-            //   top: 20,
-            //   child: Container(
-            //     height: 50,
-            //     width: 50,
-            //     color: Colors.amber,
-            //   ),
-            // ),
             Center(
               child: Container(
                 width: width * 0.75,
@@ -96,7 +88,6 @@ class _MyTikState extends State<MyTik> {
                                         clipper: CustomClipDesign(),
                                         child: Container(
                                           alignment: Alignment.topCenter,
-                                          // color: Colors.grey,
                                           height: 50,
                                           width: 35,
                                           decoration: BoxDecoration(

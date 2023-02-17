@@ -18,11 +18,11 @@ class _TicketDetailState extends State<TicketDetail> {
         foregroundColor: Colors.black,
         title: Text('Ticket'),
       ),
-      body: DetailCard(),
+      body: ticketConfirmation(),
     );
   }
 
-  Widget DetailCard() {
+  Widget ticketConfirmation() {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Container(
