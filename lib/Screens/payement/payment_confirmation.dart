@@ -177,17 +177,17 @@ class _PaymentConfirmationState extends State<PaymentConfirmation> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 15.0, left: 15, right: 15),
+            padding: const EdgeInsets.only(top: 15, left: 15, right: 15),
             child: Container(
-              padding: EdgeInsets.only(top: 5, bottom: 5),
-              height: height * 0.08,
+              padding: EdgeInsets.only(top: 0,bottom: 0),
+              height: height * 0.06,
               width: width * 0.8,
               child: ElevatedButton(
                   onPressed: () {},
                   style: ButtonStyle(
                       elevation: MaterialStateProperty.all(0),
                       backgroundColor:
-                          MaterialStateProperty.all(Colors.teal.shade900),
+                          MaterialStateProperty.all(Colors.deepPurpleAccent.shade700),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15.0),

@@ -22,15 +22,15 @@ class _PendingTicketsState extends State<PendingTickets> {
           title: const Text('Pay'),
         ),
         body: ListView(
-            children: [
-              EventInfoCard(),
-              const Spacer(),
-              TermsService(),
-              Padding(
-                padding: const EdgeInsets.only(left: 20, right: 20),
-                child: BookEventButton(),
-              ),
-            ],
+          children: [
+            EventInfoCard(),
+            // const Spacer(),
+            TermsService(),
+            Padding(
+              padding: const EdgeInsets.only(left: 35, right: 35),
+              child: BookEventButton(),
+            ),
+          ],
         ),
       ),
     );
@@ -41,18 +41,18 @@ class _PendingTicketsState extends State<PendingTickets> {
     var width = MediaQuery.of(context).size.width;
     return SizedBox(
       height: height * 0.06,
+      width: width*0.8,
       child: ElevatedButton(
         style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(Colors.deepPurpleAccent.shade700),
+            backgroundColor:
+                MaterialStateProperty.all(Colors.deepPurpleAccent.shade700),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
+              borderRadius: BorderRadius.circular(15),
             ))),
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const PayInfoConfirm()),
-          );
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => PayInfoConfirm()));
         },
         child: const Text(
           'Book Event',
@@ -68,15 +68,15 @@ class _PendingTicketsState extends State<PendingTickets> {
       child: Text.rich(
         maxLines: 3,
         textAlign: TextAlign.center,
-        style: TextStyle(fontSize: 14, color: Colors.grey.shade700),
+        style: TextStyle(fontSize: 16, color: Colors.grey.shade700),
         TextSpan(
           children: [
             const TextSpan(text: 'I accepet the event\'s'),
             TextSpan(
               recognizer: TapGestureRecognizer(),
               text: 'Terms of Service, Community Guidelines,',
-              style:
-                  const TextStyle(fontWeight: FontWeight.normal, color: Colors.blue),
+              style: const TextStyle(
+                  fontWeight: FontWeight.normal, color: Colors.blue),
             ),
             const TextSpan(text: 'and'),
             const TextSpan(
@@ -94,6 +94,7 @@ class _PendingTicketsState extends State<PendingTickets> {
   Widget EventInfoCard() {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
+    var size = MediaQuery.of(context).size.aspectRatio;
     return Container(
       padding: const EdgeInsets.only(top: 5, left: 10, right: 10),
       child: Column(
@@ -103,13 +104,14 @@ class _PendingTicketsState extends State<PendingTickets> {
             height: height * 0.39,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
-                color: Colors.white,),
+              color: Colors.white,
+            ),
             child: Column(
               children: [
                 Container(
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(10),
                     image: const DecorationImage(
                       fit: BoxFit.fill,
                       image: AssetImage('assets/images/540.png'),
@@ -118,103 +120,26 @@ class _PendingTicketsState extends State<PendingTickets> {
                   child: Stack(
                     children: [
                       Positioned(
-                        left:width*0.73,
-                        top: height*0.015,
+                        left: width * 0.73,
+                        top: height * 0.015,
                         child: Container(
                           height: 65,
                           width: 65,
                           padding: const EdgeInsets.all(8),
                           decoration: BoxDecoration(
-                              color: Colors.teal.shade700,
+                              color: Colors.deepPurpleAccent,
                               borderRadius: BorderRadius.circular(10)),
                           child: const Center(
                               child: Text(
                             'DEC 30 ',
                             style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.white,
-                                fontFamily: 'SFPro'),
+                              fontSize: 20,
+                              color: Colors.white,
+                            ),
                           )),
                         ),
                       ),
-                      Positioned(
-                        child: Container(
-                          decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                  begin: Alignment.topCenter,
-                                  end: Alignment.bottomCenter,
-                                  colors: <Color>[
-                                    Colors.transparent,
-                                    Colors.grey.shade800
-                                  ]),
-                              borderRadius: const BorderRadius.only(bottomRight: Radius.circular(15),bottomLeft: Radius.circular(15))),
-                          height: height*0.38,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Flexible(
-                                child: Container(
-                                  width: width*0.6,
-                                  height: height*0.07,
-                                  padding: const EdgeInsets.only(left: 10, top: 10),
-                                  child: const Text(
-                                    'Tomorrowland',
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                        fontSize: 28,
-                                        fontWeight: FontWeight.w600,
-                                        color: Colors.white,
-                                        fontFamily: 'SFPro'),
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                padding: const EdgeInsets.only(bottom: 5, left: 10, right: 10),
-                                child: Row(
-                                  children: [
-                                    Container(
-                                      padding:const EdgeInsets.only(bottom: 10),
-                                      child: const Icon(
-                                        Icons.watch_later_outlined,
-                                        color: Colors.white,
-                                      )
-                                    ),
-                                    const Padding(
-                                      padding: EdgeInsets.only(bottom: 10, left: 10),
-                                      child: Text(
-                                        '4pm - 12pm',
-                                        style: TextStyle(
-                                            fontSize: 16,
-                                            color: Colors.white,
-                                            fontFamily: 'SFPro'),
-                                      ),
-                                    ),
-                                    const Spacer(),
-                                    Container(
-                                        padding:const EdgeInsets.only(bottom: 10),
-                                        child: const Icon(
-                                          Icons.calendar_month_rounded,
-                                          color: Colors.white,
-                                        )
-                                    ),
-                                    const Padding(
-                                      padding: EdgeInsets.only(bottom: 10, left: 5),
-                                      child: Text(
-                                        '25- 26 feb, 2023',
-                                        style: TextStyle(
-                                            fontSize: 16,
-                                            color: Colors.white,
-                                            fontFamily: 'SFPro'),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
+                      eventInformation(height, width),
                     ],
                   ),
                 ),
@@ -222,7 +147,7 @@ class _PendingTicketsState extends State<PendingTickets> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left:10, right: 10),
+            padding: const EdgeInsets.only(left: 10, right: 10),
             child: Container(
               padding: const EdgeInsets.only(top: 10),
               width: double.infinity,
@@ -232,33 +157,115 @@ class _PendingTicketsState extends State<PendingTickets> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Description', style: TextStyle(fontSize: 18,color: Colors.teal.shade900, fontWeight: FontWeight.w600),),
-                  Text('simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book',
+                  Text(
+                    'About event',
+                    style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.teal.shade900,),
+                  ),
+                  Text(
+                    'Lorem Ipsum has been the industry standard dummy text ever since the 1500s to make a type specimen book',
                     softWrap: true,
                     maxLines: 3,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 14, color: Colors.grey.shade900),
+                    textAlign: TextAlign.left,
+                    style: TextStyle(fontSize: size*35, color: Colors.grey),
                   )
                 ],
               ),
             ),
           ),
-          const Padding(padding: EdgeInsets.only(top:10)),
-          Padding(
-            padding: const EdgeInsets.only(left: 0, right: 0),
-            child: Container(
-              padding: const EdgeInsets.only(),
-              width: double.infinity,
-              height: height * 0.2,
-              decoration: BoxDecoration(
-                  image: const DecorationImage(
-                    fit: BoxFit.fill,
-                    image: AssetImage('assets/images/382.png'),
-                  ),
-                  color: Colors.teal.shade900, borderRadius: BorderRadius.circular(20)),
-            ),
+          const Padding(padding: EdgeInsets.only(top: 10)),
+          Container(
+            padding: const EdgeInsets.only(),
+            width: double.infinity,
+            height: height * 0.1,
+            decoration: BoxDecoration(
+                image: const DecorationImage(
+                  fit: BoxFit.fill,
+                  image: AssetImage('assets/images/382.png'),
+                ),
+                color: Colors.deepPurpleAccent.withOpacity(0.2),
+                borderRadius: BorderRadius.circular(5)),
           )
         ],
+      ),
+    );
+  }
+
+  Positioned eventInformation(double height, double width) {
+    return Positioned(
+      child: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: <Color>[Colors.transparent, Colors.grey.shade800]),
+            borderRadius: const BorderRadius.only(
+                bottomRight: Radius.circular(15),
+                bottomLeft: Radius.circular(15))),
+        height: height * 0.38,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Flexible(
+              child: Container(
+                width: width * 0.6,
+                height: height * 0.07,
+                padding: const EdgeInsets.only(left: 10, top: 10),
+                child: const Text(
+                  'Tomorrowland',
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.only(bottom: 5, left: 10, right: 10),
+              child: Row(
+                children: [
+                  Container(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: const Icon(
+                        Icons.watch_later_outlined,
+                        color: Colors.white,
+                      )),
+                  const Padding(
+                    padding: EdgeInsets.only(bottom: 10, left: 10),
+                    child: Text(
+                      '4pm - 12pm',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  const Spacer(),
+                  Container(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: const Icon(
+                        Icons.calendar_month_rounded,
+                        color: Colors.white,
+                      )),
+                  const Padding(
+                    padding: EdgeInsets.only(bottom: 10, left: 5),
+                    child: Text(
+                      '25- 26 feb, 2023',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -17,7 +17,7 @@ class TransportTab extends StatefulWidget {
 class _TransportTabState extends State<TransportTab> {
   @override
   Widget build(BuildContext context) {
-    return transportTabContent();
+    return Material(child: transportTabContent());
   }
 
 

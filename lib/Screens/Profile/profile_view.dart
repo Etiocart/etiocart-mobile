@@ -19,6 +19,10 @@ class profileView extends StatelessWidget {
     helpCenter(),
     paymentWallet(),
     tickets(),
+    Notifications(),
+    Notifications(),
+    Notifications(),
+    Notifications(),
     Notifications()
   ];
   List<String> tabNames = [
@@ -27,6 +31,11 @@ class profileView extends StatelessWidget {
     'Wallet',
     'Tickets',
     'Notifications',
+    'change phone number',
+    'Edit Account',
+    'gifts sent',
+    'Edit Account',
+    'gifts sent',
   ];
 
   List<IconData> fontawesomeIcons = [
@@ -34,12 +43,18 @@ class profileView extends StatelessWidget {
     CupertinoIcons.info,
     CupertinoIcons.creditcard,
     CupertinoIcons.ticket,
-    CupertinoIcons.bell
+    CupertinoIcons.bell,
+    CupertinoIcons.phone,
+    CupertinoIcons.desktopcomputer,
+    CupertinoIcons.gift,
+    CupertinoIcons.desktopcomputer,
+    CupertinoIcons.gift
   ];
   List<String> flatIcons = [
     'assets/icons/calendar-check.png',
     'assets/icons/question.png',
     'assets/icons/credit-card.png',
+    'assets/icons/ticket.png',
     'assets/icons/ticket.png',
     'assets/icons/ticket.png',
 
@@ -59,7 +74,7 @@ class profileView extends StatelessWidget {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Container(
-      padding: EdgeInsets.only(top: 30, left: 30, right: 30),
+      padding: EdgeInsets.only(top: 0, left: 30, right: 30),
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(15)),
@@ -69,10 +84,10 @@ class profileView extends StatelessWidget {
         children: [
           Container(
             color: Colors.white,
-            padding: EdgeInsets.only(top: 20),
+            padding: EdgeInsets.only(top: 10),
             child: Column(
               children: [
-                for (var i = 0; i < 5; i++)
+                for (var i = 0; i < tabNames.length; i++)
                   (Container(
                     margin: EdgeInsets.only(bottom: 10),
                     child: InkWell(
@@ -92,10 +107,10 @@ class profileView extends StatelessWidget {
                                 height: height*0.04,
                                 child: Icon(fontawesomeIcons[i],
                                     size: 25,
-                                    color: Colors.black),
+                                    color: Colors.grey),
                               ),
                               Container(
-                                  margin: EdgeInsets.only(left: 15),
+                                  padding: EdgeInsets.only(left: 15),
                                   child: Text(
                                     tabNames[i],
                                     style: TextStyle(
@@ -105,10 +120,6 @@ class profileView extends StatelessWidget {
                                   )),
                               Spacer(),
                             ],
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 5),
-                            child: Divider(thickness: 1, color: Colors.white,),
                           ),
                         ],
                       ),

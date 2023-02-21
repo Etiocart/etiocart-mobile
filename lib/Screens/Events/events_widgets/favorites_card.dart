@@ -34,51 +34,56 @@ class _FavoritesCardState extends State<FavoritesCard> {
       color: Colors.black.withOpacity(0.08),
       child: Column(
         children: [
-          InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => PendingTickets()),
-                );
+          SizedBox(
+            width: width * 1,
+            height: height * 0.9,
+            child: ListView.builder(
+              itemCount: 10,
+              itemBuilder: (context, index) {
+                return mainSkeletonCard(context);
               },
-              child: SizedBox(
-                width: width * 1,
-                height: height * 0.9,
-                child: ListView.builder(
-                  itemCount: 10,
-                  itemBuilder: (context, index) {
-                    return mainSkeletonCard(context);
-                  },
-                ),
-              ))
+            ),
+          )
         ],
       ),
     );
-    else
+    else {
       return Container(
-        color: Colors.black.withOpacity(0.08),
+        color: Colors.white,
         child: Column(
           children: [
-            InkWell(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => PendingTickets()),
-                  );
+            SizedBox(
+              width: width * 1,
+              height: height * 0.9,
+              child: RefreshIndicator(
+                displacement: height*0.05,
+                edgeOffset: height*0.005,
+                onRefresh: () async {
+                  await Future.delayed(Duration(milliseconds: 1500));
+                  setState(() {
+
+                  });
                 },
-                child: SizedBox(
-                  width: width * 1,
-                  height: height * 0.9,
-                  child: ListView.builder(
-                    itemCount: 10,
-                    itemBuilder: (context, index) {
-                      return mainCard(context);
+                child: ListView.builder(
+                  physics: ScrollPhysics(parent: BouncingScrollPhysics()),
+                  itemCount: 10,
+                  itemBuilder: (context, index) {
+                    return InkWell(
+                        onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => PendingTickets()),
+                      );
                     },
-                  ),
-                ))
+                        child: mainCard(context));
+                  },
+                ),
+              ),
+            )
           ],
         ),
       );
+    }
   }
 }
 

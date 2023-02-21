@@ -1,5 +1,6 @@
 import 'package:ethiocart/Screens/HomeView/Widgets/payment_alert_dialogue.dart';
 import 'package:ethiocart/Screens/payement/payment_confirmation.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class TransportBooking extends StatefulWidget {
@@ -43,6 +44,7 @@ class _TransportBookingState extends State<TransportBooking> {
         backgroundColor: Colors.white,
       ),
       body: Container(
+        color: Colors.grey.shade200,
           padding: EdgeInsets.all(10),
           child: Column(
             children: [
@@ -52,14 +54,14 @@ class _TransportBookingState extends State<TransportBooking> {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 5, bottom: 5),
-                child: PassengerLuggageDetail(),
+                // child: PassengerLuggageDetail(),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 5),
                 child: OtherPaymentOptions(),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 10),
+                padding: const EdgeInsets.only(top: 20),
                 child: ConfirmButton(),
               ),
 
@@ -187,7 +189,7 @@ class _TransportBookingState extends State<TransportBooking> {
     return Container(
       height: height * 0.1,
       width: width * 1.0,
-      color: Colors.teal.shade50,
+      color: Colors.white,
       padding: EdgeInsets.only(top: 10),
       child: Column(
         children: [
@@ -226,7 +228,7 @@ class _TransportBookingState extends State<TransportBooking> {
     return Container(
       height: height * 0.3,
       width: width * 1.0,
-      color: Colors.teal.shade50,
+      color: Colors.white,
       padding: EdgeInsets.only(top: 10),
       child: Column(
         children: [
@@ -260,17 +262,19 @@ class _TransportBookingState extends State<TransportBooking> {
   }
 
   Widget ConfirmButton(){
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Container(
-      width: 260,
-      height: 45,
+      width: width*0.8,
+      height: height*0.06,
       child: ElevatedButton(
         style: ButtonStyle(
             elevation: MaterialStateProperty.all(0),
             backgroundColor: MaterialStateProperty.all(
-                Colors.teal.shade700),
+                Colors.deepPurpleAccent.shade700),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18.0),
+                  borderRadius: BorderRadius.circular(15),
                 ))),
         onPressed: () {
           Navigator.push(

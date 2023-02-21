@@ -13,8 +13,7 @@ class Moments extends StatefulWidget {
   State<Moments> createState() => _MomentsState();
 }
 
-class _MomentsState extends State<Moments>
-{
+class _MomentsState extends State<Moments> {
   final List _posts = ['post1', 'post2', 'post3', 'post4', 'post5'];
 
   late bool _isloading = false;
@@ -29,46 +28,41 @@ class _MomentsState extends State<Moments>
     super.initState();
   }
 
-
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.teal.shade800,
-        elevation: 0,
-        title: const Center(
-          child: Text(
-            'Your Moments Here',
-            style: TextStyle(fontWeight: FontWeight.normal),
-          ),
-        ),
-        actions: [
-          IconButton(
-              onPressed: () {
-                showSearch(context: context, delegate: CustomSearch());
-              },
-              icon: Icon(
-                Icons.search,
-                size: 30,
-              ))
-        ],
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: Colors.white,
+      //   foregroundColor: Colors.teal.shade800,
+      //   elevation: 0,
+      //   title: const Center(
+      //     child: Text(
+      //       'Your Moments Here',
+      //       style: TextStyle(fontWeight: FontWeight.normal),
+      //     ),
+      //   ),
+      //   actions: [
+      //     IconButton(
+      //         onPressed: () {
+      //           showSearch(context: context, delegate: CustomSearch());
+      //         },
+      //         icon: Icon(
+      //           Icons.search,
+      //           size: 30,
+      //         ))
+      //   ],
+      // ),
       body: SafeArea(
-        child:  ListView(
+        child: ListView(
           children: [
             Column(children: [
-              if(_isloading)
-              Padding(
-                padding:  EdgeInsets.all(8.0),
-                child: ADblokSkelton())
+              if (_isloading)
+                Padding(padding: EdgeInsets.all(8.0), child: ADblokSkelton())
               else
-                Padding(
-                    padding:  EdgeInsets.all(8.0),
-                    child: ADblok()),
-              if(_isloading)
+                Padding(padding: EdgeInsets.all(8.0), child: ADblok()),
+              if (_isloading)
                 SizedBox(
                   height: height * 0.572,
                   child: ListView.builder(
@@ -78,15 +72,25 @@ class _MomentsState extends State<Moments>
                     },
                   ),
                 )
-              else (SizedBox(
-                height: height * 0.572,
-                child: ListView.builder(
-                  itemCount: 4,
-                  itemBuilder: (context, index) {
-                    return Momentos();
-                  },
-                ),
-              )),
+              else
+                (SizedBox(
+                  height: height * 0.68,
+                  child: RefreshIndicator(
+                    displacement: height*0.05,
+                    edgeOffset: height*0.005,
+                    onRefresh: () async {
+                      await Future.delayed(Duration(milliseconds: 1500));
+                      setState(() {});
+                    },
+                    child: ListView.builder(
+                      physics: ScrollPhysics(parent: BouncingScrollPhysics()),
+                      itemCount: 4,
+                      itemBuilder: (context, index) {
+                        return Momentos();
+                      },
+                    ),
+                  ),
+                )),
               // Momentos(),
               // Momentos(),
             ]),
@@ -145,11 +149,11 @@ class _MomentsState extends State<Moments>
                         autoplay: false,
                         animationDuration: Duration(hours: 1),
                         images: [
-                          AssetImage('assets/images/544.png'),
-                          AssetImage('assets/images/543.png'),
-                          AssetImage('assets/images/542.png'),
+                          AssetImage('assets/images/540.png'),
+                          AssetImage('assets/images/548.png'),
+                          AssetImage('assets/images/concert 1.jpg'),
                         ],
-                        dotSize: 4.0,
+                        dotSize: 5,
                         dotSpacing: 15.0,
                         dotColor: Colors.lightGreenAccent,
                         indicatorBgPadding: 5.0,
@@ -226,10 +230,11 @@ class _MomentsState extends State<Moments>
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Container(
-      height: height * 0.25,
+      height: height * 0.22,
       width: width * 1.0,
       decoration: BoxDecoration(
-          color: Colors.deepPurpleAccent.withOpacity(0.09), borderRadius: BorderRadius.circular(10)),
+          color: Colors.deepPurple.withOpacity(0.5),
+          borderRadius: BorderRadius.circular(10)),
       child: Center(
           child: Text(
         'Place your ads here',
@@ -242,15 +247,22 @@ class _MomentsState extends State<Moments>
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Container(
-      height: height * 0.25,
+      height: height * 0.22,
       width: width * 1.0,
       decoration: BoxDecoration(
-          color: Colors.black.withOpacity(0.04), borderRadius: BorderRadius.circular(15)),
+          color: Colors.black.withOpacity(0.04),
+          borderRadius: BorderRadius.circular(15)),
       child: Center(
           child: Text(
-            'Place your ads here',
-            style: TextStyle(fontSize: 25),
-          )),
+        'Place your ads here',
+        style: TextStyle(fontSize: 25),
+      )),
+    );
+  }
+
+  Widget FabSystem() {
+    return FloatingActionButton(
+      onPressed: () {},
     );
   }
 }

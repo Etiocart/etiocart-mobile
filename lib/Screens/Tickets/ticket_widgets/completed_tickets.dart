@@ -42,11 +42,22 @@ class _CompletedState extends State<Completed> {
       return Container(
         height: height*0.804,
         padding: EdgeInsets.all(0),
-        child: ListView.builder(
-          itemCount: 5,
-          itemBuilder: (context, index) {
-            return CompletedTicket(context);
+        child: RefreshIndicator(
+          displacement: height*0.05,
+          edgeOffset: height*0.005,
+          onRefresh: () async {
+            await Future.delayed(Duration(milliseconds: 1500));
+            setState(() {
+
+            });
           },
+          child: ListView.builder(
+            physics: ScrollPhysics(parent: BouncingScrollPhysics()),
+            itemCount: 5,
+            itemBuilder: (context, index) {
+              return CompletedTicket(context);
+            },
+          ),
         ),
       );
     }

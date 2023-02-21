@@ -42,7 +42,7 @@ class _editProfileState extends State<editProfile> {
       child: ListView(
         children: [
           Container(
-            padding: EdgeInsets.only(top: 30),
+            padding: EdgeInsets.only(top: 30, left: 20, right: 0),
             color: Colors.white,
             child: Column(
               children: [
@@ -95,11 +95,11 @@ class _editProfileState extends State<editProfile> {
                     textFields('Last Name'),
                   ],
                 ),
-                Row(
-                  children: [
-                    birthDate(context),
-                  ],
-                ),
+                // Row(
+                //   children: [
+                //     birthDate(context),
+                //   ],
+                // ),
                 Row(
                   children: [
                     // datePicker(),
@@ -144,7 +144,7 @@ class _editProfileState extends State<editProfile> {
     String text = lablelText;
     return Container(
       padding: EdgeInsets.only(top: 10),
-      width: width*1,
+      width: width*0.9,
       height: height*0.075,
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
       child: Padding(

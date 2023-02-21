@@ -6,11 +6,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'events_widgets/events_widget.dart';
 
-class favoritesHome extends StatelessWidget {
+class favoritesHome extends StatefulWidget {
   const favoritesHome({Key? key}) : super(key: key);
 
   @override
+  State<favoritesHome> createState() => _favoritesHomeState();
+}
+
+class _favoritesHomeState extends State<favoritesHome> {
+  @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -34,9 +41,10 @@ class favoritesHome extends StatelessWidget {
       body: Material(
         // color: Colors.white,
         child: Container(
-          color: Colors.black.withOpacity(0.06),
+          color: Colors.white,
           child: SafeArea(
             child: SingleChildScrollView(
+              physics: ScrollPhysics(parent: BouncingScrollPhysics()),
               child: FavoritesCard(),
             ),
           ),

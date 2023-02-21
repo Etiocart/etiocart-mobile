@@ -1,5 +1,6 @@
 import 'package:ethiocart/Screens/moments/moments.dart';
 import 'package:ethiocart/Screens/settings.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'Screens.dart';
 
@@ -43,7 +44,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           child: _widgetOptions.elementAt(_selectedIndex),
         ),
         bottomNavigationBar: SizedBox(
-          height: 75,
+          height: 70,
           child: BottomNavigationBar(
             enableFeedback: false,
             backgroundColor: Colors.white,
@@ -51,33 +52,18 @@ class _BottomNavBarState extends State<BottomNavBar> {
             type: BottomNavigationBarType.fixed,
             onTap: onTabTapped,
             items: <BottomNavigationBarItem>[
-              // BottomNavigationBarItem(
-              //   icon: Image.asset(
-              //     "assets/icons/home_outlined.png",
-              //     width: width * 0.23,
-              //     height: width * 0.058,
-              //     color: Colors.teal.shade900,
-              //   ),
-              //   label: 'for you',
-              //   activeIcon: Image.asset(
-              //     "assets/icons/home_filled.png",
-              //     width: width * 0.23,
-              //     height: width * 0.058,
-              //     color: Colors.teal.shade900,
-              //   ),
-              // ),
               BottomNavigationBarItem(
                 icon: Image.asset(
                   "assets/icons/navigation_outlined.png",
                   width: width * 0.23,
-                  height: width * 0.058,
+                  height: width * 0.05,
                   color: Colors.teal.shade900,
                 ),
                 label: 'Discover',
                 activeIcon: Image.asset(
                   "assets/icons/navigation_filled.png",
                   width: width * 0.23,
-                  height: width * 0.058,
+                  height: width * 0.05,
                   color: Colors.teal.shade900,
                 ),
               ),
@@ -85,14 +71,15 @@ class _BottomNavBarState extends State<BottomNavBar> {
                 icon: Image.asset(
                   "assets/icons/camera_outlined.png",
                   width: width * 0.23,
-                  height: width * 0.058,
+                  height: width * 0.05,
                   color: Colors.teal.shade900,
                 ),
                 label: 'Moments',
+                // activeIcon: Icon(CupertinoIcons.camera)
                 activeIcon: Image.asset(
                   "assets/icons/camera_filled.png",
                   width: width * 0.23,
-                  height: width * 0.058,
+                  height: width * 0.05,
                   color: Colors.teal.shade900,
                 ),
               ),

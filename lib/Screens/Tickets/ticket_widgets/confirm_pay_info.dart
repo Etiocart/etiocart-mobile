@@ -11,138 +11,282 @@ class PayInfoConfirm extends StatefulWidget {
 }
 
 class _PayInfoConfirmState extends State<PayInfoConfirm> {
+
+  int price = 10;
+  int counter = 10;
+  int seats = 1;
+
+  generalAddcounter() {
+    price = counter + price;
+    int newPrice = price;
+    seats = seats + 1;
+  }
+
+  generalSubCounter() {
+    while (true) {
+      if (price != 10)
+        price = price - 10;
+      else
+        return price;
+      break;
+    }
+    seats = seats - 1;
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.teal.shade800,
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.black,
+          elevation: 0,
+        ),
+        resizeToAvoidBottomInset: false,
+        body: Container(
+          color: Colors.white,
+          padding: EdgeInsets.only(left: 5, right: 5),
+          child: ListView(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 10, bottom: 15),
+                child: Center(
+                  child: Text(
+                    'Confirm Your Information',
+                    style: TextStyle(fontSize: 22, color: Colors.teal.shade900),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: buyTicketModule(),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 20, right: 20),
+                child: ConfirmPaymentbutton(),
+              ),
+            ],
+          ),
+        ),
       ),
-      body: Container(
-        color: Colors.white,
-        padding: EdgeInsets.only(left: 5, right: 5),
-        child: Column(
+    );
+  }
+
+  Widget buyTicketModule(){
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
+    return Column(
+      children: [
+        Row(
           children: [
-            Text(
-              'Confirm Your',
-              style: TextStyle(fontSize: 22, color: Colors.teal.shade900),
-            ),
-            Text(
-              'Card Information',
-              style: TextStyle(fontSize: 22, color: Colors.teal.shade900),
-            ),
-            CardInfoHighLight(),
-            Text(
-              '',
-              style: TextStyle(fontSize: 16, color: Colors.teal.shade900),
-            ),
-            WalletButton(),
-            Text(
-              '',
-              style: TextStyle(fontSize: 16, color: Colors.teal.shade900),
-            ),
-            ConfirmPayment(),
-            ConfirmPaymentbutton()
+            Text('Buyer'),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget CardInfoHighLight() {
-    var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
-    return Container(
-      padding: EdgeInsets.only(left: 10, right: 10),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            padding: EdgeInsets.only(top: 0, bottom: 10),
-            child: Text(
-              'Card Name',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+        Padding(
+          padding: const EdgeInsets.only(top: 10),
+          child: Container(
+            width: double.infinity,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.grey.withOpacity(0.1)),
+            child: TextFormField(
+              style: TextStyle(fontSize: 18),
+              autocorrect: false,
+              textCapitalization: TextCapitalization.none,
+              decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: 'buyer',
+                  hintStyle:
+                  TextStyle(color: Colors.grey.shade700)),
             ),
           ),
-          Container(
-              width: double.infinity,
-              height: height * 0.05,
-              padding: EdgeInsets.only(top: 10, left: 5),
-              decoration: BoxDecoration(
-                  color: Colors.grey.shade100,
-                  borderRadius: BorderRadius.circular(10)),
-              child: Text(
-                'Andrew Ansley',
-                style: TextStyle(fontSize: 16, color: Colors.grey.shade500),
-              )),
-          Container(
-              padding: EdgeInsets.only(top: 10, bottom: 10),
-              child: Text('Card Number',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500))),
-          Container(
-              width: double.infinity,
-              height: height * 0.05,
-              decoration: BoxDecoration(
-                  color: Colors.grey.shade100,
-                  borderRadius: BorderRadius.circular(10)),
-              child: Padding(
-                padding: const EdgeInsets.only(top: 10.0, left: 5),
-                child: Text(
-                  '2672 4738 7837',
-                  style: TextStyle(fontSize: 16, color: Colors.grey.shade500),
-                ),
-              )),
-          Container(
-            padding: EdgeInsets.only(top: 10, bottom: 10),
-            child: Text('Balance',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+        ),
+        Row(
+          children: [
+            Text('Buyer'),
+          ],
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 10),
+          child: Container(
+            width: double.infinity,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.grey.withOpacity(0.1)),
+            child: TextFormField(
+              style: TextStyle(fontSize: 18),
+              autocorrect: false,
+              textCapitalization: TextCapitalization.none,
+              decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: 'buyer',
+                  hintStyle:
+                  TextStyle(color: Colors.grey.shade700)),
+            ),
           ),
-          Container(
-              width: double.infinity,
-              height: 40,
-              decoration: BoxDecoration(
-                  color: Colors.grey.shade100,
-                  borderRadius: BorderRadius.circular(10)),
-              child: Padding(
-                padding: const EdgeInsets.only(top: 10.0, left: 10),
-                child: Text(
-                  '1000 birr',
-                  style: TextStyle(fontSize: 16, color: Colors.grey.shade500),
-                ),
-              ))
-        ],
-      ),
+        ),
+        Row(
+          children: [
+            Text('Buyer'),
+          ],
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 10),
+          child: Container(
+            width: double.infinity,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.grey.withOpacity(0.1)),
+            child: TextFormField(
+              style: TextStyle(fontSize: 18),
+              autocorrect: false,
+              textCapitalization: TextCapitalization.none,
+              decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: 'buyer',
+                  hintStyle:
+                  TextStyle(color: Colors.grey.shade700)),
+            ),
+          ),
+        ),
+        Row(
+          children: [
+            Text('Buyer'),
+          ],
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 10, bottom: 20),
+          child: Container(
+            width: double.infinity,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.grey.withOpacity(0.1)),
+            child: TextFormField(
+              style: TextStyle(fontSize: 18),
+              autocorrect: false,
+              textCapitalization: TextCapitalization.none,
+              decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: 'buyer',
+                  hintStyle:
+                  TextStyle(color: Colors.grey.shade700)),
+            ),
+          ),
+        ),
+        BookingDetail()
+      ],
     );
   }
 
-  Widget WalletButton() {
+
+  Widget BookingDetail(){
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Container(
-      height: height * 0.06,
-      width: width * 0.8,
-      child: ElevatedButton(
-        style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(Colors.white),
-            foregroundColor: MaterialStateProperty.all(Colors.black),
-            elevation: MaterialStateProperty.all(0),
-            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15.0),
-                    side: BorderSide(color: Colors.deepPurpleAccent)))),
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => EditWallet()),
-          );
-        },
-        child: Text(
-          'Wallet',
-          style: TextStyle(fontSize: 17, color: Colors.teal.shade900),
-        ),
+      height: height * 0.3,
+      width: width * 1.0,
+      color: Colors.white,
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: Text('Destination:', style: TextStyle(fontSize: 18),),
+              ),
+              Padding(padding: EdgeInsets.only(right: 40)),
+              Text('Mekele', style: TextStyle(fontSize: 18),)
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                InkWell(
+                  onTap: () {
+                    setState(() {
+                      generalSubCounter();
+                    });
+                  },
+                  child: Container(
+                    width: 50,
+                    height: 50,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.white,
+                        border: Border.all(color: Colors.blueAccent)),
+                    child: Center(
+                        child: Text(
+                          '-',
+                          style: TextStyle(fontSize: 35, color: Colors.grey),
+                        )),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20, right: 20),
+                  child: Text('$seats'),
+                ),
+                InkWell(
+                  onTap: () {
+                    setState(() {
+                      generalAddcounter();
+                    });
+                  },
+                  child: Container(
+                    width: 50,
+                    height: 50,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.white,
+                        border: Border.all(color: Colors.blueAccent)),
+                    child: Center(
+                        child: Text(
+                          '+',
+                          style: TextStyle(fontSize: 35, color: Colors.grey),
+                        )),
+                  ),
+                )
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 10, top: 10),
+            child: Row(
+              children: [
+                Text('Total Price :', style: TextStyle(fontSize: 18),),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Text('1200', style: TextStyle(fontSize: 18),),
+                )
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 10, top: 10),
+            child: Row(
+              children: [
+                Text('Departure time :', style: TextStyle(fontSize: 18),),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Text('12:00 AM, Monday Jan 22 ', style: TextStyle(fontSize: 18),),
+                )
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 10, top: 10),
+            child: Row(
+              children: [
+                Text('Confirmation', style: TextStyle(fontSize: 18),),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Text(': Waiting', style: TextStyle(fontSize: 18, color: Colors.grey),),
+                )
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
@@ -174,19 +318,4 @@ class _PayInfoConfirmState extends State<PayInfoConfirm> {
     );
   }
 
-  Widget ConfirmPayment() {
-    var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
-    return Container(
-      padding: EdgeInsets.only(left: 10, right: 10),
-      width: double.infinity,
-      height: height * 0.3,
-      decoration: BoxDecoration(color: Colors.white),
-      child: Column(
-        children: [
-
-        ],
-      ),
-    );
-  }
 }

@@ -10,40 +10,21 @@ class paymentWallet extends StatefulWidget {
 }
 
 class _paymentWalletState extends State<paymentWallet> {
-  void changeView() {
-    setState(() {
-      AlertDialog(
-        title: const Text('AlertDialog Title'),
-        content: SingleChildScrollView(
-          child: ListBody(
-            children: const <Widget>[
-              Text('This is a demo alert dialog.'),
-              Text('Would you like to approve of this message?'),
-            ],
-          ),
-        ),
-      );
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(
         elevation: 0,
-        title: Row(
-          // ignore: prefer_const_literals_to_create_immutables
-          children: [
-            Text(
-              'wallet',
-              style: TextStyle(fontSize: 20),
-            ),
-          ],
+        title: Text(
+          'wallet',
+          style: TextStyle(fontSize: 20),
         ),
         backgroundColor: Colors.white,
         foregroundColor: Colors.teal.shade800,
       ),
       body: Material(
+        color: Colors.white,
         child: SafeArea(
           child: Center(
             child: walletDes(context),
@@ -57,6 +38,7 @@ class _paymentWalletState extends State<paymentWallet> {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return ListView(
+
       children: [
         Padding(
           padding: const EdgeInsets.only(left: 10, right: 10),
@@ -70,27 +52,38 @@ class _paymentWalletState extends State<paymentWallet> {
                       MaterialPageRoute(builder: (context) => EditWallet()),
                     );
                   },
-                  child: creditCard()
-
-              ),
+                  child: creditCard()),
               Container(
-                  margin: EdgeInsets.only(top: 10),
+                  padding: EdgeInsets.only(top: 10),
                   child: Text(
-                'Transaction History',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
-              )),
+                    'Transaction History',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+                  )),
               Container(
-                height: height*0.65,
-                child: ListView.builder(
-                  scrollDirection: Axis.vertical,
-                  itemCount: 6,
-                  itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.only(bottom:5, top: 5),
-                    child: TransactionHistory(context),
-                  );
-                },),
-              )
+                  width: width * 0.8,
+                  height: height * 0.06,
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      elevation: MaterialStatePropertyAll(0),
+                        backgroundColor: MaterialStatePropertyAll(
+                            Colors.deepPurpleAccent.shade700),
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ))),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => detailTransactions()),
+                      );
+                    },
+                    child: Text(
+                      'Transactions',
+                      style: TextStyle(fontSize: 18),
+                    ),
+                  ))
             ],
           ),
         ),
@@ -98,60 +91,12 @@ class _paymentWalletState extends State<paymentWallet> {
     );
   }
 
-  Container TransactionHistory(context) {
-    var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
-    return Container(
-              height: height*0.14,
-              padding: EdgeInsets.only(left: 5, right: 5),
-              decoration: BoxDecoration(
-                  color: Colors.grey.shade200,
-                  borderRadius: BorderRadius.circular(10)),
-              child: InkWell(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => detailTransactions()),
-                  );
-                },
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10),
-                      child: CircleAvatar(
-                        radius: 30,
-                        backgroundColor: Colors.teal.shade600,
-                        child: Icon(Icons.person, size: 30, color: Colors.white,),
-                      ),
-                    ),
-                    Column(
-                      children: [
-                        Container(
-                            padding: EdgeInsets.only(top: 30, left: 10),
-                            child: Text('Jorka Events',
-                                style: TextStyle(fontSize: 20))),
-                        Container(
-                            padding: EdgeInsets.only(left: 10, top: 20),
-                            child: Text('July,3,2022',
-                                style: TextStyle(fontSize: 18))),
-                      ],
-                    ),
-                    Container(
-                        padding: EdgeInsets.only(left: 100, top: 20),
-                        child:
-                            Text('100 birr', style: TextStyle(fontSize: 20))),
-                  ],
-                ),
-              ),
-            );
-  }
-
   Container creditCard() {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Container(
-      height: height*0.2,
-      width: width*0.95,
+      height: height * 0.6,
+      width: width * 0.95,
       decoration: BoxDecoration(
         color: Colors.white,
         border: Border.all(color: Colors.grey.shade400),
@@ -169,9 +114,10 @@ class _paymentWalletState extends State<paymentWallet> {
                 ),
                 Spacer(),
                 Text('credit',
-                    style: TextStyle(fontSize: 30, color: Colors.black,
-                    fontWeight: FontWeight.w600
-                    )),
+                    style: TextStyle(
+                        fontSize: 30,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w600)),
               ],
             ),
             Row(
@@ -183,39 +129,38 @@ class _paymentWalletState extends State<paymentWallet> {
             Row(
               children: [
                 Text('3000.54 birr ',
-                    style: TextStyle(fontSize: 20,
+                    style: TextStyle(
+                        fontSize: 20,
                         color: Colors.teal.shade800,
-                        fontWeight: FontWeight.w500
-                    ))
+                        fontWeight: FontWeight.w500))
               ],
             ),
-            Spacer(),
+            SizedBox(
+                child: Image.asset('assets/images/Wallet-bro.png')),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text('andrew Ansley',
-                    style: TextStyle(fontSize: 22,
-                        color: Colors.black))
+                    style: TextStyle(fontSize: 22, color: Colors.black))
               ],
             ),
             Row(
               children: [
                 Text(
                   '0132 0043 967 2300',
-                  style: TextStyle(color: Colors.teal.shade800,
+                  style: TextStyle(
+                      color: Colors.teal.shade800,
                       fontSize: 18,
-                    fontWeight: FontWeight.w600
-                  ),
+                      fontWeight: FontWeight.w600),
                 ),
                 Spacer(),
                 Text(
                   '12/25',
-                  style: TextStyle(color: Colors.teal.shade700,
+                  style: TextStyle(
+                      color: Colors.teal.shade700,
                       fontSize: 18,
-                      fontWeight: FontWeight.w600
-                  ),
+                      fontWeight: FontWeight.w600),
                 ),
-
               ],
             ),
           ],

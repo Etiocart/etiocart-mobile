@@ -1,8 +1,11 @@
 // ignore_for_file: non_constant_identifier_names, prefer_const_constructors
+import 'package:ethiocart/Screens/HomeView/transport_detail.dart';
 import 'package:flutter/material.dart';
 import '../../Search/search_delegate.dart';
-import '../../bottom_nav_screen.dart';
-import '../Widgets/home_page_widgets.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
+import 'service/jsontestmodel.dart';
 
 class Feed extends StatefulWidget {
   @override
@@ -16,7 +19,7 @@ class _FeedState extends State<Feed> {
   @override
   void initState() {
     _isloading = true;
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 1), () {
       setState(() {
         _isloading = false;
       });
@@ -26,10 +29,10 @@ class _FeedState extends State<Feed> {
 
   @override
   Widget build(BuildContext context) {
-    return HomeView();
+    return HomeView(context);
   }
 
-  Widget HomeView() {
+  Widget HomeView(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return GestureDetector(
@@ -42,14 +45,29 @@ class _FeedState extends State<Feed> {
             foregroundColor: Colors.teal.shade900,
             elevation: 0,
             actions: [
-              IconButton(
-                  onPressed: () {
-                    showSearch(context: context, delegate: CustomSearch());
-                  },
-                  icon: Icon(
-                    Icons.search,
+              Row(
+                children: [
+                  InkWell(
+                      child: Icon(
+                    Icons.notifications,
                     size: 30,
-                  ))
+                  )),
+                  Padding(padding: EdgeInsets.only(right: 10)),
+                  Text(
+                    'Discover',
+                    style: TextStyle(fontSize: 18),
+                  ),
+                  Padding(padding: EdgeInsets.only(right: 230)),
+                  IconButton(
+                      onPressed: () {
+                        showSearch(context: context, delegate: CustomSearch());
+                      },
+                      icon: Icon(
+                        Icons.search,
+                        size: 30,
+                      )),
+                ],
+              )
             ],
           ),
           body: Column(
@@ -92,24 +110,23 @@ class _FeedState extends State<Feed> {
 
   Container IconAvatarList(double height) {
     return Container(
-      padding: EdgeInsets.only(top: 5, left: 10),
       height: height * 0.12,
       width: double.infinity,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15), color: Colors.grey.shade50),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
-            padding: const EdgeInsets.only(bottom: 10),
+            padding: const EdgeInsets.only(bottom: 0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                IconAvatar(),
-                Padding(padding: EdgeInsets.only(left: 60)),
-                IconAvatar(),
-                Padding(padding: EdgeInsets.only(left: 60)),
-                IconAvatar(),
+                IconAvatar(
+                    TransportDetail(), 'event', Icons.directions_bus_rounded),
+                Padding(padding: EdgeInsets.only(left: 5)),
+                IconAvatar(TransportDetail(), 'transport', Icons.settings),
+                Padding(padding: EdgeInsets.only(left: 5)),
+                IconAvatar(TransportDetail(), 'auction', Icons.car_crash),
               ],
             ),
           ),
@@ -121,7 +138,7 @@ class _FeedState extends State<Feed> {
   Container IconAvatarListSkeleton(double height) {
     return Container(
       padding: EdgeInsets.only(top: 5, left: 10),
-      height: height * 0.12,
+      height: height * 0.16,
       width: double.infinity,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15), color: Colors.grey.shade50),
@@ -129,14 +146,14 @@ class _FeedState extends State<Feed> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
-            padding: const EdgeInsets.only(bottom: 10),
+            padding: const EdgeInsets.only(bottom: 5),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 IconAvatarSkeleton(),
-                Padding(padding: EdgeInsets.only(left: 60)),
+                Padding(padding: EdgeInsets.only(left: 6)),
                 IconAvatarSkeleton(),
-                Padding(padding: EdgeInsets.only(left: 60)),
+                Padding(padding: EdgeInsets.only(left: 6)),
                 IconAvatarSkeleton(),
               ],
             ),
@@ -146,38 +163,47 @@ class _FeedState extends State<Feed> {
     );
   }
 
-  Column IconAvatar() {
-    var index = 0;
-    return Column(
-      children: [
-        CircleAvatar(
-          radius: 35,
-          backgroundColor: Colors.grey.shade50,
-          child: Center(
-              child: Icon(
-            Icons.access_time,
-            color: Colors.black87,
-            size: 30,
-          )),
-        ),
-        Text('posts')
-      ],
+  InkWell IconAvatar(var type, String name, IconData eveIcon) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
+    final ictype = type;
+    final typename = name;
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ictype),
+        );
+      },
+      child: Container(
+        width: width * 0.3,
+        height: height * 0.12,
+        decoration: BoxDecoration(
+            color: Colors.grey.shade300,
+            borderRadius: BorderRadius.circular(15)),
+      ),
     );
   }
 
   Column IconAvatarSkeleton() {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     var index = 0;
     return Column(
       children: [
-        CircleAvatar(
-          radius: 35,
-          backgroundColor: Colors.black.withOpacity(0.04),
+        Container(
+          width: width * 0.3,
+          height: height * 0.12,
+          decoration: BoxDecoration(
+              color: Colors.grey.shade300,
+              borderRadius: BorderRadius.circular(15)),
         ),
       ],
     );
   }
 
   Widget FeedView() {
+    var size = MediaQuery.of(context).size.aspectRatio;
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Padding(
@@ -186,8 +212,72 @@ class _FeedState extends State<Feed> {
         width: width * 0.95,
         height: height * 0.15,
         decoration: BoxDecoration(
-            color: Colors.deepPurple[200],
-            borderRadius: BorderRadius.circular(15)),
+            color: Colors.white, borderRadius: BorderRadius.circular(15)),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Column(
+              children: [
+                Container(
+                  width: width * 0.35,
+                  height: height * 0.15,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage('assets/images/concert 1.jpg')),
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(15),
+                        bottomLeft: Radius.circular(15),
+                        topRight: Radius.circular(15),
+                        bottomRight: Radius.circular(15),
+                      )),
+                )
+              ],
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 5),
+                  child: Text(
+                    'Ja',
+                    style: TextStyle(
+                        fontSize: size * 30, color: Colors.grey.shade600),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 5, bottom: 5),
+                  child: Text(
+                    'Title',
+                    style: TextStyle(fontSize: size * 40),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 5, bottom: 5),
+                  child: Text(
+                    'Event date',
+                    style: TextStyle(fontSize: size * 35, color: Colors.grey),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 5, bottom: 5),
+                  child: Text(
+                    'Event Location',
+                    style: TextStyle(fontSize: size * 35, color: Colors.grey),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 150),
+                  child: Text(
+                    'Location',
+                    style: TextStyle(
+                        fontSize: size * 30, color: Colors.grey.shade700),
+                  ),
+                )
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
@@ -199,7 +289,7 @@ class _FeedState extends State<Feed> {
       padding: const EdgeInsets.only(top: 10),
       child: Container(
         width: width * 0.95,
-        height: height * 0.15,
+        height: height * 0.16,
         decoration: BoxDecoration(
             color: Colors.white, borderRadius: BorderRadius.circular(15)),
         child: Row(
@@ -253,4 +343,6 @@ class _FeedState extends State<Feed> {
       ),
     );
   }
+
+
 }

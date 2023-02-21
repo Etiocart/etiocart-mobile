@@ -70,22 +70,24 @@ class Notifications extends StatelessWidget {
     var width = MediaQuery.of(context).size.width;
     return Container(
       padding: EdgeInsets.only(
-        top: 5,
+        top: 0,
       ),
       width: double.infinity,
-      height: 150,
+      height: height*0.16,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20), color: Colors.white),
+          borderRadius: BorderRadius.circular(20), color: Colors.black),
       child: InkWell(
         onTap: () {},
         child: Card(
           color: Colors.white,
           child: Expanded(
             child: Container(
-              padding: EdgeInsets.only(top: 10),
+              padding: EdgeInsets.only(top: 0),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Stack(children: [
                         Container(
@@ -108,6 +110,7 @@ class Notifications extends StatelessWidget {
                         child: Container(
                           padding: EdgeInsets.only(left: 5),
                           child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                 'text1',
@@ -134,7 +137,7 @@ class Notifications extends StatelessWidget {
                         children: const [
                           Expanded(
                             child: Text(
-                              'text2text2text2text2text2text2',
+                              'this is a notification text that works',
                               style: TextStyle(
                                 fontFamily: 'SFPro',
                                 fontSize: 18,
