@@ -27,6 +27,13 @@ class _FeedState extends State<Feed> {
     super.initState();
   }
 
+  bool notif = true;
+  void NotifColor() {
+    setState(() {
+      notif = false;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return HomeView(context);
@@ -50,12 +57,15 @@ class _FeedState extends State<Feed> {
                   InkWell(
                       child: Icon(
                     Icons.notifications,
+                    color: notif ? Colors.red : Colors.green,
                     size: 30,
                   )),
                   Padding(padding: EdgeInsets.only(right: 10)),
-                  Text(
-                    'Discover',
-                    style: TextStyle(fontSize: 18),
+                  Center(
+                    child: Text(
+                      'Discover',
+                      style: TextStyle(fontSize: 20),
+                    ),
                   ),
                   Padding(padding: EdgeInsets.only(right: 230)),
                   IconButton(
@@ -83,7 +93,7 @@ class _FeedState extends State<Feed> {
                 ),
               if (_isloading)
                 Container(
-                  height: height * 0.655,
+                  height: height * 0.64,
                   child: ListView.builder(
                       itemCount: _posts.length,
                       itemBuilder: (context, index) {
@@ -206,78 +216,88 @@ class _FeedState extends State<Feed> {
     var size = MediaQuery.of(context).size.aspectRatio;
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
-    return Padding(
-      padding: const EdgeInsets.all(5.0),
-      child: Container(
-        width: width * 0.95,
-        height: height * 0.15,
-        decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(15)),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Column(
-              children: [
-                Container(
-                  width: width * 0.35,
-                  height: height * 0.15,
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage('assets/images/concert 1.jpg')),
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(15),
-                        bottomLeft: Radius.circular(15),
-                        topRight: Radius.circular(15),
-                        bottomRight: Radius.circular(15),
-                      )),
-                )
-              ],
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 5),
-                  child: Text(
-                    'Ja',
-                    style: TextStyle(
-                        fontSize: size * 30, color: Colors.grey.shade600),
-                  ),
+    return Container(
+      width: width * 0.95,
+      height: height * 0.16,
+      decoration: BoxDecoration(
+          color: Colors.white, borderRadius: BorderRadius.circular(15)),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Column(
+            children: [
+              Container(
+                width: width * 0.35,
+                height: height * 0.16,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage('assets/images/concert 3.jpg')),
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(15),
+                      bottomLeft: Radius.circular(15),
+                      topRight: Radius.circular(15),
+                      bottomRight: Radius.circular(15),
+                    )),
+              )
+            ],
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 5, top: 0),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 5, bottom: 0),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(right:140),
+                      child: Text(
+                        'Title',
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ),
+                    IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.verified,
+                          color: Colors.blue,
+                        ))
+                  ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 5, bottom: 5),
-                  child: Text(
-                    'Title',
-                    style: TextStyle(fontSize: size * 40),
-                  ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 5, bottom: 0),
+                child: Text(
+                  'Event date and time',
+                  style: TextStyle(fontSize: 16, color: Colors.grey),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 5, bottom: 5),
-                  child: Text(
-                    'Event date',
-                    style: TextStyle(fontSize: size * 35, color: Colors.grey),
-                  ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 5, bottom: 0),
+                child: Text(
+                  'Event Location',
+                  style: TextStyle(fontSize: 16, color: Colors.grey),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 5, bottom: 5),
-                  child: Text(
-                    'Event Location',
-                    style: TextStyle(fontSize: size * 35, color: Colors.grey),
-                  ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 130),
+                child: Row(
+                  children: [
+                    Text(
+                      '400 birr',
+                      style:
+                          TextStyle(fontSize: 16, color: Colors.grey.shade700),
+                    ),
+
+                  ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 150),
-                  child: Text(
-                    'Location',
-                    style: TextStyle(
-                        fontSize: size * 30, color: Colors.grey.shade700),
-                  ),
-                )
-              ],
-            )
-          ],
-        ),
+              )
+            ],
+          )
+        ],
       ),
     );
   }
@@ -289,7 +309,7 @@ class _FeedState extends State<Feed> {
       padding: const EdgeInsets.only(top: 10),
       child: Container(
         width: width * 0.95,
-        height: height * 0.16,
+        height: height * 0.15,
         decoration: BoxDecoration(
             color: Colors.white, borderRadius: BorderRadius.circular(15)),
         child: Row(
@@ -343,6 +363,4 @@ class _FeedState extends State<Feed> {
       ),
     );
   }
-
-
 }
