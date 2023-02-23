@@ -1,4 +1,3 @@
-import 'package:ethiocart/Screens/Profile/profiles_widget/hel_center_bottom_nav.dart';
 import 'package:ethiocart/Screens/bottom_nav_screen.dart';
 import 'package:flutter/material.dart';
 import 'profile_export.dart';
@@ -19,6 +18,7 @@ class helpCenter extends StatelessWidget {
         length: 3,
         child: Scaffold(
           appBar: AppBar(
+            elevation: 0,
             leading: IconButton(
               icon: Icon(Icons.arrow_back),
               iconSize: 20.0,

@@ -35,7 +35,7 @@ class _DropdownButtonExampleState extends State<DropdownButtonExample> {
       children: [
         Container(
           width: width*0.9,
-          padding: EdgeInsets.only(left: 10, top: 20),
+          padding: EdgeInsets.only(left: 10, top: 10, bottom: 10),
           child: DropdownButton<String>(
             value: dropdownValue,
             isExpanded: true,

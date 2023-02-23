@@ -31,31 +31,6 @@ class _ForYouState extends State<ForYou> with SingleTickerProviderStateMixin {
     'https://cdn.dribbble.com/users/5638/screenshots/16531842/media/b0ccd9201138ce19a3ecaa80aa579fc3.jpg?compress=1&resize=1200x900',
     'https://cdn.dribbble.com/users/2367334/screenshots/16528111/media/5595dc6b8830140e8b69efcda9c7ba46.png?compress=1&resize=1200x900',
   ];
-  // List<String> title = [
-  //   'Jan 03,2023' + '-' + 'Jan 05,2023',
-  //   'Jan 03,2023' + '-' + 'Jan 05,2023',
-  //   'Jan 03,2023' + '-' + 'Jan 05,2023',
-  //   'heffefeello',
-  // ];
-
-  // List<String> image = [
-  //   'https://cdn.pixabay.com/photo/2016/11/23/15/48/audience-1853662_960_720.jpg',
-  //   'https://cdn.pixabay.com/photo/2016/11/23/17/56/beach-1854076_960_720.jpg',
-  //   'https://cdn.pixabay.com/photo/2016/03/04/19/36/beach-1236581_960_720.jpg',
-  //   'https://cdn.pixabay.com/photo/2022/09/01/09/08/road-7425079_960_720.jpg',
-  // ];
-  // List<String> title2 = [
-  //   'Joker',
-  //   'Addis Ababa',
-  //   'transport',
-  //   'event',
-  // ];
-// List<Widget> routepage = [
-//   fyp_details(
-//     title: title,
-//   )
-// ];
-
   late AnimationController _animationController;
 
   @override
@@ -65,10 +40,7 @@ class _ForYouState extends State<ForYou> with SingleTickerProviderStateMixin {
   void initState() {
     // TODO: implement initState
     super.initState(
-
-        // pageController = PageController(initialPage: )
         );
-
     _animationController =
         AnimationController(vsync: this, duration: Duration(seconds: 1));
   }
@@ -90,7 +62,6 @@ class _ForYouState extends State<ForYou> with SingleTickerProviderStateMixin {
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withOpacity(0.2),
-                      // spreadRadius: 5,
                       blurRadius: 10,
                     ),
                   ],
@@ -130,41 +101,24 @@ class _ForYouState extends State<ForYou> with SingleTickerProviderStateMixin {
                               child: GestureDetector(
                                 onTap: () {
                                   setState(() {
-                                    // Navigator.push(
-                                    //   context,
-                                    //   MaterialPageRoute(
-                                    //       builder: (context) => fyp_details(
-                                    //             title: Fav1.title2[index],
-                                    //           )),
-                                    // );
                                   });
                                 },
                                 child: Container(
-                                  // alignment: ali,
-                                  // color: Colors.teal,
                                   height: height * 0.6,
                                   decoration: BoxDecoration(
                                       boxShadow: [
                                         BoxShadow(
                                           color: Colors.black.withOpacity(.3),
-                                          // spreadRadius: 1,
-                                          // blurRadius: 15,
                                         ),
                                       ],
                                       image: DecorationImage(
                                           fit: BoxFit.cover,
                                           image:
                                               NetworkImage(Fav1.image[index]))),
-                                  // child: Center(
-                                  //   child: Text(title[index]),
-                                  // ),
                                 ),
                               ),
                             ),
                           ),
-                          // SizedBox(
-                          //   height: 30,
-                          // ),
                           Spacer(),
                           Container(
                             height: 90,
@@ -189,11 +143,6 @@ class _ForYouState extends State<ForYou> with SingleTickerProviderStateMixin {
                                       Text(
                                         "Jazz After Work",
                                         style: TextStyle(
-                                            // shadows: <Shadow>[
-                                            //   Shadow(
-                                            //       // offset: Offset(10.0, 10.0),
-                                            //       blurRadius: 40.0)
-                                            // ],
                                             color: Colors.white,
                                             fontSize: 25,
                                             fontWeight: FontWeight.bold),
@@ -209,9 +158,6 @@ class _ForYouState extends State<ForYou> with SingleTickerProviderStateMixin {
                                           size: 30,
                                         ),
                                       )
-                                      // SizedBox(
-                                      //   height: 35,
-                                      // )
                                     ],
                                   ),
                                 ),
@@ -272,21 +218,6 @@ class _ForYouState extends State<ForYou> with SingleTickerProviderStateMixin {
                               ],
                             ),
                           ),
-                          // Container(
-                          //   height: 20,
-                          //   // color: Colors.black,
-                          //   decoration: BoxDecoration(
-                          //       gradient: LinearGradient(
-                          //           begin: Alignment.topCenter,
-                          //           end: Alignment.bottomCenter,
-                          //           colors: [
-                          //         Colors.black.withOpacity(0.0),
-                          //         Colors.black.withOpacity(0.1),
-                          //         Colors.black.withOpacity(0.2),
-                          //         Colors.black.withOpacity(0.5),
-                          //         // Colors.black
-                          //       ])),
-                          // )
                         ],
                       ),
                     );
@@ -294,20 +225,7 @@ class _ForYouState extends State<ForYou> with SingleTickerProviderStateMixin {
                   // child:
                 );
               }),
-          // Column(
-          //   mainAxisAlignment: MainAxisAlignment.end,
-          //   children: [
-          //     Container(
-          //         height: height * 0.09,
-          //         width: width.toDouble(),
-          //         color: Colors.white,
-          //         child: Center(
-          //             child: Text(
-          //           "Nav Area",
-          //           style: TextStyle(color: Colors.teal),
-          //         ))),
-          //   ],
-          // ),
+
         ],
       ),
     );

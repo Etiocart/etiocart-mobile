@@ -1,6 +1,8 @@
-import 'package:ethiocart/Screens/HomeView/Widgets/transport_booking.dart';
+import 'package:ethiocart/Screens/transport/transport_booking.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../payement/payment_confirmation.dart';
 
 class TransportDetail extends StatefulWidget {
   const TransportDetail({Key? key}) : super(key: key);
@@ -56,7 +58,7 @@ class _TransportDetailState extends State<TransportDetail> {
                               Text(
                                 'Travel Detail',
                                 style: TextStyle(
-                                    fontSize: 22, fontWeight: FontWeight.bold),
+                                    fontSize: 22),
                               ),
                             ],
                           ),
@@ -106,7 +108,7 @@ class _TransportDetailState extends State<TransportDetail> {
                                   '1250 ETB',
                                   style: TextStyle(
                                       fontSize: 18,
-                                      fontWeight: FontWeight.bold),
+                                      fontWeight: FontWeight.w500),
                                 )
                               ],
                             ),
@@ -216,77 +218,38 @@ class _TransportDetailState extends State<TransportDetail> {
             ],
           ),
           Container(
-            margin: EdgeInsets.only(top: 5, bottom: 5),
+            margin: EdgeInsets.only(top: 10, bottom: 10),
           ),
-          Column(
-            children: [
-              Container(
-                width: double.infinity,
-                height: 240,
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10)),
-                child: Column(
-                  children: [
-                    Container(
-                      padding: EdgeInsets.only(
-                          left: 10, top: 10, right: 10, bottom: 40),
-                      child: Column(children: [
-                        Row(
-                          children: [
-                            Text(
-                              'Booking a Ticket',
-                              style: TextStyle(fontSize: 18),
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(left: 20),
-                              height: 20,
-                              width: 1,
-                              color: Colors.black,
-                            ),
-                            Text('',
-                                style: TextStyle(
-                                    fontSize: 18, fontFamily: 'SFPro'))
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                              width: 260,
-                              height: 45,
-                              child: ElevatedButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => TransportBooking()),
-                                  );
-                                },
-                                style: ButtonStyle(
-                                    elevation: MaterialStateProperty.all(0),
-                                    backgroundColor: MaterialStateProperty.all(
-                                        Colors.teal.shade700),
-                                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                                        RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(18.0),
-                                    ))),
-                                child: Text(
-                                  'Buy Ticket',
-                                  style: TextStyle(fontSize: 18),
-                                ),
-                              ),
-                            )
-                          ],
-                        )
-                      ]),
-                    ),
-                  ],
-                ),
-              )
-            ],
-          ),
+          ConfirmButton()
         ],
+      ),
+    );
+  }
+
+
+  Widget ConfirmButton(){
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
+    return Container(
+      width: width*0.8,
+      height: height*0.06,
+      child: ElevatedButton(
+        style: ButtonStyle(
+            elevation: MaterialStateProperty.all(0),
+            backgroundColor: MaterialStateProperty.all(
+                Colors.deepPurpleAccent.shade700),
+            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ))),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => TransportBooking()),
+          );
+        },
+        child: Text('Buy Ticket', style: TextStyle(fontSize: 18),),
       ),
     );
   }
