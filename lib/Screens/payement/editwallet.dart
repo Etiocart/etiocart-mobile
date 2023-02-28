@@ -15,19 +15,17 @@ class _EditWalletState extends State<EditWallet> {
         foregroundColor: Colors.teal.shade800,
         backgroundColor: Colors.white,
         elevation: 0,
-        title: Text('Wallet'),
+        title: const Text('Wallet'),
       ),
-      body: SafeArea(child: WalletInfoEdit()),
+      body: SafeArea(child: walletInfoEdit()),
     );
   }
 
-  Widget WalletInfoEdit() {
-    return Container(
-      child: Column(
-        children: [
-          Center(child: const Text('Your Wallet Information', style: TextStyle(fontSize: 18),))
-        ],
-      ),
+  Widget walletInfoEdit() {
+    return Column(
+      children: const [
+        Center(child: Text('Your Wallet Information', style: TextStyle(fontSize: 18),))
+      ],
     );
   }
 }

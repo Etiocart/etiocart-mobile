@@ -120,7 +120,7 @@ class _editProfileState extends State<editProfile> {
                   children: [
                     Container(
                       padding: EdgeInsets.only(top: 40),
-                      child: UpdateButton(context),
+                      child: updateButton(context),
                     ),
                   ],
                 ),

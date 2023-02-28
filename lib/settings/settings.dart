@@ -122,7 +122,7 @@ class Settings extends StatelessWidget {
                   children: [
                     ListView(
                       children: <Widget>[
-                        SizedBox(height: height * 0.55, child: profileView()),
+                        SizedBox(height: height * 0.55, child: ProfileView()),
                         SizedBox(height: height * 0.05, child: settingsView(context)),
 
                       ],

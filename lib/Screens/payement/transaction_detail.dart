@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-class detailTransactions extends StatelessWidget {
-  const detailTransactions({Key? key}) : super(key: key);
+class DetailTransactions extends StatelessWidget {
+  const DetailTransactions({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -9,18 +9,17 @@ class detailTransactions extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.white,
         foregroundColor: Colors.teal.shade800,
-        title: Text('Transactions', style: TextStyle(fontSize: 22),),
+        title: const Text('Transactions', style: TextStyle(fontSize: 22),),
       ),
-      body: TransactionHistory(context),
+      body: transactionHistory(context),
     );
   }
 
-  Widget TransactionHistory(context) {
+  Widget transactionHistory(context) {
     var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
     return Container(
       height: height*0.14,
-      padding: EdgeInsets.only(left: 5, right: 5),
+      padding: const EdgeInsets.only(left: 5, right: 5),
       decoration: BoxDecoration(
           color: Colors.grey.shade200,
           borderRadius: BorderRadius.circular(10)),
@@ -31,25 +30,25 @@ class detailTransactions extends StatelessWidget {
             child: CircleAvatar(
               radius: 30,
               backgroundColor: Colors.teal.shade600,
-              child: Icon(Icons.person, size: 30, color: Colors.white,),
+              child: const Icon(Icons.person, size: 30, color: Colors.white,),
             ),
           ),
           Column(
             children: [
               Container(
-                  padding: EdgeInsets.only(top: 30, left: 10),
-                  child: Text('Jorka Events',
+                  padding: const EdgeInsets.only(top: 30, left: 10),
+                  child: const Text('Jorka Events',
                       style: TextStyle(fontSize: 20))),
               Container(
-                  padding: EdgeInsets.only(left: 10, top: 20),
-                  child: Text('July,3,2022',
+                  padding: const EdgeInsets.only(left: 10, top: 20),
+                  child: const Text('July,3,2022',
                       style: TextStyle(fontSize: 18))),
             ],
           ),
           Container(
-              padding: EdgeInsets.only(left: 100, top: 20),
+              padding: const EdgeInsets.only(left: 100, top: 20),
               child:
-              Text('100 birr', style: TextStyle(fontSize: 20))),
+              const Text('100 birr', style: TextStyle(fontSize: 20))),
         ],
       ),
     );

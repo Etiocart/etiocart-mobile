@@ -1,4 +1,3 @@
-import 'package:ethiocart/Screens/pin/pin._page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -30,7 +29,7 @@ class _PaymentConfirmationState extends State<PaymentConfirmation> {
             padding: const EdgeInsets.only(left: 10, right: 10, top: 50),
             child: Column(
               children: [
-                PinBox(),
+                pinBox(),
               ],
             ),
           ),
@@ -39,7 +38,7 @@ class _PaymentConfirmationState extends State<PaymentConfirmation> {
     );
   }
 
-  Widget PinBox() {
+  Widget pinBox() {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Container(
@@ -93,7 +92,7 @@ class _PaymentConfirmationState extends State<PaymentConfirmation> {
                               hintStyle:
                                   TextStyle(color: Colors.grey.shade500)),
                           textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 22))),
+                          style: const TextStyle(fontSize: 22))),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 10, right: 10),
@@ -119,7 +118,7 @@ class _PaymentConfirmationState extends State<PaymentConfirmation> {
                                 hintStyle:
                                     TextStyle(color: Colors.grey.shade500)),
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 22))),
+                            style: const TextStyle(fontSize: 22))),
                   ),
                 ),
                 Container(
@@ -144,7 +143,7 @@ class _PaymentConfirmationState extends State<PaymentConfirmation> {
                               hintStyle:
                                   TextStyle(color: Colors.grey.shade500)),
                           textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 22))),
+                          style: const TextStyle(fontSize: 22))),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 10),
@@ -170,7 +169,7 @@ class _PaymentConfirmationState extends State<PaymentConfirmation> {
                                 hintStyle:
                                     TextStyle(color: Colors.grey.shade500)),
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 22))),
+                            style: const TextStyle(fontSize: 22))),
                   ),
                 )
               ],
@@ -179,7 +178,7 @@ class _PaymentConfirmationState extends State<PaymentConfirmation> {
           Padding(
             padding: const EdgeInsets.only(top: 15, left: 15, right: 15),
             child: Container(
-              padding: EdgeInsets.only(top: 0,bottom: 0),
+              padding: const EdgeInsets.only(top: 0,bottom: 0),
               height: height * 0.06,
               width: width * 0.8,
               child: ElevatedButton(
@@ -192,7 +191,7 @@ class _PaymentConfirmationState extends State<PaymentConfirmation> {
                           RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15.0),
                       ))),
-                  child: Text(
+                  child: const Text(
                     'Verify',
                     style: TextStyle(fontSize: 17),
                   )),

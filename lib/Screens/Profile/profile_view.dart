@@ -2,35 +2,32 @@
 // avoid_print
 
 import 'package:flutter/cupertino.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-import '../authentication/login.dart';
 import 'profile_export.dart';
 import 'package:ethiocart/Screens/Screens.dart';
 import 'package:flutter/material.dart';
 
-class profileView extends StatelessWidget {
-  profileView({Key? key}) : super(key: key);
+class ProfileView extends StatelessWidget {
+  ProfileView({Key? key}) : super(key: key);
 
-  List<Widget> routePages = [
+  final List<Widget> routePages = [
     FavoritesHome(),
     helpCenter(),
-    paymentWallet(),
+    PaymentWallet(),
     Tickets(),
     Notifications(),
     Notifications(),
   ];
-  List<String> tabNames = [
+  final List<String> tabNames = [
     'Favorite Events',
     'Help center',
     'Wallet',
     'My Tickets',
-    'Policies and conditions',
+    'PoliciePaymentWalletons',
     'App lock',
   ];
 
-  List<IconData> fontawesomeIcons = [
+  final List<IconData> fontawesomeIcons = [
     CupertinoIcons.calendar,
     CupertinoIcons.info,
     CupertinoIcons.creditcard,
@@ -38,7 +35,7 @@ class profileView extends StatelessWidget {
     CupertinoIcons.bell,
     CupertinoIcons.phone,
   ];
-  List<String> flatIcons = [
+  final List<String> flatIcons = [
     'assets/icons/calendar-check.png',
     'assets/icons/question.png',
     'assets/icons/credit-card.png',
@@ -89,7 +86,7 @@ class profileView extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              Container(
+                              SizedBox(
                                 width: width * 0.04,
                                 height: height * 0.04,
                                 child: Icon(fontawesomeIcons[i],

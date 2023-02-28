@@ -2,21 +2,21 @@ import 'package:ethiocart/Screens/payement/editwallet.dart';
 import 'package:ethiocart/Screens/payement/transaction_detail.dart';
 import 'package:flutter/material.dart';
 
-class paymentWallet extends StatefulWidget {
-  const paymentWallet({super.key});
+class PaymentWallet extends StatefulWidget {
+  const PaymentWallet({super.key});
 
   @override
-  State<paymentWallet> createState() => _paymentWalletState();
+  State<PaymentWallet> createState() => _PaymentWalletState();
 }
 
-class _paymentWalletState extends State<paymentWallet> {
+class _PaymentWalletState extends State<PaymentWallet> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
 
       appBar: AppBar(
         elevation: 0,
-        title: Text(
+        title: const Text(
           'wallet',
           style: TextStyle(fontSize: 20),
         ),
@@ -49,22 +49,22 @@ class _paymentWalletState extends State<paymentWallet> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => EditWallet()),
+                      MaterialPageRoute(builder: (context) => const EditWallet()),
                     );
                   },
                   child: creditCard()),
               Container(
-                  padding: EdgeInsets.only(top: 10),
-                  child: Text(
+                  padding: const EdgeInsets.only(top: 10),
+                  child: const Text(
                     'Transaction History',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
                   )),
-              Container(
+              SizedBox(
                   width: width * 0.8,
                   height: height * 0.06,
                   child: ElevatedButton(
                     style: ButtonStyle(
-                      elevation: MaterialStatePropertyAll(0),
+                      elevation: const MaterialStatePropertyAll(0),
                         backgroundColor: MaterialStatePropertyAll(
                             Colors.deepPurpleAccent.shade700),
                         shape:
@@ -76,10 +76,10 @@ class _paymentWalletState extends State<paymentWallet> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => detailTransactions()),
+                            builder: (context) => const DetailTransactions()),
                       );
                     },
-                    child: Text(
+                    child: const Text(
                       'Transactions',
                       style: TextStyle(fontSize: 18),
                     ),
@@ -112,8 +112,8 @@ class _paymentWalletState extends State<paymentWallet> {
                   'Awash Bank',
                   style: TextStyle(fontSize: 18, color: Colors.teal.shade700),
                 ),
-                Spacer(),
-                Text('credit',
+                const Spacer(),
+                const Text('credit',
                     style: TextStyle(
                         fontSize: 30,
                         color: Colors.black,
@@ -121,7 +121,7 @@ class _paymentWalletState extends State<paymentWallet> {
               ],
             ),
             Row(
-              children: [
+              children: const [
                 Text('Current Balance',
                     style: TextStyle(fontSize: 18, color: Colors.black))
               ],
@@ -139,7 +139,7 @@ class _paymentWalletState extends State<paymentWallet> {
                 child: Image.asset('assets/images/Wallet-bro.png')),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
-              children: [
+              children: const [
                 Text('andrew Ansley',
                     style: TextStyle(fontSize: 22, color: Colors.black))
               ],
@@ -153,7 +153,7 @@ class _paymentWalletState extends State<paymentWallet> {
                       fontSize: 18,
                       fontWeight: FontWeight.w600),
                 ),
-                Spacer(),
+                const Spacer(),
                 Text(
                   '12/25',
                   style: TextStyle(

@@ -32,7 +32,7 @@ class helpCenter extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => profileView()),
+                    MaterialPageRoute(builder: (context) => ProfileView()),
                   );
                 },
                 child: Text('Help center', style: TextStyle(fontSize: 22, color: Colors.teal.shade800),)),
