@@ -1,10 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../constants.dart';
+// import '../constants.dart';
 export './popular_events.dart';
 
 class PopularEvents extends StatefulWidget {
-  PopularEvents({super.key});
+  const PopularEvents({super.key});
   @override
   State<PopularEvents> createState() => _PopularEventsState();
   static Widget eventfilter(IconData ficons) {
@@ -15,7 +14,7 @@ class PopularEvents extends StatefulWidget {
         iconSize: 30,
         onPressed: () {},
         icon: Icon(ficons),
-        style: ButtonStyle(),
+        style: const ButtonStyle(),
       ),
     );
   }

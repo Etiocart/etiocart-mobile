@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-class eventTypesScreen extends StatelessWidget {
-  const eventTypesScreen({super.key});
+class EventTypesScreen extends StatelessWidget {
+  const EventTypesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return event_types();
+    return eventTypes();
   }
 
-Widget event_types() {
+Widget eventTypes() {
   return Material(
     elevation: 0,
     borderRadius: BorderRadius.circular(10),
@@ -15,7 +15,7 @@ Widget event_types() {
       height: 30,
       width: 110,
       color: Colors.white,
-      margin: EdgeInsets.only(top: 0, left: 15, right: 10),
+      margin: const EdgeInsets.only(top: 0, left: 15, right: 10),
       child: Column(
         children: [
           Row(
@@ -25,7 +25,7 @@ Widget event_types() {
                       color: Colors.teal.shade900,
                       fontFamily: 'Gotham',
                       fontSize: 20)),
-              Spacer(),
+              const Spacer(),
               Text(
                 'see all',
                 style: TextStyle(

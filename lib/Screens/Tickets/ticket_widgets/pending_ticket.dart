@@ -23,12 +23,12 @@ class _PendingTicketsState extends State<PendingTickets> {
         ),
         body: ListView(
           children: [
-            EventInfoCard(),
+            eventInfoCard(),
             // const Spacer(),
-            TermsService(),
+            termsService(),
             Padding(
               padding: const EdgeInsets.only(left: 35, right: 35),
-              child: BookEventButton(),
+              child: bookEventButton(),
             ),
           ],
         ),
@@ -36,7 +36,7 @@ class _PendingTicketsState extends State<PendingTickets> {
     );
   }
 
-  Widget BookEventButton() {
+  Widget bookEventButton() {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return SizedBox(
@@ -52,7 +52,7 @@ class _PendingTicketsState extends State<PendingTickets> {
             ))),
         onPressed: () {
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => PayInfoConfirm()));
+              MaterialPageRoute(builder: (context) => const PayInfoConfirm()));
         },
         child: const Text(
           'Book Event',
@@ -62,7 +62,7 @@ class _PendingTicketsState extends State<PendingTickets> {
     );
   }
 
-  Widget TermsService() {
+  Widget termsService() {
     return Container(
       padding: const EdgeInsets.only(left: 20, bottom: 20),
       child: Text.rich(
@@ -91,7 +91,7 @@ class _PendingTicketsState extends State<PendingTickets> {
     );
   }
 
-  Widget EventInfoCard() {
+  Widget eventInfoCard() {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     var size = MediaQuery.of(context).size.aspectRatio;

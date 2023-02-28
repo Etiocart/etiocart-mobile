@@ -1,13 +1,12 @@
 // ignore_for_file: non_constant_identifier_names, prefer_const_constructors
 import 'package:ethiocart/Screens/HomeView/transport_detail.dart';
 import 'package:flutter/material.dart';
+import '../../Notification/notification.dart';
 import '../../Search/search_delegate.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
-
-import 'service/jsontestmodel.dart';
 
 class Feed extends StatefulWidget {
+  const Feed({super.key});
+
   @override
   State<Feed> createState() => _FeedState();
 }
@@ -41,12 +40,13 @@ class _FeedState extends State<Feed> {
 
   Widget HomeView(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
+    //var width = MediaQuery.of(context).size.width;
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
       },
       child: Scaffold(
+          resizeToAvoidBottomInset:false,
           appBar: AppBar(
             backgroundColor: Colors.white,
             foregroundColor: Colors.teal.shade900,
@@ -55,44 +55,62 @@ class _FeedState extends State<Feed> {
               Row(
                 children: [
                   InkWell(
-                      child: Icon(
-                    Icons.notifications,
-                    color: notif ? Colors.red : Colors.green,
-                    size: 30,
-                  )),
-                  Padding(padding: EdgeInsets.only(right: 10)),
-                  Center(
-                    child: Text(
-                      'Discover',
-                      style: TextStyle(fontSize: 20),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Notifications()),
+                      );
+                    },
+                    child: ImageIcon(
+                        color: Colors.black,
+                        size: 30,
+                        AssetImage('assets/icons/notification.png',
+                        )
                     ),
                   ),
-                  Padding(padding: EdgeInsets.only(right: 230)),
+                  Padding(padding: EdgeInsets.only(right: 120)),
+                  Text(
+                    'Discover',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  Padding(padding: EdgeInsets.only(right: 120)),
                   IconButton(
                       onPressed: () {
                         showSearch(context: context, delegate: CustomSearch());
                       },
-                      icon: Icon(
-                        Icons.search,
-                        size: 30,
-                      )),
+                      icon: ImageIcon(
+                          color: Colors.black,
+                          size: 25,
+                          AssetImage('assets/icons/Search.png',
+                          )
+                      )
+                  ),
                 ],
               )
             ],
           ),
           body: Column(
             mainAxisAlignment: MainAxisAlignment.start,
+
             children: [
               if (_isloading)
                 IconAvatarListSkeleton(height)
               else
-                Padding(
-                  padding:
-                      const EdgeInsets.only(bottom: 10, left: 10, right: 10),
-                  child: IconAvatarList(height),
+                IconAvatarList(height),
+              Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: Container(
+                  color: Colors.white,
+                  child: Row(
+                    children: const [
+                      Text('Discounts', style: TextStyle(fontSize: 20),),
+                    ],
+                  ),
                 ),
+              ),
               if (_isloading)
-                Container(
+                SizedBox(
                   height: height * 0.64,
                   child: ListView.builder(
                       itemCount: _posts.length,
@@ -103,15 +121,23 @@ class _FeedState extends State<Feed> {
                       }),
                 )
               else
-                Container(
-                  height: height * 0.67,
-                  child: ListView.builder(
-                      itemCount: _posts.length,
-                      itemBuilder: (context, index) {
-                        return Column(
-                          children: [FeedView()],
-                        );
-                      }),
+                SizedBox(
+                  height: height * 0.65,
+                  child: RefreshIndicator(
+                    onRefresh: () async {
+                      await Future.delayed(Duration(milliseconds: 1500));
+                      setState(() {});
+                    },
+                    child: ListView.builder(
+                      physics: BouncingScrollPhysics(),
+                        itemCount: _posts.length,
+                        itemBuilder: (context, index) {
+                          return Column(
+                            children: [
+                              FeedView()],
+                          );
+                        }),
+                  ),
                 )
             ],
           )),
@@ -122,21 +148,24 @@ class _FeedState extends State<Feed> {
     return Container(
       height: height * 0.12,
       width: double.infinity,
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(15)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
-            padding: const EdgeInsets.only(bottom: 0),
+            padding: const EdgeInsets.only(left: 25, right: 25),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                IconAvatar(
-                    TransportDetail(), 'event', Icons.directions_bus_rounded),
-                Padding(padding: EdgeInsets.only(left: 5)),
-                IconAvatar(TransportDetail(), 'transport', Icons.settings),
-                Padding(padding: EdgeInsets.only(left: 5)),
-                IconAvatar(TransportDetail(), 'auction', Icons.car_crash),
+                transportIcon(TransportDetail(), 'event'),
+                Spacer(),
+                // Padding(padding: EdgeInsets.only(left: 40)),
+                eventIcon(TransportDetail(), 'transport',),
+                Spacer(),
+                // Padding(padding: EdgeInsets.only(left: 40)),
+                adventIcon(TransportDetail(), 'advent', ),
               ],
             ),
           ),
@@ -147,8 +176,8 @@ class _FeedState extends State<Feed> {
 
   Container IconAvatarListSkeleton(double height) {
     return Container(
-      padding: EdgeInsets.only(top: 5, left: 10),
-      height: height * 0.16,
+      padding: EdgeInsets.only(bottom: 0, left: 5),
+      height: height * 0.13,
       width: double.infinity,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15), color: Colors.grey.shade50),
@@ -173,11 +202,11 @@ class _FeedState extends State<Feed> {
     );
   }
 
-  InkWell IconAvatar(var type, String name, IconData eveIcon) {
-    var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
+  InkWell transportIcon(var type, String name) {
+    // var height = MediaQuery.of(context).size.height;
+    // var width = MediaQuery.of(context).size.width;
     final ictype = type;
-    final typename = name;
+    // final typename = name;
     return InkWell(
       onTap: () {
         Navigator.push(
@@ -185,20 +214,69 @@ class _FeedState extends State<Feed> {
           MaterialPageRoute(builder: (context) => ictype),
         );
       },
-      child: Container(
-        width: width * 0.3,
-        height: height * 0.12,
-        decoration: BoxDecoration(
-            color: Colors.grey.shade300,
-            borderRadius: BorderRadius.circular(15)),
-      ),
+        child: CircleAvatar(
+          radius: 40,
+          backgroundColor: Color(0xff394f6b).withOpacity(0.8),
+          child: ImageIcon(
+            color: Colors.white,
+            size: 35,
+              AssetImage('assets/icons/bus-alt.png',
+              )
+          ),
+        )
+    );
+  }
+  InkWell eventIcon(var type, String name) {
+    // var height = MediaQuery.of(context).size.height;
+    // var width = MediaQuery.of(context).size.width;
+    final ictype = type;
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ictype),
+        );
+      },
+        child: CircleAvatar(
+          radius: 40,
+          backgroundColor: Color(0xff394f6b).withOpacity(0.8),
+          child: ImageIcon(
+              color: Colors.white,
+              size: 35,
+              AssetImage('assets/icons/drink.png',
+              )
+          ),
+        )
+    );
+  }
+  InkWell adventIcon(var type, String name) {
+    //var height = MediaQuery.of(context).size.height;
+    //var width = MediaQuery.of(context).size.width;
+    final ictype = type;
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ictype),
+        );
+      },
+        child: CircleAvatar(
+          radius: 40,
+          backgroundColor: Color(0xff394f6b).withOpacity(0.8),
+          child: ImageIcon(
+              color: Colors.white,
+              size: 35,
+              AssetImage('assets/icons/hiking.png',
+              )
+          ),
+        )
     );
   }
 
   Column IconAvatarSkeleton() {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
-    var index = 0;
+    // var index = 0;
     return Column(
       children: [
         Container(
@@ -213,7 +291,7 @@ class _FeedState extends State<Feed> {
   }
 
   Widget FeedView() {
-    var size = MediaQuery.of(context).size.aspectRatio;
+    // var size = MediaQuery.of(context).size.aspectRatio;
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Container(
@@ -228,11 +306,13 @@ class _FeedState extends State<Feed> {
             children: [
               Container(
                 width: width * 0.35,
-                height: height * 0.16,
+                height: height * 0.14,
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage('assets/images/concert 3.jpg')),
-                    color: Colors.white,
+                      fit: BoxFit.fitHeight,
+                        image: AssetImage('assets/images/concerto.png')
+                    ),
+                    color: Color(0xff394f6b).withOpacity(0.3),
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(15),
                       bottomLeft: Radius.circular(15),
@@ -242,60 +322,93 @@ class _FeedState extends State<Feed> {
               )
             ],
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 5, top: 0),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 5, bottom: 0),
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right:140),
-                      child: Text(
-                        'Title',
-                        style: TextStyle(fontSize: 18),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 5, top: 0),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 5, bottom: 0),
+                  child: Expanded(
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(right:120),
+                          child: Text(
+                            'organizer',
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(fontSize: 15, color: Colors.grey.shade500),
+                          ),
+                        ),
+                        IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.verified,
+                              color: Colors.blue,
+                            ))
+                      ],
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 5, bottom: 0),
+                    child: Text(
+                      'date and time',
+                      style: TextStyle(fontSize: 18, color: Colors.black),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 5, bottom: 0),
+                    child: Text(
+                      'Event Location',
+                      style: TextStyle(fontSize: 18, color: Colors.black),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 130),
+                  child: Row(
+                    children: [
+                      Text(
+                        '400 birr',
+                        style:
+                            TextStyle(fontSize: 16, color: Colors.grey.shade700),
                       ),
-                    ),
-                    IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.verified,
-                          color: Colors.blue,
-                        ))
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 5, bottom: 0),
-                child: Text(
-                  'Event date and time',
-                  style: TextStyle(fontSize: 16, color: Colors.grey),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 5, bottom: 0),
-                child: Text(
-                  'Event Location',
-                  style: TextStyle(fontSize: 16, color: Colors.grey),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 130),
-                child: Row(
-                  children: [
-                    Text(
-                      '400 birr',
-                      style:
-                          TextStyle(fontSize: 16, color: Colors.grey.shade700),
-                    ),
 
-                  ],
+                    ],
+                  ),
                 ),
-              )
-            ],
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          'discounted',
+                          overflow: TextOverflow.ellipsis,
+                          style:
+                          TextStyle(fontSize: 16, color: Colors.blue.shade700),
+                        ),
+                      ),
+                      Expanded(
+                        child: Text(
+                          '3m ago',
+                          overflow: TextOverflow.ellipsis,
+                          style:
+                          TextStyle(fontSize: 16, color: Colors.grey.shade700),
+                        ),
+                      ),
+
+                    ],
+                  ),
+                ),
+              ],
+            ),
           )
         ],
       ),
@@ -306,7 +419,7 @@ class _FeedState extends State<Feed> {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Padding(
-      padding: const EdgeInsets.only(top: 10),
+      padding: const EdgeInsets.only(top: 5),
       child: Container(
         width: width * 0.95,
         height: height * 0.15,

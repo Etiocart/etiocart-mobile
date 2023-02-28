@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'event_search.dart';
 import '../constants.dart';
 import 'home_page_widgets.dart';
-import 'popular_events.dart';
-import 'card_list.dart';
+// import 'popular_events.dart';
+// import 'card_list.dart';
 
 class EventTab extends StatefulWidget {
-  EventTab({Key? key}) : super(key: key);
+  const EventTab({Key? key}) : super(key: key);
 
   @override
   State<EventTab> createState() => _EventTabState();
@@ -29,17 +29,17 @@ class _EventTabState extends State<EventTab> {
             scrollDirection: Axis.vertical,
             children: [
               Column(
-                children: [
-                  eventSearchBar(),
-                ],
                 crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  EventSearchBar(),
+                ],
               ),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
                     for (var i = 0; i < 5; i++)
-                      cardListScreen.cardList(context, eventName[i],
+                      CardListScreen.cardList(context, eventName[i],
                           eventLocation[i],
                           AssetImage('assets/images/541.png'),),
                   ],
@@ -54,7 +54,7 @@ class _EventTabState extends State<EventTab> {
                         PopularEvents.eventfilter(filtericons[i]),
                     ],
                   )),
-              const eventTypesScreen(),
+              const EventTypesScreen(),
               Container(
                 margin: const EdgeInsets.only(left: 10),
                 child: Column(
@@ -65,13 +65,13 @@ class _EventTabState extends State<EventTab> {
                           SizedBox(
                             width: 195,
                             child: FittedBox(
-                              child: gridCard.GridView(EventMain[i], EventSub[i]),
+                              child: GridCard.gridView(eventMain[i], eventSub[i]),
                             ),
                           ),
                           SizedBox(
                             width: 195,
                             child: FittedBox(
-                              child: gridCard.GridView(EventSub[i], EventMain[i]),
+                              child: GridCard.gridView(eventSub[i], eventMain[i]),
                             ),
                           ),
                         ],

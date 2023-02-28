@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class transportSearchBar extends StatefulWidget {
-  const transportSearchBar({Key? key}) : super(key: key);
+class TransportSearchBar extends StatefulWidget {
+  const TransportSearchBar({Key? key}) : super(key: key);
 
   @override
-  State<transportSearchBar> createState() => _transportSearchBarState();
+  State<TransportSearchBar> createState() => _TransportSearchBarState();
 }
 
-class _transportSearchBarState extends State<transportSearchBar> {
-  bool Fieldvalue = false;
+class _TransportSearchBarState extends State<TransportSearchBar> {
+  bool fieldvalue = false;
 
   @override
   Widget build(BuildContext context) {
@@ -17,14 +17,14 @@ class _transportSearchBarState extends State<transportSearchBar> {
       child: Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
         Container(
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(Fieldvalue ? 360 : 360)),
+              borderRadius: BorderRadius.circular(fieldvalue ? 360 : 360)),
           child: AnimatedContainer(
-            duration: Duration(milliseconds: 1000),
-            margin: EdgeInsets.only(top: 40, left: 8, right: 8),
+            duration: const Duration(milliseconds: 1000),
+            margin: const EdgeInsets.only(top: 40, left: 8, right: 8),
             decoration: BoxDecoration(
-                color: Fieldvalue ? Color(0xffE0EBE3) : Color(0xff002f24),
-                borderRadius: BorderRadius.circular(Fieldvalue ? 360 : 360)),
-            child: Fieldvalue ? searchField() : searchButton(),
+                color: fieldvalue ? const Color(0xffE0EBE3) : const Color(0xff002f24),
+                borderRadius: BorderRadius.circular(fieldvalue ? 360 : 360)),
+            child: fieldvalue ? searchField() : searchButton(),
           ),
         )
       ]),
@@ -33,12 +33,12 @@ class _transportSearchBarState extends State<transportSearchBar> {
 
   Widget searchField() {
     return ListTile(
-      contentPadding: EdgeInsets.only(left: 15),
+      contentPadding: const EdgeInsets.only(left: 15),
       title: TextField(
-        style: TextStyle(fontSize: 18),
+        style: const TextStyle(fontSize: 18),
         decoration: InputDecoration(
           hintText: 'Search in events',
-          hintStyle: TextStyle(fontSize: 18),
+          hintStyle: const TextStyle(fontSize: 18),
           fillColor: Colors.grey.withOpacity(0.0),
           border: InputBorder.none,
         ),
@@ -50,15 +50,16 @@ class _transportSearchBarState extends State<transportSearchBar> {
   Widget searchButton() {
     return IconButton(
       tooltip: 'search',
-      icon: Icon(
+      icon: const Icon(
         FontAwesomeIcons.magnifyingGlass,
         color: Colors.white,
       ),
       onPressed: () {
-        if (mounted)
+        if (mounted) {
           setState(() {
-            Fieldvalue = true;
+            fieldvalue = true;
           });
+        }
       },
     );
   }
@@ -66,18 +67,19 @@ class _transportSearchBarState extends State<transportSearchBar> {
   Widget clearButton() {
     return DecoratedBox(
       decoration: BoxDecoration(
-          color: Color(0xff0B594C), borderRadius: BorderRadius.circular(360)),
+          color: const Color(0xff0B594C), borderRadius: BorderRadius.circular(360)),
       child: IconButton(
         tooltip: 'clear',
-        icon: Icon(
+        icon: const Icon(
           FontAwesomeIcons.xmark,
           color: Colors.white,
         ),
         onPressed: () {
-          if (mounted)
+          if (mounted) {
             setState(() {
-              Fieldvalue = false;
+              fieldvalue = false;
             });
+          }
         },
       ),
     );

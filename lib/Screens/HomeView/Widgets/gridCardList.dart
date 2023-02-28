@@ -1,16 +1,17 @@
+
 import 'package:flutter/material.dart';
 
-class gridCard extends StatelessWidget {
-  const gridCard({Key? key}) : super(key: key);
+class GridCard extends StatelessWidget {
+  const GridCard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container();
   }
 
-  static Column GridView(String Text1, String Text2) {
-    String text1 = Text1;
-    String text2 = Text2;
+  static Column gridView(String te1, String te2) {
+    String text1 = te1;
+    String text2 = te2;
     return Column(
     children: [
       Row(
@@ -47,18 +48,18 @@ class gridCard extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(top: 230, left: 30),
+                        margin: const EdgeInsets.only(top: 230, left: 30),
                         child:  Text(
-                          '$text1',
-                          style: TextStyle(color: Colors.white,
+                          text1,
+                          style: const TextStyle(color: Colors.white,
                               fontSize: 40),
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(top: 270, left: 30),
+                        margin: const EdgeInsets.only(top: 270, left: 30),
                         child:  Text(
-                          '$text2',
-                          style: TextStyle(color: Colors.white,
+                          text2,
+                          style: const TextStyle(color: Colors.white,
                               fontSize: 32),
                         ),
                       )

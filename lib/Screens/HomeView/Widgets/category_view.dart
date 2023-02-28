@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class categoryViewScreen extends StatelessWidget {
-  const categoryViewScreen({super.key});
+class CategoryViewScreen extends StatelessWidget {
+  const CategoryViewScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,9 +11,9 @@ class categoryViewScreen extends StatelessWidget {
 
 Container categoryView() {
   return Container(
-    margin: EdgeInsets.only(left: 15, right: 15, top: 5, bottom: 0),
+    margin: const EdgeInsets.only(left: 15, right: 15, top: 5, bottom: 0),
     child: Row(
-      children: [
+      children: const [
         Text(
           'Featured',
           style:

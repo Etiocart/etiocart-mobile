@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, avoid_print
 import 'package:flutter/material.dart';
 import 'ticket_confirmation.dart';
-import 'tickets_widget.dart';
 
 class Completed extends StatefulWidget {
   const Completed({Key? key}) : super(key: key);
@@ -26,7 +25,6 @@ class _CompletedState extends State<Completed> {
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
     if(_isloading) {
       return Container(
         height: height*0.804,
@@ -34,7 +32,7 @@ class _CompletedState extends State<Completed> {
       child: ListView.builder(
         itemCount: 5,
       itemBuilder: (context, index) {
-        return CompletedTicketSkeleton(context);
+        return completedTicketSkeleton(context);
       },
       ),
     );
@@ -55,7 +53,7 @@ class _CompletedState extends State<Completed> {
             physics: ScrollPhysics(parent: BouncingScrollPhysics()),
             itemCount: 5,
             itemBuilder: (context, index) {
-              return CompletedTicket(context);
+              return completedTicket(context);
             },
           ),
         ),
@@ -64,7 +62,7 @@ class _CompletedState extends State<Completed> {
   }
 }
 
-Widget CompletedTicket(context) {
+Widget completedTicket(context) {
   var height = MediaQuery.of(context).size.height;
   var width = MediaQuery.of(context).size.width;
   return Expanded(
@@ -104,24 +102,21 @@ Widget CompletedTicket(context) {
                   crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Flexible(
-                        child: Container(
-                            child: Text(
-                              'Prepared by',
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(fontSize: 16,
-                                  fontWeight: FontWeight.w400, color: Colors.grey.shade500),
-                            )),
+                        child: Text(
+                          'Prepared by',
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(fontSize: 16,
+                              fontWeight: FontWeight.w400, color: Colors.grey.shade500),
+                        ),
                       ),
                       Flexible(
-                        child: Container(
-                          child: Text('Concert prepared',
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                  fontSize: 22,
-                                  color: Colors.teal.shade900,
-                                  fontWeight: FontWeight.w600)),
-                        ),
+                        child: Text('Concert prepared',
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                                fontSize: 22,
+                                color: Colors.teal.shade900,
+                                fontWeight: FontWeight.w600)),
                       ),
                       Text('Sunday Dec 30',
                           style: TextStyle(
@@ -149,7 +144,7 @@ Widget CompletedTicket(context) {
   );
 }
 
-Widget CompletedTicketSkeleton(context) {
+Widget completedTicketSkeleton(context) {
   var height = MediaQuery.of(context).size.height;
   var width = MediaQuery.of(context).size.width;
   return Expanded(

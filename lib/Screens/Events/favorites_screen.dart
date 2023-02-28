@@ -1,23 +1,20 @@
 // ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, avoid_print
-import 'package:ethiocart/Screens/HomeView/Widgets/home_page_widgets.dart';
-import 'package:ethiocart/Screens/Profile/profile_view.dart';
 import 'package:ethiocart/Screens/Search/search_delegate.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'events_widgets/events_widget.dart';
 
-class favoritesHome extends StatefulWidget {
-  const favoritesHome({Key? key}) : super(key: key);
+class FavoritesHome extends StatefulWidget {
+  const FavoritesHome({Key? key}) : super(key: key);
 
   @override
-  State<favoritesHome> createState() => _favoritesHomeState();
+  State<FavoritesHome> createState() => _FavoritesHomeState();
 }
 
-class _favoritesHomeState extends State<favoritesHome> {
+class _FavoritesHomeState extends State<FavoritesHome> {
   @override
   Widget build(BuildContext context) {
-    var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
+    // final height = MediaQuery.of(context).size.height;
+    // final width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -28,6 +25,7 @@ class _favoritesHomeState extends State<favoritesHome> {
           style: TextStyle(fontSize: 22),
         ),
         actions: [
+          // this is the searchbar at the top of the appbar
           IconButton(
               onPressed: () {
                 showSearch(context: context, delegate: CustomSearch());
@@ -39,7 +37,6 @@ class _favoritesHomeState extends State<favoritesHome> {
         ],
       ),
       body: Material(
-        // color: Colors.white,
         child: Container(
           color: Colors.white,
           child: SafeArea(
@@ -53,5 +50,3 @@ class _favoritesHomeState extends State<favoritesHome> {
     );
   }
 }
-
-

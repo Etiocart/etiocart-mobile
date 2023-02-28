@@ -1,6 +1,5 @@
 import 'package:ethiocart/Screens/authentication/widget.dart/login_from.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
+// import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -21,36 +20,33 @@ class LoginScreen extends StatelessWidget {
         ),
         body: SingleChildScrollView(
           child: SafeArea(
-            child: Container(
-              // padding: const EdgeInsets.all(18.0),
-              child: Column(
-                // crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                      // color: Colors.amber,
-                      height: 200,
-                      width: 350,
-                      child: Stack(children: [
-                      ])),
-                  Center(
-                    child: Text(
-                      'Log In',
-                      style:
-                          TextStyle(fontSize: 30,
-                              color: Colors.teal.shade800,
-                              fontWeight: FontWeight.w600),
-                      textAlign: TextAlign.center,
-                    ),
+            child: Column(
+              // crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                    // color: Colors.amber,
+                    height: 200,
+                    width: 350,
+                    child: Stack(children: const [
+                    ])),
+                Center(
+                  child: Text(
+                    'Log In',
+                    style:
+                        TextStyle(fontSize: 30,
+                            color: Colors.teal.shade800,
+                            fontWeight: FontWeight.w600),
+                    textAlign: TextAlign.center,
                   ),
+                ),
 
-                  SizedBox(
-                    height: 30,
-                  ),
-                  LoginForm(),
+                const SizedBox(
+                  height: 30,
+                ),
+                const LoginForm(),
 
-                  // LoginFooterWidget(),
-                ],
-              ),
+                // LoginFooterWidget(),
+              ],
             ),
           ),
         ),

@@ -2,7 +2,7 @@ import 'package:ethiocart/Screens/transport/transport_booking.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../payement/payment_confirmation.dart';
+// import '../payement/payment_confirmation.dart';
 
 class TransportDetail extends StatefulWidget {
   const TransportDetail({Key? key}) : super(key: key);
@@ -14,27 +14,27 @@ class TransportDetail extends StatefulWidget {
 class _TransportDetailState extends State<TransportDetail> {
   @override
   Widget build(BuildContext context) {
-    return TransportPage();
+    return transportPage();
   }
 
-  Widget TransportPage() {
+  Widget transportPage() {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: Text(
+        title: const Text(
           'Transport',
           style: TextStyle(),
         ),
         foregroundColor: Colors.black,
         backgroundColor: Colors.white,
       ),
-      body: Body(context),
+      body: body(context),
     );
   }
 
-  Widget Body(BuildContext context) {
+  Widget body(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       color: Colors.grey.shade200,
       child: ListView(
         children: [
@@ -49,12 +49,12 @@ class _TransportDetailState extends State<TransportDetail> {
                 child: Column(
                   children: [
                     Container(
-                      padding: EdgeInsets.only(left: 10, top: 10, right: 10),
+                      padding: const EdgeInsets.only(left: 10, top: 10, right: 10),
                       child: Column(
                         children: [
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
+                            children: const [
                               Text(
                                 'Travel Detail',
                                 style: TextStyle(
@@ -64,46 +64,46 @@ class _TransportDetailState extends State<TransportDetail> {
                           ),
                           Row(
                             children: [
-                              Text('Thursday, july 16, 2020',
+                              const Text('Thursday, july 16, 2020',
                                   style: TextStyle(fontSize: 18)),
                               Container(
-                                  margin: EdgeInsets.only(left: 25, right: 25),
-                                  child: Icon(
+                                  margin: const EdgeInsets.only(left: 25, right: 25),
+                                  child: const Icon(
                                     CupertinoIcons.bus,
                                     color: Colors.grey,
                                   )),
-                              Text('Addis Ababa',
+                              const Text('Addis Ababa',
                                   style: TextStyle(fontSize: 18))
                             ],
                           ),
                           Column(
                             children: [
-                              Text('Departure'),
+                              const Text('Departure'),
                               Container(
-                                margin: EdgeInsets.only(top: 5, bottom: 5),
+                                margin: const EdgeInsets.only(top: 5, bottom: 5),
                                 height: 60,
                                 width: 2,
                                 color: Colors.black54,
                               ),
-                              Text('Destination')
+                              const Text('Destination')
                             ],
                           ),
                           Row(
                             children: [
-                              Text('Saturday, july 18, 2020',
+                              const Text('Saturday, july 18, 2020',
                                   style: TextStyle(fontSize: 18)),
                               Container(
-                                  margin: EdgeInsets.only(left: 20, right: 20),
-                                  child: Icon(CupertinoIcons.location_fill,
+                                  margin: const EdgeInsets.only(left: 20, right: 20),
+                                  child: const Icon(CupertinoIcons.location_fill,
                                       color: Colors.grey)),
-                              Text('Adama', style: TextStyle(fontSize: 18))
+                              const Text('Adama', style: TextStyle(fontSize: 18))
                             ],
                           ),
                           Container(
-                            margin: EdgeInsets.only(top: 15),
+                            margin: const EdgeInsets.only(top: 15),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
+                              children: const [
                                 Text(
                                   '1250 ETB',
                                   style: TextStyle(
@@ -122,7 +122,7 @@ class _TransportDetailState extends State<TransportDetail> {
             ],
           ),
           Container(
-            margin: EdgeInsets.only(top: 5, bottom: 5),
+            margin: const EdgeInsets.only(top: 5, bottom: 5),
           ),
           Column(
             children: [
@@ -135,35 +135,35 @@ class _TransportDetailState extends State<TransportDetail> {
                 child: Column(
                   children: [
                     Container(
-                      padding: EdgeInsets.only(left: 10, top: 10, right: 10),
+                      padding: const EdgeInsets.only(left: 10, top: 10, right: 10),
                       child: Column(
                         children: [
                           Row(
                             children: [
                               Container(
-                                margin: EdgeInsets.only(top: 50),
+                                margin: const EdgeInsets.only(top: 50),
                               ),
-                              Text(
+                              const Text(
                                 'Baggae Allowance',
                                 style: TextStyle(fontSize: 18),
                               ),
-                              Spacer(),
+                              const Spacer(),
                               Container(
                                 height: 20,
                                 width: 1,
                                 color: Colors.black,
                               ),
-                              Spacer(),
-                              Text('No additional fee upto',
+                              const Spacer(),
+                              const Text('No additional fee upto',
                                   style: TextStyle(
                                       fontSize: 18, fontFamily: 'SFPro'))
                             ],
                           ),
                           Container(
-                            margin: EdgeInsets.only(top: 20),
+                            margin: const EdgeInsets.only(top: 20),
                           ),
                           Row(
-                            children: [
+                            children: const [
                               Text('Provider', style: TextStyle(fontSize: 18)),
                               Spacer(),
                               Text('selam sc.', style: TextStyle(fontSize: 18))
@@ -179,10 +179,10 @@ class _TransportDetailState extends State<TransportDetail> {
                             ],
                           ),
                           Container(
-                            margin: EdgeInsets.only(top: 20),
+                            margin: const EdgeInsets.only(top: 20),
                           ),
                           Row(
-                            children: [
+                            children: const [
                               Text('No Baggage fee upto',
                                   style: TextStyle(fontSize: 18)),
                               Spacer(),
@@ -200,10 +200,10 @@ class _TransportDetailState extends State<TransportDetail> {
                             ],
                           ),
                           Container(
-                            margin: EdgeInsets.only(top: 20),
+                            margin: const EdgeInsets.only(top: 20),
                           ),
                           Row(
-                            children: [
+                            children: const [
                               Text('Refund', style: TextStyle(fontSize: 18)),
                               Spacer(),
                               Text('No Refund.', style: TextStyle(fontSize: 18))
@@ -218,19 +218,19 @@ class _TransportDetailState extends State<TransportDetail> {
             ],
           ),
           Container(
-            margin: EdgeInsets.only(top: 10, bottom: 10),
+            margin: const EdgeInsets.only(top: 10, bottom: 10),
           ),
-          ConfirmButton()
+          confirmButton()
         ],
       ),
     );
   }
 
 
-  Widget ConfirmButton(){
+  Widget confirmButton(){
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
-    return Container(
+    return SizedBox(
       width: width*0.8,
       height: height*0.06,
       child: ElevatedButton(
@@ -246,10 +246,10 @@ class _TransportDetailState extends State<TransportDetail> {
           Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => TransportBooking()),
+                builder: (context) => const TransportBooking()),
           );
         },
-        child: Text('Buy Ticket', style: TextStyle(fontSize: 18),),
+        child: const Text('Buy Ticket', style: TextStyle(fontSize: 18),),
       ),
     );
   }

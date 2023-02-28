@@ -12,7 +12,7 @@ class EventsDetail extends StatelessWidget {
           backgroundColor: Colors.white,
           foregroundColor: Colors.teal.shade900,
           elevation: 0,
-          title: Text('Favourite'),
+          title: const Text('Favourite'),
         ),
       )),
     );

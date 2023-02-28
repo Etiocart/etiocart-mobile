@@ -1,6 +1,4 @@
-import 'package:ethiocart/Screens/payement/editwallet.dart';
 import 'package:ethiocart/Screens/payement/payment_confirmation.dart';
-import 'package:ethiocart/Screens/pin/pin._page.dart';
 import 'package:flutter/material.dart';
 
 class PayInfoConfirm extends StatefulWidget {
@@ -18,16 +16,16 @@ class _PayInfoConfirmState extends State<PayInfoConfirm> {
 
   generalAddcounter() {
     price = counter + price;
-    int newPrice = price;
     seats = seats + 1;
   }
 
   generalSubCounter() {
     while (true) {
-      if (price != 10)
+      if (price != 10) {
         price = price - 10;
-      else
+      } else {
         return price;
+      }
       break;
     }
     seats = seats - 1;
@@ -45,7 +43,7 @@ class _PayInfoConfirmState extends State<PayInfoConfirm> {
         resizeToAvoidBottomInset: false,
         body: Container(
           color: Colors.white,
-          padding: EdgeInsets.only(left: 5, right: 5),
+          padding: const EdgeInsets.only(left: 5, right: 5),
           child: ListView(
             children: [
               Padding(
@@ -63,7 +61,7 @@ class _PayInfoConfirmState extends State<PayInfoConfirm> {
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20),
-                child: ConfirmPaymentbutton(),
+                child: confirmPaymentbutton(),
               ),
             ],
           ),
@@ -73,12 +71,10 @@ class _PayInfoConfirmState extends State<PayInfoConfirm> {
   }
 
   Widget buyTicketModule(){
-    var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
     return Column(
       children: [
         Row(
-          children: [
+          children: const [
             Text('Buyer'),
           ],
         ),
@@ -90,7 +86,7 @@ class _PayInfoConfirmState extends State<PayInfoConfirm> {
                 borderRadius: BorderRadius.circular(10),
                 color: Colors.grey.withOpacity(0.1)),
             child: TextFormField(
-              style: TextStyle(fontSize: 18),
+              style: const TextStyle(fontSize: 18),
               autocorrect: false,
               textCapitalization: TextCapitalization.none,
               decoration: InputDecoration(
@@ -102,7 +98,7 @@ class _PayInfoConfirmState extends State<PayInfoConfirm> {
           ),
         ),
         Row(
-          children: [
+          children: const [
             Text('Buyer'),
           ],
         ),
@@ -114,7 +110,7 @@ class _PayInfoConfirmState extends State<PayInfoConfirm> {
                 borderRadius: BorderRadius.circular(10),
                 color: Colors.grey.withOpacity(0.1)),
             child: TextFormField(
-              style: TextStyle(fontSize: 18),
+              style: const TextStyle(fontSize: 18),
               autocorrect: false,
               textCapitalization: TextCapitalization.none,
               decoration: InputDecoration(
@@ -126,7 +122,7 @@ class _PayInfoConfirmState extends State<PayInfoConfirm> {
           ),
         ),
         Row(
-          children: [
+          children: const [
             Text('Buyer'),
           ],
         ),
@@ -138,7 +134,7 @@ class _PayInfoConfirmState extends State<PayInfoConfirm> {
                 borderRadius: BorderRadius.circular(10),
                 color: Colors.grey.withOpacity(0.1)),
             child: TextFormField(
-              style: TextStyle(fontSize: 18),
+              style: const TextStyle(fontSize: 18),
               autocorrect: false,
               textCapitalization: TextCapitalization.none,
               decoration: InputDecoration(
@@ -150,7 +146,7 @@ class _PayInfoConfirmState extends State<PayInfoConfirm> {
           ),
         ),
         Row(
-          children: [
+          children: const [
             Text('Buyer'),
           ],
         ),
@@ -162,7 +158,7 @@ class _PayInfoConfirmState extends State<PayInfoConfirm> {
                 borderRadius: BorderRadius.circular(10),
                 color: Colors.grey.withOpacity(0.1)),
             child: TextFormField(
-              style: TextStyle(fontSize: 18),
+              style: const TextStyle(fontSize: 18),
               autocorrect: false,
               textCapitalization: TextCapitalization.none,
               decoration: InputDecoration(
@@ -173,13 +169,13 @@ class _PayInfoConfirmState extends State<PayInfoConfirm> {
             ),
           ),
         ),
-        BookingDetail()
+        bookingDetail()
       ],
     );
   }
 
 
-  Widget BookingDetail(){
+  Widget bookingDetail(){
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Container(
@@ -189,9 +185,9 @@ class _PayInfoConfirmState extends State<PayInfoConfirm> {
       child: Column(
         children: [
           Row(
-            children: [
+            children: const [
               Padding(
-                padding: const EdgeInsets.only(left: 10),
+                padding: EdgeInsets.only(left: 10),
                 child: Text('Destination:', style: TextStyle(fontSize: 18),),
               ),
               Padding(padding: EdgeInsets.only(right: 40)),
@@ -216,7 +212,7 @@ class _PayInfoConfirmState extends State<PayInfoConfirm> {
                         borderRadius: BorderRadius.circular(10),
                         color: Colors.white,
                         border: Border.all(color: Colors.blueAccent)),
-                    child: Center(
+                    child: const Center(
                         child: Text(
                           '-',
                           style: TextStyle(fontSize: 35, color: Colors.grey),
@@ -240,7 +236,7 @@ class _PayInfoConfirmState extends State<PayInfoConfirm> {
                         borderRadius: BorderRadius.circular(10),
                         color: Colors.white,
                         border: Border.all(color: Colors.blueAccent)),
-                    child: Center(
+                    child: const Center(
                         child: Text(
                           '+',
                           style: TextStyle(fontSize: 35, color: Colors.grey),
@@ -253,10 +249,10 @@ class _PayInfoConfirmState extends State<PayInfoConfirm> {
           Padding(
             padding: const EdgeInsets.only(left: 10, top: 10),
             child: Row(
-              children: [
+              children: const [
                 Text('Total Price :', style: TextStyle(fontSize: 18),),
                 Padding(
-                  padding: const EdgeInsets.only(left: 10),
+                  padding: EdgeInsets.only(left: 10),
                   child: Text('1200', style: TextStyle(fontSize: 18),),
                 )
               ],
@@ -265,10 +261,10 @@ class _PayInfoConfirmState extends State<PayInfoConfirm> {
           Padding(
             padding: const EdgeInsets.only(left: 10, top: 10),
             child: Row(
-              children: [
+              children: const [
                 Text('Departure time :', style: TextStyle(fontSize: 18),),
                 Padding(
-                  padding: const EdgeInsets.only(left: 10),
+                  padding: EdgeInsets.only(left: 10),
                   child: Text('12:00 AM, Monday Jan 22 ', style: TextStyle(fontSize: 18),),
                 )
               ],
@@ -277,10 +273,10 @@ class _PayInfoConfirmState extends State<PayInfoConfirm> {
           Padding(
             padding: const EdgeInsets.only(left: 10, top: 10),
             child: Row(
-              children: [
+              children: const [
                 Text('Confirmation', style: TextStyle(fontSize: 18),),
                 Padding(
-                  padding: const EdgeInsets.only(left: 10),
+                  padding: EdgeInsets.only(left: 10),
                   child: Text(': Waiting', style: TextStyle(fontSize: 18, color: Colors.grey),),
                 )
               ],
@@ -291,10 +287,10 @@ class _PayInfoConfirmState extends State<PayInfoConfirm> {
     );
   }
 
-  Widget ConfirmPaymentbutton() {
+  Widget confirmPaymentbutton() {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
-    return Container(
+    return SizedBox(
       height: height * 0.06,
       width: width * 0.8,
       child: ElevatedButton(
@@ -308,9 +304,9 @@ class _PayInfoConfirmState extends State<PayInfoConfirm> {
             ))),
         onPressed: () {
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => PaymentConfirmation()));
+              MaterialPageRoute(builder: (context) => const PaymentConfirmation()));
         },
-        child: Text(
+        child: const Text(
           'Confirm',
           style: TextStyle(fontSize: 17),
         ),

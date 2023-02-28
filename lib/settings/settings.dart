@@ -36,12 +36,13 @@ class Settings extends StatelessWidget {
                                       builder: (context) => Notifications()),
                                 );
                               },
-                              icon: Icon(
-                                semanticLabel: 'notification',
-                                Icons.notifications,
-                                size: size * 70,
-                                color: Colors.grey.shade800,
-                              )),
+                              icon: const ImageIcon(
+                                  color: Colors.black,
+                                  size: 30,
+                                  AssetImage('assets/icons/notification.png',
+                                  )
+                              ),
+                          ),
                         ],
                       ),
                       FittedBox(
@@ -52,7 +53,7 @@ class Settings extends StatelessWidget {
                               height: size * 330,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(360),
-                                color: Colors.teal.shade50,
+                                color: const Color(0xff394f6b).withOpacity(0.2),
                               ),
                               child: Center(
                                   child: Icon(
@@ -68,7 +69,7 @@ class Settings extends StatelessWidget {
                                 width: width * 0.12,
                                 height: width * 0.12,
                                 decoration: BoxDecoration(
-                                    color: Colors.black,
+                                    color: const Color(0xff394f6b).withOpacity(0.8),
                                     borderRadius: BorderRadius.circular(360)),
                                 child: IconButton(
                                     onPressed: () {
@@ -79,7 +80,7 @@ class Settings extends StatelessWidget {
                                                 editProfile()),
                                       );
                                     },
-                                    icon: Icon(
+                                    icon: const Icon(
                                       FontAwesomeIcons.pencil,
                                       size: 25,
                                       color: Colors.white,
@@ -89,7 +90,7 @@ class Settings extends StatelessWidget {
                           ],
                         ),
                       ),
-                      Text(
+                      const Text(
                         'Andrew Ansley',
                         style: TextStyle(fontSize: 18),
                       ),
@@ -107,7 +108,7 @@ class Settings extends StatelessWidget {
                                 fontSize: 18,
                                 color: Colors.grey.shade900,
                                 fontWeight: FontWeight.w400))),
-                    Tab(
+                    const Tab(
                         child: Text('memories',
                             style: TextStyle(
                                 fontSize: 18,
@@ -120,7 +121,6 @@ class Settings extends StatelessWidget {
                 child: TabBarView(
                   children: [
                     ListView(
-                      // physics: NeverScrollableScrollPhysics(),
                       children: <Widget>[
                         SizedBox(height: height * 0.55, child: profileView()),
                         SizedBox(height: height * 0.05, child: settingsView(context)),
@@ -140,8 +140,8 @@ class Settings extends StatelessWidget {
 
   Widget momentsGridView(BuildContext context) {
     final orientation = MediaQuery.of(context).orientation;
-    var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
+    // var height = MediaQuery.of(context).size.height;
+    // var width = MediaQuery.of(context).size.width;
     return GridView.builder(
       itemCount: 21,
       shrinkWrap: true,
@@ -150,7 +150,7 @@ class Settings extends StatelessWidget {
       itemBuilder: (BuildContext context, int index) {
         return Padding(
           padding: const EdgeInsets.all(2),
-          child: new Container(
+          child:  Container(
             decoration: BoxDecoration(color: Colors.grey.withOpacity(0.3)),
           ),
         );
@@ -159,13 +159,13 @@ class Settings extends StatelessWidget {
   }
 
   Widget settingsView(BuildContext context) {
-    var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
+    // var height = MediaQuery.of(context).size.height;
+    // var width = MediaQuery.of(context).size.width;
     return TextButton(
       onPressed: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => LoginScreen()),
+          MaterialPageRoute(builder: (context) => const LoginScreen()),
         );
       },
       child: Text(

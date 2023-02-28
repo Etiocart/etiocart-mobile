@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'iconwidget.dart';
+// import 'iconwidget.dart';
 
 class AccountList extends StatelessWidget {
   const AccountList({
@@ -17,9 +17,9 @@ class AccountList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var icons;
+    // var icons;
     return Padding(
-      padding: EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric(
 
           // horizontal: 5, vertical: 0
 
@@ -45,7 +45,7 @@ class AccountList extends StatelessWidget {
             //   // color: Colors.black,
             //   icon: icon,
             // ),
-            SizedBox(
+            const SizedBox(
               width: 50,
             ),
             Expanded(

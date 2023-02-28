@@ -12,7 +12,7 @@ class IconWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-        padding: EdgeInsets.all(8),
+        padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
             shape: BoxShape.circle, color: Theme.of(context).iconTheme.color),
         child: Icon(icon, size: 18, color: Theme.of(context).backgroundColor),

@@ -6,7 +6,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../authentication/login.dart';
-import '../setting_page.dart';
 import 'profile_export.dart';
 import 'package:ethiocart/Screens/Screens.dart';
 import 'package:flutter/material.dart';
@@ -15,27 +14,20 @@ class profileView extends StatelessWidget {
   profileView({Key? key}) : super(key: key);
 
   List<Widget> routePages = [
-    favoritesHome(),
+    FavoritesHome(),
     helpCenter(),
     paymentWallet(),
-    tickets(),
+    Tickets(),
     Notifications(),
     Notifications(),
-    Notifications(),
-    Notifications(),
-    Notifications()
   ];
   List<String> tabNames = [
     'Favorite Events',
     'Help center',
     'Wallet',
-    'Tickets',
-    'Notifications',
-    'change phone number',
-    'Edit Account',
-    'gifts sent',
-    'Edit Account',
-    'gifts sent',
+    'My Tickets',
+    'Policies and conditions',
+    'App lock',
   ];
 
   List<IconData> fontawesomeIcons = [
@@ -45,10 +37,6 @@ class profileView extends StatelessWidget {
     CupertinoIcons.ticket,
     CupertinoIcons.bell,
     CupertinoIcons.phone,
-    CupertinoIcons.desktopcomputer,
-    CupertinoIcons.gift,
-    CupertinoIcons.desktopcomputer,
-    CupertinoIcons.gift
   ];
   List<String> flatIcons = [
     'assets/icons/calendar-check.png',
@@ -57,16 +45,16 @@ class profileView extends StatelessWidget {
     'assets/icons/ticket.png',
     'assets/icons/ticket.png',
     'assets/icons/ticket.png',
-
   ];
   @override
   Widget build(BuildContext context) {
     return Material(
       child: Scaffold(
-          body: SafeArea(child: Padding(
-            padding: const EdgeInsets.only(top: 15.0),
-            child: profileScreen(context),
-          ))),
+          body: SafeArea(
+              child: Padding(
+        padding: const EdgeInsets.only(top: 15.0),
+        child: profileScreen(context),
+      ))),
     );
   }
 
@@ -76,8 +64,7 @@ class profileView extends StatelessWidget {
     return Container(
       padding: EdgeInsets.only(top: 0, left: 30, right: 30),
       decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(15)),
+          color: Colors.white, borderRadius: BorderRadius.circular(15)),
       width: double.infinity,
       height: double.infinity,
       child: Column(
@@ -103,11 +90,10 @@ class profileView extends StatelessWidget {
                           Row(
                             children: [
                               Container(
-                                width: width*0.04,
-                                height: height*0.04,
+                                width: width * 0.04,
+                                height: height * 0.04,
                                 child: Icon(fontawesomeIcons[i],
-                                    size: 25,
-                                    color: Colors.grey),
+                                    size: 25, color: Colors.grey),
                               ),
                               Container(
                                   padding: EdgeInsets.only(left: 15),

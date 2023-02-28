@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 List<IconData> filtericons = [
   CupertinoIcons.music_note,
   CupertinoIcons.airplane,
@@ -48,7 +47,7 @@ List<String> location2 = [
 ];
 
 
-List <String> TextMain = [
+List <String> textMain = [
   '94',
   '59',
   '47',
@@ -56,7 +55,7 @@ List <String> TextMain = [
   '20'
 ];
 
-List <String> TextSub = [
+List <String> textSub = [
   '50',
   '45',
   '37',
@@ -64,7 +63,7 @@ List <String> TextSub = [
   '99'
 ];
 
-List <String> EventMain = [
+List <String> eventMain = [
   'event1',
   'event2',
   'event3',
@@ -72,7 +71,7 @@ List <String> EventMain = [
   'event5'
 ];
 
-List <String> EventSub = [
+List <String> eventSub = [
   'sub1',
   'sub2',
   'sub3',
@@ -81,4 +80,4 @@ List <String> EventSub = [
 ];
 
 var price = 10;
-var TotalPrice = price*distance[0];
+var totalPrice = price*distance[0];

@@ -1,4 +1,4 @@
-import 'package:ethiocart/Screens/bottom_nav_screen.dart';
+import 'package:ethiocart/Screens/bottom_nav/bottom_nav_screen.dart';
 import 'package:flutter/material.dart';
 import 'profile_export.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';

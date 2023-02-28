@@ -1,7 +1,7 @@
 import 'package:ethiocart/Screens/HomeView/settings1.dart/buttomwidget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+// import 'package:flutter/src/widgets/container.dart';
+// import 'package:flutter/src/widgets/framework.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -20,11 +20,9 @@ class _SettingsPageState extends State<SettingsPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Container(
-              child: Text(
-                'Settings',
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-              ),
+            const Text(
+              'Settings',
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
             ),
             AccountList(icon: Icons.abc, text: "Changed Password", press: () {})
           ],

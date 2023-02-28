@@ -1,7 +1,5 @@
 // ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, avoid_print
 import 'package:ethiocart/Screens/Tickets/ticket_widgets/pending_ticket.dart';
-
-import 'events_widget.dart';
 import 'package:flutter/material.dart';
 
 class FavoritesCard extends StatefulWidget {
@@ -12,10 +10,14 @@ class FavoritesCard extends StatefulWidget {
 }
 
 class _FavoritesCardState extends State<FavoritesCard> {
+  // a variable that holds the _isloading value to set shimmer loading first
   late bool _isloading = false;
   @override
   void initState() {
+    // this function implements the loading function's set state
+    // set the variable to true first
     _isloading = true;
+    // wait for 2 seconds and set the _isloading variable back to false
     Future.delayed(const Duration(seconds: 2), () {
       setState(() {
         _isloading = false;
@@ -26,28 +28,29 @@ class _FavoritesCardState extends State<FavoritesCard> {
 
   @override
   Widget build(BuildContext context) {
-    var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
-    if(_isloading)
-    return
-      Container(
-      color: Colors.black.withOpacity(0.08),
-      child: Column(
-        children: [
-          SizedBox(
-            width: width * 1,
-            height: height * 0.9,
-            child: ListView.builder(
-              itemCount: 10,
-              itemBuilder: (context, index) {
-                return mainSkeletonCard(context);
-              },
-            ),
-          )
-        ],
-      ),
-    );
-    else {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
+    // checks the variable's value
+    // and if it is false it shows main screen else the skeleton
+    if (_isloading) {
+      return Container(
+        color: Colors.black.withOpacity(0.08),
+        child: Column(
+          children: [
+            SizedBox(
+              width: width * 1,
+              height: height * 0.9,
+              child: ListView.builder(
+                itemCount: 10,
+                itemBuilder: (context, index) {
+                  return mainSkeletonCard(context);
+                },
+              ),
+            )
+          ],
+        ),
+      );
+    } else {
       return Container(
         color: Colors.white,
         child: Column(
@@ -56,13 +59,11 @@ class _FavoritesCardState extends State<FavoritesCard> {
               width: width * 1,
               height: height * 0.9,
               child: RefreshIndicator(
-                displacement: height*0.05,
-                edgeOffset: height*0.005,
+                displacement: height * 0.05,
+                edgeOffset: height * 0.005,
                 onRefresh: () async {
                   await Future.delayed(Duration(milliseconds: 1500));
-                  setState(() {
-
-                  });
+                  setState(() {});
                 },
                 child: ListView.builder(
                   physics: ScrollPhysics(parent: BouncingScrollPhysics()),
@@ -70,11 +71,12 @@ class _FavoritesCardState extends State<FavoritesCard> {
                   itemBuilder: (context, index) {
                     return InkWell(
                         onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => PendingTickets()),
-                      );
-                    },
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => PendingTickets()),
+                          );
+                        },
                         child: mainCard(context));
                   },
                 ),
@@ -87,12 +89,9 @@ class _FavoritesCardState extends State<FavoritesCard> {
   }
 }
 
-Widget mainCard(context) {
+mainCard(context) {
   var height = MediaQuery.of(context).size.height;
   var width = MediaQuery.of(context).size.width;
-  DateTime now = DateTime.now();
-  DateTime date =
-      new DateTime(now.year, now.month, now.day, now.hour, now.minute);
   return Container(
       padding: EdgeInsets.only(bottom: 15, left: 5, right: 5),
       width: double.infinity,
@@ -132,7 +131,6 @@ Widget mainCard(context) {
                     Row(
                       children: const [
                         Text('Simply dummy',
-                            //Text('simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500',
                             maxLines: 3,
                             overflow: TextOverflow.fade,
                             style: TextStyle(
@@ -143,7 +141,7 @@ Widget mainCard(context) {
                     ),
                     Row(
                       children: [
-                        Text('${date.year}/${date.month}/${date.day}',
+                        Text('date and time of event',
                             style: TextStyle(
                                 fontSize: 16, color: Colors.blue.shade700)),
                       ],
@@ -152,11 +150,7 @@ Widget mainCard(context) {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        // Icon(
-                        //   Icons.location_on_sharp,
-                        //   color: Colors.deepOrange,
-                        //   size: 30,
-                        // ),
+                      
                         Text('Bole, Millenium Hall',
                             overflow: TextOverflow.fade,
                             style: TextStyle(
@@ -175,9 +169,6 @@ Widget mainCard(context) {
 Widget mainSkeletonCard(context) {
   var height = MediaQuery.of(context).size.height;
   var width = MediaQuery.of(context).size.width;
-  DateTime now = DateTime.now();
-  DateTime date =
-      new DateTime(now.year, now.month, now.day, now.hour, now.minute);
   return Container(
       padding: EdgeInsets.only(bottom: 15, left: 5, right: 5),
       width: double.infinity,

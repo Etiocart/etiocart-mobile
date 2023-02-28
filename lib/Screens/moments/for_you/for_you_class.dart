@@ -1,8 +1,8 @@
 class Fav1 {
   static List<String> title = [
-    'Jan 03,2023' + '-' + 'Jan 05,2023',
-    'Jan 03,2023' + '-' + 'Jan 05,2023',
-    'Jan 03,2023' + '-' + 'Jan 05,2023',
+    'Jan 03,2023-Jan 05,2023',
+    'Jan 03,2023-Jan 05,2023',
+    'Jan 03,2023-Jan 05,2023',
     'heffefeello',
   ];
 

@@ -25,7 +25,6 @@ class _SignupFormState extends State<SignupForm> {
   final confirmController = TextEditingController();
   final phoneNumber = TextEditingController();
 
-  @override
   void iniState() {
     // var _passwordVisible = false;
     super.initState();
@@ -36,23 +35,23 @@ class _SignupFormState extends State<SignupForm> {
     // `controller reference`.text = parsableNumber
   }
 
-  bool _passwordVisible = false;
+  final bool _passwordVisible = false;
 
   @override
   Widget build(BuildContext context) {
-    final _formKey = GlobalKey<FormState>();
+    final formKey = GlobalKey<FormState>();
 
-    var dotRegister = () {
-      // print('on dotRegister');
-      final form = _formKey.currentState;
-      if (form!.validate()) {
-        form.save();
-        // print(form);
-      }
-    };
+    // var dotRegister = () {
+    //   // print('on dotRegister');
+    //   final form = _formKey.currentState;
+    //   if (form!.validate()) {
+    //     form.save();
+    //     // print(form);
+    //   }
+    // };
 
     return Form(
-      key: _formKey,
+      key: formKey,
       // autovalidateMode: _validate,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -67,7 +66,7 @@ class _SignupFormState extends State<SignupForm> {
                 decoration: BoxDecoration(
                     border: Border.all(color: Colors.white),
                     borderRadius: BorderRadius.circular(10),
-                    color: Color(0xffE0EBE3)),
+                    color: const Color(0xffE0EBE3)),
                 child: TextFormField(
                   autofocus: false,
                   // obscureText: true,
@@ -95,7 +94,7 @@ class _SignupFormState extends State<SignupForm> {
                 decoration: BoxDecoration(
                     border: Border.all(color: Colors.white),
                     borderRadius: BorderRadius.circular(10),
-                    color: Color(0xffE0EBE3)),
+                    color: const Color(0xffE0EBE3)),
                 child: TextFormField(
                   autofocus: false,
                   // obscureText: true,
@@ -122,14 +121,14 @@ class _SignupFormState extends State<SignupForm> {
                     decoration: BoxDecoration(
                         border: Border.all(color: Colors.transparent),
                         borderRadius: BorderRadius.circular(10),
-                        color: Color(0xffE0EBE3)),
+                        color: const Color(0xffE0EBE3)),
                     child: InternationalPhoneNumberInput(
-                      inputDecoration: InputDecoration(),
+                      inputDecoration: const InputDecoration(),
                       initialValue:
                           PhoneNumber(isoCode: 'ET', dialCode: '+251'),
                       onInputChanged: (PhoneNumber value) {},
                       hintText: 'Phonenumber',
-                      textStyle: TextStyle(fontSize: 18),
+                      textStyle: const TextStyle(fontSize: 18),
                       // spaceBetweenSelectorAndTextField: double.infinity,
                     ))),
             const SizedBox(height: 15),
@@ -137,11 +136,11 @@ class _SignupFormState extends State<SignupForm> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 0),
               child: Container(
-                padding: EdgeInsets.symmetric(vertical: 2.0),
+                padding: const EdgeInsets.symmetric(vertical: 2.0),
                 decoration: BoxDecoration(
                     border: Border.all(color: Colors.transparent),
                     borderRadius: BorderRadius.circular(10),
-                    color: Color(0xffE0EBE3)),
+                    color: const Color(0xffE0EBE3)),
                 child: TextFormField(
                   obscureText: _passwordVisible,
                   validator: validatePassword,
@@ -177,12 +176,12 @@ class _SignupFormState extends State<SignupForm> {
               child: GestureDetector(
                 onTap: () {},
                 child: Container(
-                  padding: EdgeInsets.all(15),
+                  padding: const EdgeInsets.all(15),
                   decoration: BoxDecoration(
                     color: Colors.teal.shade800,
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: Center(
+                  child: const Center(
                       child: Text(
                     'Sign Up',
                     style: TextStyle(
@@ -193,7 +192,7 @@ class _SignupFormState extends State<SignupForm> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Container(
@@ -203,11 +202,11 @@ class _SignupFormState extends State<SignupForm> {
               ),
               alignment: Alignment.center,
               child: RichText(
-                text: TextSpan(style: TextStyle(color: Colors.grey), children: [
-                  TextSpan(text: 'Do you have an account ? ', style: TextStyle(fontSize: 18)),
+                text: TextSpan(style: const TextStyle(color: Colors.grey), children: [
+                  const TextSpan(text: 'Do you have an account ? ', style: TextStyle(fontSize: 18)),
                   TextSpan(
                     text: 'Sign in',
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.teal,
                       fontSize: 18
                     ),
@@ -216,7 +215,7 @@ class _SignupFormState extends State<SignupForm> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => LoginScreen()));
+                                builder: (context) => const LoginScreen()));
                       },
                   ),
                 ]),
@@ -230,39 +229,44 @@ class _SignupFormState extends State<SignupForm> {
 }
 
 String? validatePassword(String? formPassword) {
-  if (formPassword == null || formPassword.isEmpty)
+  if (formPassword == null || formPassword.isEmpty) {
     return '''       Password is required.''';
+  }
 
   String pattern =
       r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$';
   RegExp regex = RegExp(pattern);
-  if (!regex.hasMatch(formPassword))
+  if (!regex.hasMatch(formPassword)) {
     return '''
       Password must be at least 8 characters,
       include an uppercase letter, number and symbol.
       ''';
+  }
 
   return null;
 }
 
 String? validatefullname(String? formFullname) {
-  if (formFullname == null || formFullname.isEmpty)
+  if (formFullname == null || formFullname.isEmpty) {
     return '''       Please enter your Name.''';
+  }
 
   String pattern = r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{3,}$';
   RegExp regex = RegExp(pattern);
-  if (!regex.hasMatch(formFullname))
+  if (!regex.hasMatch(formFullname)) {
     return '''
       Name must be at least 3 characters,
       include an uppercase letter and number
       ''';
+  }
 
   return null;
 }
 
 String? validateEmail(String? formEmail) {
-  if (formEmail == null || formEmail.isEmpty)
+  if (formEmail == null || formEmail.isEmpty) {
     return '           E-mail address is required.';
+  }
 
   String pattern = r'\w+@\w+\.\w+';
   RegExp regex = RegExp(pattern);

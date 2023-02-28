@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MomentsSkeleton extends StatefulWidget {
@@ -11,17 +10,17 @@ class MomentsSkeleton extends StatefulWidget {
 class _MomentsSkeletonState extends State<MomentsSkeleton> {
   @override
   Widget build(BuildContext context) {
-    return Container(child: Skelton(),);
+    return Container(child: skelton(),);
   }
 
-  Widget Skelton(){
+  Widget skelton(){
 
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Column(
       children: [
         Container(
-          padding: EdgeInsets.only(top: 0, left: 10, right: 10),
+          padding: const EdgeInsets.only(top: 0, left: 10, right: 10),
           width: double.infinity,
           height: height * 0.45,
           decoration: BoxDecoration(
@@ -29,7 +28,7 @@ class _MomentsSkeletonState extends State<MomentsSkeleton> {
           child: Column(
             children: [
               Container(
-                padding: EdgeInsets.only(top: 5, bottom: 5),
+                padding: const EdgeInsets.only(top: 5, bottom: 5),
                 child: Row(
                   children: [
                     CircleAvatar(
@@ -59,17 +58,17 @@ class _MomentsSkeletonState extends State<MomentsSkeleton> {
                       decoration: BoxDecoration(
                           color: Colors.black.withOpacity(0.04),
                           borderRadius: BorderRadius.circular(15)),
-                      child: SizedBox(),
+                      child: const SizedBox(),
                     ),
                   )
                 ],
               ),
               Container(
-                padding: EdgeInsets.only(top: 5, bottom: 5, left: 5),
+                padding: const EdgeInsets.only(top: 5, bottom: 5, left: 5),
               ),
               Expanded(
                 child: Container(
-                  padding: EdgeInsets.only(left: 5),
+                  padding: const EdgeInsets.only(left: 5),
                   child: Column(
                     children: [
                       Row(
