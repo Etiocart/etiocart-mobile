@@ -75,7 +75,7 @@ class Signup extends StatelessWidget {
                   child: Text(
                     'Create New Account',
                     style:
-                        TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                        TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                     textAlign: TextAlign.center,
                   ),
                 ),

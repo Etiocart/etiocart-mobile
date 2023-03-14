@@ -1,14 +1,10 @@
 // ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, avoid_print, camel_case_types
-import 'package:ethiocart/Screens/Profile/profiles_widget/cupertinoDatePicker.dart';
-import 'package:ethiocart/Screens/authentication/widget.dart/signup_form.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'profiles_widget/drop_down_button.dart';
 import './profiles_widget/update_button.dart';
 
 class editProfile extends StatefulWidget {
-   editProfile({super.key});
+   const editProfile({super.key});
   @override
   State<editProfile> createState() => _editProfileState();
 }
@@ -19,14 +15,8 @@ class _editProfileState extends State<editProfile> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
-  bool _isValid = false;
   final _form = GlobalKey<FormState>();
 
-  void _saveForm() {
-    setState(() {
-      _isValid = _form.currentState!.validate();
-    });
-  }
 
   //
   @override
@@ -54,7 +44,6 @@ class _editProfileState extends State<editProfile> {
   }
 
   Widget editBody(context) {
-    var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Material(
       child: ListView(

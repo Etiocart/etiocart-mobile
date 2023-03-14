@@ -1,6 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings,
 // avoid_print
 
+import 'package:ethiocart/Screens/Policies/policies.dart';
+import 'package:ethiocart/Screens/applock/app_lock.dart';
+import 'package:ethiocart/Screens/change_phone/change_phone_number.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'profile_export.dart';
@@ -11,31 +14,41 @@ class ProfileView extends StatelessWidget {
   ProfileView({Key? key}) : super(key: key);
 
   final List<Widget> routePages = [
-    FavoritesHome(),
-    helpCenter(),
+    //favorites page
+    FavoritesEventsList(),
+    //help center
+    HelpCenter(),
+    //wallet
     PaymentWallet(),
+    //my tickets
     Tickets(),
-    Notifications(),
-    Notifications(),
+    //policiies
+    Policies(),
+    //app lock
+    AppLock(),
+    //change phone number
+    ChangePhoneNumber(),
   ];
   final List<String> tabNames = [
-    'Favorite Events',
-    'Help center',
+    'Favorites',
+    'Help Center',
     'Wallet',
     'My Tickets',
-    'PoliciePaymentWalletons',
-    'App lock',
+    'Policies',
+    'App Lock',
+    'Change Phone'
   ];
 
   final List<IconData> fontawesomeIcons = [
-    CupertinoIcons.calendar,
+    Icons.wine_bar_outlined,
     CupertinoIcons.info,
     CupertinoIcons.creditcard,
     CupertinoIcons.ticket,
     CupertinoIcons.bell,
+    CupertinoIcons.lock,
     CupertinoIcons.phone,
   ];
-  final List<String> flatIcons = [
+  final List<String> customIcons = [
     'assets/icons/calendar-check.png',
     'assets/icons/question.png',
     'assets/icons/credit-card.png',
@@ -86,11 +99,13 @@ class ProfileView extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              SizedBox(
-                                width: width * 0.04,
-                                height: height * 0.04,
-                                child: Icon(fontawesomeIcons[i],
-                                    size: 25, color: Colors.grey),
+                              CircleAvatar(
+                                backgroundColor: Colors.grey.withOpacity(0.2),
+                                child: Center(
+                                  child: Icon(
+                                      fontawesomeIcons[i],
+                                      size: 25, color: Colors.green.shade900),
+                                ),
                               ),
                               Container(
                                   padding: EdgeInsets.only(left: 15),

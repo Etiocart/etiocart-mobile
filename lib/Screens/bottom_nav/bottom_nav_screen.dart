@@ -1,6 +1,7 @@
 import 'package:ethiocart/Screens/moments/moments.dart';
 import 'package:ethiocart/settings/settings.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import '../Screens.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -23,7 +24,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   // list of widgets to traverse through for the bottom appbar
   static final List<Widget> _widgetOptions = <Widget>[
-     Feed(),
+     const Feed(),
      const Moments(),
      const Settings(),
   ];
@@ -58,63 +59,53 @@ class _BottomNavBarState extends State<BottomNavBar> {
             items: <BottomNavigationBarItem>[
               // discover item
               BottomNavigationBarItem(
-                icon: CircleAvatar(
-                  backgroundColor: Colors.white,
-                  child: Image.asset(
-                    "assets/icons/navigation_outlined.png",
-                    width: width * 0.23,
-                    height: width * 0.05,
-                    color: const Color(0xff394f6b),
-                  ),
+                icon: SvgPicture.asset(
+                  "assets/icons/compass.svg",
+                  width: width * 0.23,
+                  height: width * 0.05,
+                  color: Colors.black,
                 ),
                 label: 'Discover',
-                activeIcon: CircleAvatar(
-                  backgroundColor: Colors.white,
-                  child: Image.asset(
-                    "assets/icons/navigation_outlined.png",
-                    width: width * 0.25,
-                    height: width * 0.07,
-                    color:const Color(0xff394f6b)
-                  ),
+                activeIcon: Image.asset(
+                  "assets/icons/navigation_outlined.png",
+                  width: width * 0.23,
+                  height: width * 0.05,
+                  color:const Color(0xff394f6b)
                 ),
               ),
               // moments item
               BottomNavigationBarItem(
-                icon: CircleAvatar(
-                  backgroundColor: Colors.white,
-                  child: Image.asset(
-                    "assets/icons/camera_outlined.png",
-                    width: width * 0.23,
-                    height: width * 0.05,
-                    color: const Color(0xff394f6b),
-                  ),
+                icon: SvgPicture.asset(
+                  "assets/icons/camera.svg",
+                  width: width * 0.23,
+                  height: width * 0.05,
+                  color:Colors.black,
                 ),
                 label: 'Moments',
                 // activeIcon: Icon(CupertinoIcons.camera)
-                activeIcon: CircleAvatar(
-                  backgroundColor: Colors.white,
-                  child: Image.asset(
-                    "assets/icons/camera_outlined.png",
-                    width: width * 0.23,
-                    height: width * 0.05,
-                    color: const Color(0xff394f6b),
-                  ),
+                activeIcon: Image.asset(
+                  "assets/icons/camera_outlined.png",
+
+                  width: width * 0.23,
+                  height: width * 0.05,
+                  color: const Color(0xff394f6b),
                 ),
               ),
               // profile item
               BottomNavigationBarItem(
                 backgroundColor: Colors.black,
-                label: 'profile',
+                label: '',
                 icon: CircleAvatar(
                   backgroundColor: const Color(0xff394f6b).withOpacity(0.5),
                   backgroundImage: const AssetImage(
-                    'assets/images/Persons.png',
+                    'assets/images/Person.png',
                   ),
                   radius: 20,
                 ),
               ),
             ],
             elevation: 0,
+            iconSize: 20,
             unselectedLabelStyle: TextStyle(color: Colors.teal.shade800),
             selectedLabelStyle: TextStyle(color: Colors.teal.shade800),
             currentIndex: _selectedIndex,

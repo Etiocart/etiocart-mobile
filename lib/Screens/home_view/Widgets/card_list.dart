@@ -1,5 +1,5 @@
-// import 'package:ethiocart/Screens/Events/favorites_screen.dart';
-import 'package:ethiocart/Screens/HomeView/transport_detail.dart';
+// import 'package:ethiocart/Screens/Events/favorites_event_list.dart';
+import 'package:ethiocart/Screens/transport/transport_detail.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter/rendering.dart';

@@ -11,7 +11,7 @@ Widget updateButton(context) {
     child: ElevatedButton(
       style: ButtonStyle(
           elevation: MaterialStateProperty.all(0),
-          backgroundColor: MaterialStateProperty.all(const Color(0xff394c66)),
+          backgroundColor: MaterialStateProperty.all(const Color(0xff005a5a)),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15),))),

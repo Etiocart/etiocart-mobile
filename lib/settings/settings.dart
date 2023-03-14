@@ -1,5 +1,5 @@
-import 'package:ethiocart/Screens/Notification/notification.dart';
-import 'package:ethiocart/Screens/Profile/profile_export.dart';
+import 'package:ethiocart/Screens/notification/notification.dart';
+import 'package:ethiocart/Screens/profile/profile_export.dart';
 import 'package:ethiocart/Screens/authentication/login.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -12,6 +12,8 @@ class Settings extends StatelessWidget {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     var size = MediaQuery.of(context).size.aspectRatio;
+
+    bool animationKey=true;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: DefaultTabController(
@@ -36,12 +38,12 @@ class Settings extends StatelessWidget {
                                       builder: (context) => Notifications()),
                                 );
                               },
-                              icon: const ImageIcon(
+                              icon:  ImageIcon(
                                   color: Colors.black,
                                   size: 30,
-                                  AssetImage('assets/icons/notification.png',
-                                  )
-                              ),
+                                (animationKey==true)?AssetImage('assets/icons/notification.png')
+                                :AssetImage('assets/icons/bell.gif')
+                              )
                           ),
                         ],
                       ),
@@ -53,7 +55,7 @@ class Settings extends StatelessWidget {
                               height: size * 330,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(360),
-                                color: const Color(0xff394f6b).withOpacity(0.2),
+                                color: Colors.grey.shade600.withOpacity(0.2),
                               ),
                               child: Center(
                                   child: Icon(
@@ -69,7 +71,7 @@ class Settings extends StatelessWidget {
                                 width: width * 0.12,
                                 height: width * 0.12,
                                 decoration: BoxDecoration(
-                                    color: const Color(0xff394f6b).withOpacity(0.8),
+                                    color: Colors.green.shade700.withOpacity(0.8),
                                     borderRadius: BorderRadius.circular(360)),
                                 child: IconButton(
                                     onPressed: () {
@@ -77,12 +79,12 @@ class Settings extends StatelessWidget {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                editProfile()),
+                                                const editProfile()),
                                       );
                                     },
                                     icon: const Icon(
                                       FontAwesomeIcons.pencil,
-                                      size: 25,
+                                      size: 20,
                                       color: Colors.white,
                                     )),
                               ),
@@ -92,7 +94,7 @@ class Settings extends StatelessWidget {
                       ),
                       const Text(
                         'Andrew Ansley',
-                        style: TextStyle(fontSize: 18),
+                        style: TextStyle(fontSize: 22),
                       ),
                     ],
                   ),
@@ -103,16 +105,16 @@ class Settings extends StatelessWidget {
                   indicatorColor: Colors.grey.withOpacity(0.3),
                   tabs: [
                     Tab(
-                        child: Text('settings',
+                        child: Text('Settings',
                             style: TextStyle(
                                 fontSize: 18,
-                                color: Colors.grey.shade900,
+                                color: Colors.green.shade900,
                                 fontWeight: FontWeight.w400))),
-                    const Tab(
-                        child: Text('memories',
+                    Tab(
+                        child: Text('Memories',
                             style: TextStyle(
                                 fontSize: 18,
-                                color: Colors.black,
+                                color: Colors.green.shade900,
                                 fontWeight: FontWeight.w400))),
                   ],
                 ),
@@ -124,7 +126,6 @@ class Settings extends StatelessWidget {
                       children: <Widget>[
                         SizedBox(height: height * 0.55, child: ProfileView()),
                         SizedBox(height: height * 0.05, child: settingsView(context)),
-
                       ],
                     ),
                     momentsGridView(context),

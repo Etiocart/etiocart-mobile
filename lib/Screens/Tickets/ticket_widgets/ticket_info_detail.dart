@@ -1,16 +1,16 @@
-import 'package:ethiocart/Screens/Tickets/ticket_widgets/confirm_pay_info.dart';
+import 'package:ethiocart/Screens/tickets/ticket_widgets/buy_tickets.dart';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-class PendingTickets extends StatefulWidget {
-  const PendingTickets({Key? key}) : super(key: key);
+class TicketInformationDetail extends StatefulWidget {
+  const TicketInformationDetail({Key? key}) : super(key: key);
 
   @override
-  State<PendingTickets> createState() => _PendingTicketsState();
+  State<TicketInformationDetail> createState() => _TicketInformationDetailState();
 }
 
-class _PendingTicketsState extends State<PendingTickets> {
+class _TicketInformationDetailState extends State<TicketInformationDetail> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -19,15 +19,14 @@ class _PendingTicketsState extends State<PendingTickets> {
           elevation: 0,
           foregroundColor: Colors.teal.shade800,
           backgroundColor: Colors.white,
-          title: const Text('Pay'),
+          title: const Text('Detail'),
         ),
         body: ListView(
           children: [
-            eventInfoCard(),
-            // const Spacer(),
+            eventPhotoCard(),
             termsService(),
             Padding(
-              padding: const EdgeInsets.only(left: 35, right: 35),
+              padding: const EdgeInsets.only(left: 20, right: 20),
               child: bookEventButton(),
             ),
           ],
@@ -44,19 +43,20 @@ class _PendingTicketsState extends State<PendingTickets> {
       width: width*0.8,
       child: ElevatedButton(
         style: ButtonStyle(
+          elevation: const MaterialStatePropertyAll(0),
             backgroundColor:
-                MaterialStateProperty.all(Colors.deepPurpleAccent.shade700),
+                MaterialStateProperty.all(Colors.green.shade800),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(15),
             ))),
         onPressed: () {
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const PayInfoConfirm()));
+              MaterialPageRoute(builder: (context) => const BuyTickets()));
         },
         child: const Text(
           'Book Event',
-          style: TextStyle(fontSize: 17),
+          style: TextStyle(fontSize: 18),
         ),
       ),
     );
@@ -91,10 +91,9 @@ class _PendingTicketsState extends State<PendingTickets> {
     );
   }
 
-  Widget eventInfoCard() {
+  Widget eventPhotoCard() {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
-    var size = MediaQuery.of(context).size.aspectRatio;
     return Container(
       padding: const EdgeInsets.only(top: 5, left: 10, right: 10),
       child: Column(
@@ -127,7 +126,7 @@ class _PendingTicketsState extends State<PendingTickets> {
                           width: 65,
                           padding: const EdgeInsets.all(8),
                           decoration: BoxDecoration(
-                              color: Colors.deepPurpleAccent,
+                              color: Colors.green.shade800,
                               borderRadius: BorderRadius.circular(10)),
                           child: const Center(
                               child: Text(
@@ -147,11 +146,10 @@ class _PendingTicketsState extends State<PendingTickets> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 10, right: 10),
+            padding: const EdgeInsets.only(left: 5, right: 5),
             child: Container(
               padding: const EdgeInsets.only(top: 10),
               width: double.infinity,
-              height: height * 0.12,
               decoration: BoxDecoration(
                   color: Colors.white, borderRadius: BorderRadius.circular(15)),
               child: Column(
@@ -163,12 +161,12 @@ class _PendingTicketsState extends State<PendingTickets> {
                         fontSize: 18,
                         color: Colors.teal.shade900,),
                   ),
-                  Text(
+                  const Text(
                     'Lorem Ipsum has been the industry standard dummy text ever since the 1500s to make a type specimen book',
                     softWrap: true,
-                    maxLines: 3,
+                    maxLines: 4,
                     textAlign: TextAlign.left,
-                    style: TextStyle(fontSize: size*35, color: Colors.grey),
+                    style: TextStyle(fontSize: 16, color: Colors.black54),
                   )
                 ],
               ),

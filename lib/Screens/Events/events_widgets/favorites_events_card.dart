@@ -1,15 +1,15 @@
 // ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, avoid_print
-import 'package:ethiocart/Screens/Tickets/ticket_widgets/pending_ticket.dart';
+import 'package:ethiocart/Screens/tickets/ticket_widgets/ticket_info_detail.dart';
 import 'package:flutter/material.dart';
 
-class FavoritesCard extends StatefulWidget {
-  const FavoritesCard({Key? key}) : super(key: key);
+class FavoritesEventsCard extends StatefulWidget {
+  const FavoritesEventsCard({Key? key}) : super(key: key);
 
   @override
-  State<FavoritesCard> createState() => _FavoritesCardState();
+  State<FavoritesEventsCard> createState() => _FavoritesEventsCardState();
 }
 
-class _FavoritesCardState extends State<FavoritesCard> {
+class _FavoritesEventsCardState extends State<FavoritesEventsCard> {
   // a variable that holds the _isloading value to set shimmer loading first
   late bool _isloading = false;
   @override
@@ -18,7 +18,7 @@ class _FavoritesCardState extends State<FavoritesCard> {
     // set the variable to true first
     _isloading = true;
     // wait for 2 seconds and set the _isloading variable back to false
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 1), () {
       setState(() {
         _isloading = false;
       });
@@ -74,7 +74,7 @@ class _FavoritesCardState extends State<FavoritesCard> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => PendingTickets()),
+                                builder: (context) => TicketInformationDetail()),
                           );
                         },
                         child: mainCard(context));

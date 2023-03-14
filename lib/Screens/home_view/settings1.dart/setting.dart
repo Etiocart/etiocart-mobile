@@ -1,4 +1,4 @@
-import 'package:ethiocart/Screens/HomeView/settings1.dart/buttomwidget.dart';
+import 'package:ethiocart/Screens/home_view/settings1.dart/buttomwidget.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter/src/widgets/container.dart';
 // import 'package:flutter/src/widgets/framework.dart';

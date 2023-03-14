@@ -3,14 +3,14 @@ import 'package:ethiocart/Screens/Search/search_delegate.dart';
 import 'package:flutter/material.dart';
 import 'events_widgets/events_widget.dart';
 
-class FavoritesHome extends StatefulWidget {
-  const FavoritesHome({Key? key}) : super(key: key);
+class FavoritesEventsList extends StatefulWidget {
+  const FavoritesEventsList({Key? key}) : super(key: key);
 
   @override
-  State<FavoritesHome> createState() => _FavoritesHomeState();
+  State<FavoritesEventsList> createState() => _FavoritesEventsListState();
 }
 
-class _FavoritesHomeState extends State<FavoritesHome> {
+class _FavoritesEventsListState extends State<FavoritesEventsList> {
   @override
   Widget build(BuildContext context) {
     // final height = MediaQuery.of(context).size.height;
@@ -22,7 +22,7 @@ class _FavoritesHomeState extends State<FavoritesHome> {
         backgroundColor: Colors.white,
         title: Text(
           'Favorite',
-          style: TextStyle(fontSize: 22),
+          style: TextStyle(fontSize: 20),
         ),
         actions: [
           // this is the searchbar at the top of the appbar
@@ -30,10 +30,13 @@ class _FavoritesHomeState extends State<FavoritesHome> {
               onPressed: () {
                 showSearch(context: context, delegate: CustomSearch());
               },
-              icon: Icon(
-                Icons.search,
-                size: 30,
-              ))
+              icon: ImageIcon(
+                  color: Colors.green.shade800,
+                  size: 20,
+                  AssetImage('assets/icons/Search.png',
+                  )
+              )
+          ),
         ],
       ),
       body: Material(
@@ -42,7 +45,7 @@ class _FavoritesHomeState extends State<FavoritesHome> {
           child: SafeArea(
             child: SingleChildScrollView(
               physics: ScrollPhysics(parent: BouncingScrollPhysics()),
-              child: FavoritesCard(),
+              child: FavoritesEventsCard(),
             ),
           ),
         ),

@@ -1,7 +1,9 @@
 // ignore_for_file: non_constant_identifier_names, prefer_const_constructors
-import 'package:ethiocart/Screens/HomeView/transport_detail.dart';
+import 'package:ethiocart/Screens/transport/transport_detail.dart';
+import 'package:ethiocart/Screens/transport/transport_list.dart';
 import 'package:flutter/material.dart';
-import '../../Notification/notification.dart';
+import '../../events/events_list.dart';
+import '../../notification/notification.dart';
 import '../../Search/search_delegate.dart';
 
 class Feed extends StatefulWidget {
@@ -47,6 +49,7 @@ class _FeedState extends State<Feed> {
       },
       child: Scaffold(
           resizeToAvoidBottomInset:false,
+          backgroundColor: Colors.white,
           appBar: AppBar(
             backgroundColor: Colors.white,
             foregroundColor: Colors.teal.shade900,
@@ -63,8 +66,8 @@ class _FeedState extends State<Feed> {
                       );
                     },
                     child: ImageIcon(
-                        color: Colors.black,
-                        size: 30,
+                        color: Colors.green.shade800,
+                        size: 25,
                         AssetImage('assets/icons/notification.png',
                         )
                     ),
@@ -80,8 +83,8 @@ class _FeedState extends State<Feed> {
                         showSearch(context: context, delegate: CustomSearch());
                       },
                       icon: ImageIcon(
-                          color: Colors.black,
-                          size: 25,
+                          color: Colors.green.shade800,
+                          size: 24,
                           AssetImage('assets/icons/Search.png',
                           )
                       )
@@ -92,22 +95,14 @@ class _FeedState extends State<Feed> {
           ),
           body: Column(
             mainAxisAlignment: MainAxisAlignment.start,
-
             children: [
               if (_isloading)
                 IconAvatarListSkeleton(height)
               else
                 IconAvatarList(height),
               Padding(
-                padding: const EdgeInsets.only(left: 10),
-                child: Container(
-                  color: Colors.white,
-                  child: Row(
-                    children: const [
-                      Text('Discounts', style: TextStyle(fontSize: 20),),
-                    ],
-                  ),
-                ),
+                padding: const EdgeInsets.only(left: 10, bottom: 5, top: 5),
+                child: Text('Discounts', style: TextStyle(fontSize: 20),),
               ),
               if (_isloading)
                 SizedBox(
@@ -159,10 +154,10 @@ class _FeedState extends State<Feed> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                transportIcon(TransportDetail(), 'event'),
+                transportIcon(TransportList(), 'event'),
                 Spacer(),
                 // Padding(padding: EdgeInsets.only(left: 40)),
-                eventIcon(TransportDetail(), 'transport',),
+                eventIcon(EventsList(), 'transport',),
                 Spacer(),
                 // Padding(padding: EdgeInsets.only(left: 40)),
                 adventIcon(TransportDetail(), 'advent', ),
@@ -214,15 +209,21 @@ class _FeedState extends State<Feed> {
           MaterialPageRoute(builder: (context) => ictype),
         );
       },
-        child: CircleAvatar(
-          radius: 40,
-          backgroundColor: Color(0xff394f6b).withOpacity(0.8),
-          child: ImageIcon(
-            color: Colors.white,
-            size: 35,
-              AssetImage('assets/icons/bus-alt.png',
-              )
-          ),
+        child: Column(
+          children: [
+            CircleAvatar(
+              radius: 40,
+              backgroundColor: Colors.green.shade800.withOpacity(0.06),
+              child: ImageIcon(
+                color: Color(0xff394f6b).withOpacity(1),
+                  //color: Color(0xff394f6b).withOpacity(0.8),
+                size: 25,
+                  AssetImage('assets/icons/bus-alt.png',
+                  )
+              ),
+            ),
+            Text('Transport')
+          ],
         )
     );
   }
@@ -237,15 +238,20 @@ class _FeedState extends State<Feed> {
           MaterialPageRoute(builder: (context) => ictype),
         );
       },
-        child: CircleAvatar(
-          radius: 40,
-          backgroundColor: Color(0xff394f6b).withOpacity(0.8),
-          child: ImageIcon(
-              color: Colors.white,
-              size: 35,
-              AssetImage('assets/icons/drink.png',
-              )
-          ),
+        child: Column(
+          children: [
+            CircleAvatar(
+              radius: 40,
+              backgroundColor: Colors.green.shade800.withOpacity(0.06),
+              child: ImageIcon(
+                  color: Color(0xff394f6b).withOpacity(1),
+                  size: 25,
+                  AssetImage('assets/icons/drink.png',
+                  )
+              ),
+            ),
+            Text('Events')
+          ],
         )
     );
   }
@@ -260,15 +266,20 @@ class _FeedState extends State<Feed> {
           MaterialPageRoute(builder: (context) => ictype),
         );
       },
-        child: CircleAvatar(
-          radius: 40,
-          backgroundColor: Color(0xff394f6b).withOpacity(0.8),
-          child: ImageIcon(
-              color: Colors.white,
-              size: 35,
-              AssetImage('assets/icons/hiking.png',
-              )
-          ),
+        child: Column(
+          children: [
+            CircleAvatar(
+              radius: 40,
+              backgroundColor: Colors.green.shade800.withOpacity(0.06),
+              child: ImageIcon(
+                  color: Color(0xff394f6b).withOpacity(1),
+                  size: 25,
+                  AssetImage('assets/icons/hiking.png',
+                  )
+              ),
+            ),
+            Text('Games')
+          ],
         )
     );
   }

@@ -1,18 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class datePicker extends StatefulWidget {
-   datePicker({Key? key}) : super(key: key);
+class DatePicker extends StatefulWidget {
+   const DatePicker({Key? key}) : super(key: key);
 
   @override
-  State<datePicker> createState() => _datePickerState();
+  State<DatePicker> createState() => _DatePickerState();
 }
 
-class _datePickerState extends State<datePicker> {
-  DateTime now = new DateTime.now();
+class _DatePickerState extends State<DatePicker> {
+  DateTime now = DateTime.now();
   @override
   Widget build(BuildContext context) {
-    DateTime date = new DateTime(now.year, now.month, now.day);
+    DateTime date = DateTime(now.year, now.month, now.day);
     return TextButton(
       onPressed: () => showDialog<String>(
         context: context,
@@ -37,9 +37,8 @@ class _datePickerState extends State<datePicker> {
 
 
   Widget datePickerWid(){
-    DateTime now = new DateTime.now();
-    DateTime date = new DateTime(now.year, now.month, now.day);
-    return Container(
+    DateTime now = DateTime.now();
+    return SizedBox(
       height: 200,
       width: 400,
       child: CupertinoDatePicker(
@@ -47,7 +46,6 @@ class _datePickerState extends State<datePicker> {
         initialDateTime: now,
         onDateTimeChanged: (dateTime) {
           setState(() {
-            date = dateTime;
           });
         },
       ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 const List<String> list = <String>[
   'male',
@@ -13,7 +12,7 @@ class DropdownButtonApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp();
+    return const MaterialApp();
   }
 }
 
@@ -29,18 +28,17 @@ class _DropdownButtonExampleState extends State<DropdownButtonExample> {
 
   @override
   Widget build(BuildContext context) {
-    var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Stack(
       children: [
         Container(
           width: width*0.9,
-          padding: EdgeInsets.only(left: 10, top: 10, bottom: 10),
+          padding: const EdgeInsets.only(left: 10, top: 10, bottom: 10),
           child: DropdownButton<String>(
             value: dropdownValue,
             isExpanded: true,
             elevation: 0,
-            style: TextStyle(color:Colors.black87),
+            style: const TextStyle(color:Colors.black87),
             underline: Container(
               height: 0,
               color: Colors.white,
@@ -53,7 +51,7 @@ class _DropdownButtonExampleState extends State<DropdownButtonExample> {
             items: list.map<DropdownMenuItem<String>>((String value) {
               return DropdownMenuItem<String>(
                 value: value,
-                child: Text(value, style: TextStyle(fontSize: 18),),
+                child: Text(value, style: const TextStyle(fontSize: 18),),
               );
             }).toList(),
           ),

@@ -1,5 +1,5 @@
-import 'package:ethiocart/Screens/payement/editwallet.dart';
-import 'package:ethiocart/Screens/payement/transaction_detail.dart';
+import 'package:ethiocart/Screens/payment/editwallet.dart';
+import 'package:ethiocart/Screens/payment/transaction_detail.dart';
 import 'package:flutter/material.dart';
 
 class PaymentWallet extends StatefulWidget {
@@ -17,7 +17,7 @@ class _PaymentWalletState extends State<PaymentWallet> {
       appBar: AppBar(
         elevation: 0,
         title: const Text(
-          'wallet',
+          'Wallet',
           style: TextStyle(fontSize: 20),
         ),
         backgroundColor: Colors.white,
@@ -95,11 +95,12 @@ class _PaymentWalletState extends State<PaymentWallet> {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Container(
-      height: height * 0.6,
-      width: width * 0.95,
+      padding: EdgeInsets.only(top:30),
+      // height: height * 0.6,
+      // width: width * 0.95,
       decoration: BoxDecoration(
         color: Colors.white,
-        border: Border.all(color: Colors.grey.shade400),
+        // border: Border.all(color: Colors.grey.shade400),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Padding(
@@ -109,13 +110,13 @@ class _PaymentWalletState extends State<PaymentWallet> {
             Row(
               children: [
                 Text(
-                  'Awash Bank',
+                  'Your Bank',
                   style: TextStyle(fontSize: 18, color: Colors.teal.shade700),
                 ),
                 const Spacer(),
                 const Text('credit',
                     style: TextStyle(
-                        fontSize: 30,
+                        fontSize: 22,
                         color: Colors.black,
                         fontWeight: FontWeight.w600)),
               ],
@@ -130,12 +131,14 @@ class _PaymentWalletState extends State<PaymentWallet> {
               children: [
                 Text('3000.54 birr ',
                     style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 22,
                         color: Colors.teal.shade800,
                         fontWeight: FontWeight.w500))
               ],
             ),
             SizedBox(
+              height: height*0.3,
+                width: width*0.5,
                 child: Image.asset('assets/images/Wallet-bro.png')),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
