@@ -1,9 +1,6 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
 
@@ -31,9 +28,7 @@ class _ForYouState extends State<ForYou> with SingleTickerProviderStateMixin {
     'https://cdn.dribbble.com/users/5638/screenshots/16531842/media/b0ccd9201138ce19a3ecaa80aa579fc3.jpg?compress=1&resize=1200x900',
     'https://cdn.dribbble.com/users/2367334/screenshots/16528111/media/5595dc6b8830140e8b69efcda9c7ba46.png?compress=1&resize=1200x900',
   ];
-  late AnimationController _animationController;
 
-  @override
   int selectedPage = 0;
   late PageController pageController;
   @override
@@ -41,21 +36,18 @@ class _ForYouState extends State<ForYou> with SingleTickerProviderStateMixin {
     // TODO: implement initState
     super.initState(
         );
-    _animationController =
-        AnimationController(vsync: this, duration: Duration(seconds: 1));
   }
 
   @override
   Widget build(BuildContext context) {
     // var fav = context.watch<title>();
     var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
     final favoriteProvider = Provider.of<FavoriteProvider>(context);
     return Scaffold(
       body: Stack(
         children: [
           AnimatedSwitcher(
-            duration: Duration(milliseconds: 800),
+            duration: const Duration(milliseconds: 800),
             child: Container(
               key: ValueKey(dataImage[selectedPage]),
               decoration: BoxDecoration(
@@ -90,136 +82,134 @@ class _ForYouState extends State<ForYou> with SingleTickerProviderStateMixin {
                 // double scale = max(viewportFra)
                 return Consumer<FavoriteProvider>(
                   builder: (context, value, child) {
-                    return Container(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Padding(
-                            padding:
-                                const EdgeInsets.only(top: 120, bottom: 20),
-                            child: Center(
-                              child: GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                  });
-                                },
-                                child: Container(
-                                  height: height * 0.6,
-                                  decoration: BoxDecoration(
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: Colors.black.withOpacity(.3),
-                                        ),
-                                      ],
-                                      image: DecorationImage(
-                                          fit: BoxFit.cover,
-                                          image:
-                                              NetworkImage(Fav1.image[index]))),
-                                ),
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding:
+                              const EdgeInsets.only(top: 120, bottom: 20),
+                          child: Center(
+                            child: GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                });
+                              },
+                              child: Container(
+                                height: height * 0.6,
+                                decoration: BoxDecoration(
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(.3),
+                                      ),
+                                    ],
+                                    image: DecorationImage(
+                                        fit: BoxFit.cover,
+                                        image:
+                                            NetworkImage(Fav1.image[index]))),
                               ),
                             ),
                           ),
-                          Spacer(),
-                          Container(
-                            height: 90,
-                            decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                    begin: Alignment.topCenter,
-                                    end: Alignment.bottomCenter,
-                                    colors: [
-                                  Colors.black.withOpacity(0.0),
-                                  Colors.black.withOpacity(0.2),
-                                  Colors.black.withOpacity(0.4),
-                                  Colors.black.withOpacity(0.6),
-                                  // Colors.black
-                                ])),
-                            child: Column(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      top: 5, left: 20, right: 15),
-                                  child: Row(
-                                    children: [
-                                      Text(
-                                        "Jazz After Work",
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 25,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      Spacer(),
-                                      GestureDetector(
-                                        onTap: () {
-                                          // Share.share('ok');
-                                        },
-                                        child: Icon(
-                                          MdiIcons.shareVariant,
+                        ),
+                        const Spacer(),
+                        Container(
+                          height: 90,
+                          decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomCenter,
+                                  colors: [
+                                Colors.black.withOpacity(0.0),
+                                Colors.black.withOpacity(0.2),
+                                Colors.black.withOpacity(0.4),
+                                Colors.black.withOpacity(0.6),
+                                // Colors.black
+                              ])),
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    top: 5, left: 20, right: 15),
+                                child: Row(
+                                  children: [
+                                    const Text(
+                                      "Jazz After Work",
+                                      style: TextStyle(
                                           color: Colors.white,
-                                          size: 30,
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      top: 5, left: 20, right: 15),
-                                  child: Row(
-                                    children: [
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            Fav1.title2[index],
-                                            style: TextStyle(
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.white,
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            height: 5,
-                                          ),
-                                          Text(
-                                            Fav1.title[index],
-                                            style: TextStyle(
-                                              fontSize: 12,
-                                              wordSpacing: 3,
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.white,
-                                            ),
-                                          )
-                                        ],
+                                          fontSize: 25,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    const Spacer(),
+                                    GestureDetector(
+                                      onTap: () {
+                                        // Share.share('ok');
+                                      },
+                                      child: const Icon(
+                                        MdiIcons.shareVariant,
+                                        color: Colors.white,
+                                        size: 30,
                                       ),
-                                      Spacer(),
-                                      InkWell(
-                                        onTap: () {
-                                          setState(() {
-                                            favoriteProvider
-                                                .toggleFavorite(title4);
-                                            // isSelected = !isSelected;
-                                          });
-                                        },
-                                        child: Icon(
-                                          favoriteProvider.isExcist(title4)
-                                              ? MdiIcons.heart
-                                              : MdiIcons.heartOutline,
-                                          color:
-                                              favoriteProvider.isExcist(title4)
-                                                  ? Colors.red
-                                                  : Colors.white,
-                                          size: 30,
-                                        ),
-                                      )
-                                    ],
-                                  ),
+                                    )
+                                  ],
                                 ),
-                              ],
-                            ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    top: 5, left: 20, right: 15),
+                                child: Row(
+                                  children: [
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          Fav1.title2[index],
+                                          style: const TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          height: 5,
+                                        ),
+                                        Text(
+                                          Fav1.title[index],
+                                          style: const TextStyle(
+                                            fontSize: 12,
+                                            wordSpacing: 3,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white,
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                    const Spacer(),
+                                    InkWell(
+                                      onTap: () {
+                                        setState(() {
+                                          favoriteProvider
+                                              .toggleFavorite(title4);
+                                          // isSelected = !isSelected;
+                                        });
+                                      },
+                                      child: Icon(
+                                        favoriteProvider.isExcist(title4)
+                                            ? MdiIcons.heart
+                                            : MdiIcons.heartOutline,
+                                        color:
+                                            favoriteProvider.isExcist(title4)
+                                                ? Colors.red
+                                                : Colors.white,
+                                        size: 30,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     );
                   },
                   // child:

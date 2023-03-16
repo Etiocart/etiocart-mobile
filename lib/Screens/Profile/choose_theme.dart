@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 
-class choose_theme extends StatelessWidget {
-  const choose_theme({super.key});
+class ChooseTheme extends StatelessWidget {
+  const ChooseTheme({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class choose_theme extends StatelessWidget {
         title: Text('Theme', style: TextStyle(fontSize: 22),),
       ),
       body: SafeArea(
-        child: Container(
+        child: SizedBox(
           width: double.infinity,
           height: double.infinity,
           child: Stack(children: [

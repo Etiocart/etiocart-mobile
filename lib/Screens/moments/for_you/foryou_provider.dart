@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class FavoriteProvider extends ChangeNotifier {
-  List<String> _word = [];
+  final List<String> _word = [];
   List<String> get title4 => _word;
 
   void toggleFavorite(String title4) {

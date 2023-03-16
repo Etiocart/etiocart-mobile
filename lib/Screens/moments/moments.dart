@@ -2,7 +2,6 @@ import 'package:carousel_pro/carousel_pro.dart';
 import 'package:ethiocart/Screens/moments/moments_skeletons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'moments_skeletons.dart';
 
 import '../Search/search_delegate.dart';
 
@@ -14,7 +13,7 @@ class Moments extends StatefulWidget {
 }
 
 class _MomentsState extends State<Moments> {
-  final List _posts = ['post1', 'post2', 'post3', 'post4', 'post5'];
+  // final List _posts = ['post1', 'post2', 'post3', 'post4', 'post5'];
 
   late bool _isloading = false;
   @override
@@ -31,44 +30,44 @@ class _MomentsState extends State<Moments> {
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
     return Scaffold(
-      // appBar: AppBar(
-      //   backgroundColor: Colors.white,
-      //   foregroundColor: Colors.teal.shade800,
-      //   elevation: 0,
-      //   title: const Center(
-      //     child: Text(
-      //       'Your Moments Here',
-      //       style: TextStyle(fontWeight: FontWeight.normal),
-      //     ),
-      //   ),
-      //   actions: [
-      //     IconButton(
-      //         onPressed: () {
-      //           showSearch(context: context, delegate: CustomSearch());
-      //         },
-      //         icon: Icon(
-      //           Icons.search,
-      //           size: 30,
-      //         ))
-      //   ],
-      // ),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.teal.shade800,
+        elevation: 0,
+        title: Row(
+          children:  const [
+          ],
+        ),
+        actions: [
+          IconButton(
+              onPressed: () {
+                showSearch(context: context, delegate: CustomSearch());
+              },
+              icon: const ImageIcon(
+                  color: Colors.black,
+                  size: 25,
+                  AssetImage('assets/icons/Search.png',
+                  )
+              )
+          )
+        ],
+      ),
       body: SafeArea(
         child: ListView(
           children: [
             Column(children: [
               if (_isloading)
-                Padding(padding: EdgeInsets.all(8.0), child: ADblokSkelton())
+                Padding(padding: const EdgeInsets.all(8.0), child: adblokSkelton())
               else
-                Padding(padding: EdgeInsets.all(8.0), child: ADblok()),
+                Padding(padding: const EdgeInsets.all(8.0), child: adblok()),
               if (_isloading)
                 SizedBox(
                   height: height * 0.572,
                   child: ListView.builder(
                     itemCount: 4,
                     itemBuilder: (context, index) {
-                      return MomentsSkeleton();
+                      return const MomentsSkeleton();
                     },
                   ),
                 )
@@ -79,14 +78,14 @@ class _MomentsState extends State<Moments> {
                     displacement: height*0.05,
                     edgeOffset: height*0.005,
                     onRefresh: () async {
-                      await Future.delayed(Duration(milliseconds: 1500));
+                      await Future.delayed(const Duration(milliseconds: 1500));
                       setState(() {});
                     },
                     child: ListView.builder(
-                      physics: ScrollPhysics(parent: BouncingScrollPhysics()),
+                      physics: const ScrollPhysics(parent: BouncingScrollPhysics()),
                       itemCount: 4,
                       itemBuilder: (context, index) {
-                        return Momentos();
+                        return momentos();
                       },
                     ),
                   ),
@@ -100,13 +99,12 @@ class _MomentsState extends State<Moments> {
     );
   }
 
-  Widget Momentos() {
+  Widget momentos() {
     var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
     return Column(
       children: [
         Container(
-          padding: EdgeInsets.only(top: 0, left: 10, right: 10),
+          padding: const EdgeInsets.only(top: 0, left: 10, right: 10),
           width: double.infinity,
           height: height * 0.45,
           decoration: BoxDecoration(
@@ -114,19 +112,17 @@ class _MomentsState extends State<Moments> {
           child: Column(
             children: [
               Container(
-                padding: EdgeInsets.only(top: 5, bottom: 5),
+                padding: const EdgeInsets.only(top: 5, bottom: 5),
                 child: Row(
-                  children: [
+                  children: const [
                     CircleAvatar(
                       radius: 25,
-                      backgroundColor: Colors.teal.shade800,
-                      child: Text(
-                        'A',
-                        style: TextStyle(color: Colors.white, fontSize: 22),
+                      backgroundImage: AssetImage(
+                        'assets/images/Person.png',
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(8.0),
                       child: Text(
                         'Andrew Ansley',
                         style: TextStyle(fontSize: 18),
@@ -147,8 +143,8 @@ class _MomentsState extends State<Moments> {
                       child: SizedBox(
                           child: Carousel(
                         autoplay: false,
-                        animationDuration: Duration(hours: 1),
-                        images: [
+                        animationDuration: const Duration(hours: 1),
+                        images: const [
                           AssetImage('assets/images/540.png'),
                           AssetImage('assets/images/548.png'),
                           AssetImage('assets/images/concert 1.jpg'),
@@ -165,44 +161,33 @@ class _MomentsState extends State<Moments> {
                 ],
               ),
               Container(
-                padding: EdgeInsets.only(top: 5, bottom: 5, left: 5),
+                padding: const EdgeInsets.only(top: 5, bottom: 5, left: 5),
                 child: Row(
                   children: [
                     Container(
-                      padding: EdgeInsets.only(right: 5),
+                      padding: const EdgeInsets.only(right: 5),
                       child: GestureDetector(
                           onTap: () {},
-                          child: Icon(
+                          child: const Icon(
                             CupertinoIcons.heart,
                           )),
                     ),
-                    Spacer(),
-                    Container(
-                      child: GestureDetector(
-                          onTap: () {},
-                          child: Icon(
-                            CupertinoIcons.share,
-                          )),
-                    )
+                    const Spacer(),
+                    GestureDetector(
+                        onTap: () {},
+                        child: const Icon(
+                          CupertinoIcons.share,
+                        ))
                   ],
                 ),
               ),
               Expanded(
                 child: Container(
-                  padding: EdgeInsets.only(left: 5),
+                  padding: const EdgeInsets.only(left: 5),
                   child: Column(
                     children: [
                       Row(
-                        children: [
-                          Text(
-                            '400 Likes',
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.w500),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
+                        children: const [
                           Text(
                             ' ',
                             style: TextStyle(
@@ -226,16 +211,16 @@ class _MomentsState extends State<Moments> {
     );
   }
 
-  Widget ADblok() {
+  Widget adblok() {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Container(
-      height: height * 0.22,
+      height: height * 0.18,
       width: width * 1.0,
       decoration: BoxDecoration(
           color: Colors.deepPurple.withOpacity(0.5),
           borderRadius: BorderRadius.circular(10)),
-      child: Center(
+      child: const Center(
           child: Text(
         'Place your ads here',
         style: TextStyle(fontSize: 22),
@@ -243,7 +228,7 @@ class _MomentsState extends State<Moments> {
     );
   }
 
-  Widget ADblokSkelton() {
+  Widget adblokSkelton() {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Container(
@@ -252,7 +237,7 @@ class _MomentsState extends State<Moments> {
       decoration: BoxDecoration(
           color: Colors.black.withOpacity(0.04),
           borderRadius: BorderRadius.circular(15)),
-      child: Center(
+      child: const Center(
           child: Text(
         'Place your ads here',
         style: TextStyle(fontSize: 25),
@@ -260,9 +245,4 @@ class _MomentsState extends State<Moments> {
     );
   }
 
-  Widget FabSystem() {
-    return FloatingActionButton(
-      onPressed: () {},
-    );
-  }
 }

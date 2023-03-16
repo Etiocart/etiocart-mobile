@@ -7,9 +7,12 @@ class CustomSearch extends SearchDelegate {
     return super.appBarTheme(context).copyWith(
       appBarTheme: super.appBarTheme(context).appBarTheme.copyWith(
         elevation: 0.0,
+        backgroundColor: Colors.white,
+
       ),
     );
   }
+
 
   @override
   List<Widget>? buildActions(BuildContext context) {
@@ -18,7 +21,7 @@ class CustomSearch extends SearchDelegate {
           onPressed: () {
             query = "";
           },
-          icon: Icon(Icons.clear))
+          icon: const Icon(Icons.clear))
     ];
   }
 
@@ -32,12 +35,13 @@ class CustomSearch extends SearchDelegate {
           onPressed: () {
             close(context, null);
           },
-          icon: Icon(Icons.arrow_back)),
+          icon: const Icon(Icons.arrow_back)),
     );
   }
 
   @override
   Widget buildResults(BuildContext context) {
+
     List<String> matchQuery = [];
     for (var fruit in fruitList) {
       if (fruit.toLowerCase().contains(query.toLowerCase())) {
@@ -62,7 +66,7 @@ class CustomSearch extends SearchDelegate {
       }
     }
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage("assets/images/Walletvec.jpg"),
         ),
@@ -72,7 +76,6 @@ class CustomSearch extends SearchDelegate {
           itemBuilder: (context, index) {
             return ListTile(
               title: Text(matchQuery[index]
-
               ),
             );
           }),

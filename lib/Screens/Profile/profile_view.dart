@@ -1,72 +1,70 @@
 // ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings,
 // avoid_print
 
+import 'package:ethiocart/Screens/Policies/policies.dart';
+import 'package:ethiocart/Screens/applock/app_lock.dart';
+import 'package:ethiocart/Screens/change_phone/change_phone_number.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-import '../authentication/login.dart';
-import '../setting_page.dart';
 import 'profile_export.dart';
 import 'package:ethiocart/Screens/Screens.dart';
 import 'package:flutter/material.dart';
 
-class profileView extends StatelessWidget {
-  profileView({Key? key}) : super(key: key);
+class ProfileView extends StatelessWidget {
+  ProfileView({Key? key}) : super(key: key);
 
-  List<Widget> routePages = [
-    favoritesHome(),
-    helpCenter(),
-    paymentWallet(),
-    tickets(),
-    Notifications(),
-    Notifications(),
-    Notifications(),
-    Notifications(),
-    Notifications()
+  final List<Widget> routePages = [
+    //favorites page
+    FavoritesEventsList(),
+    //help center
+    HelpCenter(),
+    //wallet
+    PaymentWallet(),
+    //my tickets
+    Tickets(),
+    //policiies
+    Policies(),
+    //app lock
+    AppLock(),
+    //change phone number
+    ChangePhoneNumber(),
   ];
-  List<String> tabNames = [
-    'Favorite Events',
-    'Help center',
+  final List<String> tabNames = [
+    'Favorites',
+    'Help Center',
     'Wallet',
-    'Tickets',
-    'Notifications',
-    'change phone number',
-    'Edit Account',
-    'gifts sent',
-    'Edit Account',
-    'gifts sent',
+    'My Tickets',
+    'Policies',
+    'App Lock',
+    'Change Phone'
   ];
 
-  List<IconData> fontawesomeIcons = [
-    CupertinoIcons.calendar,
+  final List<IconData> fontawesomeIcons = [
+    Icons.wine_bar_outlined,
     CupertinoIcons.info,
     CupertinoIcons.creditcard,
     CupertinoIcons.ticket,
     CupertinoIcons.bell,
+    CupertinoIcons.lock,
     CupertinoIcons.phone,
-    CupertinoIcons.desktopcomputer,
-    CupertinoIcons.gift,
-    CupertinoIcons.desktopcomputer,
-    CupertinoIcons.gift
   ];
-  List<String> flatIcons = [
+  final List<String> customIcons = [
     'assets/icons/calendar-check.png',
     'assets/icons/question.png',
     'assets/icons/credit-card.png',
     'assets/icons/ticket.png',
     'assets/icons/ticket.png',
     'assets/icons/ticket.png',
-
   ];
   @override
   Widget build(BuildContext context) {
     return Material(
       child: Scaffold(
-          body: SafeArea(child: Padding(
-            padding: const EdgeInsets.only(top: 15.0),
-            child: profileScreen(context),
-          ))),
+          body: SafeArea(
+              child: Padding(
+        padding: const EdgeInsets.only(top: 15.0),
+        child: profileScreen(context),
+      ))),
     );
   }
 
@@ -76,8 +74,7 @@ class profileView extends StatelessWidget {
     return Container(
       padding: EdgeInsets.only(top: 0, left: 30, right: 30),
       decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(15)),
+          color: Colors.white, borderRadius: BorderRadius.circular(15)),
       width: double.infinity,
       height: double.infinity,
       child: Column(
@@ -102,12 +99,13 @@ class profileView extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              Container(
-                                width: width*0.04,
-                                height: height*0.04,
-                                child: Icon(fontawesomeIcons[i],
-                                    size: 25,
-                                    color: Colors.grey),
+                              CircleAvatar(
+                                backgroundColor: Colors.grey.withOpacity(0.2),
+                                child: Center(
+                                  child: Icon(
+                                      fontawesomeIcons[i],
+                                      size: 25, color: Colors.green.shade900),
+                                ),
                               ),
                               Container(
                                   padding: EdgeInsets.only(left: 15),

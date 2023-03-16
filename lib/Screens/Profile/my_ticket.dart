@@ -1,16 +1,8 @@
-import 'package:ethiocart/Screens/Profile/profiles_widget/separator.dart';
-import 'package:ethiocart/Screens/Profile/profiles_widget/ticket_widget.dart';
+import 'package:ethiocart/Screens/profile/profiles_widget/separator.dart';
+import 'package:ethiocart/Screens/profile/profiles_widget/ticket_widget.dart';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-// import 'package:flutter_ticket_widget/flutter_ticket_widget.dart';
-// import 'package:tonu_app/screen/page/fav_deatil.dart';
-// import 'package:tonu_app/screen/page/favmodel.dart';
-// import 'package:tonu_app/screen/page/test_page/myticket.dart';
-// import 'package:tonu_app/screen/page/test_page/separator.dart';
-// import 'package:tonu_app/Home/tic_view.dart';
+
 
 class MyTik extends StatefulWidget {
   const MyTik({Key? key}) : super(key: key);
@@ -55,15 +47,15 @@ class _MyTikState extends State<MyTik> {
     return Scaffold(
         backgroundColor: Colors.red,
         appBar: AppBar(
-          backgroundColor: Color(0xFF374b3f),
-          leading: BackButton(),
-          title: Text('My ticket'),
+          backgroundColor: const Color(0xFF374b3f),
+          leading: const BackButton(),
+          title: const Text('My ticket'),
         ),
         body: Stack(
           // fit: StackFit.passthrough,
           children: [
             Center(
-              child: Container(
+              child: SizedBox(
                 width: width * 0.75,
                 height: double.infinity,
                 child: RefreshIndicator(
@@ -90,7 +82,7 @@ class _MyTikState extends State<MyTik> {
                                           alignment: Alignment.topCenter,
                                           height: 50,
                                           width: 35,
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                               color: Colors.grey,
                                               borderRadius: BorderRadius.only(
                                                   topLeft: Radius.circular(5),
@@ -100,7 +92,7 @@ class _MyTikState extends State<MyTik> {
                                             padding:
                                                 const EdgeInsets.only(top: 2),
                                             child: Column(
-                                              children: [
+                                              children: const [
                                                 Text(
                                                   'Jan\n 12',
                                                   style: TextStyle(
@@ -114,11 +106,11 @@ class _MyTikState extends State<MyTik> {
                                           ),
                                         ),
                                       )),
-                                  Positioned(
+                                  const Positioned(
                                       // left: 200,
                                       // right: ,
                                       // top: 500,
-                                      child: Center(child: const MySeparator()
+                                      child: Center(child: MySeparator()
                                           // Divider(
                                           //   color: Colors.red,
                                           //   thickness: 4,
@@ -160,7 +152,7 @@ class _MyTikState extends State<MyTik> {
                                       //     ],
                                       //   ),
                                       // ),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 30,
                                       ),
                                       Center(
@@ -174,7 +166,7 @@ class _MyTikState extends State<MyTik> {
                                                   // height: 200,
                                                   // width: 200,
                                                   // color: Colors.red,
-                                                  decoration: BoxDecoration(
+                                                  decoration: const BoxDecoration(
                                                       shape: BoxShape.circle,
                                                       gradient: LinearGradient(
                                                           begin: Alignment
@@ -200,7 +192,7 @@ class _MyTikState extends State<MyTik> {
                                                             // color: Colors.black,
 
                                                             decoration:
-                                                                BoxDecoration(
+                                                                const BoxDecoration(
                                                                     image: DecorationImage(
                                                                         image: AssetImage(
                                                                             'assets/images/548.png'),
@@ -216,12 +208,12 @@ class _MyTikState extends State<MyTik> {
                                                     ),
                                                   )),
                                             ),
-                                            SizedBox(
+                                            const SizedBox(
                                               height: 10,
                                             ),
                                             Text(
                                               item,
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                   fontSize: 20,
                                                   fontWeight: FontWeight.bold),
                                             )
@@ -241,97 +233,94 @@ class _MyTikState extends State<MyTik> {
                                       child: SizedBox(
                                         width: 270,
                                         height: height * .19,
-                                        child: Container(
-                                          // color: Colors.yellow,
-                                          child: Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Row(
-                                              children: [
-                                                Container(
-                                                  // decoration: BoxDecoration(
-                                                  //     image: DecorationImage(
-                                                  //         image: AssetImage(
-                                                  //             'assets/images/qrr.png'))),
-                                                  color: Colors.teal,
-                                                  // decoration: BoxDecoration(
-                                                  //   image: DecorationImage(
-                                                  //     fit: ,
-                                                  //     image:
-                                                  //   )
-                                                  // ),
-                                                  height: 120,
-                                                  width: 120,
-                                                  child:
-                                                      Center(child: Text('QR')),
-                                                ),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          left: 5),
-                                                  child: Column(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceAround,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    children: [
-                                                      Row(
-                                                        children: [
-                                                          Icon(
-                                                            Icons.location_on,
-                                                            color: Colors.teal,
-                                                            size: 20,
-                                                          ),
-                                                          Text(
-                                                            "Fana Park",
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Row(
+                                            children: [
+                                              Container(
+                                                // decoration: BoxDecoration(
+                                                //     image: DecorationImage(
+                                                //         image: AssetImage(
+                                                //             'assets/images/qrr.png'))),
+                                                color: Colors.teal,
+                                                // decoration: BoxDecoration(
+                                                //   image: DecorationImage(
+                                                //     fit: ,
+                                                //     image:
+                                                //   )
+                                                // ),
+                                                height: 120,
+                                                width: 120,
+                                                child:
+                                                    const Center(child: Text('QR')),
+                                              ),
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.only(
+                                                        left: 5),
+                                                child: Column(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceAround,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment
+                                                          .start,
+                                                  children: [
+                                                    Row(
+                                                      children: const [
+                                                        Icon(
+                                                          Icons.location_on,
+                                                          color: Colors.teal,
+                                                          size: 20,
+                                                        ),
+                                                        Text(
+                                                          "Fana Park",
+                                                          style: TextStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold),
+                                                        )
+                                                      ],
+                                                    ),
+                                                    Row(
+                                                      children: const [
+                                                        Icon(Icons.timer,
+                                                            color:
+                                                                Colors.teal,
+                                                            size: 20),
+                                                        Text(
+                                                            "12:00 Pm 14:00Pm",
+                                                            overflow:
+                                                                TextOverflow
+                                                                    .ellipsis,
+                                                            maxLines: 1,
+                                                            softWrap: false,
+                                                            style: TextStyle(
+                                                                fontSize: 12,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold))
+                                                      ],
+                                                    ),
+                                                    Row(
+                                                      children: const [
+                                                        Icon(
+                                                            Icons
+                                                                .arrow_upward,
+                                                            color:
+                                                                Colors.teal,
+                                                            size: 20),
+                                                        Text("Reguar",
                                                             style: TextStyle(
                                                                 fontWeight:
                                                                     FontWeight
-                                                                        .bold),
-                                                          )
-                                                        ],
-                                                      ),
-                                                      Row(
-                                                        children: [
-                                                          Icon(Icons.timer,
-                                                              color:
-                                                                  Colors.teal,
-                                                              size: 20),
-                                                          Text(
-                                                              "12:00 Pm 14:00Pm",
-                                                              overflow:
-                                                                  TextOverflow
-                                                                      .ellipsis,
-                                                              maxLines: 1,
-                                                              softWrap: false,
-                                                              style: TextStyle(
-                                                                  fontSize: 12,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold))
-                                                        ],
-                                                      ),
-                                                      Row(
-                                                        children: [
-                                                          Icon(
-                                                              Icons
-                                                                  .arrow_upward,
-                                                              color:
-                                                                  Colors.teal,
-                                                              size: 20),
-                                                          Text("Reguar",
-                                                              style: TextStyle(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold))
-                                                        ],
-                                                      ),
-                                                    ],
-                                                  ),
-                                                )
-                                              ],
-                                            ),
+                                                                        .bold))
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                              )
+                                            ],
                                           ),
                                         ),
                                       ),

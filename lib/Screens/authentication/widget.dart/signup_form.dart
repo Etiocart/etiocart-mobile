@@ -25,7 +25,6 @@ class _SignupFormState extends State<SignupForm> {
   final confirmController = TextEditingController();
   final phoneNumber = TextEditingController();
 
-  @override
   void iniState() {
     // var _passwordVisible = false;
     super.initState();
@@ -36,23 +35,23 @@ class _SignupFormState extends State<SignupForm> {
     // `controller reference`.text = parsableNumber
   }
 
-  bool _passwordVisible = false;
+  final bool _passwordVisible = false;
 
   @override
   Widget build(BuildContext context) {
-    final _formKey = GlobalKey<FormState>();
+    final formKey = GlobalKey<FormState>();
 
-    var dotRegister = () {
-      // print('on dotRegister');
-      final form = _formKey.currentState;
-      if (form!.validate()) {
-        form.save();
-        // print(form);
-      }
-    };
+    // var dotRegister = () {
+    //   // print('on dotRegister');
+    //   final form = _formKey.currentState;
+    //   if (form!.validate()) {
+    //     form.save();
+    //     // print(form);
+    //   }
+    // };
 
     return Form(
-      key: _formKey,
+      key: formKey,
       // autovalidateMode: _validate,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -61,27 +60,32 @@ class _SignupFormState extends State<SignupForm> {
           children: [
             // const SizedBox(height: 15),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Container(
-                padding: const EdgeInsets.symmetric(vertical: 2.0),
                 decoration: BoxDecoration(
-                    border: Border.all(color: Colors.white),
                     borderRadius: BorderRadius.circular(10),
-                    color: Color(0xffE0EBE3)),
+                    color: Colors.white),
                 child: TextFormField(
                   autofocus: false,
-                  // obscureText: true,
+                  maxLines: 1,
                   validator: validatefullname,
                   controller: fullController,
-                  decoration: const InputDecoration(
-                      prefixIcon: Icon(
-                        Icons.person,
-                        color: Colors.teal,
+                  decoration: InputDecoration(
+                      contentPadding: const EdgeInsets.only(left: 15, bottom: 10),
+                      label: const Text('Full Name'),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.blue.shade100),
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.green.shade200),
+                        borderRadius: BorderRadius.circular(15),
                       ),
                       // labelText: 'Enter username or email',
                       hintText: 'Full Name',
                       hintStyle:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                          TextStyle( color: Colors.grey,
+                              fontSize: 16, fontWeight: FontWeight.w400),
                       border: InputBorder.none),
                 ),
               ),
@@ -89,79 +93,99 @@ class _SignupFormState extends State<SignupForm> {
             const SizedBox(height: 15),
 
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Container(
                 padding: const EdgeInsets.symmetric(vertical: 2.0),
                 decoration: BoxDecoration(
                     border: Border.all(color: Colors.white),
                     borderRadius: BorderRadius.circular(10),
-                    color: Color(0xffE0EBE3)),
+                    color: Colors.white),
                 child: TextFormField(
                   autofocus: false,
-                  // obscureText: true,
                   validator: validateEmail,
                   controller: emailController,
-                  decoration: const InputDecoration(
-                      prefixIcon: Icon(
-                        Icons.email,
-                        color: Colors.teal,
+                  decoration: InputDecoration(
+                      contentPadding: const EdgeInsets.only(left: 15, bottom: 10),
+                      label: const Text('Enter Email'),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.blue.shade100),
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.green.shade200),
+                        borderRadius: BorderRadius.circular(15),
                       ),
                       // labelText: 'Enter username or email',
                       hintText: 'Email',
                       hintStyle:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                          TextStyle(
+                              color: Colors.grey,
+                              fontSize: 18, fontWeight: FontWeight.w400),
                       border: InputBorder.none),
                 ),
               ),
             ),
             const SizedBox(height: 15),
             Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
+                padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Container(
                     padding: const EdgeInsets.symmetric(vertical: 2.0),
                     decoration: BoxDecoration(
-                        border: Border.all(color: Colors.transparent),
                         borderRadius: BorderRadius.circular(10),
-                        color: Color(0xffE0EBE3)),
-                    child: InternationalPhoneNumberInput(
-                      inputDecoration: InputDecoration(),
-                      initialValue:
-                          PhoneNumber(isoCode: 'ET', dialCode: '+251'),
-                      onInputChanged: (PhoneNumber value) {},
-                      hintText: 'Phonenumber',
-                      textStyle: TextStyle(fontSize: 18),
+                        color: Colors.white),
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                          contentPadding: const EdgeInsets.only(left: 15, bottom: 10),
+                          label: const Text('Phone Number'),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.blue.shade100),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.green.shade200),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          // labelText: 'Enter username or email',
+                          hintText: '0911---',
+                          hintStyle:
+                          TextStyle(fontSize: 18,
+                              color: Colors.grey,
+                              fontWeight: FontWeight.w400),
+                          border: InputBorder.none),
                       // spaceBetweenSelectorAndTextField: double.infinity,
                     ))),
             const SizedBox(height: 15),
 
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 0),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Container(
-                padding: EdgeInsets.symmetric(vertical: 2.0),
+                padding: const EdgeInsets.symmetric(vertical: 2.0),
                 decoration: BoxDecoration(
                     border: Border.all(color: Colors.transparent),
                     borderRadius: BorderRadius.circular(10),
-                    color: Color(0xffE0EBE3)),
+                    color: Colors.white),
                 child: TextFormField(
+                  maxLength: 20,
                   obscureText: _passwordVisible,
                   validator: validatePassword,
                   controller: passController,
-                  decoration: const InputDecoration(
-                    prefixIcon: Icon(
-                      Icons.fingerprint,
-                      color: Colors.teal,
+                  decoration:  InputDecoration(
+                    contentPadding: const EdgeInsets.only(left: 15, bottom: 10),
+                    labelText: 'Password',
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue.shade100),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.green.shade200),
+                      borderRadius: BorderRadius.circular(15),
                     ),
                     // labelText: 'Password',
                     hintText: "Password",
-                    hintStyle: TextStyle(fontSize: 18),
+                    hintStyle: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 17),
                     border: InputBorder.none,
-                    suffixIcon: IconButton(
-                      onPressed: null,
-                      icon: Icon(
-                        Icons.remove_red_eye_sharp,
-                        color: Colors.teal,
-                      ),
-                    ),
                   ),
                 ),
               ),
@@ -174,26 +198,9 @@ class _SignupFormState extends State<SignupForm> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: GestureDetector(
-                onTap: () {},
-                child: Container(
-                  padding: EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                    color: Colors.teal.shade800,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Center(
-                      child: Text(
-                    'Sign Up',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18),
-                  )),
-                ),
-              ),
+              child: signUpButton(context)
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Container(
@@ -203,20 +210,20 @@ class _SignupFormState extends State<SignupForm> {
               ),
               alignment: Alignment.center,
               child: RichText(
-                text: TextSpan(style: TextStyle(color: Colors.grey), children: [
-                  TextSpan(text: 'Do you have an account ? ', style: TextStyle(fontSize: 18)),
+                text: TextSpan(style: const TextStyle(color: Colors.grey), children: [
+                  const TextSpan(text: 'Do you have an account ? ', style: TextStyle(fontSize: 17)),
                   TextSpan(
                     text: 'Sign in',
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.teal,
-                      fontSize: 18
+                      fontSize: 17
                     ),
                     recognizer: TapGestureRecognizer()
                       ..onTap = () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => LoginScreen()));
+                                builder: (context) => const LoginScreen()));
                       },
                   ),
                 ]),
@@ -227,42 +234,77 @@ class _SignupFormState extends State<SignupForm> {
       ),
     );
   }
+
+  signUpButton(context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
+    return Container(
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+      height: height*0.06,
+      width: width*0.9,
+      child: ElevatedButton(
+        style: ButtonStyle(
+          //sets the button elevation to zero
+            elevation: MaterialStateProperty.all(0),
+            backgroundColor: MaterialStateProperty.all(
+                Colors.green.shade800
+            ),
+            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                RoundedRectangleBorder(
+                  side: BorderSide(color: Colors.green.shade800),
+                  borderRadius: BorderRadius.circular(18),))),
+        onPressed: () {
+          setState(() {
+          });
+        },
+        child: const Text(
+          'Login',
+          style: TextStyle(fontSize: 18),
+        ),
+      ),
+    );
+  }
 }
 
 String? validatePassword(String? formPassword) {
-  if (formPassword == null || formPassword.isEmpty)
+  if (formPassword == null || formPassword.isEmpty) {
     return '''       Password is required.''';
+  }
 
   String pattern =
       r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$';
   RegExp regex = RegExp(pattern);
-  if (!regex.hasMatch(formPassword))
+  if (!regex.hasMatch(formPassword)) {
     return '''
       Password must be at least 8 characters,
       include an uppercase letter, number and symbol.
       ''';
+  }
 
   return null;
 }
 
 String? validatefullname(String? formFullname) {
-  if (formFullname == null || formFullname.isEmpty)
+  if (formFullname == null || formFullname.isEmpty) {
     return '''       Please enter your Name.''';
+  }
 
   String pattern = r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{3,}$';
   RegExp regex = RegExp(pattern);
-  if (!regex.hasMatch(formFullname))
+  if (!regex.hasMatch(formFullname)) {
     return '''
       Name must be at least 3 characters,
       include an uppercase letter and number
       ''';
+  }
 
   return null;
 }
 
 String? validateEmail(String? formEmail) {
-  if (formEmail == null || formEmail.isEmpty)
+  if (formEmail == null || formEmail.isEmpty) {
     return '           E-mail address is required.';
+  }
 
   String pattern = r'\w+@\w+\.\w+';
   RegExp regex = RegExp(pattern);

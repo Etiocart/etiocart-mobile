@@ -1,10 +1,8 @@
-import 'package:ethiocart/Screens/bottom_nav_screen.dart';
 import 'package:flutter/material.dart';
 import 'profile_export.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class helpCenter extends StatelessWidget {
-  const helpCenter({super.key});
+class HelpCenter extends StatelessWidget {
+  const HelpCenter({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +18,7 @@ class helpCenter extends StatelessWidget {
           appBar: AppBar(
             elevation: 0,
             leading: IconButton(
-              icon: Icon(Icons.arrow_back),
+              icon: const Icon(Icons.arrow_back),
               iconSize: 20.0,
               color: Colors.teal.shade800,
               onPressed: () {
@@ -32,7 +30,7 @@ class helpCenter extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => profileView()),
+                    MaterialPageRoute(builder: (context) => ProfileView()),
                   );
                 },
                 child: Text('Help center', style: TextStyle(fontSize: 22, color: Colors.teal.shade800),)),
@@ -41,7 +39,7 @@ class helpCenter extends StatelessWidget {
             bottom:  TabBar(
               unselectedLabelColor: Colors.grey.shade400,
               labelColor: Colors.teal.shade800,
-              tabs: [
+              tabs: const [
                 Tab(
                     child: Text(
                   'FAQ',
@@ -61,21 +59,19 @@ class helpCenter extends StatelessWidget {
           ),
           body: TabBarView(
             children: [
-              Container(
-                child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Help !',
-                        style: TextStyle(color: Colors.deepOrange, fontSize: 35),
-                      ),
-                      Text(
-                        'Help Page is Loading',
-                        style: TextStyle(fontSize: 20),
-                      ),
-                    ],
-                  ),
+              Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Text(
+                      'Help !',
+                      style: TextStyle(color: Colors.deepOrange, fontSize: 35),
+                    ),
+                    Text(
+                      'Help Page is Loading',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ],
                 ),
               )
             ],

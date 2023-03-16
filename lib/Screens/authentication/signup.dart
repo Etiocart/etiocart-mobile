@@ -1,10 +1,9 @@
 // import 'package:etio_cart23/widget/signup_widget/signup_form.dart';
 
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
+// import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import 'login.dart';
+// import 'login.dart';
 import 'widget.dart/signup_form.dart';
 
 // import '../widget/login_form.dart';
@@ -37,56 +36,53 @@ class Signup extends StatelessWidget {
         ),
         body: SingleChildScrollView(
           child: SafeArea(
-            child: Container(
-              // padding: const EdgeInsets.all(18.0),
-              child: Column(
-                // crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    // color: Colors.amber,
-                    // margin: EdgeInsets.only(right: 300),
-                    width: 250,
-                    height: 130,
-                    // decoration: const BoxDecoration(
-                    // color: Colors.orange,
-                    // image: DecorationImage(
-                    //     image: AssetImage('assets/ec-logo3xx.png'),
-                    //     fit: BoxFit.fill),
-                    // ),
-                    child: Stack(
-                      children: [
-                        // Center(child: Image.asset('assets/images/signup.jpg')),
-                      ],
-                    ),
-                  ),
-
-                  // Container(
-                  //   width: 200,
-                  //   height: 200,
-                  //   decoration: const BoxDecoration(
-                  //     // color: Colors.orange,
-                  //     image: DecorationImage(
-                  //         image: AssetImage('assets/ec-logo3xx.png'),
-                  //         fit: BoxFit.fill),
-                  //   ),
+            child: Column(
+              // crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  // color: Colors.amber,
+                  // margin: EdgeInsets.only(right: 300),
+                  width: 250,
+                  height: 130,
+                  // decoration: const BoxDecoration(
+                  // color: Colors.orange,
+                  // image: DecorationImage(
+                  //     image: AssetImage('assets/ec-logo3xx.png'),
+                  //     fit: BoxFit.fill),
                   // ),
-                  SizedBox(
-                    height: 0,
+                  child: Stack(
+                    children: const [
+                      // Center(child: Image.asset('assets/images/signup.jpg')),
+                    ],
                   ),
+                ),
 
-                  const Center(
-                    child: Text(
-                      'Create New Account',
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.center,
-                    ),
+                // Container(
+                //   width: 200,
+                //   height: 200,
+                //   decoration: const BoxDecoration(
+                //     // color: Colors.orange,
+                //     image: DecorationImage(
+                //         image: AssetImage('assets/ec-logo3xx.png'),
+                //         fit: BoxFit.fill),
+                //   ),
+                // ),
+                const SizedBox(
+                  height: 0,
+                ),
+
+                const Center(
+                  child: Text(
+                    'Create New Account',
+                    style:
+                        TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
                   ),
+                ),
 
-                  SignupForm(),
-                  // Singupfooter(),
-                ],
-              ),
+                const SignupForm(),
+                // Singupfooter(),
+              ],
             ),
           ),
         ),

@@ -5,9 +5,9 @@ import 'package:intl/intl.dart';
     DateTime date = DateTime.parse(dateOBDCommand);
     String result = DateFormat('yyyy-MM-dd H:m:s').format(date);
     return Text(result.toString(),
-        style: TextStyle(
+        style: const TextStyle(
             fontFamily: 'SFPro',
             fontSize: 16,
-            fontWeight: FontWeight.bold,
-            color: Colors.black45));
+            fontWeight: FontWeight.w500,
+            color: Colors.black54));
   }

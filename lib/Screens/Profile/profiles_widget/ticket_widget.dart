@@ -9,32 +9,32 @@ class FlutterTicketWidget extends StatefulWidget {
   final Color color;
   final bool isCornerRounded;
 
-  FlutterTicketWidget(
-      {required this.width,
+  const FlutterTicketWidget(
+      {super.key, required this.width,
       required this.height,
       required this.child,
       this.color = Colors.white,
       this.isCornerRounded = false});
 
   @override
-  _FlutterTicketWidgetState createState() => _FlutterTicketWidgetState();
+  FlutterTicketWidgetState createState() => FlutterTicketWidgetState();
 }
 
-class _FlutterTicketWidgetState extends State<FlutterTicketWidget> {
+class FlutterTicketWidgetState extends State<FlutterTicketWidget> {
   @override
   Widget build(BuildContext context) {
     return ClipPath(
       clipper: TicketClipper(),
       child: AnimatedContainer(
-        duration: Duration(seconds: 3),
+        duration: const Duration(seconds: 3),
         width: widget.width,
         height: widget.height,
-        child: widget.child,
         decoration: BoxDecoration(
             color: widget.color,
             borderRadius: widget.isCornerRounded
                 ? BorderRadius.circular(20.0)
                 : BorderRadius.circular(0.0)),
+        child: widget.child,
       ),
     );
   }

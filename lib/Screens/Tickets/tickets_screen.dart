@@ -1,24 +1,23 @@
 // ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, avoid_print
 
-import 'package:flutter/cupertino.dart';
 
 import '../Search/search_delegate.dart';
 import 'ticket_widgets/tickets_widget.dart';
 import 'package:flutter/material.dart';
 
-class tickets extends StatelessWidget {
-  const tickets({Key? key}) : super(key: key);
+class Tickets extends StatelessWidget {
+  const Tickets({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: TabView(context),
+      child: tabView(context),
     );
   }
 
   final ticketavailable = true;
 
-  Widget TabView(context) {
+  Widget tabView(context) {
     return MaterialApp(
 
       debugShowCheckedModeBanner: false,

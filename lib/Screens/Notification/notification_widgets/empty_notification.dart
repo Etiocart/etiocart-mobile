@@ -23,17 +23,14 @@ Widget emptyNotification() {
                 margin: EdgeInsets.only(top: 20),
                 child: Column(
                   children: [
-                    Container(
-                        child: Text(
+                    Text(
                       'Empty',
                       style: TextStyle(fontSize: 25, fontFamily: 'SFPro'),
-                    )),
-                    Container(
-                      child: Text(
-                        'you dont have any notifications at this time',
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(fontSize: 20, fontFamily: 'SFPro'),
-                      ),
+                    ),
+                    Text(
+                      'you dont have any notifications at this time',
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(fontSize: 20, fontFamily: 'SFPro'),
                     ),
                   ],
                 )),
