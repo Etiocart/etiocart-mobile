@@ -1,6 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, avoid_print
-import 'package:ethiocart/Screens/tickets/ticket_widgets/ticket_info_detail.dart';
+// import 'package:ethiocart/Screens/Tickets/ticket_widgets/ticket_info_detail.dart';
+// import 'package:ethiocart/Screens/tickets/ticket_widgets/ticket_info_detail.dart';
 import 'package:flutter/material.dart';
+
+import '../../Tickets/ticket_widgets/ticket_info_detail.dart';
 
 class FavoritesEventsCard extends StatefulWidget {
   const FavoritesEventsCard({Key? key}) : super(key: key);
@@ -71,11 +74,12 @@ class _FavoritesEventsCardState extends State<FavoritesEventsCard> {
                   itemBuilder: (context, index) {
                     return InkWell(
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => TicketInformationDetail()),
-                          );
+                          //TESTING FOR TICKET
+                          // Navigator.push(
+                          //   context,
+                          //   MaterialPageRoute(
+                          //       builder: (context) => TicketInformationDetail(data: data, id: id)),
+                          // );
                         },
                         child: mainCard(context));
                   },
@@ -150,7 +154,6 @@ mainCard(context) {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                      
                         Text('Bole, Millenium Hall',
                             overflow: TextOverflow.fade,
                             style: TextStyle(

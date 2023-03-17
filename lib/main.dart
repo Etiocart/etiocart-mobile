@@ -97,14 +97,15 @@ class MyHomePageState extends State<MyHomePage> {
     //shared instance is used to store data locally and
     // check for later logins
     MySharedPreferences.instance
-    //checks the "isfirstRun" value's boolean value
-    //then sets the state of the LoggedIn to a "value"
-    // which is from the above line's retrieval
+        //checks the "isfirstRun" value's boolean value
+        //then sets the state of the LoggedIn to a "value"
+        // which is from the above line's retrieval
         .getBooleanValue("isfirstRun")
         .then((value) => setState(() {
-      isLoggedIn = value;
-    }));
+              isLoggedIn = value;
+            }));
   }
+
   @override
   //only called once the stateful widget is inserted into the widget tree
   void initState() {
@@ -119,7 +120,9 @@ class MyHomePageState extends State<MyHomePage> {
             //as soon as the app starts and the stateful widget is inserted
             //the app will render  Container at line 107 and after 3 seconds
             // of showing that it will render the main screen BottomNavBar()
-            MaterialPageRoute(builder: (context) => isLoggedIn ? LoginScreen() : BottomNavBar())));
+            MaterialPageRoute(
+                builder: (context) =>
+                    isLoggedIn ? LoginScreen() : BottomNavBar())));
   }
 
   @override

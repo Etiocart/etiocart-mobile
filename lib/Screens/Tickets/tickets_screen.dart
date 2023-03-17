@@ -1,12 +1,14 @@
 // ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, avoid_print
 
+import 'package:ethiocart/Screens/Tickets/ticket_widgets/completed_tickets.dart';
+import 'package:ethiocart/Screens/Tickets/ticket_widgets/empty_tickets.dart';
 
 import '../Search/search_delegate.dart';
-import 'ticket_widgets/tickets_widget.dart';
+// import 'ticket_widgets/tickets_widget.dart';
 import 'package:flutter/material.dart';
 
-class Tickets extends StatelessWidget {
-  const Tickets({Key? key}) : super(key: key);
+class TicketsPage extends StatelessWidget {
+  const TicketsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,6 @@ class Tickets extends StatelessWidget {
 
   Widget tabView(context) {
     return MaterialApp(
-
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
@@ -49,9 +50,7 @@ class Tickets extends StatelessWidget {
           ],
         ),
         body: Column(
-          children: [
-        ticketavailable == true ? Completed() : emptyTickets()
-          ],
+          children: [ticketavailable == true ? Completed() : emptyTickets()],
         ),
       ),
     );

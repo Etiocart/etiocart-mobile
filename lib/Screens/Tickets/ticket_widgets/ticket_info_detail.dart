@@ -1,25 +1,41 @@
-import 'package:ethiocart/Screens/tickets/ticket_widgets/buy_tickets.dart';
+import 'package:ethiocart/Screens/Events/event_repo/event_model.dart';
+// import 'package:ethiocart/Screens/Tickets/ticket_widgets/buy_tickets.dart';
+// import 'package:ethiocart/Screens/tickets/ticket_widgets/buy_tickets.dart';
+import 'package:ethiocart/Screens/Tickets/ticket_widgets/buy_tickets.dart';
+// import 'package:ethiocart/Screens/tickets/ticket_widgets/buy_tickets.dart';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
+import '../tickets_repo/event_tickets_model.dart';
+import '../tickets_repo/event_tickets_servics.dart';
+
 class TicketInformationDetail extends StatefulWidget {
-  const TicketInformationDetail({Key? key}) : super(key: key);
+  final int id;
+  final Events data;
+  const TicketInformationDetail({
+    Key? key,
+    required this.data,
+    required this.id,
+  }) : super(key: key);
 
   @override
-  State<TicketInformationDetail> createState() => _TicketInformationDetailState();
+  State<TicketInformationDetail> createState() =>
+      _TicketInformationDetailState();
 }
 
 class _TicketInformationDetailState extends State<TicketInformationDetail> {
   @override
   Widget build(BuildContext context) {
+    // Future<List<Ticketss>> _futurticket =
+    //     EventTicketServics().fetchPrices(widget.id);
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
           elevation: 0,
           foregroundColor: Colors.teal.shade800,
           backgroundColor: Colors.white,
-          title: const Text('Detail'),
+          title: Text("${widget.data.organizer!.name}"),
         ),
         body: ListView(
           children: [
@@ -40,19 +56,21 @@ class _TicketInformationDetailState extends State<TicketInformationDetail> {
     var width = MediaQuery.of(context).size.width;
     return SizedBox(
       height: height * 0.06,
-      width: width*0.8,
+      width: width * 0.8,
       child: ElevatedButton(
         style: ButtonStyle(
-          elevation: const MaterialStatePropertyAll(0),
-            backgroundColor:
-                MaterialStateProperty.all(Colors.green.shade800),
+            elevation: const MaterialStatePropertyAll(0),
+            backgroundColor: MaterialStateProperty.all(Colors.green.shade800),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(15),
             ))),
         onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const BuyTickets()));
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) =>
+                      BuyTickets(data: widget.data, id: widget.id)));
         },
         child: const Text(
           'Book Event',
@@ -158,11 +176,13 @@ class _TicketInformationDetailState extends State<TicketInformationDetail> {
                   Text(
                     'About event',
                     style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.teal.shade900,),
+                      fontSize: 18,
+                      color: Colors.teal.shade900,
+                    ),
                   ),
-                  const Text(
-                    'Lorem Ipsum has been the industry standard dummy text ever since the 1500s to make a type specimen book',
+                  Text(
+                    " ${widget.data.description}",
+                    // 'Lorem Ipsum has been the industry standard dummy text ever since the 1500s to make a type specimen book',
                     softWrap: true,
                     maxLines: 4,
                     textAlign: TextAlign.left,
@@ -211,8 +231,8 @@ class _TicketInformationDetailState extends State<TicketInformationDetail> {
                 width: width * 0.6,
                 height: height * 0.07,
                 padding: const EdgeInsets.only(left: 10, top: 10),
-                child: const Text(
-                  'Tomorrowland',
+                child: Text(
+                  'Tomorrowland ${widget.data.organizer!.name}',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontSize: 28,
