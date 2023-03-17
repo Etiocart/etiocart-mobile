@@ -1,5 +1,7 @@
+import 'package:ethiocart/Screens/Events/event_repo/event_model.dart';
+import 'package:ethiocart/Screens/Events/event_repo/event_servics.dart';
+import 'package:ethiocart/Screens/Tickets/ticket_widgets/ticket_info_detail.dart';
 import 'package:ethiocart/Screens/search/search_delegate.dart';
-import 'package:ethiocart/Screens/tickets/ticket_widgets/ticket_info_detail.dart';
 import 'package:flutter/material.dart';
 
 class EventsList extends StatefulWidget {
@@ -9,9 +11,10 @@ class EventsList extends StatefulWidget {
   State<EventsList> createState() => _EventsListState();
 }
 
-class _EventsListState extends State<EventsList>with SingleTickerProviderStateMixin {
+class _EventsListState extends State<EventsList>
+    with SingleTickerProviderStateMixin {
   final List daysList = const ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-
+  final Future<List<Events>> _futureItems = GetAllServics().fetchItems();
 
   @override
   void initState() {
@@ -23,57 +26,114 @@ class _EventsListState extends State<EventsList>with SingleTickerProviderStateMi
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return SafeArea(
-      child: DefaultTabController(
-        length: 7,
-        child: Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.white,
-            foregroundColor: Colors.green.shade900,
-            elevation: 0,
-            title: Text('Explore', style: TextStyle(fontSize: 18),),
-            actions: [
-
-              IconButton(
+        child: DefaultTabController(
+      length: 7,
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.green.shade900,
+          elevation: 0,
+          title: Text(
+            'Explore',
+            style: TextStyle(fontSize: 18),
+          ),
+          actions: [
+            IconButton(
                 onPressed: () {
                   showSearch(context: context, delegate: CustomSearch());
                 },
                 icon: ImageIcon(
                     color: Colors.green.shade800,
                     size: 22,
-                    const AssetImage('assets/icons/Search.png',
-                    )
-                )
-            ),],
-            bottom:  TabBar(
-              isScrollable: true,
-                tabs: [
-              Tab(child: SizedBox(width: width*0.1, child: Text('1', style: TextStyle(color: Colors.green.shade900),)),),
-              Tab(child: SizedBox(width: width*0.1, child: Text('2', style: TextStyle(color: Colors.green.shade900),)),),
-              Tab(child: SizedBox(width: width*0.1, child: Text('3', style: TextStyle(color: Colors.green.shade900),)),),
-              Tab(child: SizedBox(width: width*0.1, child: Text('4', style: TextStyle(color: Colors.green.shade900),)),),
-              Tab(child: SizedBox(width: width*0.1, child: Text('5', style: TextStyle(color: Colors.green.shade900),)),),
-              Tab(child: SizedBox(width: width*0.1, child: Text('6', style: TextStyle(color: Colors.green.shade900),)),),
-              Tab(child: SizedBox(width: width*0.1, child: Text('7', style: TextStyle(color: Colors.green.shade900),)),),
-
-            ]),
-          ),
-          body: TabBarView(
-            children: [
-              eventListView(height, 2),
-              eventListView(height,3),
-              eventListView(height,2),
-              eventListView(height,3),
-              eventListView(height,7),
-              eventListView(height,1),
-              eventListView(height,8),
-            ],
-          ),
+                    const AssetImage(
+                      'assets/icons/Search.png',
+                    ))),
+          ],
+          bottom: TabBar(isScrollable: true, tabs: [
+            Tab(
+              child: SizedBox(
+                  width: width * 0.1,
+                  child: Text(
+                    '1',
+                    style: TextStyle(color: Colors.green.shade900),
+                  )),
+            ),
+            Tab(
+              child: SizedBox(
+                  width: width * 0.1,
+                  child: Text(
+                    '2',
+                    style: TextStyle(color: Colors.green.shade900),
+                  )),
+            ),
+            Tab(
+              child: SizedBox(
+                  width: width * 0.1,
+                  child: Text(
+                    '3',
+                    style: TextStyle(color: Colors.green.shade900),
+                  )),
+            ),
+            Tab(
+              child: SizedBox(
+                  width: width * 0.1,
+                  child: Text(
+                    '4',
+                    style: TextStyle(color: Colors.green.shade900),
+                  )),
+            ),
+            Tab(
+              child: SizedBox(
+                  width: width * 0.1,
+                  child: Text(
+                    '5',
+                    style: TextStyle(color: Colors.green.shade900),
+                  )),
+            ),
+            Tab(
+              child: SizedBox(
+                  width: width * 0.1,
+                  child: Text(
+                    '6',
+                    style: TextStyle(color: Colors.green.shade900),
+                  )),
+            ),
+            Tab(
+              child: SizedBox(
+                  width: width * 0.1,
+                  child: Text(
+                    '7',
+                    style: TextStyle(color: Colors.green.shade900),
+                  )),
+            ),
+          ]),
         ),
-      )
-    );
+        body: FutureBuilder<List<Events>>(
+          future: _futureItems,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              List<Events>? event = snapshot.data;
+
+              return TabBarView(
+                children: [
+                  eventListView(height, event, 2),
+                  eventListView(height, event, 3),
+                  eventListView(height, event, 2),
+                  eventListView(height, event, 3),
+                  eventListView(height, event, 7),
+                  eventListView(height, event, 1),
+                  eventListView(height, event, 100),
+                ],
+              );
+            }
+            return CircularProgressIndicator();
+          },
+        ),
+      ),
+    ));
   }
 
-   eventListView(double height, int count) {
+  eventListView(double height, List<Events>? event, int count) {
     var tcount = count;
     return SizedBox(
       height: height * 0.83,
@@ -81,24 +141,29 @@ class _EventsListState extends State<EventsList>with SingleTickerProviderStateMi
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
         itemCount: tcount,
-        itemBuilder: (context, index) => listView(context),
+        itemBuilder: (_, index) => listView(context, event, index),
       ),
     );
   }
 
-
-  listView(context) {
+  listView(context, List<Events>? event, int index) {
     // var width = MediaQuery.of(context).size.width;
     return GestureDetector(
       onTap: () => Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const TicketInformationDetail()),
+        MaterialPageRoute(
+            builder: (context) => TicketInformationDetail(
+                  data: event![index],
+                  id: event[index].id!,
+                )),
       ),
-      child: Padding(padding: const EdgeInsets.all(10), child: feedView(context)),
+      child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: feedView(context, event, index)),
     );
   }
 
-  Widget feedView(context) {
+  Widget feedView(context, List<Events>? event, int index) {
     // var size = MediaQuery.of(context).size.aspectRatio;
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
@@ -144,7 +209,7 @@ class _EventsListState extends State<EventsList>with SingleTickerProviderStateMi
                         Padding(
                           padding: const EdgeInsets.only(right: 120),
                           child: Text(
-                            'organizer',
+                            'organizer  ${event![index].title}  ${event[index].id}',
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                                 fontSize: 15, color: Colors.grey.shade500),
@@ -160,20 +225,22 @@ class _EventsListState extends State<EventsList>with SingleTickerProviderStateMi
                     ),
                   ),
                 ),
-                const Expanded(
+                Expanded(
                   child: Padding(
                     padding: EdgeInsets.only(left: 5, bottom: 0),
                     child: Text(
-                      'date and time',
-                      style: TextStyle(fontSize: 18, color: Colors.black),
+                      ' ${event[index].eventStart.toString()}',
+                      // 'date and time'
+                      // FontSize changed from 18 to 10 due to long text
+                      style: TextStyle(fontSize: 10, color: Colors.black),
                     ),
                   ),
                 ),
-                const Expanded(
+                Expanded(
                   child: Padding(
                     padding: EdgeInsets.only(left: 5, bottom: 0),
                     child: Text(
-                      'Event Location',
+                      '${event[index].location}',
                       style: TextStyle(fontSize: 18, color: Colors.black),
                     ),
                   ),

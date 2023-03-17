@@ -2,10 +2,13 @@
 // avoid_print
 
 import 'package:ethiocart/Screens/Policies/policies.dart';
+// import 'package:ethiocart/Screens/Tickets/tickets_screen.dart';
+// import 'package:ethiocart/Screens/Tickets/tickets_screen.dart';
 import 'package:ethiocart/Screens/applock/app_lock.dart';
 import 'package:ethiocart/Screens/change_phone/change_phone_number.dart';
 import 'package:flutter/cupertino.dart';
 
+import '../Tickets/tickets_screen.dart';
 import 'profile_export.dart';
 import 'package:ethiocart/Screens/Screens.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +24,7 @@ class ProfileView extends StatelessWidget {
     //wallet
     PaymentWallet(),
     //my tickets
-    Tickets(),
+    // TicketsPage(),   <<<<<<<<<----------------------------------
     //policiies
     Policies(),
     //app lock
@@ -102,8 +105,7 @@ class ProfileView extends StatelessWidget {
                               CircleAvatar(
                                 backgroundColor: Colors.grey.withOpacity(0.2),
                                 child: Center(
-                                  child: Icon(
-                                      fontawesomeIcons[i],
+                                  child: Icon(fontawesomeIcons[i],
                                       size: 25, color: Colors.green.shade900),
                                 ),
                               ),

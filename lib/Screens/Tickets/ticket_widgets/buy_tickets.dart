@@ -1,17 +1,24 @@
+import 'package:ethiocart/Screens/Events/event_repo/event_model.dart';
+import 'package:ethiocart/Screens/Tickets/tickets_repo/event_tickets_model.dart';
 import 'package:ethiocart/Screens/tickets/ticket_widgets/ticket_confirmation.dart';
 import 'package:ethiocart/Screens/payment/payment_confirmation.dart';
+// import 'package:ethiocart/Screens/tickets/tickets_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
+import '../tickets_repo/event_tickets_servics.dart';
+
 class BuyTickets extends StatefulWidget {
-  const BuyTickets({Key? key}) : super(key: key);
+  final Events data;
+  final int id;
+  const BuyTickets({Key? key, required this.data, required this.id})
+      : super(key: key);
 
   @override
   State<BuyTickets> createState() => _BuyTicketsState();
 }
 
 class _BuyTicketsState extends State<BuyTickets> {
-
   bool confirmed = true;
 
   int price = 10;
@@ -46,6 +53,9 @@ class _BuyTicketsState extends State<BuyTickets> {
 
   @override
   Widget build(BuildContext context) {
+    Future<List<Tickets>> _futurticket =
+        EventTicketServics().fetchPrices(widget.id);
+    var height = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -70,13 +80,36 @@ class _BuyTicketsState extends State<BuyTickets> {
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: buyTicketModule(),
+                child: FutureBuilder<List<Tickets>>(
+                  future: _futurticket,
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      Center(
+                        child: Text('${snapshot.error}'),
+                      );
+                    }
+                    if (snapshot.hasData) {
+                      return Container(
+                        height: height * 0.5,
+                        child: ListView.builder(
+                            itemCount: snapshot.data!.length,
+                            itemBuilder: (context, index) {
+                              return buyTicketModule(snapshot.data, index);
+                            }),
+                      );
+                    }
+                    return Center(child: CircularProgressIndicator());
+                  },
+                  // child: buyTicketModule()
+                ),
               ),
               Spacer(),
+              bookingDetail(),
               Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20, bottom: 10),
                 child: addToCartButton(),
-              ),Padding(
+              ),
+              Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20),
                 child: confirmPaymentbutton(),
               ),
@@ -87,43 +120,81 @@ class _BuyTicketsState extends State<BuyTickets> {
     );
   }
 
-  Widget buyTicketModule(){
+  Widget buyTicketModule(List<Tickets>? data, int index) {
     return Column(
       children: [
-        // Row(
-        //   children: const [
-        //     Text('Buyer'),
-        //   ],
-        // ),
-        ticketStandardChoosing('standard', 300, 150),
-        // Row(
-        //   children: const [
-        //     Text('Buyer'),
-        //   ],
-        // ),
-        ticketStandardChoosing('VIP', 800, 400),
-        // Row(
-        //   children: const [
-        //     Text('Buyer'),
-        //   ],
-        // ),
-        ticketStandardChoosing('VVIP', 1000, 600),
-        // Row(
-        //   children: const [
-        //     Text('Buyer2'),
-        //   ],
-        // ),
-        ticketStandardChoosing('Tour', 1200, 800),
         Padding(
-          padding: const EdgeInsets.only(top: 30),
-          child: bookingDetail(),
-        )
+          padding: const EdgeInsets.only(top: 5, right: 10),
+          child: Container(
+              width: double.infinity,
+              padding: const EdgeInsets.only(bottom: 10),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.grey.withOpacity(0.1)),
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 5, left: 5, right: 5),
+                    child: Text(
+                      '${data![index].ticketType!.name}',
+                      style: const TextStyle(fontSize: 18),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 5, left: 5, right: 5),
+                    child: Text(
+                      // 'Ticket Price'
+                      '${data[index].priceBirr}',
+                      style: const TextStyle(fontSize: 18),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 5, left: 5, right: 5),
+                    child: Text(
+                      // 'discountedPrice',
+                      '${data[index].discount}',
+                      style: const TextStyle(
+                          fontSize: 18, decoration: TextDecoration.lineThrough),
+                    ),
+                  ),
+                  const Spacer(),
+                  plusMinusCounter()
+                ],
+              )),
+        ),
+        // Row(
+        //   children: const [
+        //     Text('Buyer'),
+        //   ],
+        // ),
+        // ticketStandardChoosing('standard', 300, 150),
+        // Row(
+        //   children: const [
+        //     Text('Buyer'),
+        //   ],
+        // ),
+        // ticketStandardChoosing('VIP', 800, 400),
+        // // Row(
+        // //   children: const [
+        // //     Text('Buyer'),
+        // //   ],
+        // // ),
+        // ticketStandardChoosing('VVIP', 1000, 600),
+        // // Row(
+        // //   children: const [
+        // //     Text('Buyer2'),
+        // //   ],
+        // // ),
+        // ticketStandardChoosing('Tour', 1200, 800),
+        // Padding(
+        //   padding: const EdgeInsets.only(top: 30),
+        //   child: bookingDetail(data, index),
+        // )
       ],
     );
   }
 
-
-  Widget bookingDetail(){
+  Widget bookingDetail() {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Container(
@@ -131,23 +202,37 @@ class _BuyTicketsState extends State<BuyTickets> {
       child: Column(
         children: [
           Row(
-            children: const [
+            children: [
               Padding(
                 padding: EdgeInsets.only(left: 10),
-                child: Text('event Location:', style: TextStyle(fontSize: 18),),
+                child: Text(
+                  'event Location: ',
+                  style: TextStyle(fontSize: 18),
+                ),
               ),
               Padding(padding: EdgeInsets.only(right: 40)),
-              Text('Bole millenium hall', style: TextStyle(fontSize: 18),)
+              Text(
+                // 'Bole millenium hall',
+                '${widget.data.location}',
+                style: TextStyle(fontSize: 18),
+              )
             ],
           ),
           Padding(
             padding: const EdgeInsets.only(left: 10, top: 10),
             child: Row(
-              children: const [
-                Text('Total Price :', style: TextStyle(fontSize: 18),),
+              children: [
+                Text(
+                  'Total Price :',
+                  style: TextStyle(fontSize: 18),
+                ),
                 Padding(
                   padding: EdgeInsets.only(left: 10),
-                  child: Text('1200', style: TextStyle(fontSize: 18),),
+                  child: Text(
+                    '1200',
+                    // ' ${data![index].priceBirr}',
+                    style: TextStyle(fontSize: 18),
+                  ),
                 )
               ],
             ),
@@ -156,10 +241,16 @@ class _BuyTicketsState extends State<BuyTickets> {
             padding: const EdgeInsets.only(left: 10, top: 10),
             child: Row(
               children: const [
-                Text('event time :', style: TextStyle(fontSize: 18),),
+                Text(
+                  'event time :',
+                  style: TextStyle(fontSize: 18),
+                ),
                 Padding(
                   padding: EdgeInsets.only(left: 10),
-                  child: Text('12:00 AM, Monday Jan 22 ', style: TextStyle(fontSize: 18),),
+                  child: Text(
+                    '12:00 AM, Monday Jan 22 ',
+                    style: TextStyle(fontSize: 18),
+                  ),
                 )
               ],
             ),
@@ -171,19 +262,23 @@ class _BuyTicketsState extends State<BuyTickets> {
                 Padding(
                   padding: EdgeInsets.only(left: 10),
                   child:
-                  //    if the variable confirmed is true then show waiting
-                  //    if not show the qr bar
-                  (confirmed)?Text(': Waiting', style: TextStyle(fontSize: 18, color: Colors.grey),):
-                  SizedBox(
-                    child: Center(
-                      child: QrImage(
-                        data: "1234567890",
-                        version: QrVersions.auto,
-                        size: 150,
-                      ),
-                    ),
-                  ),
-
+                      //    if the variable confirmed is true then show waiting
+                      //    if not show the qr bar
+                      (confirmed)
+                          ? Text(
+                              ': Waiting',
+                              style:
+                                  TextStyle(fontSize: 18, color: Colors.grey),
+                            )
+                          : SizedBox(
+                              child: Center(
+                                child: QrImage(
+                                  data: "1234567890",
+                                  version: QrVersions.auto,
+                                  size: 150,
+                                ),
+                              ),
+                            ),
                 )
               ],
             ),
@@ -202,15 +297,16 @@ class _BuyTicketsState extends State<BuyTickets> {
       child: ElevatedButton(
         style: ButtonStyle(
             elevation: MaterialStateProperty.all(0),
-            backgroundColor:
-                MaterialStateProperty.all(Colors.green.shade800),
+            backgroundColor: MaterialStateProperty.all(Colors.green.shade800),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(15.0),
             ))),
         onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const PaymentConfirmation()));
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const PaymentConfirmation()));
         },
         child: const Text(
           'Confirm',
@@ -219,6 +315,7 @@ class _BuyTicketsState extends State<BuyTickets> {
       ),
     );
   }
+
   Widget addToCartButton() {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
@@ -228,15 +325,16 @@ class _BuyTicketsState extends State<BuyTickets> {
       child: ElevatedButton(
         style: ButtonStyle(
             elevation: MaterialStateProperty.all(0),
-            backgroundColor:
-                MaterialStateProperty.all(Colors.green.shade800),
+            backgroundColor: MaterialStateProperty.all(Colors.green.shade800),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(15.0),
             ))),
         onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const PaymentConfirmation()));
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const PaymentConfirmation()));
         },
         child: const Text(
           'Add to Cart',
@@ -246,7 +344,7 @@ class _BuyTicketsState extends State<BuyTickets> {
     );
   }
 
-  plusMinusCounter(){
+  plusMinusCounter() {
     return Padding(
       padding: const EdgeInsets.only(top: 10),
       child: Row(
@@ -267,9 +365,9 @@ class _BuyTicketsState extends State<BuyTickets> {
                   border: Border.all(color: Colors.blueAccent)),
               child: const Center(
                   child: Text(
-                    '-',
-                    style: TextStyle(fontSize: 30, color: Colors.grey),
-                  )),
+                '-',
+                style: TextStyle(fontSize: 30, color: Colors.grey),
+              )),
             ),
           ),
           Padding(
@@ -291,9 +389,9 @@ class _BuyTicketsState extends State<BuyTickets> {
                   border: Border.all(color: Colors.blueAccent)),
               child: const Center(
                   child: Text(
-                    '+',
-                    style: TextStyle(fontSize: 30, color: Colors.grey),
-                  )),
+                '+',
+                style: TextStyle(fontSize: 30, color: Colors.grey),
+              )),
             ),
           )
         ],
@@ -301,12 +399,12 @@ class _BuyTicketsState extends State<BuyTickets> {
     );
   }
 
-  ticketStandardChoosing(String standard, int price, int discounted){
+  ticketStandardChoosing(String standard, int price, int discounted) {
     String tickStandard = standard;
     int ticketPrice = price;
     int discountedPrice = discounted;
     return Padding(
-      padding: const EdgeInsets.only(top: 5,right: 10),
+      padding: const EdgeInsets.only(top: 5, right: 10),
       child: Container(
           width: double.infinity,
           padding: const EdgeInsets.only(bottom: 10),
@@ -317,22 +415,30 @@ class _BuyTicketsState extends State<BuyTickets> {
             children: [
               Padding(
                 padding: const EdgeInsets.only(top: 5, left: 5, right: 5),
-                child: Text(tickStandard, style: const TextStyle(fontSize: 18),),
+                child: Text(
+                  tickStandard,
+                  style: const TextStyle(fontSize: 18),
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 5, left: 5, right: 5),
-                child: Text('$ticketPrice', style: const TextStyle(fontSize: 18),),
+                child: Text(
+                  '$ticketPrice',
+                  style: const TextStyle(fontSize: 18),
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 5, left: 5, right: 5),
-                child: Text('$discountedPrice', style: const TextStyle(fontSize:18,decoration: TextDecoration.lineThrough),),
+                child: Text(
+                  '$discountedPrice',
+                  style: const TextStyle(
+                      fontSize: 18, decoration: TextDecoration.lineThrough),
+                ),
               ),
               const Spacer(),
               plusMinusCounter()
             ],
-          )
-      ),
+          )),
     );
   }
-
 }
